@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //1.回调函数（高阶函数）：函数当参数，传递另外一个函数
+    //在JavaScript中，回调函数具体的定义为：函数A作为参数(函数引用)传递到另一个函数B中,并且这个函数B执行函数A。我们就说函数A叫做回调函数。如果没有名称(函数表达式)，就叫做匿名回调函数。
+
+    //函数名称等于函数体( 函数名就是函数指针 )
+
+    // function A() { //回调函数
+    //     console.log('A');
+    // }
+
+    // function B(callback) {
+    //     console.log('B');
+    //     callback();
+    // }
+
+    // B(A);
+
+    // -------------------------------------------------------------
+    // function B(A) {
+    //     console.log('B');
+    //     A();
+    // }
+
+    // B(function() {
+    //     console.log('A');
+    // });
+    // B();//这里没有传参报错。
+    // B('hello');//这里因为传入的不是函数，报错。
+
+    // -------------------------------------------------------------------
+    // function B(A) {
+    //     console.log('B');
+    //     A && typeof A === 'function' && A(); //回调函数的正常的写法。
+    // }
+
+    // B(function() {
+    //     console.log('A');
+    // });
+    // B(); //容错判断。
+    // B('hello'); //容错判断。
+
+    //2.回调函数的作用
+    //2.1.控制异步代码的顺序。
+    // function A() { //同步
+    //     console.log('A');
+    // }
+
+    // function B() {
+    //     setTimeout(() => { //异步
+    //         console.log('B');
+    //     }, 0);
+    // }
+
+    //根据上面的定时器(异步)代码，输出结果：A,B
+    // A();
+    // B();
+
+    //期望结果是B,A
+    // function B(callback) {
+    //     setTimeout(() => {
+    //         console.log('B');
+    //         callback();
+    //     }, 500);
+    // }
+
+    // B(function A() { //将同步的代码放入异步(回调函数放置)
+    //     console.log('A');
+    // });
+
+
+    //2.2.回调函数，获取函数内部的值(将函数内部的值传输出来)
+    function data(callback) {
+        let arr = ['zhangsan', 'lisi', 'wangwu'];
+        callback(arr); //callback来说arr是函数的实参,传递给回调函数的形参a.
+    }
+    data(function(a) {
+        console.log(a); //获取arr  ["zhangsan", "lisi", "wangwu"]
+    });
+
+    //总结：
+    //回调函数的概念：
+    //回调函数的意义：异步顺序，传值
+    //注意回调函数的判断问题：传入参数->参数是函数->调用  fn && typeof fn==='funciton' && fn()
+</script>
+
+</html>

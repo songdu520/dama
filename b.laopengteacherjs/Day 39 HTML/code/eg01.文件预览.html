@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            display: none;
+        }
+        
+        div.show {
+            display: block;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            var file = document.querySelector('#file');
+            var content = document.querySelector('#content');
+            var box = document.querySelector('.box');
+
+            // FileReader() API
+            // 需要实例对象
+            var reader = new FileReader(); // 用于读取文件内容
+
+            file.onchange = function(ev) {
+                // ev.target.files 获取文件列表
+
+                // reader.readAsText()  用于读取文件的文本
+                reader.readAsText(ev.target.files[0]);
+                reader.onload = function(ev) {
+                    box.classList.add('show');
+                    content.innerText = ev.currentTarget.result;
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <!-- multiple 可选择多个文件 -->
+    <input type="file" id="file" multiple>
+
+    <div class="box">
+        <h1>文件预览内容</h1>
+        <div id="content"></div>
+    </div>
+</body>
+
+</html>

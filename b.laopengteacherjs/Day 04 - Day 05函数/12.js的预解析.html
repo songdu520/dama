@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //疑问：为什么变量前置undefined,为什么普通函数任何地方调用。
+
+    //一.js的预解析分为两大步.
+    //第一步：预编译阶段。(浏览器完成，隐式的，不可见)
+    //1.先找var和function关键字，如果找到var关键字，提前赋值undefined给变量名.  如果找到function，提前将整个函数赋值给函数名称。
+    //2.如果函数和变量出现重名，函数优先。
+    //3.函数的参数类似于变量，函数内部同样做预解析，支持预解析。
+    //4.if语句和for语句里面的变量和函数做预解析提前赋值undefined,函数声明不会跳过。
+
+    //第二步：逐行执行阶段,(浏览器逐行解读代码，遇到错误停止解析)函数声明跳过。
+
+
+    //案例：
+    //预编译阶段：不可见，分析得到的。
+    //var a = undefined;
+    //fn = function fn() {alert(1);}
+
+    //逐行执行阶段
+    // alert(a); //undefined
+    // fn();
+    // var a = 1; //预编译的a=1;
+    // fn()
+    // alert(a); //1
+    // function fn() {
+    //     alert(1);
+    // }
+    // fn();
+
+
+    // 重名的情况
+    // 预编译阶段：不可见，分析得到的。
+    // a = function a() {
+    //     alert('函数');
+    // }
+    // 逐行执行阶段
+    // alert(a); //function a() {alert('函数');}
+    // var a = 1; //a = 1
+    // alert(a); //1
+
+    // function a() { //函数声明跳过
+    //     alert('函数');
+    // }
+    // alert(a); //1
+
+
+    //函数内部预解析
+    //预编译阶段：不可见，分析得到的。
+    // var num = undefined
+    //逐行执行阶段
+    // function fn() {
+    //     console.log(num);//undefined
+    //     var num = 1;
+    //     console.log(num);//1
+    // }
+
+    // fn();
+
+
+    //函数的参数类似于变量，函数内部同样做预解析，支持预解析。
+    //预编译阶段：不可见，分析得到的。
+    // var a = undefined;
+    //逐行执行阶段
+    // var a = 100;
+
+    // function fn1(a) { //var a = 100
+    //     console.log(a); //100
+    //     a = 1;
+    //     console.log(a); //1
+    // }
+    // fn1(a); //a = 100
+
+
+    //特殊情况
+    //预编译阶段：不可见，分析得到的。
+    // var a = undefined;
+
+    // 逐行执行阶段
+
+    // alert(a); //undefined
+    // if (false) {
+    //     var a = 10;
+    //     console.log(1)
+    // }
+    // alert(a); //undefined
+
+
+    // alert(b); //undefined
+    // if (true) {
+    //     var b = 10;
+    // }
+    // alert(b); //10
+
+
+    //if语句和for语句里面的变量和函数做预解析提前赋值undefined,函数声明不会跳过。
+    //预编译阶段：不可见，分析得到的。
+    // var a = undefined
+    // fn = undefined
+
+    //逐行执行阶段
+    // alert(a); //undefined
+    // alert(fn); //undefined
+    // if (true) {
+    //     var a = 100;
+
+    //     function fn() {
+    //         alert('函数');
+    //     }
+    // }
+    // alert(a); //100
+    // alert(fn); //function fn() {alert('函数');}   函数声明不会跳过
+</script>
+
+</html>

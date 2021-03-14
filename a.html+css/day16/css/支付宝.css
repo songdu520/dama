@@ -1,0 +1,61 @@
+html{
+    font-size: 100px;
+    height: 100%;
+}
+body{
+    height: 100%;
+    display: flex;
+    font-size: 0.16rem;
+    flex-direction: column;
+
+}
+header{
+    height: 3.20rem;
+    background-color:#3f454f ;
+    padding-top: 0.3rem;
+    box-sizing: border-box;
+    color: white;
+}
+.head-t{
+    display: flex;
+    justify-content: space-between;
+    
+}
+.head-t i {
+    font-size: 0.55rem;
+    vertical-align: middle;
+}
+.head-t span{
+    font-size: 0.31rem;
+    vertical-align: middle;
+}
+.head-b {
+    padding: 0.6rem 0;
+    box-sizing: border-box;
+    display: flex;
+}
+.head-b i{
+    flex: 1;
+    font-size: 0.75rem;
+   
+}
+.head-b i span{
+    font-size: 0.3rem;
+  
+ padding-top: 0.3rem;
+   display: block;
+   
+
+
+}
+
+main{
+    flex: 1;
+    overflow: auto;
+    background-color: royalblue;
+}
+footer{
+    height: 1rem;
+    background-color: rosybrown;
+
+}

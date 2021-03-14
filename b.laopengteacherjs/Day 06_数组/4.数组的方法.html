@@ -1,0 +1,79 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-12-03 19:35:28
+ * @LastEditTime: 2021-01-14 21:17:27
+ * @LastEditors: your name
+ * @Description: In User Settings Edit
+ * @FilePath: \总代码\h5\b.laopengteacherjs\Day 06_数组\4.数组的方法.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //一.数组的方法
+    // 静态方法、
+    //1.Array.isArray()确定括号中的某个值到底是不是数组,返回布尔值。
+    //true:数组
+
+    // var a = null;
+    // var b = [1, 2, 3];
+    // console.log(typeof a); //object
+    // console.log(typeof b); //object
+    // console.log(Array.isArray(a)); //false
+    // console.log(Array.isArray(b)); //true
+
+    //数组的实例方法：
+    //2.push() 可以接收任意数量的参数，把它们逐个添加到数组末尾，并返回修改后数组的长度。
+    // var arr = ['hello', 'hi'];
+    // console.log(arr.push(100, 200, 300)); //返回修改后数组的长度 5
+    // console.log(arr); // ["hello", "hi", 100, 200, 300]
+    //3.pop() 从数组末尾移除最后一项，减少数组的length值，然后返回移除的项。
+    // var arr = ['hello', 'hi'];
+    // console.log(arr.pop()); //hi
+    // console.log(arr.pop()); //hello
+    // console.log(arr); //[]
+
+
+    //4.1()可以接收任意数量的参数，把它们逐个添加到数组前面，并返回修改后数组的长度
+    // var arr = ['hello', 'hi'];
+    // console.log(arr.unshift('hehe', 'haha')); //4
+    // console.log(arr); //["hehe", "haha", "hello", "hi"]
+
+    //5.shift() 从数组前面移除一项，减少数组的length值，然后返回移除的项。
+    // console.log(arr.shift()); //hehe
+    // console.log(arr.shift()); //haha
+    // console.log(arr); //['hello', 'hi']
+
+
+    //例子：
+    //定义一个含有30个整型元素的数组，按顺序分别赋予从2开始的偶数；然后按顺序每五个数求出一个平均值，放在另一个数组中并输出。试编程。
+
+    var arr = []; //30个长度  2开始的偶数 2，4，6，8，10
+    var newarr = []; //存放每五个数求出一个平均值
+    for (var i = 1; i <= 30; i++) {
+        arr.push(i * 2);
+    }
+    console.log(arr);
+    // [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60]
+
+    for (var i = 0, sum = 0; i < arr.length; i++) {
+        sum += arr[i];
+        if ((i + 1) % 5 === 0) {
+            newarr.push(sum / 5); //平均值
+            sum = 0; //重置sum累加的结果。每5个数从0开始累加。
+        }
+    }
+    console.log(sum);
+    console.log(newarr); //[6, 16, 26, 36, 46, 56]
+</script>
+
+</html>

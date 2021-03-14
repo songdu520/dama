@@ -1,0 +1,47 @@
+@charset "UTF-8";
+.box {
+  width: 1200px;
+  color: blue;
+  font-size: 14px;
+  height: 200px;
+  text-decoration: none; }
+
+/*块注释，编译后显示，压缩后不显示*/
+/*!重要注释，任何情况下都会显示，一般用来定义版本，作者等相关信息*/
+.box123 {
+  position: relative;
+  left: 120px;
+  top: 50px;
+  -webkit-display: flex;
+  -moz-display: flex;
+  -o-display: flex;
+  -ms-display: flex;
+  display: flex; }
+
+p {
+  width: 300px;
+  height: 30px;
+  line-height: 30px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  border: 1px solid orange;
+  font-size: fn(); }
+
+.box456 {
+  content: '';
+  clear: both;
+  overflow: hidden;
+  display: block;
+  height: 0; }
+
+.page_box, .box456 {
+  width: 1200px; }
+
+.page_box a, .box456 a {
+  text-decoration: none; }
+
+.box456 {
+  background-color: pink; }
+
+/*# sourceMappingURL=syntax.css.map */

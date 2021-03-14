@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #mycanvas {
+            border: 1px solid black;
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            let canvas = document.getElementById('mycanvas');
+            let ctx = canvas.getContext('2d');
+
+            let x = 20,
+                y = 20,
+                dx = 2,
+                dy = 3.4;
+
+            ctx.fillStyle = "red";
+
+            function circle(x, y) {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.beginPath();
+                ctx.arc(x, y, 20, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.closePath();
+            }
+
+            setInterval(function() {
+                if (x + dx > canvas.width - 20 || x + dx < 20) {
+                    dx = -dx;
+                }
+
+                if (y + dy > canvas.height - 20 || y + dy < 20) {
+                    dy = -dy;
+                }
+
+                x += dx;
+                y += dy;
+                circle(x, y);
+            }, 10);
+        }
+    </script>
+</head>
+
+<body>
+    <canvas width="400" height="400" id="mycanvas">
+        您的浏览器不支持canvas元素，请升级浏览器
+    </canvas>
+</body>
+
+</html>

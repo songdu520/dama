@@ -1,0 +1,205 @@
+<html>
+
+<head>
+    <title>Evernote Export</title>
+    <basefont face="微软雅黑" size="2" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="exporter-version" content="YXBJ Windows/600587 (zh-CN, DDL); Windows/10.0.0 (Win64);" />
+    <style>
+        body,
+        td {
+            font-family: 微软雅黑;
+            font-size: 10pt;
+        }
+    </style>
+</head>
+
+<body>
+    <a name="387" />
+
+    <div>
+        <span><div><blockquote style="margin: 0 0 0 40px; border: none; padding: 0px;"><br/></blockquote><div><span style="line-height: 1.45;">这次我们讲的设计模式叫做Chain of responsbility， 责任链模式</span><br/></div>
+    <div><br/></div>
+    <div>所谓责任链，即是把责任拆分到多个人身上，然后各自履行各自的责任即可</div>
+    <div><br/></div>
+    <div>举个例子：</div>
+    <div style="box-sizing: border-box; padding: 8px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; background-color: rgb(251, 250, 248); border: 1px solid rgba(0, 0, 0, 0.14902);">
+        <div><span style="background-color: rgb(251, 250, 248);"><span style="background-color: rgb(251, 250, 248); font-size: 10pt; color: rgb(51, 51, 51); font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace;">我们要生产一件衣服，大概需要四个工序： 织布、设计、剪裁、缝合</span></span>
+        </div>
+        <div><br/></div>
+        <div><span style="background-color: rgb(251, 250, 248);"><span style="background-color: rgb(251, 250, 248); font-size: 10pt; color: rgb(51, 51, 51); font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace;">那么接下来，我需要将准备好的原材料交给张三。</span></span>
+        </div>
+        <div><br/></div>
+        <div><span style="background-color: rgb(251, 250, 248);"><span style="background-color: rgb(251, 250, 248); font-size: 10pt; color: rgb(51, 51, 51); font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace;">张三擅长织布，但不懂得其他工序，不过没关系，我告诉张三，他只管织布，然后把织好的布料交给李四就行，剩下的就不用管了。</span></span>
+        </div>
+        <div><br/></div>
+        <div><span style="background-color: rgb(251, 250, 248);"><span style="background-color: rgb(251, 250, 248); font-size: 10pt; color: rgb(51, 51, 51); font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace;">李四是设计师，但不会裁缝，不过没关系，我告诉李四，他只需要根据布料款式设计就好，然后把设计图交给王五就行。</span></span>
+        </div>
+        <div><br/></div>
+        <div><span style="background-color: rgb(251, 250, 248);"><span style="background-color: rgb(251, 250, 248); font-size: 10pt; color: rgb(51, 51, 51); font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace;">王五擅长测量剪裁，他把衣服剪裁好以后，就交给赵六</span></span>
+        </div>
+        <div><br/></div>
+        <div><span style="background-color: rgb(251, 250, 248);"><span style="background-color: rgb(251, 250, 248); font-size: 10pt; color: rgb(51, 51, 51); font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace;">赵六最后通过缝合制作成衣。</span></span>
+        </div>
+        <div><br/></div>
+        <div><span style="background-color: rgb(251, 250, 248);"><span style="background-color: rgb(251, 250, 248); font-size: 10pt; color: rgb(51, 51, 51); font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace;">你看，在这个过程中，每个人的职责都更单一了，大家分工协作，只专注做好自己分内的事情</span></span>
+        </div>
+        <div style="font-size: 12px;"><br/></div>
+    </div>
+    <div>
+        <div><br/></div>
+        <table style="border-collapse: collapse; min-width: 100%;">
+            <colgroup>
+                <col style="width: 1186px;"></col>
+            </colgroup>
+            <tbody>
+                <tr>
+                    <td style="background-color: rgb(234, 234, 234); border: 1px solid rgb(187, 187, 187); padding: 8px; width: 1186px;">
+                        <div><span style="background-color: rgb(234, 234, 234); font-size: 11pt;">假设我们有一系列处理字符串的工具，我们希望按照需求来定制我们的处理器。</span></div>
+                        <div><span style="background-color: rgb(234, 234, 234); font-size: 11pt;">目前有 filterA、filterB、filterC三个处理器</span></div>
+                        <div><br/></div>
+                        <div><span style="background-color: rgb(234, 234, 234); font-size: 11pt;">我们希望每个过滤器职责单一，只负责处理一种功能</span></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="background-color: rgb(115, 115, 115); border: 1px solid rgb(92, 92, 92); padding: 8px; width: 1186px;">
+                        <div><span style="background-color: rgb(115, 115, 115); color: rgb(255, 255, 255);">JS代码</span></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="background-color: rgb(63, 63, 63); border: 1px solid rgb(50, 50, 50); padding: 8px; width: 1186px;">
+                        <div><span style="min-height: 15pt; background-color: rgb(63, 63, 63); font-size: 11pt; color: rgb(102, 217, 239); font-family: consolas; font-style: italic;">function</span> <span style="min-height: 15pt; background-color: rgb(63, 63, 63); font-size: 11pt; color: rgb(166, 226, 46); font-family: consolas;">filterA</span>
+                            <span style="min-height: 15pt; background-color: rgb(63, 63, 63); font-size: 11pt; color: rgb(248, 248, 242); font-family: consolas;">(</span><span style="min-height: 15pt; background-color: rgb(63, 63, 63); font-size: 11pt; color: rgb(253, 151, 31); font-family: consolas; font-style: italic;">str</span>
+                            <span style="min-height: 15pt; background-color: rgb(63, 63, 63); font-size: 11pt; color: rgb(248, 248, 242); font-family: consolas;">){</span>
+                        </div>
+                        <div style="min-height: 15pt;"><span style="min-height: 15pt; background-color: rgb(63, 63, 63); font-size: 11pt; color: rgb(248, 248, 242); font-family: consolas;">     str</span> <span style="min-height: 15pt; background-color: rgb(63, 63, 63); font-size: 11pt; color: rgb(249, 38, 114); font-family: consolas;">=</span>                            <span style="min-height: 15pt; background-color: rgb(63, 63, 63); font-size: 11pt; color: rgb(248, 248, 242); font-family: consolas;">str.toLowerCase()</span></div>
+                        <div style="min-height: 15pt;"><span style="font-size: 11pt; min-height: 15pt; background-color: rgb(63, 63, 63); color: rgb(248, 248, 242); font-family: consolas;">     </span><span style="font-size: 11pt; min-height: 15pt; background-color: rgb(63, 63, 63); color: rgb(249, 38, 114); font-family: consolas;">return</span>                            <span style="font-size: 11pt; min-height: 15pt; background-color: rgb(63, 63, 63); color: rgb(248, 248, 242); font-family: consolas;">filterB(str);</span> <span style="min-height: 15pt;"><span style="background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(168, 168, 168); font-family: consolas;">//过滤器A完成任务，把剩下的职责交给B</span></span>
+                        </div>
+                        <div style="min-height: 15pt;"><span style="min-height: 15pt;"><span style="background-color: rgb(63, 63, 63); font-size: 11pt; color: rgb(248, 248, 242); font-family: consolas;">}</span></span>
+                        </div>
+                        <div style="min-height: 15pt;"></div>
+                        <div style="min-height: 15pt;"><span style="min-height: 15pt; background-color: rgb(63, 63, 63); font-size: 11pt; color: rgb(102, 217, 239); font-family: consolas; font-style: italic;">function</span> <span style="min-height: 15pt; background-color: rgb(63, 63, 63); font-size: 11pt; color: rgb(166, 226, 46); font-family: consolas;">filterB</span>
+                            <span style="min-height: 15pt; background-color: rgb(63, 63, 63); font-size: 11pt; color: rgb(248, 248, 242); font-family: consolas;">(</span><span style="min-height: 15pt; background-color: rgb(63, 63, 63); font-size: 11pt; color: rgb(253, 151, 31); font-family: consolas; font-style: italic;">str</span>
+                            <span style="min-height: 15pt; background-color: rgb(63, 63, 63); font-size: 11pt; color: rgb(248, 248, 242); font-family: consolas;">){</span>
+                        </div>
+                        <div style="min-height: 15pt;"><span style="min-height: 15pt; background-color: rgb(63, 63, 63); font-size: 11pt; color: rgb(248, 248, 242); font-family: consolas;">     str[</span><span style="min-height: 15pt; background-color: rgb(63, 63, 63); font-size: 11pt; color: rgb(174, 129, 255); font-family: consolas;">0</span>
+                            <span style="min-height: 15pt; background-color: rgb(63, 63, 63); font-size: 11pt; color: rgb(248, 248, 242); font-family: consolas;">]</span> <span style="min-height: 15pt; background-color: rgb(63, 63, 63); font-size: 11pt; color: rgb(249, 38, 114); font-family: consolas;">=</span>                            <span style="min-height: 15pt; background-color: rgb(63, 63, 63); font-size: 11pt; color: rgb(248, 248, 242); font-family: consolas;">str[</span>
+                            <span style="min-height: 15pt; background-color: rgb(63, 63, 63); font-size: 11pt; color: rgb(174, 129, 255); font-family: consolas;">0</span><span style="min-height: 15pt; background-color: rgb(63, 63, 63); font-size: 11pt; color: rgb(248, 248, 242); font-family: consolas;">].toUpperCase();</span></div>
+                        <div style="min-height: 15pt;"><span style="font-size: 11pt; min-height: 15pt; background-color: rgb(63, 63, 63); color: rgb(248, 248, 242); font-family: consolas;">     </span><span style="font-size: 11pt; min-height: 15pt; background-color: rgb(63, 63, 63); color: rgb(249, 38, 114); font-family: consolas;">return</span>                            <span style="font-size: 11pt; min-height: 15pt; background-color: rgb(63, 63, 63); color: rgb(248, 248, 242); font-family: consolas;">filterC(str);</span> <span style="min-height: 15pt;"><span style="background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(168, 168, 168); font-family: consolas;">//过滤器B完成任务，把剩下的职责交给C</span></span>
+                        </div>
+                        <div style="min-height: 15pt;"><span style="min-height: 15pt;"><span style="background-color: rgb(63, 63, 63); font-size: 11pt; color: rgb(248, 248, 242); font-family: consolas;">}</span></span>
+                        </div>
+                        <div style="min-height: 15pt;"></div>
+                        <div style="min-height: 15pt;"><span style="min-height: 15pt; background-color: rgb(63, 63, 63); font-size: 11pt; color: rgb(102, 217, 239); font-family: consolas; font-style: italic;">function</span> <span style="min-height: 15pt; background-color: rgb(63, 63, 63); font-size: 11pt; color: rgb(166, 226, 46); font-family: consolas;">filterC</span>
+                            <span style="min-height: 15pt; background-color: rgb(63, 63, 63); font-size: 11pt; color: rgb(248, 248, 242); font-family: consolas;">(</span><span style="min-height: 15pt; background-color: rgb(63, 63, 63); font-size: 11pt; color: rgb(253, 151, 31); font-family: consolas; font-style: italic;">str</span>
+                            <span style="min-height: 15pt; background-color: rgb(63, 63, 63); font-size: 11pt; color: rgb(248, 248, 242); font-family: consolas;">){</span>
+                        </div>
+                        <div style="min-height: 15pt;"><span style="min-height: 15pt; background-color: rgb(63, 63, 63); font-size: 11pt; color: rgb(248, 248, 242); font-family: consolas;">     str</span> <span style="min-height: 15pt; background-color: rgb(63, 63, 63); font-size: 11pt; color: rgb(249, 38, 114); font-family: consolas;">=</span>                            <span style="min-height: 15pt; background-color: rgb(63, 63, 63); font-size: 11pt; color: rgb(248, 248, 242); font-family: consolas;">str.substring(</span><span style="min-height: 15pt; background-color: rgb(63, 63, 63); font-size: 11pt; color: rgb(174, 129, 255); font-family: consolas;">0</span>
+                            <span style="min-height: 15pt; background-color: rgb(63, 63, 63); font-size: 11pt; color: rgb(248, 248, 242); font-family: consolas;">,</span><span style="min-height: 15pt; background-color: rgb(63, 63, 63); font-size: 11pt; color: rgb(174, 129, 255); font-family: consolas;">50</span>
+                            <span style="min-height: 15pt; background-color: rgb(63, 63, 63); font-size: 11pt; color: rgb(248, 248, 242); font-family: consolas;">)</span>
+                            <span style="min-height: 15pt; background-color: rgb(63, 63, 63); font-size: 11pt; color: rgb(249, 38, 114); font-family: consolas;">+</span><span style="min-height: 15pt; background-color: rgb(63, 63, 63); font-size: 11pt; color: rgb(230, 219, 116); font-family: consolas;">&quot;...&quot;</span>
+                            <span style="min-height: 15pt; background-color: rgb(63, 63, 63); font-size: 11pt; color: rgb(248, 248, 242); font-family: consolas;">;</span>
+                        </div>
+                        <div style="min-height: 15pt;"><span style="min-height: 15pt; background-color: rgb(63, 63, 63); font-size: 11pt; color: rgb(248, 248, 242); font-family: consolas;">     </span><span style="min-height: 15pt; background-color: rgb(63, 63, 63); font-size: 11pt; color: rgb(249, 38, 114); font-family: consolas;">return</span>                            <span style="min-height: 15pt; background-color: rgb(63, 63, 63); font-size: 11pt; color: rgb(248, 248, 242); font-family: consolas;">str;</span></div>
+                        <div><span style="min-height: 15pt;"><span style="background-color: rgb(63, 63, 63); font-size: 11pt; color: rgb(248, 248, 242); font-family: consolas;">}</span></span>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div>上面的代码，做到了职责单一的功能，并且大家形成一个链条，按顺序执行。</div>
+    </div>
+    <div><br/></div>
+    <div><span style="font-size: 16pt;">但是</span>！这样做代码的耦合性太强了，A调用了B，B调用了C，代码之间产生了联系，就意味他们不是独立的，或者说没有办法独立存在！</div>
+    <div>
+        <div><br/></div>
+        <table style="border-collapse: collapse; min-width: 100%;">
+            <colgroup>
+                <col style="width: 1186px;"></col>
+            </colgroup>
+            <tbody>
+                <tr>
+                    <td style="background-color: rgb(63, 63, 63); border: 1px solid rgb(50, 50, 50); padding: 8px; width: 1186px;">
+                        <div><span style="background-color: rgb(63, 63, 63); color: rgb(107, 231, 72);">于是我们把过滤器改造成独立功能，消除耦合</span></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="background-color: rgb(63, 63, 63); border: 1px solid rgb(50, 50, 50); padding: 8px; width: 1186px;">
+                        <div><span style="min-height: 13pt; font-size: 11pt; background-color: rgb(63, 63, 63); color: rgb(102, 217, 239); font-family: consolas; font-style: italic;">function</span> <span style="min-height: 13pt; font-size: 11pt; background-color: rgb(63, 63, 63); color: rgb(166, 226, 46); font-family: consolas;">filterA</span>
+                            <span style="min-height: 13pt; font-size: 11pt; background-color: rgb(63, 63, 63); color: rgb(248, 248, 242); font-family: consolas;">(</span><span style="min-height: 13pt; font-size: 11pt; background-color: rgb(63, 63, 63); color: rgb(253, 151, 31); font-family: consolas; font-style: italic;">str</span>
+                            <span style="min-height: 13pt; font-size: 11pt; background-color: rgb(63, 63, 63); color: rgb(248, 248, 242); font-family: consolas;">){</span> <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(168, 168, 168); font-family: consolas;">//全体字母变小写</span></div>
+                        <div style="min-height: 13pt;"><span style="min-height: 13pt; font-size: 11pt; background-color: rgb(63, 63, 63); color: rgb(1, 1, 1); font-family: consolas;">     </span> <span style="min-height: 13pt; font-size: 11pt; background-color: rgb(63, 63, 63); color: rgb(249, 38, 114); font-family: consolas;">return </span>
+                            <span style="min-height: 13pt; font-size: 11pt; background-color: rgb(63, 63, 63); color: rgb(253, 151, 31); font-family: consolas; font-style: italic;">str</span><span style="min-height: 13pt; font-size: 11pt; background-color: rgb(63, 63, 63); color: rgb(248, 248, 242); font-family: consolas; font-style: italic;">;</span></div>
+                        <div style="min-height: 13pt;"><span style="min-height: 13pt; font-size: 11pt; background-color: rgb(63, 63, 63); color: rgb(248, 248, 242); font-family: consolas;">}</span></div>
+                        <div style="min-height: 13pt;"><span style="min-height: 13pt; font-size: 11pt; background-color: rgb(63, 63, 63); color: rgb(102, 217, 239); font-family: consolas; font-style: italic;">function</span> <span style="min-height: 13pt; font-size: 11pt; background-color: rgb(63, 63, 63); color: rgb(166, 226, 46); font-family: consolas;">filterB</span>
+                            <span style="min-height: 13pt; font-size: 11pt; background-color: rgb(63, 63, 63); color: rgb(248, 248, 242); font-family: consolas;">(</span><span style="min-height: 13pt; font-size: 11pt; background-color: rgb(63, 63, 63); color: rgb(253, 151, 31); font-family: consolas; font-style: italic;">str</span>
+                            <span style="min-height: 13pt; font-size: 11pt; background-color: rgb(63, 63, 63); color: rgb(248, 248, 242); font-family: consolas;">){</span> <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(168, 168, 168); font-family: consolas;">//首字母变大写</span></div>
+                        <div style="min-height: 13pt;"><span style="min-height: 13pt; font-size: 11pt; background-color: rgb(63, 63, 63); color: rgb(1, 1, 1); font-family: consolas;">     </span> <span style="min-height: 13pt; font-size: 11pt; background-color: rgb(63, 63, 63); color: rgb(249, 38, 114); font-family: consolas;">return </span>
+                            <span style="min-height: 13pt; font-size: 11pt; background-color: rgb(63, 63, 63); color: rgb(253, 151, 31); font-family: consolas; font-style: italic;">str</span><span style="min-height: 13pt; font-size: 11pt; background-color: rgb(63, 63, 63); color: rgb(248, 248, 242); font-family: consolas; font-style: italic;">;</span>
+                            <span style="background-color: rgb(63, 63, 63); font-size: 11pt; min-height: 13pt; color: rgb(1, 1, 1); font-family: consolas;">      </span>
+                        </div>
+                        <div style="min-height: 13pt;"><span style="min-height: 13pt; font-size: 11pt; background-color: rgb(63, 63, 63); color: rgb(248, 248, 242); font-family: consolas;">}</span></div>
+                        <div style="min-height: 13pt;"><span style="min-height: 13pt; font-size: 11pt; background-color: rgb(63, 63, 63); color: rgb(102, 217, 239); font-family: consolas; font-style: italic;">function</span> <span style="min-height: 13pt; font-size: 11pt; background-color: rgb(63, 63, 63); color: rgb(166, 226, 46); font-family: consolas;">filterC</span>
+                            <span style="min-height: 13pt; font-size: 11pt; background-color: rgb(63, 63, 63); color: rgb(248, 248, 242); font-family: consolas;">(</span><span style="min-height: 13pt; font-size: 11pt; background-color: rgb(63, 63, 63); color: rgb(253, 151, 31); font-family: consolas; font-style: italic;">str</span>
+                            <span style="min-height: 13pt; font-size: 11pt; background-color: rgb(63, 63, 63); color: rgb(248, 248, 242); font-family: consolas;">){</span> <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(168, 168, 168); font-family: consolas;">//超过50个字符后，用...替换</span></div>
+                        <div style="min-height: 13pt;"><span style="min-height: 13pt; font-size: 11pt; background-color: rgb(63, 63, 63); color: rgb(1, 1, 1); font-family: consolas;">     </span> <span style="min-height: 13pt; font-size: 11pt; background-color: rgb(63, 63, 63); color: rgb(249, 38, 114); font-family: consolas;">return </span>
+                            <span style="min-height: 13pt; font-size: 11pt; background-color: rgb(63, 63, 63); color: rgb(253, 151, 31); font-family: consolas; font-style: italic;">str</span><span style="min-height: 13pt; font-size: 11pt; background-color: rgb(63, 63, 63); color: rgb(248, 248, 242); font-family: consolas; font-style: italic;">;</span>
+                            <span style="background-color: rgb(63, 63, 63); font-size: 11pt; min-height: 13pt; color: rgb(1, 1, 1); font-family: consolas;">     </span>
+                        </div>
+                        <div style="min-height: 13pt;"><span style="min-height: 13pt; font-size: 11pt; background-color: rgb(63, 63, 63); color: rgb(248, 248, 242); font-family: consolas;">}</span></div>
+                        <div style="min-height: 13pt;"></div>
+                        <div style="min-height: 13pt;"><span style="min-height: 13pt; font-size: 11pt; background-color: rgb(63, 63, 63); color: rgb(102, 217, 239); font-family: consolas; font-style: italic;">var</span> <span style="min-height: 13pt; font-size: 11pt; background-color: rgb(63, 63, 63); color: rgb(248, 248, 242); font-family: consolas;">filterChain</span>                            <span style="min-height: 13pt; font-size: 11pt; background-color: rgb(63, 63, 63); color: rgb(249, 38, 114); font-family: consolas;">=</span> <span style="min-height: 13pt; font-size: 11pt; background-color: rgb(63, 63, 63); color: rgb(248, 248, 242); font-family: consolas;">{</span></div>
+                        <div style="min-height: 13pt;"><span style="min-height: 13pt; font-size: 11pt; background-color: rgb(63, 63, 63); color: rgb(248, 248, 242); font-family: consolas;">    chain : [filterA, filterB, filterC],  </span><span style="min-height: 13pt; font-size: 10pt; background-color: rgb(63, 63, 63); color: rgb(168, 168, 168); font-family: consolas;">//这里可以设定我们需要的过滤器</span></div>
+                        <div style="min-height: 13pt;"><span style="min-height: 13pt; font-size: 11pt; background-color: rgb(63, 63, 63); color: rgb(248, 248, 242); font-family: consolas;">    doHandle :</span> <span style="min-height: 13pt; font-size: 11pt; background-color: rgb(63, 63, 63); color: rgb(102, 217, 239); font-family: consolas; font-style: italic;">function</span>
+                            <span style="min-height: 13pt; font-size: 11pt; background-color: rgb(63, 63, 63); color: rgb(248, 248, 242); font-family: consolas;">(</span><span style="min-height: 13pt; font-size: 11pt; background-color: rgb(63, 63, 63); color: rgb(253, 151, 31); font-family: consolas; font-style: italic;">data</span>
+                            <span style="min-height: 13pt; font-size: 11pt; background-color: rgb(63, 63, 63); color: rgb(248, 248, 242); font-family: consolas;">,</span> <span style="min-height: 13pt; font-size: 11pt; background-color: rgb(63, 63, 63); color: rgb(253, 151, 31); font-family: consolas; font-style: italic;">index</span>
+                            <span
+                                style="min-height: 13pt; font-size: 11pt; background-color: rgb(63, 63, 63); color: rgb(248, 248, 242); font-family: consolas;">){</span>
+                        </div>
+                        <div style="min-height: 13pt;"><span style="min-height: 13pt; font-size: 11pt; background-color: rgb(63, 63, 63); color: rgb(248, 248, 242); font-family: consolas;">        </span><span style="min-height: 13pt; font-size: 10pt; background-color: rgb(63, 63, 63); color: rgb(168, 168, 168); font-family: consolas;">//已经超出边界，则链条遍历完毕，返回</span></div>
+                        <div style="min-height: 13pt;"><span style="min-height: 13pt; font-size: 11pt; background-color: rgb(63, 63, 63); color: rgb(248, 248, 242); font-family: consolas;">    </span><span style="min-height: 13pt; font-size: 11pt; background-color: rgb(63, 63, 63); color: rgb(248, 248, 242); font-family: consolas;">    </span>
+                            <span style="min-height: 13pt; font-size: 11pt; background-color: rgb(63, 63, 63); color: rgb(249, 38, 114); font-family: consolas;">if</span><span style="min-height: 13pt; font-size: 11pt; background-color: rgb(63, 63, 63); color: rgb(248, 248, 242); font-family: consolas;">(index</span>
+                            <span style="min-height: 13pt; font-size: 11pt; background-color: rgb(63, 63, 63); color: rgb(249, 38, 114); font-family: consolas;">==</span>
+                            <span style="min-height: 13pt; font-size: 11pt; background-color: rgb(63, 63, 63); color: rgb(248, 248, 242); font-family: consolas;">this.chain.length)</span> <span style="min-height: 13pt; font-size: 11pt; background-color: rgb(63, 63, 63); color: rgb(249, 38, 114); font-family: consolas;">return</span>
+                            <span style="min-height: 13pt; font-size: 11pt; background-color: rgb(63, 63, 63); color: rgb(248, 248, 242); font-family: consolas;">; </span>
+                        </div>
+                        <div style="min-height: 13pt;"><span style="min-height: 13pt; font-size: 11pt; background-color: rgb(63, 63, 63); color: rgb(248, 248, 242); font-family: consolas;">    </span><span style="min-height: 13pt; font-size: 11pt; background-color: rgb(63, 63, 63); color: rgb(248, 248, 242); font-family: consolas;">    </span>
+                            <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(168, 168, 168); font-family: consolas;">//如果是第一次调用，则index为0</span>
+                        </div>
+                        <div style="min-height: 13pt;"><span style="min-height: 13pt; font-size: 11pt; background-color: rgb(63, 63, 63); color: rgb(248, 248, 242); font-family: consolas;">    </span><span style="min-height: 13pt; font-size: 11pt; background-color: rgb(63, 63, 63); color: rgb(248, 248, 242); font-family: consolas;">    </span>
+                            <span style="min-height: 13pt; font-size: 11pt; background-color: rgb(63, 63, 63); color: rgb(248, 248, 242); font-family: consolas;">index</span><span style="min-height: 13pt; font-size: 11pt; background-color: rgb(63, 63, 63); color: rgb(249, 38, 114); font-family: consolas;">==</span>
+                            <span style="min-height: 13pt; font-size: 11pt; background-color: rgb(63, 63, 63); color: rgb(174, 129, 255); font-family: consolas;">undefined</span> <span style="min-height: 13pt; font-size: 11pt; background-color: rgb(63, 63, 63); color: rgb(249, 38, 114); font-family: consolas;">?</span>                            <span style="min-height: 13pt; font-size: 11pt; background-color: rgb(63, 63, 63); color: rgb(248, 248, 242); font-family: consolas;">index</span> <span style="min-height: 13pt; font-size: 11pt; background-color: rgb(63, 63, 63); color: rgb(249, 38, 114); font-family: consolas;">=</span>                            <span style="min-height: 13pt; font-size: 11pt; background-color: rgb(63, 63, 63); color: rgb(174, 129, 255); font-family: consolas;">0</span> <span style="min-height: 13pt; font-size: 11pt; background-color: rgb(63, 63, 63); color: rgb(248, 248, 242); font-family: consolas;">:</span>                            <span style="min-height: 13pt; font-size: 11pt; background-color: rgb(63, 63, 63); color: rgb(230, 219, 116); font-family: consolas;">&quot;donothing&quot;</span>
+                            <span style="min-height: 13pt; font-size: 11pt; background-color: rgb(63, 63, 63); color: rgb(248, 248, 242); font-family: consolas;">;</span>
+                        </div>
+                        <div style="min-height: 13pt;"><span style="min-height: 13pt; font-size: 11pt; background-color: rgb(63, 63, 63); color: rgb(248, 248, 242); font-family: consolas;">    </span><span style="min-height: 13pt; font-size: 11pt; background-color: rgb(63, 63, 63); color: rgb(248, 248, 242); font-family: consolas;">    </span>
+                            <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(168, 168, 168); font-family: consolas;">//取出责任链中第一个处理函数，处理并返回数据</span>
+                        </div>
+                        <div style="min-height: 13pt;"><span style="min-height: 13pt; font-size: 11pt; background-color: rgb(63, 63, 63); color: rgb(248, 248, 242); font-family: consolas; font-style: italic;">    </span><span style="min-height: 13pt; font-size: 11pt; background-color: rgb(63, 63, 63); color: rgb(248, 248, 242); font-family: consolas; font-style: italic;">    </span>
+                            <span style="min-height: 13pt; font-size: 11pt; background-color: rgb(63, 63, 63); color: rgb(102, 217, 239); font-family: consolas; font-style: italic;">var</span> <span style="min-height: 13pt; font-size: 11pt; background-color: rgb(63, 63, 63); color: rgb(248, 248, 242); font-family: consolas;">resdata</span>                            <span style="min-height: 13pt; font-size: 11pt; background-color: rgb(63, 63, 63); color: rgb(249, 38, 114); font-family: consolas;">=</span>
+                            <span style="background-color: rgb(63, 63, 63);"> <span style="min-height: 13pt; font-size: 11pt; background-color: rgb(63, 63, 63); color: rgb(102, 217, 239); font-family: consolas; font-style: italic;">this</span>
+                            <span style="min-height: 13pt; font-size: 11pt; background-color: rgb(63, 63, 63); color: rgb(248, 248, 242); font-family: consolas;">.</span>
+                            </span><span style="min-height: 13pt; font-size: 11pt; background-color: rgb(63, 63, 63); color: rgb(248, 248, 242); font-family: consolas;">chain[index](data);</span></div>
+                        <div style="min-height: 13pt;"><span style="min-height: 13pt; font-size: 11pt; background-color: rgb(63, 63, 63); color: rgb(248, 248, 242); font-family: consolas;">    </span><span style="min-height: 13pt; font-size: 11pt; background-color: rgb(63, 63, 63); color: rgb(248, 248, 242); font-family: consolas;">    </span>
+                            <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(168, 168, 168); font-family: consolas;">//将处理后的数据返回给下一个</span>
+                        </div>
+                        <div style="min-height: 13pt;"><span style="min-height: 13pt; font-size: 11pt; background-color: rgb(63, 63, 63); color: rgb(248, 248, 242); font-family: consolas; font-style: italic;">    </span>
+                            <span style="min-height: 13pt; font-size: 11pt; background-color: rgb(63, 63, 63); color: rgb(248, 248, 242); font-family: consolas; font-style: italic;">    </span><span style="min-height: 13pt; font-size: 11pt; background-color: rgb(63, 63, 63); color: rgb(102, 217, 239); font-family: consolas; font-style: italic;">this</span>
+                            <span style="min-height: 13pt; font-size: 11pt; background-color: rgb(63, 63, 63); color: rgb(248, 248, 242); font-family: consolas;">.doHandle(resdata, index</span><span style="min-height: 13pt; font-size: 11pt; background-color: rgb(63, 63, 63); color: rgb(249, 38, 114); font-family: consolas;">+</span>
+                            <span style="min-height: 13pt; font-size: 11pt; background-color: rgb(63, 63, 63); color: rgb(174, 129, 255); font-family: consolas;">1</span><span style="min-height: 13pt; font-size: 11pt; background-color: rgb(63, 63, 63); color: rgb(248, 248, 242); font-family: consolas;">);</span></div>
+                        <div style="min-height: 13pt;"><span style="min-height: 13pt; font-size: 11pt; background-color: rgb(63, 63, 63); color: rgb(248, 248, 242); font-family: consolas;">    </span><span style="min-height: 13pt; font-size: 11pt; background-color: rgb(63, 63, 63); color: rgb(248, 248, 242); font-family: consolas;">}</span></div>
+                        <div><span style="min-height: 13pt; font-size: 11pt; background-color: rgb(63, 63, 63); color: rgb(248, 248, 242); font-family: consolas;">};</span></div>
+                        <div><span style="min-height: 13pt; font-size: 11pt; background-color: rgb(63, 63, 63); color: rgb(248, 248, 242); font-family: consolas;">filterChain.doHandle(str);</span></div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div><br/></div>
+    </div>
+    <div><br/></div>
+    </div>
+    <div><br/></div>
+    </span>
+    </div>
+</body>
+
+</html>

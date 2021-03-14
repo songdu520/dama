@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //1.三目运算符的基本控制结构(取代简单的if语句)
+    // 条件 ? 语句1 : 语句2
+    // 如果条件满足，执行语句1,否则执行语句2.
+    // 特点：
+    // 三目运算符里面的语句只能有一条语句，可以嵌套使用三目运算符.
+    // 三目运算符有返回值。
+    // var a = 10;
+    // var b = 2;
+    // if (a > b) {
+    //     console.log('a>b');
+    // } else {
+    //     console.log('a<=b');
+    // }
+    // a > b ? console.log('a>b') : console.log('a<=b')
+
+
+    // var a = 10;
+    // var b = 0;
+    // if (a > 0) {
+    //     b = a;
+    // } else {
+    //     b = 0;
+    // }
+    // b = a > 0 ? a : 0;
+    // console.log(b); //10
+
+
+    //输入三个数字，输出三个数中最大的数字。
+    var a = +prompt('请输入一个数字：');
+    var b = +prompt('请输入一个数字：');
+    var c = +prompt('请输入一个数字：');
+
+    var max = 0;
+
+    // if (a > max) {
+    //     max = a; //赋值
+    // }
+    // if (b > max) {
+    //     max = b; //赋值
+    // }
+    // if (c > max) {
+    //     max = c; //赋值
+    // }
+    // alert(max)
+
+
+
+    max = a > b ? (a > c ? a : c) : (b > c ? b : c);
+    console.log(max);
+
+    //a>b a>c   a最大
+    //a>b a<c   c最大
+</script>
+
+</html>

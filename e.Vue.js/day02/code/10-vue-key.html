@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <template v-if="loginType === 'username'">
+      <label>Username</label>
+      <input placeholder="Enter your username" key="3">
+    </template>
+    <template v-else>
+      <label>Email</label>
+      <input placeholder="Enter your email address" key="4">
+    </template>
+
+    <button @click="change">anniu</button>
+  </div>
+
+  <script src="../../Vue.js"></script>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data() {
+        return {
+          loginType: 'username'
+        }
+      },
+      methods: {
+        change () {
+          this.loginType = 'sdfsdf';
+        }
+      },
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,322 @@
+/* 清除内外间距 */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "楷体";
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* 页面的头部 */
+#header {
+  width: 962px;
+  height: 100px;
+  /* margin-left: 183px; */
+  margin: 0 auto;
+  /* 让元素水平方向居中 */
+}
+
+/* #header>img {
+  width: 282px;
+  height: 32px;
+  margin-top: 33px;
+  float: left;
+} */
+#header h1 {
+  width: 282px;
+  height: 32px;
+  margin-top: 33px;
+  float: left;
+  background: url(../images/logo.png);
+  text-indent: -9999px;
+  cursor: pointer;
+}
+
+/* 搜索框 */
+#header .search {
+  width: 225px;
+  height: 26px;
+  border: 1px solid #e4e4e4;
+  float: right;
+  margin-top: 39px;
+  background: #f1f1f1;
+}
+
+#header input {
+  width: 183px;
+  height: 20px;
+  border: none;
+  outline: none;
+  /* 去掉input获得焦点时的黑框 */
+  margin-left: 13px;
+  background: transparent;
+}
+#header button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  /* 当鼠标移入时会变成手指 */
+}
+
+
+/* 导航的样式 */
+#nav {
+  width: 100%;
+  height: 58px;
+  background: #2d2d2d;
+}
+
+#nav .navMain {
+  width: 962px;
+  height: 100%;
+  margin: 0 auto;
+}
+
+#nav li {
+  /* width: 119.375px; */
+  width: calc((100% - 7px) / 8);
+  /* calc是计算函数， 运算符的前后一定要有空格 */
+  height: 100%;
+  float: left;
+  border-right: 1px solid #4a4a4a;
+  text-align: center;
+  line-height: 58px;
+  color: #fff;
+  font-size: 12px;
+}
+#nav .lastLi {
+  border: none;
+}
+
+
+
+
+/* 轮播图的样式 */
+#banner {
+  width: 100%;
+  height: 467px;
+}
+#banner img {
+  width: 100%;
+  height: 100%;
+}
+
+
+/* 新闻的样式 */
+#news {
+  width: 962px;
+  height: 240px;
+  margin: 0 auto;
+}
+
+#news>div {
+  height: 100%;
+  float: left;
+}
+
+#news .newsLeft {
+  width: 478px;
+  /* padding-top: 36px; */
+  /* height: 204px; */
+}
+
+#news h3{
+  font-size: 18px;
+  color: #414045;
+  margin-top: 36px;
+  line-height: 1;
+}
+
+#news .newsLeft ul {
+  width: 100%;
+  height: 144px;
+  margin-top: 23px;
+}
+
+#news .newsLeft ul li {
+  width: 100%;
+  height: 24px;
+  line-height: 24px;
+  font-size: 12px;
+  background: url(../images/dot.png) no-repeat 1px center;
+  /* text-indent: 14px; */
+  /* padding-left: 14px; */
+}
+
+#news .newsLeft p {
+  float: left;
+  padding-left: 14px;
+  /* margin-left: 14px; */
+  /* border-left: 14px transparent solid; */
+  width: 300px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#news .newsLeft span {
+  float: right;
+  margin-right: 28px;
+  color: #777;
+}
+
+#news .newsCenter {
+  width: 196px;
+  background: #f1f1f1;
+  padding-left: 22px;
+  padding-right: 22px;
+}
+
+#news .newsCenter p {
+  font-size: 12px;
+  margin-top: 34px;
+  line-height: 24px;
+}
+
+
+#news .newsRight {
+  width: 222px;
+  padding-left: 22px;
+  background: url(../images/horse.png) no-repeat right bottom;
+}
+#news .button {
+  width: 66px;
+  height: 19px;
+  background: #b0b0b0;
+  margin-top: 30px;
+  font-size: 12px;
+  color: #fff;
+  line-height: 19px;
+  text-align: center;
+  border-radius: 3px;
+  /* 添加圆角 */
+}
+
+
+/* 市场项目 */
+#project {
+  width: 962px;
+  height: 306px;
+  margin: 0 auto;
+}
+
+/* 市场项目标题 */
+h2 {
+  width: 100%;
+  height: 37px;
+  font-size: 18px;
+  /* line-height: 70px; */
+  line-height: 1;
+  padding-top: 28px;
+}
+
+#project ul {
+  width: 100%;
+  height: 241px;
+}
+
+#project li {
+  width: 210px;
+  height: 100%;
+  float: left;
+  margin-right: 40.66px;
+}
+#project .lastLi {
+  margin-right: 0;
+}
+
+#project li img {
+  width: 100%;
+  height: 137px;
+}
+
+#project li p {
+  line-height: 24px;
+  font-size: 12px;
+  margin-top: 12px;
+  padding: 0 3px;
+}
+
+
+/* 产品中心 */
+#product {
+  width: 100%;
+  height: 250px;
+  background: #e5e5e5;
+}
+
+.productMain {
+  width: 962px;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.productLeft {
+  width: 452px;
+  height: 100%;
+}
+
+.productTitle {
+  /* width: 100%; */
+  height: 27px;
+  border-bottom: 1px solid #000;
+  font-size: 18px;
+  line-height: 1;
+  padding-top: 30px;
+  padding-left: 5px;
+  font-weight: normal;
+}
+
+.leftWrap {
+  width: 100%;
+  height: 193px;
+}
+
+.part {
+  height: 177px;
+  padding-top: 15px;
+  float: left;
+}
+
+.part1 {
+  width: 153px;
+}
+.part1 li, .part2 li {
+  width: 100%;
+  height: 25px;
+  line-height: 25px;
+  font-size: 12px;
+  background: url(../images/arrow.png) no-repeat 5px center;
+  padding-left: 18px;
+}
+.part2 {
+  width: 192px;
+}
+
+/* 页尾 */
+#footer {
+  width: 962px;
+  height: 61px;
+  margin: 0 auto;
+  background: gold;
+  padding-top: 22px;
+}
+
+#footer p {
+  font-size: 12px;
+  float: left;
+  /* color: #333; */
+}
+#footer p a {
+  color: #333;
+  margin: 0 10px;
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //一.一元运算符：只能操作一个值的操作符叫做一元操作符，是 ECMAScript 中最简单的操作符。
+    //++ -- :当前的操作数+1 或者 -1
+    //1.++在操作数前面：先让操作数自身+1,然后参与运算。
+    // var a = 1;
+    // var b = ++a; //a先+1,然后赋值给b
+    // console.log(a); //2
+    // console.log(b); //2
+
+    //2.++在操作数后面：先参与运算,然后让操作数自身+1。
+    // var num = 1;
+    // var a = num++; //a=1 num=2
+    // var b = ++num; //b=3 num=3
+    // var c = num++; //c=3 num=4
+    // var d = ++num; //d=5 num=5
+    // console.log(num); //5
+    // console.log(a); //1
+    // console.log(b); //3
+    // console.log(c); //3
+    // console.log(d); //5
+
+    // var count = 100;
+    // console.log(count++); //100
+    // console.log(count); //101
+
+    // var k = 0;
+    //         0(k=1)/2(k=2)/2(k=2)/2(k=3)/3(k=4)/5(k=5)/5(k=5)/5(k=6)
+    // console.log(k++ + ++k + k + k++ + k++ + ++k + k + k++); //24
+    // console.log(k); //6
+    //注意：对于操作数是直接进行累加，关键是赋值的时候注意++在前在后。
+</script>
+
+</html>

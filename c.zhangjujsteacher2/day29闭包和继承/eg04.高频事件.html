@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 500px;
+            height: 500px;
+            background-color: red;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            var box = document.querySelector('.box');
+            // 高频事件 指的是触发频率非常高的事件
+            // mousemove scroll input keydonw keyup ....
+
+            // 对高频事件需要进行优化 进行降频处理
+            // 降频的常见手段
+            // 函数防抖
+            // 函数节流
+
+            var count = 0;
+            box.onmousemove = function() {
+                console.log(count++);
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="box"></div>
+</body>
+
+</html>

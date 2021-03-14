@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery.js"></script>
+    <script>
+        $(function() {
+            // 一个优秀的库/框架 
+            // 会有一个共同的特点 有强大的扩展机制 符合面向对象编程的原则 开闭原则
+
+            // $ 是什么？
+            // 它是一个工厂函数(函数是对象) 用于创建对象
+
+            // console.log($.extend);
+            // console.log($.fn.extend);
+            // console.log($.extend === $.fn.extend);
+
+            // $.fn 是什么？
+            // $.fn 是jQuery的原型对象
+            // console.log($.fn); 
+
+            // $.extend({
+            //     abc: function() {
+            //         console.log('abc');
+            //     },
+            //     max: function() {
+            //         return Math.max(...arguments);
+            //     }
+            // }); // 函数接收一个对象作为参数  将对象的属性合并到$中
+
+            // 在jQuery使用$. 访问的内容 都叫做工具
+
+
+            // $.abc();
+
+            // console.log($.max(234569, 42465, 1234, 3213218));
+            // console.log($.isArray([1, 23, 3]));
+
+            // --------------------------------------------------
+
+            // 合并对象
+            // 在合并对象属性后 修改了引用类型的数据 合并后的结果跟着修改
+            // 说明赋值操作时 赋值的是地址(浅拷贝)
+            // 使用$.extend进行对象拷贝时 如果需要深拷贝 传入第一个参数为一个布尔类型 true
+
+
+            let obj1 = {
+                username: 'zhangsan'
+            };
+
+            let obj2 = {
+                age: 25,
+                username: 'lisi'
+            };
+
+            let obj3 = {
+                data: [1, 2, 3, 4]
+            }
+
+
+            $.extend(true, obj1, obj2, obj3);
+
+
+            // console.log(obj1);
+            obj3.data[0] = 0;
+            console.log(obj1);
+            console.log(obj3);
+
+        });
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

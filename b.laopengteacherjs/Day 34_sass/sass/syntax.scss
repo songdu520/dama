@@ -1,0 +1,173 @@
+@charset "utf-8"; //设置中文字符
+//一.变量
+//必须是$符号开头，后面紧跟变量名，变量名称和变量值之间要使用冒号:
+//1.普通变量：（默认变量 - 如果值后面加上[!default]就表示默认值。）
+//普通变量只能作为属性值使用，不能作为属性名。
+//2.特殊变量：特殊变量作为属性名或者其他的特殊情况使用，必须使用#{$variable}的形式进行调用。
+//3.变量的作用范围
+//变量可以参与任意的运算
+//变量适合存储一些公共的值（盒子的尺寸，文字大小，公共的控制，各种颜色），方便修改。
+$page_width:1200px;
+$page_color:blue;
+$fontsize:14px;
+$t:text-decoration;
+$n:none;
+$h:100px;
+.box {
+    width: $page_width;
+    color: $page_color;
+    font-size: $fontsize;
+    height: $h*2;
+    #{$t}: $n;
+}
+
+// @for $num from 1 to 10 {
+//     //$num:特殊变量 1-9
+//     .section_#{$num} {
+//         width: $page_width*$num;
+//     }
+// }
+//二.注释--重点
+//单行注释，编译后不显示的。
+
+/*块注释，编译后显示，压缩后不显示*/
+
+
+/*!重要注释，任何情况下都会显示，一般用来定义版本，作者等相关信息*/
+
+//三.Sass-嵌套--重点
+//选择器嵌套编写，方便整块的维护和编写管理。注意嵌套的层级不超过4层
+//选择器嵌套，在嵌套的过程中，如果需要用到父元素，在 SASS 中通过&符号引用父属性
+// .box1 {
+//     width: $page_width;
+//     ul {
+//         list-style: none;
+//         li {
+//             line-height: 30px;
+//             &:hover {
+//                 //&:当前的父元素li
+//                 background-color: red;
+//             }
+//             a {
+//                 text-decoration: $n;
+//             }
+//             span {
+//                 color: $page_color;
+//             }
+//         }
+//     }
+//     ol {
+//         width: $page_width;
+//         li {
+//             list-style: none;
+//             a {
+//                 text-decoration: $n;
+//             }
+//             span {
+//                 color: $page_color;
+//             }
+//         }
+//     }
+// }
+// .main {
+//     .main_left {
+//         float: left;
+//     }
+//     .main_right {
+//         float: right;
+//     }
+// }
+//四.Sass-mixin混合--重点
+//sass 中可以通过@mixin 声明混合（混合宏），可以传递参数，参数名称以$开始，多个参数之间使用逗号分隔，@mixin 的混合代码块由@include 来调用。
+//定义一个混合
+@mixin borderstyle($size:1px, $style:solid, $color:orange) {
+    border: $size $style $color;
+}
+
+@mixin opacityvalue($value:0.1) {
+    opacity: $value;
+    filter: alpha(opacity=$value*100);
+}
+
+@mixin ellipsis($w:300px, $h:30px) {
+    width: $w;
+    height: $h;
+    line-height: $h;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+@mixin postion($direction:left, $positionvalue:absolute, $value1:10px, $value2:10px) {
+    @if ($direction==left) {
+        position: $positionvalue;
+        left: $value1;
+        top: $value2;
+    }
+    @else {
+        position: $positionvalue;
+        right: $value1;
+        bottom: $value2;
+    }
+}
+
+@mixin move($attr:transition, $value:10px) {
+    -webkit-#{$attr}: $value;
+    -moz-#{$attr}: $value;
+    -o-#{$attr}: $value;
+    -ms-#{$attr}: $value;
+    #{$attr}: $value;
+}
+
+.box123 {
+    // @include borderstyle(10px, dashed, blue);
+    // @include borderstyle();
+    // @include opacityvalue(0.5)
+    @include postion(left, relative, 120px, 50px);
+    @include move(display, flex);
+}
+
+p {
+    @include ellipsis();
+    @include borderstyle();
+    font-size: fn();
+}
+
+//五.Sass-继承扩展--@extend--重点
+//                 /ɪkˈstend/延伸；扩大
+//在 SASS 中，通过继承/扩展来减少重复代码，可以让一个选择器去继承另一个选择中所有的样式，包括子类的样式。
+//普通继承 - 被继承的代码会编码
+//占位继承 - 被继承的代码不会编码 - %name命名
+%cleafix {
+    //被继承的代码不会编码
+    content: '';
+    clear: both;
+    overflow: hidden;
+    display: block;
+    height: 0;
+}
+
+.page_box {
+    width: $page_width;
+}
+
+.page_box a {
+    text-decoration: none;
+}
+
+.box456 {
+    @extend %cleafix;
+    @extend .page_box;
+    background-color: pink; //私有的css属性，单独写到一边。
+}
+
+//六.局部文件
+//CSS 本身包含一个指令@import，但是 CSS 中的@import 每次执行都会发送一次新的请求都会消耗一定的资源。
+//将sass的文件分割成多个文件，哪里需要这些文件通过@import进行加载。分割的文件命名前面添加一个_(下划线)，目的是让sass不编译。
+//通过编译的文件，配合@import进行引入编译
+//引入文件时候，省略下划线和扩展名
+// @import "top";
+// @import "header";
+// @import "nav";
+// @import "banner";
+// @import "footer";

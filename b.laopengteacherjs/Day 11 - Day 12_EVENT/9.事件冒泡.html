@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" class="html">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .div1 {
+            width: 400px;
+            height: 400px;
+            background-color: red;
+            margin: 50px auto;
+            border-radius: 50%;
+            padding: 100px;
+        }
+        
+        .div2 {
+            width: 200px;
+            height: 200px;
+            background-color: green;
+            border-radius: 50%;
+            padding: 100px;
+        }
+        
+        .div3 {
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body class="body">
+    <div class="div1">
+        <div class="div2">
+            <div class="div3"></div>
+        </div>
+    </div>
+</body>
+<script>
+    var div1 = document.querySelector('.div1');
+    var div2 = document.querySelector('.div2');
+    var div3 = document.querySelector('.div3');
+
+    // function fn() {
+    //     console.log(this.className);
+    // }
+
+    // div3.onclick = fn;
+    // div2.onclick = fn;
+    // div1.onclick = fn;
+    // document.body.onclick = fn;
+    // document.documentElement.onclick = fn;
+    // document.onclick = function() {
+    //     console.log('document');
+    // }
+
+    //取消冒泡：让当前操作的具体元素对象（冒泡元素）的事件不会冒泡到父级（外层）。
+    // IE下取消冒泡：ev.cancelBubble=true;
+    //                 /ˈkænsl/ 取消；删去
+    // 标准取消冒泡：ev.stopPropagation();
+    //                   /ˌprɑːpəˈɡeɪʃn/ 传播；繁殖
+
+    function fn(ev) {
+        var ev = ev || event;
+        // ev.stopPropagation(); // 阻止冒泡
+        // ev.cancelBubble = true; //阻止冒泡
+        console.log(this.className);
+    }
+
+    div3.onclick = fn;
+    div2.onclick = fn;
+    div1.onclick = fn;
+    document.body.onclick = fn;
+    document.documentElement.onclick = fn;
+    document.onclick = function() {
+        console.log('document');
+    }
+</script>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script src="../ajaxcallback.js"></script>
+<script>
+    //1.获取接口
+    //后端接口： ajax
+    //第三方接口：ajax获取(不存在跨越) +  jsonp获取(数据格式一定是jsonp格式)
+    //jsonp格式：将数据当做实参传递回调函数。利用函数获取数据。
+
+    //2.什么情况产生跨域
+    //同源策略
+    //域名不同，协议不同，端口不同，域名和域名对应的ip地址。
+
+    //3.解决跨越的方式
+    //后端代理 - 后端不存在跨越。
+    // ajax({
+    //     url: 'https://suggest.taobao.com/sug?code=utf-8&q=aaa&_ksTS=1600325355223_31',
+    //     success: function(data) {
+    //         console.log(data);
+    //     }
+    // });
+
+    // ajax({
+    //     url: 'http://localhost:8088/JS2008/Day%2023_JSONP/taobao.php',
+    //     success: function(data) {
+    //         console.log(data);
+    //     }
+    // });
+
+    //cors - 添加两句代码即可。(兼容问题)
+
+    //jsonp - 前端 - 如果第三方接口是jsonp格式，无需后端。
+    //1.script的src属性不存在跨越
+    //2.可以利用callback(回调函数)传递函数名。
+    //3.jsonp的弊端 - 仅支持get方式。
+
+    // function taobao(data) {
+    //     console.log(data);
+    // }
+</script>
+<!-- <script src="https://suggest.taobao.com/sug?code=utf-8&q=a&_ksTS=1600325355223_311&callback=taobao"></script> -->
+
+<!-- 
+    taobao({"result":[["aj","81187.43051963238"],["airpods保护套","71182.85322991235"],["阿迪达斯","197628.06516112032"],["安踏","71652.13428413599"],["airpodspro保护套","53217.46448709327"],["a字裙","1110514.4754042015"],["奥特曼","80147.53586436748"],["a字半身裙","216008.4573517072"],["阿迪达斯旗舰店官网","87354.8984420465"],["airpods","43733.2651059276"]]})
+-->
+<script>
+    function taobao(data) {
+        console.log(data);
+    }
+</script>
+<script src="http://localhost:8088/JS2008/Day%2023_JSONP/taobao.php?callback=taobao"></script>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(function() {
+            // $(selector).action()
+
+            // jQuery选取DOM元素 主要依赖于CSS的选择器
+
+            $('#btn').on('click', function() {
+                // console.log($('#list>li:first'));
+                // console.log($('#list>li:not(:first)')); // :not() 括号中可以放任意选择器
+
+                // 索引值从0开始计算
+                // 选择器 :even 和 :odd 是按照索引方式进行筛选
+                // console.log($('#list>li:even'));
+                // console.log($('#list>li:odd'));
+
+                // console.log($('#list>li:eq(5)'));
+                // console.log($('#list>li:gt(3)'));
+                // console.log($('#list>li:lt(3)'));
+
+                // console.log($(':lang(zh-cn)'));
+
+                console.log($(':checkbox:checked'));
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <button id="btn">按钮</button>
+
+    <div lang="zh-cn">中文</div>
+    <div lang="en-us">English</div>
+
+    <input type="checkbox" checked>
+    <input type="checkbox">
+    <input type="checkbox" checked>
+    <input type="radio" checked>
+    <input type="radio" checked>
+
+    <ul id="list">
+        <li>01</li>
+        <li>02</li>
+        <li>03</li>
+        <li>04</li>
+        <li>05</li>
+        <li>06</li>
+        <li>07</li>
+        <li>08</li>
+        <li>09</li>
+        <li>10</li>
+    </ul>
+</body>
+
+</html>

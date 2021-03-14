@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>点击创建盒子</button>
+</body>
+<script>
+    //惰性单例指的是在需要的时候才创建对象实例。惰性单例是单例模式的重点，这种技术在实际开发中非常有用.
+    //点击button按钮，创建一个box。
+
+    const btn = document.querySelector('button');
+    let flag = true;
+
+    // btn.onclick = function() {
+    //     let cDiv = document.createElement('div');
+    //     cDiv.innerHTML = '我是新创建出来的div，我是唯一的';
+    //     document.body.appendChild(cDiv);
+    // }
+
+    //限定点击次数
+    // btn.onclick = function() {
+    //     if (flag) {
+    //         let cDiv = document.createElement('div');
+    //         cDiv.innerHTML = '我是新创建出来的div，我是唯一的';
+    //         document.body.appendChild(cDiv);
+    //         flag = false;
+    //     }
+    // }
+
+
+    //是在需要的时候才创建对象实例
+    // let createbox = (function() {
+    //     let cDiv = document.createElement('div');
+    //     cDiv.innerHTML = '我是新创建出来的div，我是唯一的';
+    //     cDiv.style.display = 'none';
+    //     document.body.appendChild(cDiv);
+    //     return cDiv;
+    // })();
+    // btn.onclick = function() {
+    //     createbox.style.display = 'block';
+    // };
+
+
+    //单例实现 - 条件判断(自：这就是单例模式的核心；典型用到闭包)
+    //自己的分析：这个函数用到了闭包函数，其中cDiv被内部函数调用，一直保存在内存中，
+    //(一般这种需要一直保存在内存中的变量就需要用到闭包)
+
+    let createbox = (function() {
+        let cDiv = null;
+        return function() {
+            if (!cDiv) { //不存在创建
+                cDiv = document.createElement('div');
+                cDiv.innerHTML = '我是新创建出来的div，我是唯一的';
+                document.body.appendChild(cDiv);
+            }
+            return cDiv; //存在返回
+        }
+    })();
+
+    btn.onclick = function() {
+        createbox();
+    };
+</script>
+
+</html>

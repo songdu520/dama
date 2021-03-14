@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+        }
+    </style>
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(function() {
+            // $('.box').on({
+            //     mouseover: function() {
+            //         $('.box').css('background', 'red');
+            //     },
+            //     mouseout: function() {
+            //         $('.box').css('background', 'yellow');
+            //     }
+            // })
+
+            // $('.box').hover(function(ev) {
+            //     // mouseenter
+            //     $('.box').css('background', 'red');
+            //     console.log(ev.type);
+            // }, function(ev) {
+            //     // mouseleave
+            //     $('.box').css('background', 'yellow');
+            //     console.log(ev.type);
+            // });
+
+            // one()  一次性事件
+            // $('.btn').one('click', function() {
+            //     console.log(2);
+            // })
+
+
+            $('.box').on('click', function() {
+                console.log('box');
+            });
+
+            $('.btn').on('click', function() {
+                // trigger 触发事件
+                $('.box').trigger('click');
+            })
+        });
+    </script>
+</head>
+
+<body>
+    <button class="btn">按钮</button>
+    <div class="box"></div>
+</body>
+
+</html>

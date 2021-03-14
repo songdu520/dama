@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <!-- <base-child :id="post.id" :title="post.title"></base-child> -->
+    <!-- <base-child :post="post"></base-child> -->
+    <base-child v-bind="post"></base-child>
+  </div>
+
+  <script src="../../Vue.js"></script>
+  <script>
+    Vue.component('base-child', {
+      // props: ['name', 'age'],
+      props: {
+        id: Number,
+        title: String
+      },
+      template: `
+        <div>{{ id }}的年龄是{{ title }}岁</div>
+      `
+    })
+
+    // Vue.component('base-child', {
+    //   // props: ['name', 'age'],
+    //   props: {
+    //     post: Object
+    //   },
+    //   template: `
+    //     <div>{{ post.id }}的年龄是{{ post.title }}岁</div>
+    //   `
+    // })
+
+
+
+    new Vue({
+      el: '#app',
+      data() {
+        return {
+          post: {
+            id: 1,
+            title: 'My Journey with Vue'
+          }
+        }
+      }
+    })
+  </script>
+</body>
+</html>

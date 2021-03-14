@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //一.代码调试的方式
+    //1.利用控制面板，控制面板输出对应的错误信息。
+    // console.log(1);
+    // console.log(1);
+    // conosle.log(1); //显示对应的错误。
+    // console.log(a); //根据控制里面显示的信息进行错误调试(代码的行号)。
+    // console.log(1);
+    // console.log(1);
+    // console.log(1);
+    // console.log(1);
+
+    //2.利用代码执行的顺序输出测试
+    // console.log(1);
+    // console.log(2); //这里之上的代码是正确。
+    // consloe.log(3);
+    // console.log(4); //这里之上有错误
+
+    //二.错误类型
+    //ReferenceError:引用错误,某个值或者某个函数或者变量不存在。
+    // /ˈrefrəns/ 
+    //SyntaxError:违背了ES标准语法,写错了关键。
+    // /ˈsɪntæks/
+    //三.断点调试。
+    //代码执行到断点的地方，停止执行，等待指示 - debugger.
+    //F10:循环每一步的顺序。  F8:每一次循环的过程
+    //控制面板的右侧：watch  监听值得变化。
+    //控制代码的跳转。
+    for (var i = 1, sum = 0; i <= 10; i++) {
+        debugger;
+        sum += i;
+    }
+    console.log(sum);
+</script>
+
+</html>

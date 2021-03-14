@@ -1,0 +1,50 @@
+@charset 'utf-8';
+
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+
+.showimg{
+    width: 570px;
+    height: 400px;
+    margin:0 auto;
+    position: relative;
+
+    >div{
+        height: 10px;
+        background-color: #fff;
+        position: absolute;
+        width: 100%;
+    }
+}
+
+.small{
+    list-style:none;
+    width: 570px;
+    height: 120px;
+    margin: 0 auto;
+
+
+    li{
+        float: left;
+        width: 120px;
+        height: 120px;
+        margin:20px;
+
+        img{
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border:10px solid rgba(0,255,0,.3);
+
+            transition: transform .8s,border-color .8s;
+
+            &:hover{
+                transform:rotate(360deg) scale(1.1);
+                border-color:#0f0;
+            }
+        }
+    }
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //1.快速排序的原理：
+    //从待排序的数组中随机截取一位(截取偏中间) - splice
+    //剩下的值和截取的值进行比较(如果比截取的值小存放left数组中，否则存放right的数组中)
+    //递归对left和right分别进行上面的重复操作，直到数组的长度<=1.
+    //每一次利用concat将两个数组(left,right)与截取的中间值进行拼接。
+    var arr = [12, 5, 21, 5, -4, 33, 100, 44, 7, 2];
+
+    function quicksort(arr) {
+        if (arr.length <= 1) { //基点。
+            return arr;
+        } else {
+            //递归进行操作。
+            //开始截取
+            var midindex = parseInt(arr.length / 2); //获取中间值的索引
+            var midvalue = arr.splice(midindex, 1)[0]; //截取中间值。
+            //比较的核心：
+            var left = [];
+            var right = [];
+            for (var i = 0; i < arr.length; i++) {
+                if (arr[i] < midvalue) {
+                    left.push(arr[i])
+                } else {
+                    right.push(arr[i]);
+                }
+            }
+            return quicksort(left).concat(midvalue, quicksort(right));
+        }
+    }
+    console.log(quicksort(arr));
+</script>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //代理模式：代理模式是为一个对象提供一个代用品或占位符，以便控制对它的访问。
+
+    class Girl {
+        constructor(name) {
+            this.name = name;
+        }
+    }
+
+    class Boy {
+        constructor(girl) {
+            this.girl = girl;
+        }
+        sendlove(letter) {
+            return this.girl + ':' + letter;
+        }
+    }
+
+    class HelpBoy {
+        constructor(girl) {
+            this.girl = girl;
+        }
+        helpboysendlove(letter) { //帮助男类完成
+            return new Boy(this.girl).sendlove(letter);
+        }
+    }
+
+    console.log(new HelpBoy(new Girl('韩梅梅').name).helpboysendlove('我比较喜欢你，咱们结婚吧!!!!!!!!!!!'));
+</script>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <p v-bind:title="msg" v-bind:abc="msg2" v-on:click="handleClick">{{ msg }}</p>
+    <p v-if="msg4[0] === 'g'">{{ msg2 }}</p>
+    <p>{{ msg3 }}</p>
+    <p>{{ msg4 }}</p>
+    <p>{{ msg5 }}</p>
+    <p>{{ msg6 }}</p>
+    <p>{{ msg7 }}</p>
+    <ul>
+      <li v-for="item in todos">{{ item.text }}</li>
+    </ul>
+    <p v-for="(item, index) in todos">{{ item.text }} - {{ index }}</p>
+
+    <input type="text" v-bind:value="msg8" v-on:input="hangleChange">
+    <span>{{ msg8 }}</span>
+  </div>
+
+  <script src="../../Vue.js"></script>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: {
+        msg: 'hello Vue!',
+        msg2: 3,
+        msg3: false,
+        msg4: ['a', 'b'],
+        msg5: {a: 1, b: 2},
+        msg6: null,
+        msg7: undefined,
+        todos: [
+          { text: '学习 JavaScript' },
+          { text: '学习 Vue' },
+          { text: '整个牛项目' }
+        ],
+        msg8: 'abc'
+      },
+      // methods, 里面写事件
+      methods: {
+        handleClick() {
+          this.msg = this.msg.split('').reverse().join('');
+        },
+        hangleChange(e) {
+          this.msg8 = e.target.value;
+        }
+      }
+    })
+  </script>
+</body>
+</html>

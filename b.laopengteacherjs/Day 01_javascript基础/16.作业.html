@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //1.+：拼接(至少有一边是字符串) 、加法运算、 隐式转换
+    //加法：不能包含字符串，隐式转换。
+    // var bar = true;
+    // console.log(bar + 0); //1+0=1
+    // console.log(bar + "xyz"); //truexyz
+    // console.log(bar + true); //1+1=2
+    // console.log(bar + false); //1+0=1
+
+
+    //2.==和===的区别
+    //==具有隐式转换,比较值
+    //===没有隐式转换，比较值和类型
+    // console.log('5' == 5); //true
+    // console.log('5' === 5); //false
+    // console.log(1 == true); //true
+    // console.log(1 === true); //false
+
+
+    //isNaN:检测括号里面的值不是数字，输出true，否则输出false
+    //isNaN将数字字符串转换成数字
+
+    // console.log(isNaN(23)); //false
+    // console.log(isNaN('shuai')); //true
+    // console.log(isNaN('321shuai')); //true
+
+    // console.log(isNaN('321')); //false
+
+    // //NaN:不是一个数字。
+    // console.log(NaN == NaN); //false
+    // console.log(NaN === NaN); //false
+
+    // console.log(typeof NaN); //number类型
+
+
+
+    // console.log(1 + +"2" + "2"); //32
+    // console.log("A" - "B" + "2"); //NaN2
+    // console.log("A" - "B" + 2); //NaN+2=NaN
+
+
+
+    // console.log(0 || 2 || 1); //2
+    // console.log(0 || 0 || false); //false
+    // console.log(isNaN('56')); //false
+    // console.log(0.2 + 0.4 == 0.6); //false 
+    //解释：0.1+0.2=0.300000000000004
+    //计算机的二进制小数的误差和是否有符号引起的。
+    //解决方法：将小数扩大10倍，再除以10
+    // console.log((0.2 * 10 + 0.4 * 10) / 10 == 0.6); //true
+    // console.log(Boolean('0')); //不是数字是字符串  true
+
+
+
+    var b = 20;
+    var c = 10;
+    console.log(a = b); //这里是赋值  a=20
+    console.log(a == b); //这里是比较  true
+    console.log(a == c); //false
+</script>
+
+</html>

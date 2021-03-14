@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="box"></div>
+</body>
+<script>
+    //获取当前的日期：今天是：2020年8月28日  星期五 10：46：12
+    //日期对象的方法
+    //innerHTML:读写元素对象里面的内容
+
+    function double(n) {
+        return n < 10 ? '0' + n : n;
+    }
+
+    function getdate() {
+        var d = new Date();
+        var year = d.getFullYear();
+        var month = d.getMonth() + 1;
+        var day = d.getDate();
+        var week = d.getDay();
+        switch (week) {
+            case 5:
+                week = '星期五';
+                break;
+        };
+
+        var h = d.getHours();
+        var m = d.getMinutes();
+        var s = d.getSeconds();
+
+        return '今天是：' + year + '年' + month + '月' + day + '日  ' + week + ' ' + double(h) + ':' + double(m) + ':' + double(s);
+    }
+
+    box.innerHTML = getdate();
+
+    //每个1s执行一次函数,重新赋值
+    window.setInterval(function() {
+        box.innerHTML = getdate();
+    }, 1000);
+</script>
+
+</html>

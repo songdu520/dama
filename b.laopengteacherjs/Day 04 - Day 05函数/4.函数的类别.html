@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input id="n1" type="text" value="">
+    <input id="n2" type="text" value="">
+    <input id="op1" type="button" value="+">
+    <input id="op2" type="button" value="-">
+    <input id="op3" type="button" value="*">
+    <input id="op4" type="button" value="/">
+</body>
+<script>
+    // 一.函数的特点
+    // 1.函数名等于函数体。
+    // 2.函数如果只是声明了没有调用，当做此函数不存在。
+    // 3.函数的类型 - function(独立的类型)
+
+
+    //二.函数的类别
+    //1.声明式：普通函数，一定有函数名称。
+    //任意地方，反复调用
+    // function fn() {
+
+    // }
+
+
+    //2.函数表达式 - 匿名函数。
+    //2.1.函数赋值给变量
+    //注意：变量前置访问时undefined，不能使用。
+    // a(3, 5);//报错:TypeError: a is not a function
+    // var a = function(x, y) {
+    //     return x + y;
+    // };
+    // console.log(a(3, 4));
+
+    //2.2.自执行函数, 只能调用一次。
+    //利用了函数名等于函数体推到出来的。
+
+    //常用的自执行函数的写法 - 利用某些运算符将函数整个转换成函数表达式。
+    // (function() {
+    //     alert('函数体触发了1');
+    // })();
+
+    // ! function() {
+    //     alert('函数体触发了2');
+    // }();
+
+
+    //不常见的写法
+    // ~ function() {
+    //     alert('函数体触发了3');
+    // }();
+
+    // +function() {
+    //     alert('函数体触发了4');
+    // }();
+
+    //2.3.事件处理函数：将函数(函数体或者函数名)赋值给事件
+    //通过事件来触发此函数。
+
+    // function fn() { //普通函数
+    //     alert('函数体触发了');
+    // }
+    // document.onclick = fn(); //无需点击，函数也触发了,此时函数和事件没有关系。避免这样使用
+
+
+    // function fn() { //事件处理函数
+    //     alert('函数体触发了');
+    // }
+    // document.onclick = fn; //通过事件来触发此函数。上面声明的fn为事件处理函数。
+
+
+    //根据上面的推到，将函数的声明直接绑定在事件下面，省略函数的名称。
+    // document.onclick = function() { //事件处理函数
+    //     alert('函数体触发了1111');
+    // };
+
+
+    //三.梳理函数的类别
+    //1.普通函数 - 有名称的函数。
+    // fn('hi');
+
+    // function fn(str) {
+    //     alert('普通函数' + str);
+    // }
+
+    // fn('hello');
+
+
+    //2.函数表达式 - 将函数赋值给变量。
+    // fn('hello');//报错
+    // var fn = function(str) {
+    //     alert('函数表达式' + str);
+    // }
+    // fn('hello');.
+
+
+    //3.自执行函数 - 一次性
+    // ! function(str) { //str:形参
+    //     alert('自执行函数' + str);
+    // }('hi'); //hi:实参
+
+    // (function(str) {
+    //     alert('自执行函数' + str);
+    // })('hi');
+
+    //4.事件处理函数 - 和事件有关,本身无法传参。
+    //需要传参可以在事件处理函数里面进行传参操作。
+    // document.onclick = function() {
+    //     alert('事件处理函数');
+    // }
+
+    function calc(n1, n2, op) {
+        if (op === '+') {
+            return n1 + n2;
+        } else if (op === '-') {
+            return n1 - n2;
+        } else if (op === '*') {
+            return n1 * n2;
+        } else if (op === '/') {
+            return n1 / n2;
+        }
+    }
+
+    op1.onclick = function() { //需要传参可以在事件处理函数里面进行传参操作。
+        alert(calc(+n1.value, +n2.value, op1.value));
+    };
+
+    op2.onclick = function() {
+        alert(calc(+n1.value, +n2.value, op2.value));
+    };
+
+    op3.onclick = function() {
+        alert(calc(+n1.value, +n2.value, op3.value));
+    };
+
+    op4.onclick = function() {
+        alert(calc(+n1.value, +n2.value, op4.value));
+    };
+
+
+
+    var fnstr = function(name) {
+        return '你的姓名是：' + name;
+    };
+    console.log(fnstr('张三'));
+    // document.onclick = function() {
+    //     console.log(fnstr('李四'));
+    // };
+
+
+    //总结：
+    //函数的类别
+    //普通函数：带函数名称  function 函数名(){}
+    //函数表达式：匿名函数,将函数当做表达式进行应用。(函数表达式：函数赋值给变量,自执行函数,事件处理函数)
+</script>
+
+</html>

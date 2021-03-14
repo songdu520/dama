@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To Do List</title>
+</head>
+<body>
+  <div id="app">
+    <input type="text" v-model="str" v-on:keyup.13="handleKeyUp">
+    <button v-on:click="handleClick">添加</button>
+
+    <h3>进行中</h3>
+    <ul>
+      <li v-for="(item, index) in pendingList" v-bind:key="item.text">
+        <input type="checkbox" v-model="item.checked">
+        {{ item.text }}
+      </li>
+    </ul>
+
+    <h3>已完成</h3>
+    <ul>
+      <li v-for="(item, index) in finishList" v-bind:key="item.text">
+        <input type="checkbox" v-model="item.checked">
+        {{ item.text }}
+      </li>
+    </ul>
+  </div>
+
+  <script src="../../Vue.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        list: [],
+        str: ''
+      },
+      methods: {
+        handleClick() {
+          this.list.push({
+            text: this.str,
+            checked: false
+          });
+          this.str = '';
+        },
+        handleKeyUp(e) {
+          // if (e.keyCode === 13) {
+          this.handleClick();
+          // }
+        }
+      },
+      computed: {
+        pendingList() {
+          return this.list.filter(item => {
+            return !item.checked
+          })
+        },
+        finishList() {
+          return this.list.filter(item => {
+            return item.checked
+          })
+        }
+      }
+    })
+  </script>
+</body>
+</html>

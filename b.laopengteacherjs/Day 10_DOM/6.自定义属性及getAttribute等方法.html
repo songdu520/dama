@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" value="表单的值" name="表单的名称" data-age="100岁" data-sex="男">
+    <!-- 
+        input:元素element,标签tagName,节点node
+
+        下面的三个都是表单的默认属性
+        type="text" 
+        value="表单的值" 
+        name="表单的名称"
+
+        自定义的属性
+        data-age="100岁"    
+        data-sex="男"   
+     -->
+    <ul>
+        <li>111111111</li>
+        <li>111111111</li>
+        <li>111111111</li>
+        <li>111111111</li>
+        <li>111111111</li>
+        <li>111111111</li>
+        <li>111111111</li>
+        <li>111111111</li>
+        <li>111111111</li>
+        <li>111111111</li>
+    </ul>
+</body>
+<script>
+    //1.getAttribute() 获取特定元素节点属性的值，某些低版本浏览器IE8不支持
+    //    /əˈtrɪbjuːt/
+    //2.setAttribute() 设置特定元素节点属性的值，某些低版本浏览器不支持
+    //3.removeAttribute() 移除特定元素节点属性，某些低版本浏览器不支持
+
+    // var oInput = document.querySelector('input');
+    // console.log(oInput.value);
+    // console.log(oInput.name);
+    // console.log(oInput['name']);
+    // 点操作符无法获取自定义的属性，仅能获取默认的属性。
+    // console.log(oInput.dataAge); //undefined data-age->dataAge驼峰命名
+
+    // 利用Attribute的方法实现。
+    // 获取
+    // console.log(oInput.getAttribute('data-age')); //100岁
+    // console.log(oInput.getAttribute('value')); //表单的值
+
+    // 设置
+    // oInput.setAttribute('data-name', 'zhangsan');
+
+    // 移除
+    // oInput.removeAttribute('data-sex');
+    // oInput.removeAttribute('data-name');
+    // oInput.removeAttribute('data-age');
+
+    //给li添加属性，属性值就是li所在的索引。
+    var aLi = document.querySelectorAll('li');
+    for (var i = 0; i < aLi.length; i++) {
+        // aLi[i].setAttribute('data-index', i);
+        aLi[i].index = i; //通过点操作符给li添加自定义的属性,标准浏览器不可见。
+        aLi[i].onclick = function() {
+            alert(this.index); //获取当前对应的li的索引
+        }
+    }
+
+    //总结：
+    //通过Attribute的方法设置获取删除元素的默认属性和自定义的属性。
+    //通过点操作符设置和获取元素的默认和自定义的属性
+    //如果是默认属性，直接点操作符或者中括号获取。
+    //如果是自定义的属性，只能是点操作符设置(结构中不可见，除非低版本浏览器)，点操作符获取。
+</script>
+
+</html>

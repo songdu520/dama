@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // 1.m:多行匹配
+    // var str = 'hello\nworld';
+    // console.log(str);
+    // console.log(/^h/.test(str)); //true
+    // console.log(/^w/.test(str)); //false
+    // console.log(/^w/m.test(str)); //true
+    // console.log(/o$/m.test(str)); //true
+
+    // 2.正则的属性
+    // source：是一个只读的字符串，包含正则表达式的文本。
+    ///sɔːrs/ 来源
+    // var reg = /\d+/;
+    // console.log(reg.source);//\d+
+    // lastIndex:是一个可读/写的整数，如果匹配模式中带有g修饰符，这个属性存储在整个字符串中下一次检索的开始位置，这个属性会被exec( ) 和 test( ) 方法用到。
+    // lastIndex:匹配到的值的下一个索引。
+    // 全局下面正则索引变化的，不断的向后移动的
+    // var reg = /\d/g;
+    // var str = 'a8b';
+    // console.log(reg.test(str)); //true
+    // console.log(reg.lastIndex); //2 匹配到的值的下一个索引
+    // console.log(reg.test(str)); //false 从索引2的地方进行执行正则
+    // console.log(reg.lastIndex); //0 重新开始
+    // console.log('------------------------------------------------------------');
+    // console.log(reg.test(str)); //true
+    // console.log(reg.lastIndex); //2 匹配到的值的下一个索引
+    // console.log(reg.test(str)); //false 从索引2的地方进行执行正则
+    // console.log(reg.lastIndex); //0 重新开始
+
+    // var reg = /\d/g;
+    // var str = 'a3b4d';
+    // console.log(reg.test(str)); //true
+    // console.log(reg.lastIndex); //2 匹配到的值的下一个索引
+    // console.log(reg.test(str)); //true
+    // console.log(reg.lastIndex); //4
+    // console.log(reg.test(str)); //false
+    // console.log(reg.lastIndex); //0
+    // console.log('------------------------------------------------------------');
+    // console.log(reg.test(str)); //true
+    // console.log(reg.lastIndex); //2 匹配到的值的下一个索引
+    // console.log(reg.test(str)); //true
+    // console.log(reg.lastIndex); //4
+    // console.log(reg.test(str)); //false
+    // console.log(reg.lastIndex); //0
+    // console.log('------------------------------------------------------------');
+    // console.log(reg.test(str)); //true
+    // console.log(reg.lastIndex); //2 匹配到的值的下一个索引
+    // console.log(reg.test(str)); //true
+    // console.log(reg.lastIndex); //4
+    // console.log(reg.test(str)); //false
+    // console.log(reg.lastIndex); //0
+
+    // 可以解决
+    // 重新开始正则。
+    // var str = 'a3b4d';
+    // console.log(/\d/g.test(str));
+    // console.log(/\d/g.test(str));
+    // console.log(/\d/g.test(str));
+    // console.log(/\d/g.test(str));
+    // console.log(/\d/g.test(str));
+    // console.log(/\d/g.test(str));
+    // console.log(/\d/g.test(str));
+    // console.log(/\d/g.test(str));
+    // console.log(/\d/g.test(str));
+    // console.log(/\d/g.test(str));
+
+    // 3.正则分组和$符的应用 - ()
+    // 3.1.\1\2\3....使用在正则规则中，代表每一个对应的分组里面的值。
+    // var reg = /(\d)\d\1/g; //\1:第一个分组对应的值(不是类型)。
+    // var str = '121353454';
+    // console.log(str.match(reg));
+
+    // var str = '我希望我们同学好好学学前端，天天上上课程，努努力力学习，健健康康成长';
+    // var reg = /([\u4e00-\u9fa5])\1([\u4e00-\u9fa5])\2/g;
+    // console.log(str.match(reg));//["好好学学", "天天上上", "努努力力", "健健康康"]
+
+    // 3.2.RegExp.$1 / RegExp.$2 / RegExp.$3...正则的静态属性,执行正则的时候输出分组里面的值。
+
+    // var str = '我希望我们同学好好学学前端，天天上上课程，努努力力学习，健健康康成长';
+    // var reg = /([\u4e00-\u9fa5])\1([\u4e00-\u9fa5])\2/g;
+    // reg.test(str);
+    // console.log(RegExp.$1); //好  
+    // console.log(RegExp.$2); //学
+
+    // 例如：统计一个字符串里面每个字符的个数，同时去掉重复。
+    // var str = 'dsfakdhfjkeeruitujgsdbcvnxcjhdsfhuyeirghdsjagfhadsfbvshfdfhfkheiuwryeiw';
+    // str = str.split('').sort().join('');
+    // console.log(str);
+    // //aaabbccdddddddeeeeeffffffffggghhhhhhhhiiiijjjjkkknrrrsssssstuuuuvvwwxyy
+    // var reg = /([a-z])\1*/g;
+    // var obj = {};
+    // str.replace(reg, function(result, value) {
+    //     // console.log(result);//匹配的结果，length属性。
+    //     // console.log(value); //分组里面的值
+    //     obj[value] = result.length; //obj[a]=3
+    // });
+    // console.log(obj);
+
+
+    // 例如：有一个字符串get-element-by-id变成getElementById
+    // var str = 'get-element-by-id';
+    // console.log(str.split('-')); // ["get", "element", "by", "id"]
+    // var strarr = str.split('-');
+    // for (var i = 1; i < strarr.length; i++) {
+    //     strarr[i] = strarr[i].substring(0, 1).toUpperCase() + strarr[i].substring(1);
+    // }
+    // console.log(strarr.join('')); //getElementById
+
+    var str = 'get-element-by-id';
+    console.log(str.replace(/-([a-z])/g, function(result, value) { //getElementById
+        return value.toUpperCase();
+    }));
+
+    //4.转义字符：\
+    //转义字符是字符的一种间接表示方式。在特殊语境中，无法直接使用字符自身。例如，在字符串中包含说话内容。
+    //JavaScript 定义反斜杠加上字符可以表示字符自身
+    //一些字符加上反斜杠后会表示特殊字符，而不是原字符本身
+
+
+    //可以表示字符自身
+    // var str = "子曰：\"学而不思则罔，思而不学则殆。\"";
+    // console.log(str); //子曰："学而不思则罔，思而不学则殆。"
+
+    // var reg = /\#/g;
+    // console.log(reg.test('ab#c')); //true
+
+
+    // var reg = /./;//匹配除换行符\n外的任意字符
+    // console.log(reg.test('a')); //true
+
+
+    // var reg = /\./; //匹配.
+    // console.log(reg.test('a.bcd')); //true
+
+    // var reg = new RegExp('\d');
+    // console.log(reg.test('123')); //false
+
+
+    // var reg = new RegExp('\\d');
+    // console.log(reg.test('123')); //true
+
+    // var reg = /\d/; //数字
+    // var reg = /d/; //d字符
+
+    //常见的一些具有特殊意义的转义字符： \s \d \w \b  \S \D \B \W \n \t  
+    //\- \_ \@ \# 表示自身的意思。
+</script>
+
+</html>

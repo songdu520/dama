@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+        .box {
+            width: 160px;
+            height: 198px;
+            background: url(suspend.png);
+            position: fixed;
+            right: -120px;
+            top: 50%;
+            margin-top: -99px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <script src="../move.js"></script>
+    <script>
+        const box = document.querySelector('.box');
+
+        box.onmouseover = function() {
+            bufferMove(this, {
+                right: 0
+            });
+        }
+
+        box.onmouseout = function() {
+            bufferMove(this, {
+                right: -120
+            });
+        }
+    </script>
+</body>
+
+</html>

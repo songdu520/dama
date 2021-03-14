@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    a {
+        text-decoration: none;
+    }
+    
+    .content {
+        height: 500px;
+        width: 500px;
+        border: red 1px solid;
+    }
+</style>
+
+<body>
+
+    <a href="#index"> <button>首页</button></a>
+    <a href="#login"><button>登录</button</a>
+    <a href="#registry"><button>住册</button></a>
+    <div class="content"></div>
+
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    window.addEventListener('hashchange', function() {
+        let hash = location.hash.substring(1)
+        switch (hash) {
+            case 'index':
+                $.ajax({
+                    url: './index.html'
+                }).done(function(data) {
+
+                    console.log(data)
+                    $('.content').html(data)
+                })
+                break
+            case 'login':
+                $.ajax({
+                    url: './login.html'
+                }).done(function(data) {
+
+                    console.log(data)
+                    $('.content').html(data)
+                })
+                break
+            case 'registry':
+                $.ajax({
+                    url: './registry.html'
+                }).done(function(data) {
+
+                    console.log(data)
+                    $('.content').html(data)
+                })
+                break
+
+
+        }
+    })
+</script>
+
+</html>

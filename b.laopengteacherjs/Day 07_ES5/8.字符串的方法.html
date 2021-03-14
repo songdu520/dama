@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //一.包装对象
+    // var a = 1;
+    // a.pro = 20;//用完即销毁
+    // console.log(a.pro); //undefined
+
+    //二.字符串的方法
+    // 1. charAt(num): 返回对应字符串索引的内容。(字符串是类数组,length和索引下标)
+    //   /tʃɑːr/字符
+    // var str = 'hello';                                                                             
+    // console.log(str.charAt(1)); //e
+    // console.log(str[1]); //e 
+    // 2. charCodeAt(num): 返回对应的字符串索引的内容的unicode编码
+    // var str = 'I am 你生';
+    // console.log(str.charCodeAt(2)); //97  a-unicode-97
+    // console.log(str.charCodeAt(5)); //23398  20320
+    // console.log(str.charCodeAt(6)); //29983  
+
+    // 3. String.fromCharCode(unicode编码);将参数中的unicode编码返回成对应的字符串的内容,多个编码用逗号分隔。
+    console.log(String.fromCharCode(u903c)) //学
+
+    //console.time(标记) console.timeEnd(标记):计算一段代码运行的时间(ms)
+    // console.time('hehe');
+    // for (var i =48; i <= 60; i++) {
+    //     document.write(String.fromCharCode(i));
+    // }
+    // console.timeEnd('hehe'); //hehe: 847.03271484375ms
+
+    //4.trim() 创建一个字符串的副本，删除前置及后缀的所有空格，然后返回结果
+    ///trɪm/修剪；切除
+    // var str = '     abc def   ghi     '; //删除前后的空格。中间继续保留
+    // console.log(str);
+    // console.log(str.trim());
+
+    //5.split:根据分隔符、将字符串拆分成数组。
+    ///splɪt/ 分离
+    //把一个字符串分割成一个数组。通过传递一个参数来分割。第一个参数就是分割字符串的符号。如果参数为空，也是数组，只有一个数据。第二个参数用来限制数组的长度，多余的切掉。
+    //对比数组下面的join方法
+
+    // var str = 'abcdefg';
+    // console.log(str.split('d')); //["abc", "efg"]
+    // console.log(str.split('')); //["a", "b", "c", "d", "e", "f", "g"]
+    // console.log(str.split('', 3)); //["a", "b", "c"]
+
+    //案例：将字符串helloworld变成dlrowolleh;
+    // var str = 'helloworld';
+    // console.log(str.split('').reverse().join(''));//dlrowolleh
+
+    //6.substring()：用来截取字符串的内容
+    // var str = 'javascript';
+    // console.log(str.substring()); //javascript 全部截取
+    // console.log(str.substring(2)); //vascript  从索引2的位置开始截取。
+    // console.log(str.substring(2, 5)); //vas  从索引2的位置开始截取到索引5的位置，不包括结束位置。
+    // console.log(str.substring(2, -5)); //ja 负数从当0处理。如果第一个数大于第二个数，交换位置。
+    // console.log(str.substring(2, 0)); //ja 负数从当0处理。如果第一个数大于第二个数，交换位置。
+    // console.log(str.substring(0, 2)); //ja 负数从当0处理。如果第一个数大于第二个数，交换位置。
+
+    //7.substr(start, length); 用来截取字符串的内容
+    //start：开始的索引，如果为负数，从后往前进行数，包括开始的索引。
+    //length：截取的长度。
+
+    // var str = 'javascript';
+    // console.log(str.substr(2, 3)); //vas
+    // console.log(str.substr(2, -5)); //空 长度不能为负数
+    // console.log(str.substr(-7, 3)); //asc
+
+    //8.toUpperCase()转换成大写.  toLowerCase()转换成小写.
+    // var str = 'javaSCRIPT';
+    // console.log(str.toUpperCase()); //JAVASCRIPT
+    // console.log(str.toLowerCase()); //javascript
+</script>
+
+</html>

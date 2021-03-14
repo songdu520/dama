@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            ul {
+                background: cornflowerblue;
+                width: 500px;
+                height: 500px;
+                /* 设置元素为网格容器 */
+                display: grid;
+                /* 行数 列数 大小 线的名称 */
+                grid-template-rows: repeat(3, 120px);
+                grid-template-columns: repeat(3, 120px);
+                /* 规定区域 */
+                grid-template-areas: "header b c" "header b c" "d d d";
+            }
+            ul li {
+                background: cyan;
+                border: 2px solid crimson;
+                box-sizing: border-box;
+                list-style-type: none;
+            }
+            ul li:nth-child(1) {
+                /* 指定我的某个li标签占据的区域名称 */
+                grid-area: header;
+            }
+            ul li:nth-child(3) {
+                /* 指定我的某个li标签占据的区域名称 */
+                grid-area: b;
+            }
+            ul li:nth-child(5) {
+                /* 指定我的某个li标签占据的区域名称 */
+                grid-area: c;
+            }
+            ul li:nth-child(6) {
+                /* 指定我的某个li标签占据的区域名称 */
+                grid-area: d;
+            }
+        </style>
+    </head>
+    <body>
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+            <li>7</li>
+            <li>8</li>
+            <li>9</li>
+        </ul>
+    </body>
+</html>

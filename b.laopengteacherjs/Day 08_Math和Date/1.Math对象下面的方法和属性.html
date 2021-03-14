@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //1.Math对象常见的属性和方法。
+    //Math.PI : π(3.1415926)
+    // console.log(Math.PI); //3.141592653589793
+
+    //Math.random():获取0-1之间的随机的小数,不包括1.
+    ///ˈrændəm/
+    // console.log(Math.random());
+
+    //Math.round():将括号里面的数字四舍五入取整数。
+    ///raʊnd/ 
+    // console.log(Math.round(3.5)); //4
+    // console.log(Math.round(3.4)); //3
+
+    //随机数如何设定范围（封装函数） rannum(4,9) :随机产生4-9之间的整数，包括4和9.
+    //Math.random()有可能为0
+    // function rannum(min, max) {
+    //     return Math.round(Math.random() * (max - min)) + min;
+    // }
+    // console.log(rannum(4, 9));
+
+    //Math.ceil():将括号里面的数字向上取整数。
+    ///siːl/ 
+    console.log(Math.ceil(3.00009)); //4
+    console.log(Math.ceil(3.00000000000000000000009)); //3
+    console.log(Math.ceil(-3.000009)); //-3
+
+    //Math.floor():将括号里面的数字向下取整数。
+    console.log(Math.floor(3.9999999)); //3
+    console.log(Math.floor(3.99999999999999999999999)); //4
+    console.log(Math.floor(-3.9999)); //-4
+
+    //Math.abs():绝对值
+    console.log(Math.abs(-3)); //3
+    console.log(Math.abs(-3.5)); //3.5
+
+    //Math.sqrt():开根号
+    console.log(Math.sqrt(4)); //2
+
+    //Math.pow() : 求幂
+    //  /paʊ/ 
+    // console.log(Math.pow(2, 4)); //16
+    // console.log(2 ** 4); //16
+
+    //Math.max() ：括号里面可以设置很多逗号隔开的数字,获取最大的值。
+    //Math.min() ：括号里面可以设置很多逗号隔开的数字,获取最小的值。
+    console.log(Math.max(23, 5, 123, 7)); //123
+    console.log(Math.min(23, 5, 123, 7)); //5
+</script>
+
+</html>

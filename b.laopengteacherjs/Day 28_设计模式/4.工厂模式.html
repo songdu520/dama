@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // let person1 = new Object();
+    // person1.name = 'zhangsan';
+    // person1.showname = function() {
+    //     console.log(this.name);
+    // };
+
+    // let person2 = new Object();
+    // person2.name = 'lisi';
+    // person2.showname = function() {
+    //     console.log(this.name);
+    // }
+
+    // let person3 = new Object();
+    // person3.name = 'wangwu';
+    // person3.showname = function() {
+    //     console.log(this.name);
+    // }
+
+    // let person4 = new Object();
+    // person4.name = 'zhaoliu';
+    // person4.showname = function() {
+    //     console.log(this.name);
+    // };
+    //即工厂模式是为了解决多个类似对象声明的问题;也就是为了解决实列化对象产生重复的问题.
+    function createPerson(name) {
+        //原材料
+        let person = new Object();
+        //加工
+        person.name = name;
+        person.showname = function() {
+            console.log(this.name);
+        };
+        //出厂
+        return person;
+    }
+
+    let person1 = createPerson('zhangsan');
+    console.log(person1.name);
+    person1.showname();
+
+    let person2 = createPerson('lisi');
+    console.log(person2.name);
+    person2.showname();
+</script>
+
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //鼠标拖拽轨迹
+    //不断的创建元素，元素添加对应的css属性显示出来。
+    document.onmousemove = function(ev) {
+        var ev = ev || window.event;
+        var cDiv = document.createElement('div');
+        cDiv.style.cssText = 'width:30px;height:30px;background:red;position:absolute;left:' + ev.clientX + 'px;top:' + ev.clientY + 'px;';
+        document.body.appendChild(cDiv);
+    }
+</script>
+
+</html>

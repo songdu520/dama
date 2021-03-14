@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #blog {
+            padding: 0px;
+            margin: 0px;
+        }
+        
+        #blog li {
+            width: 600px;
+            border: 1px dashed #ccc;
+            padding: 10px;
+            margin: 10px 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <textarea name="" id="" cols="80" rows="10" placeholder="ctrl+enter发布信息"></textarea><br>
+    <ul id="blog">
+
+    </ul>
+
+</body>
+<script>
+    var oT = document.querySelector('textarea');
+    var oUl = document.querySelector('#blog');
+
+    //一开始让oT文本域获取光标。
+    oT.focus();
+    document.onkeydown = function(ev) {
+        var ev = ev || window.event;
+        if (ev.keyCode === 13 && ev.ctrlKey) {
+            var cLi = document.createElement('li');
+            cLi.innerHTML = oT.value + ' <a href="javascript:void(0);">删除微博</a>';
+            //第一条，直接appendChild(),后面的每一条插入存在的li的前面。
+            if (oUl.children.length >= 1) { //存在li元素
+                oUl.insertBefore(cLi, oUl.children[0]); //Ul.children[0]第一个子元素。
+            } else { //第一条
+                oUl.appendChild(cLi);
+            }
+            oT.value = ''; //情况文本区域
+
+            // alert(document.querySelectorAll('#blog li a').length); //这里可以获取。
+            // fn();
+        }
+    };
+
+    //事件外面无法获取a元素
+    //因为事件等待被动触发，获取元素一开始就需要。
+    // alert(document.querySelectorAll('#blog li a').length); //0
+    // alert(document.querySelectorAll('#blog li').length); //0
+    // alert(document.querySelectorAll('#blog').length); //1  可以获取
+
+
+    //事件委托
+    oUl.onclick = function(ev) {
+        var ev = ev || window.event;
+        if (ev.target.nodeName === 'A') {
+            // ev.target:a元素
+            if (window.confirm('你确定要删除吗?')) {
+                oUl.removeChild(ev.target.parentNode);
+            }
+        }
+    }
+
+
+    // function fn() {
+    //     alert(document.querySelectorAll('#blog li a').length);
+    // }
+</script>
+
+</html>

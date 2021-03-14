@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <base-child @click.native="cons" name="zhangsan" age="25" num="4" :score="77" :post="post" address="九堡"></base-child>
+    </div>
+
+    <script src="../../Vue.js"></script>
+    <script>
+        Vue.component('base-child', {
+            inheritAttrs: false,
+            props: {
+                name: String,
+                // 既可以是数字，也可以是字符串
+                age: [Number, String],
+                // 表示必填
+                num: {
+                    type: String,
+                    required: true
+                },
+                // 默认值
+                // score: {
+                ///skɔːr/得分
+                //   type: [Number, String],
+                //   default: 100
+                // },
+                // 默认的对象
+                post: {
+                    type: Object,
+                    default () {
+                        return {
+                            id: 8
+                        }
+                    }
+                },
+                score: {
+
+                    type: [Number, String],
+                    validator(value) {
+                        //'vali,deitə/ 验证器   // 这个值必须匹配下列字符串中的一个
+                        return value > 70
+                    }
+                }
+            },
+            template: `
+        <div address="江干">{{ name }}的年龄是{{ age }}岁, 学号是{{ num }}, 考了{{ score }}分, 我的id是{{ post.id }}</div>
+      `,
+            // mounted() {
+            //   this.$emit('click')
+            // },
+        })
+
+
+
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    post: {
+                        id: 1
+                    }
+                }
+            },
+            methods: {
+                cons() {
+                    console.log(123)
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>

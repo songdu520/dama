@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // Promise.all()方法用于将多个 Promise 实例，包装成一个新的 Promise 实例。
+
+        let p1 = new Promise((resolve, reject) => {
+            resolve('任务1');
+
+        });
+
+        let p2 = new Promise((resolve, reject) => {
+            reject('error');
+
+            resolve('任务2');
+        });
+
+        let p3 = new Promise((resolve, reject) => {
+            resolve('任务3');
+
+        });
+
+        // Promise.all([promise,...,promise]);
+        // 接收一个数组作为参数 数组内存放的都是promise的实例 
+        // 如果所有的promise实例的结果都为 已成功
+        // 则新的promise结果为 已成功
+        // 如果数组中有任意一个promise的结果为 已失败
+        // 则新的promise的结果为 已失败
+
+        let p4 = Promise.all([p1, p2, p3]);
+
+        p4.then(result => {
+            // 参数是每一个promise的结果 
+            // 结果是一个数组
+            console.log(result);
+        }).catch(result => {
+            // 参数是第一个失败的promise对象的结果
+            console.log(result);
+        })
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

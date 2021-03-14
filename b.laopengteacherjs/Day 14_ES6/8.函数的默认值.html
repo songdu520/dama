@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //1.函数设置默认的参数。
+    //老方式
+    // const sum = function(a, b) {
+    //     var a = a || 5; //如果a没有值，a=undefined  整个的结果就是5
+    //     var b = b || 5;
+    //     return a + b;
+    // }
+    // console.log(sum()); //5+5=10
+    // console.log(sum(3, 5)); //3+5=8
+
+    //新方式
+    const sum = function(a = 5, b = 5) {
+        return a + b;
+    }
+    console.log(sum()); //5+5=10
+    console.log(sum(3, 5)); //3+5=8
+</script>
+
+</html>

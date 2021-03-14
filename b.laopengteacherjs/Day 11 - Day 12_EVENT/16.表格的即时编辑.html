@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <table border="1">
+        <tr>
+            <td>11111111</td>
+            <td>11111111</td>
+            <td>11111111</td>
+            <td>11111111</td>
+            <td>11111111</td>
+        </tr>
+        <tr>
+            <td>11111111</td>
+            <td>11111111</td>
+            <td>11111111</td>
+            <td>11111111</td>
+            <td>11111111</td>
+        </tr>
+        <tr>
+            <td>11111111</td>
+            <td>11111111</td>
+            <td>11111111</td>
+            <td>11111111</td>
+            <td>11111111</td>
+        </tr>
+        <tr>
+            <td>11111111</td>
+            <td>11111111</td>
+            <td>11111111</td>
+            <td>11111111</td>
+            <td>11111111</td>
+        </tr>
+        <tr>
+            <td>11111111</td>
+            <td>11111111</td>
+            <td>11111111</td>
+            <td>11111111</td>
+            <td>11111111</td>
+        </tr>
+        <tr>
+            <td>11111111</td>
+            <td>11111111</td>
+            <td>11111111</td>
+            <td>11111111</td>
+            <td>11111111</td>
+        </tr>
+        <tr>
+            <td>11111111</td>
+            <td>11111111</td>
+            <td>11111111</td>
+            <td>11111111</td>
+            <td>11111111</td>
+        </tr>
+
+    </table>
+</body>
+<!-- 
+    contenteditable="true" 
+    自定义属性,让当前标签内的信息可以编辑。
+-->
+<script>
+    var aTd = document.querySelectorAll('td');
+    for (var i = 0; i < aTd.length; i++) {
+        aTd[i].onclick = function() {
+            //点击td产生一个文本框。文本框的内容就是td里面的内容。
+            //每个td只能有1个input
+            //如果td不存在子元素，可以创建input
+            if (!this.children[0]) {
+                this.innerHTML = '<input value="' + this.innerHTML + '"/>';
+            }
+            //问题：得到焦点表单才允许输入
+            //点击input表单，input是td的子元素，出现冒泡。点击input也就点击了td。
+            //取消input产生的冒泡(this.children[0])
+            this.children[0].onclick = function(ev) {
+                var ev = ev || window.event;
+                ev.stopPropagation();
+            };
+
+            //input失去焦点的事件
+            this.children[0].onblur = function() {
+                // this->this.children->input
+                this.outerHTML = this.value;
+            };
+        }
+    }
+</script>
+
+</html>

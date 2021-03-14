@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="box">1111111</div>
+</body>
+<script>
+    //1.普通事件(DOM 0级事件)
+    //一个元素对象上面只能绑定一个事件处理函数。
+    // document.onclick = function() {
+    //     alert(1);
+    // };
+    // document.onclick = function() { //下面覆盖上面。
+    //     alert(2);
+    // };
+
+    //如何取消普通事件。
+    // document.onclick = null;
+
+    //2.事件绑定(事件监听,DOM 2级事件)
+    //一个元素对象上面只能绑定多个事件处理函数。
+    //标准浏览器：obj.addEventListener(事件类型,事件处理函数,是否捕获-true捕获/false冒泡)
+
+    //IE浏览器：obj.attachEvent(事件类型,事件处理函数)
+    //              /əˈtætʃ/附加；附属
+
+    document.addEventListener('click', function() {
+        console.log(this);
+    }, false);
+
+    document.addEventListener('click', function() {
+        console.log(2);
+    }, false);
+
+    // document.attachEvent('onclick', function() {
+    //     console.log(this);
+    // });
+    // document.attachEvent('onclick', function() {
+    //     console.log(2);
+    // });
+
+    //3.标准浏览器和IE浏览器事件绑定的区别：
+    //参数个数不一样。
+    //事件类型不一样。
+    //事件执行顺序不一样。(IE倒序执行)
+    //this指向不一样。(标准this指向当前操作的元素对象。IE执行window)
+
+
+    //4.事件绑定的封装。
+    // function addEvent(obj, etype, fn, bool) { //obj:元素对象  etype:事件类型  fn:事件处理函数  bool:是否捕获
+    //     bool = bool || false;
+    //     if (obj.addEventListener) {
+    //         obj.addEventListener(etype, fn, bool);
+    //     } else {
+    //         obj.attachEvent('on' + etype, fn);
+    //     }
+    // }
+
+    // var oBox = document.querySelector('.box');
+
+    // addEvent(oBox, 'click', function() {
+    //     console.log(1);
+    // });
+
+    // addEvent(oBox, 'click', function() {
+    //     console.log(2);
+    // });
+
+    // addEvent(oBox, 'click', function() {
+    //     console.log(3);
+    // });
+
+    //DOM 2级事件取代DOM 0级事件,反之不行。
+
+    //5.取消事件绑定
+    // 移除事件监听的参数和添加事件监听的参数是一致的。 
+    // obj.removeEventListener(事件类型,事件处理函数,是否捕获-true捕获/false冒泡)--标准浏览器取消监听
+    // obj.detachEvent(事件类型,事件处理函数) --IE浏览器取消监听
+    //     /dɪˈtætʃ/ 分离
+    // 匿名的事件处理函数无法删除。
+
+    // console.log(function() {} == function() {}); //false
+
+
+    // function removeEvent(obj, etype, fn, bool) { //obj:元素对象  etype:事件类型  fn:事件处理函数  bool:是否捕获
+    //     bool = bool || false;
+    //     if (obj.removeEventListener) {
+    //         obj.removeEventListener(etype, fn, bool);
+    //     } else {
+    //         obj.detachEvent('on' + etype, fn);
+    //     }
+    // }
+
+    // function fn1() {
+    //     console.log('fn1');
+    // }
+
+    // function fn2() {
+    //     console.log('fn2');
+    // }
+
+    // function fn3() {
+    //     console.log('fn3');
+    // }
+
+    // addEvent(document, 'click', fn1);
+    // addEvent(document, 'click', fn2);
+    // removeEvent(document, 'click', fn2); //移除
+    // addEvent(document, 'click', fn3);
+</script>
+
+</html>

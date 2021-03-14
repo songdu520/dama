@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="box1"><span>11111111</span></div>
+    <div class="box2">22222222</div>
+    <div class="box3">33333333</div>
+    <div class="box4">44444444</div>
+    <div class="box5">55555555</div>
+    <strong>strong</strong>
+</body>
+<script>
+    //1.获取元素对象 - 通过id名称。
+
+    //2.获取元素对象 - 类名 - document.querySelector('选择器的名称')
+    // innerHTML属性:读写(获取和设置)元素对象里面的内容(包含里面标签)。
+    var box1 = document.querySelector('.box1');
+    var box2 = document.querySelector('.box2');
+    var box3 = document.querySelector('.box3');
+    var box4 = document.querySelector('.box4');
+    var box5 = document.querySelector('.box5');
+    alert(box1.innerHTML); //<span>11111111</span>  获取
+    box1.innerHTML = 'hehe'; //赋值。
+
+
+    //3.封装函数实现获取任意元素对象。
+
+    // function $(selector) {
+    //     return document.querySelector(selector)
+    // }
+
+    // alert($('.box1').innerHTML);
+    // alert($('.box5').innerHTML);
+    // alert($('strong').innerHTML);
+</script>
+
+</html>

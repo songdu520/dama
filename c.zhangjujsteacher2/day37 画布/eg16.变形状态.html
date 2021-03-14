@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #mycanvas {
+            border: 1px solid black;
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- canvas是html5 新增的图形容器 -->
+    <!-- 行内块元素 inline-block -->
+    <!-- 兼容性不好 在低版本的ie无法使用 -->
+    <!-- 需要为canvas元素设置大小 写属性 不写样式 -->
+    <!-- 兼容处理 当低版本浏览器无法识别标签时 会自动当作行内元素处理 -->
+    <canvas width="400" height="400" id="mycanvas">
+        您的浏览器不支持canvas元素，请升级浏览器
+    </canvas>
+
+    <script>
+        let canvas = document.getElementById('mycanvas');
+        let ctx = canvas.getContext('2d');
+
+        // ctx.save()  用于保存当前的变形状态
+        ctx.save();
+
+        ctx.translate(100, 100);
+
+        ctx.save();
+
+        ctx.rotate(-Math.PI / 4);
+
+        ctx.save();
+
+        ctx.scale(2, 2);
+
+        // 绘图
+        ctx.fillStyle = "red";
+        ctx.fillRect(0, 0, 50, 50);
+
+
+        // ctx.restore(); 用于恢复变形状态
+        ///rɪˈstɔːr/恢复
+        // 恢复到最近的状态
+        ctx.restore();
+
+        ctx.fillStyle = "yellow";
+        ctx.fillRect(0, 0, 50, 50);
+
+        ctx.restore();
+        ctx.fillStyle = "blue";
+        ctx.fillRect(0, 0, 50, 50);
+
+        ctx.restore();
+        ctx.fillStyle = "pink";
+        ctx.fillRect(0, 0, 50, 50);
+    </script>
+</body>
+
+</html>

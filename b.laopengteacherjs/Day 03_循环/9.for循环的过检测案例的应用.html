@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //1.输出100-200之间所有的素数。
+    //素数：质数,只能被1和本身整除的数。
+
+    //循环输出100-200之间的每一个数字。
+    //逐个判断数字是否是素数。
+    //100 -> 2-99进行整除。
+    //101 -> 2-100进行整除
+    //102 -> 2-101
+
+    for (var i = 100; i <= 200; i++) { //外出循环一次
+        //标记思维
+        var flag = 1; //合格
+
+        //检测
+        for (var j = 2; j <= i - 1; j++) { //里面全部循环
+            if (i % j === 0) { //能够整除，这个i不是素数。
+                flag = 2; //不合格
+                break; //终止循环,跳出循环。
+            }
+        }
+
+        //等待带出来的结果
+        if (flag === 1) { //合格的
+            document.write(i + '---');
+        }
+
+    }
+</script>
+
+</html>

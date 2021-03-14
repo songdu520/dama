@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        fieldset {
+            width: 500px;
+            padding: 20px;
+            margin: 30px;
+            border: 1px solid #ccc;
+        }
+        
+        legend {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        
+        #show {
+            width: 200px;
+            height: 25px;
+            margin-bottom: 10px;
+        }
+        
+        .btn {
+            width: 80px;
+            height: 30px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            outline: none;
+            background-color: orange;
+            margin: 0 20px;
+        }
+        
+        .btn:disabled {
+            background-color: #ccc;
+        }
+        /*方法一样式部分*/
+        
+        select {
+            width: 120px;
+            height: 30px;
+        }
+        
+        .box {
+            width: 200px;
+            height: 200px;
+            background: red;
+        }
+    </style>
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/require.js/2.3.6/require.min.js" defer async="true" data-main='js/main.js'></script>
+</head>
+
+<body>
+    <!-- <div class="box"></div> -->
+    <!-- 全选 -->
+    <div class="allselect">
+        <input type="checkbox" class="all">全选<br>
+        <input type="checkbox">1<br>
+        <input type="checkbox">2<br>
+        <input type="checkbox">3<br>
+        <input type="checkbox">4<br>
+        <input type="checkbox">5
+    </div>
+
+    <hr>
+    <!-- 三级联动菜单 -->
+    <div>
+        <fieldset>
+            <legend>下拉选择框实现省市区（县）三级联动</legend>
+            <form action="#">
+                <label for="show">您选择的是：
+                    <input type="text" value="" id="show">
+                </label>
+                <br />
+
+                <!--省份选择-->
+                <select id="prov">
+                    <option>=请选择省份=</option>
+                </select>
+
+                <!--城市选择-->
+                <select id="city">
+                    <option>=请选择城市=</option>
+                </select>
+
+                <!--县区选择-->
+                <select id="country">
+                    <option>=请选择县区=</option>
+                </select>
+
+                <button type="button" class="btn" id="btnclick">确定</button>
+            </form>
+        </fieldset>
+    </div>
+</body>
+
+</html>

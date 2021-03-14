@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //一.this是Javascript语言的一个关键字。它代表函数运行时，自动生成的一个内部对象，只能在函数内部使用。随着函数使用场合的不同，this的值会发生变化。但是有一个总的原则，那就是this指的是调用函数的那个对象。
+
+    //函数内部有两个特殊的对象：arguments / this
+    //谁调用函数，函数内部的this指向谁。
+
+    //1.普通的函数,自执行函数,函数表达式，内部的this指向window
+    // function fn() {
+    //     console.log(this);
+    // }
+    // fn(); //函数 window
+    // window.fn(); //方法  window
+    //函数都是window下面的方法。
+    //变量都是window下面的属性。
+    // var a = 1;
+    // console.log(a);
+    // console.log(window.a);
+
+
+    // ! function() {
+    //     alert(this);//window
+    // }();
+
+    // 2.事件处理函数：指向当前触发事件的元素对象。
+    // document.onclick = function() {
+    //     console.log(this); //document
+    // }
+
+    // 3.构造函数:构造函数里面的this指向new出来的实例对象。
+
+    // function Abc() {
+    //     this.num = 100;
+    // }
+    // var a1 = new Abc(); //a1:实例对象   Abc:构造函数
+    // console.log(a1.num); //100
+</script>
+
+</html>

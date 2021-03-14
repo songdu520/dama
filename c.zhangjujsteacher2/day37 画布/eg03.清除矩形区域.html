@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #mycanvas {
+            border: 1px solid black;
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas width="400" height="400" id="mycanvas">
+        您的浏览器不支持canvas元素，请升级浏览器
+    </canvas>
+
+    <script>
+        let canvas = document.getElementById('mycanvas');
+        let context = canvas.getContext('2d');
+
+        let x = 0;
+        let y = 0;
+
+        context.fillStyle = 'blue';
+        setInterval(function() {
+            context.clearRect(0, 0, canvas.width, canvas.height);
+            context.fillRect(x++, y++, 200, 200);
+        }, 30);
+        // 清除矩形区域
+        // canvas中唯一一个可以擦除内容的方法
+        // context.clearRect(x,y,width,height); 
+
+        // context.clearRect(150, 150, 100, 100);
+
+        // 这个方法还经常用于清空画布
+    </script>
+</body>
+
+</html>

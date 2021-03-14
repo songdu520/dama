@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <input type="text" value="请输入用户名"> -->
+    <input type="text">
+</body>
+<script>
+    //1.onfocus得到焦点  onblur失去焦点
+    //                   /blɜːr/模糊不清的事物
+    // var oInput = document.querySelector('input');
+    // oInput.onfocus = function() {
+    //     if (this.value === '请输入用户名') {
+    //         this.value = '';
+    //     }
+    // };
+
+    // oInput.onblur = function() {
+    //     if (this.value == '') {
+    //         this.value = '请输入用户名';
+    //     }
+    // };
+
+    //2.键盘事件
+    // onkeydown 当用户按下键盘按键时触发。
+    // onkeyup 当用户释放键盘按键时触发。
+    // document.onkeydown = function() { //连续触发
+    //     console.log('你已经按下一个键了');
+    // };
+
+    // document.onkeyup = function() { //松开意味着结束
+    //     console.log('你已经松开一个键了');
+    // };
+
+    //3.输入事件
+    // onchange 当对象或选中区的内容改变时触发。
+    // oninput 标准当文本框的内容发生改变时触发
+
+    // oInput.onkeydown = function() {//必须按键触发
+    //     console.log('触发了');
+    // }
+
+    // oInput.onchange = function() { //必须失去焦点触发
+    //     console.log('触发了');
+    // }
+
+    // oInput.oninput = function() { // 只要内容改变，立刻触发。
+    //     console.log('触发了');
+    // }
+</script>
+
+</html>

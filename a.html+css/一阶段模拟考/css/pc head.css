@@ -1,0 +1,30 @@
+header .logo  img{
+    width: 390px;
+    height: 85px;
+
+}
+header .logo {
+    display: inline-block;
+   
+}
+
+header .nav{width: 720px;
+
+}
+header .nav li {
+    float: left;
+}
+header .nav li  a {
+    display: block;
+    width: 90px;
+    color: black;
+    height: 85px;
+    line-height: 85px;
+    text-align: center;
+
+}
+header .banner img{
+width: 100%;    
+height: 481px;
+
+}

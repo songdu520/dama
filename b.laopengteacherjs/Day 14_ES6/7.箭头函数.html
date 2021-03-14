@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>111111</li>
+        <li>111111</li>
+        <li>111111</li>
+        <li>111111</li>
+    </ul>
+</body>
+<script>
+    //1.箭头函数的概念及特点
+    //箭头函数最吸引人的地方是简洁。同时函数体内this对象，就是声明时所在的对象，而不是使用时所在的对象。this不会被改变了。
+    // 箭头函数一定是匿名函数；
+    // 箭头函数适合于无复杂逻辑纯函数场景下(简单的函数应用)
+    // 不要在最外层定义箭头函数，最外层的函数里面的this指向window,很容易污染全局作用域window。
+
+    // const sum = function(v) {
+    //     return '你输入的内容是：' + v;
+    // };
+    // console.log(sum('hello'));
+
+    // const sum = v => '你输入的内容是：' + v;
+    // console.log(sum('hi'));
+
+
+    // const sum = function(a, b, c) {
+    //     console.log(a);
+    //     console.log(b);
+    //     console.log(c);
+    // };
+
+    // const sum = (a, b, c) => {
+    //     console.log(a);
+    //     console.log(b);
+    //     console.log(c);
+    // }
+
+    // let fn = () => {
+    //     console.log(this);
+    // }
+    // fn.call('hi'); //this指向window,来自于父级，无法改变。
+
+    // const fn = function() {
+    //     //this->window
+    //     document.onclick = () => {
+    //         console.log(this); //window,this指向window,来自于父级，无法改变。
+    //     }
+    // };
+
+    // fn();
+
+
+    // const aLi = document.querySelectorAll('li');
+    // for (let i = 0; i < aLi.length; i++) {
+    //     aLi[i].onclick = function() {
+    //         //this:当前点击的li。
+    //         setTimeout(() => {
+    //             this.innerHTML = '222222222222222222'; //this->li  来自于父级，无法改变。
+    //         }, 2000);
+    //     }
+    // }
+</script>
+
+</html>

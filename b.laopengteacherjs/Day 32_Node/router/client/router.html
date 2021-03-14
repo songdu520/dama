@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .content {
+            width: 900px;
+            height: 300px;
+            border: 3px solid orange;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="#index">首页</a>
+    <a href="#login">登录</a>
+    <a href="#registry">注册</a>
+    <div class="content"></div>
+
+</body>
+
+</html>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+    //1.获取hash值
+    //2.添加对应的事件。hashchange
+    const content = document.querySelector('.content');
+    window.addEventListener('hashchange', function() { //哈希值改变触发事件
+        console.log(location.hash.substring(1)); //获取hash值
+        let hash = location.hash.substring(1);
+        switch (hash) {
+            case 'index':
+                $.ajax({
+                    url: '../index.html'
+                }).done(function(data) {
+                    content.innerHTML = data;
+                });
+                break;
+            case 'login':
+                $.ajax({
+                    url: '../login.html'
+                }).done(function(data) {
+                    content.innerHTML = data;
+                });
+                break;
+            case 'registry':
+                $.ajax({
+                    url: '../registry.html'
+                }).done(function(data) {
+                    content.innerHTML = data;
+                });
+                break;
+        }
+    });
+</script>
+<!-- router   路由
+     /ˈruːtər; ˈraʊtər/ 
+    路由：
+    前端路由 - hash值实现
+    后端路由 - 模块
+    单页Web应用（single page web application，SPA），就是只有一张Web页面的应用，是加载单个HTML页面并在用户与应用程序交互时动态更新该页面的Web应用程序。
+    浏览器一开始会加载必需的HTML、CSS和JavaScript，所有的操作都在这张页面上完成，都由JavaScript来控制。
+
+    事件：hashchange哈希值改变 / 获取hash
+    前端：hashchange + location.hash
+    后端：http服务器 + url 
+ -->

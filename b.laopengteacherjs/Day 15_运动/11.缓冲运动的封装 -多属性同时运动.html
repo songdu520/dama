@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+</body>
+<script>
+    //缓冲运动
+    //离目标点越远速度越大，离目标点越近速度越慢。
+
+    //封装函数：
+    //封装，重用，可扩展(配置参数)
+
+    //任意属性的运动(px为单位)
+    //宽高，位置，字体大小...
+
+    //任意属性的运动(px为单位) + 透明度
+    //透明度取值扩大100倍，设置目标扩大100倍
+    //赋值的缩小100倍，opacity接收0-1之间的值。
+
+    //多物体运动：
+    //定时器返回值给每一个元素对象当做自定义属性。
+
+    //链式运动：上一个运动结束开启下一次运动。
+
+    //多属性同时运动：当前封装的运动只能一次运动一个属性。
+
+    //问题：有一个属性到了目标点，整个运动就停止了，定时器停止。
+
+
+    function getStyle(obj, attr) { //obj:运动的物体   attr:运动物体的属性
+        if (window.getComputedStyle) { //标准
+            return window.getComputedStyle(obj)[attr];
+        } else {
+            return obj.currentStyle[attr];
+        }
+    }
+
+    // let json = {
+    //     width: 1000, 
+    //     height: 600,
+    //     opacity: 100
+    // }
+    // bufferMove(this, {
+    //     width: 1000,
+    //     height: 600,
+    //     opacity: 100
+    // }); //多属性，多目标
+    // function bufferMove(obj, attr, target, fn) { //obj:运动的物体  attr:运动物体的属性   target:运动的目标点  fn:函数(函数做参数，回调函数)
+    function bufferMove(obj, json, fn) { //obj:运动的物体   json：属性对象   fn:函数(函数做参数，回调函数)
+        let speed = 0;
+        clearInterval(obj.timer);
+        obj.timer = setInterval(() => {
+            let flag = true;
+            //遍历属性attr，属性值
+            for (let attr in json) { //attr:属性名   json[attr]:目标值
+                //求当前值(透明度有问题)
+                let currentvalue = null;
+                if (attr === 'opacity') { //透明度
+                    currentvalue = getStyle(obj, attr) * 100; //将透明度的值扩大100倍。
+                } else {
+                    currentvalue = parseInt(getStyle(obj, attr));
+                }
+                //求缓冲的速度
+                speed = (json[attr] - currentvalue) / 10;
+                speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+
+                //物体的运动和停止
+                if (currentvalue !== json[attr]) { //当前的某个属性没有到目标点，继续运动
+                    //透明度有问题,透明度没有单位
+                    if (attr === 'opacity') {
+                        obj.style.opacity = (currentvalue + speed) / 100; //缩小100倍，0-1之间的值进行赋值
+                    } else {
+                        obj.style[attr] = currentvalue + speed + 'px';
+                    }
+                    //只有物体还在运动
+                    flag = false;
+                }
+            }
+
+            if (flag) { //flag ===true for没有改变flag的值,运动的结束了。
+                clearInterval(obj.timer);
+                fn && typeof fn === 'function' && fn(); //上一次运动停止了 如果fn存在，fn是一个函数，执行fn，否则不执行。
+            }
+
+
+        }, 1000 / 60)
+    }
+
+    const aDiv = document.querySelectorAll('.box');
+    aDiv[0].onmouseover = function() {
+        bufferMove(this, {
+            width: 1000,
+            height: 201
+        });
+    };
+    aDiv[0].onmouseout = function() {
+        bufferMove(this, {
+            width: 200,
+            height: 200
+        });
+    };
+</script>
+
+</html>

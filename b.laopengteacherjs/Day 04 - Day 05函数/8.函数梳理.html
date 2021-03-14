@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //1.梳理函数的概念：
+    //函数实际上是对象,同时也是对象的构造器。由于函数是对象，因此函数名实际上也是一个指向函数对象的指针-函数名等同于函数体
+
+    //2.函数的好处及注意事项
+    //函数是用来帮助我们封装、重用、扩展及调用代码的最方便的工具！
+    //函数名等于函数体
+    //typeof 函数   ----  function
+    //声明的函数如果不调用，函数相当于不存在。通过调用找函数
+
+    //3.函数的组成(完整的函数)
+    //function + 函数名称 + (参数) + 函数体  + return
+
+    //4.函数的种类
+    //4.1普通函数 - 有名称的函数
+    function fn(a, b) {
+        return a + b;
+    }
+
+    //4.2函数表达式
+    var fn1 = function(a, b) {
+        return a + b;
+    };
+
+    //4.3自执行函数：函数名等于函数体,自执行函数前面的代码一定要结束。
+    (function(a, b) {
+        alert(a + b);
+    })(2, 3);
+
+    ! function(a, b) {
+        alert(a + b);
+    }(2, 3);
+
+    //4.4事件处理函数：将函数给事件，由事件去触发。
+    document.onclick = function() {
+        alert(fn1(3, 4));
+    };
+
+
+    //5.函数的参数和返回值
+    //函数的参数分为形参和实参，形参用于函数声明,实参用于函数调用。
+    //函数的参数理解成函数内部定义的变量。
+
+    //函数的返回值：
+    //每个函数都有一个return返回值，如果没有return默认返回undefined。
+    //return终止函数的执行(函数结束了),类似break.
+</script>
+
+</html>

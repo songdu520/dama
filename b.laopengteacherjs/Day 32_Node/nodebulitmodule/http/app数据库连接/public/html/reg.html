@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery.js"></script>
+    <script>
+        $(function() {
+            $('#submit').on('click', function() {
+                $.ajax({
+                    type: "POST",
+                    url: "/reg",
+                    data: {
+                        username: $('#username').val(),
+                        password: $('#password').val()
+                    },
+                    // dataType: 'json',
+                    success: function(response) {
+                        console.log(JSON.parse(response));
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <h1>登陆页</h1>
+    用户名:<input type="text" id="username"><br> 密码:
+    <input type="password" id="password"><br>
+    <input type="button" id="submit" value="登陆">
+</body>
+
+</html>

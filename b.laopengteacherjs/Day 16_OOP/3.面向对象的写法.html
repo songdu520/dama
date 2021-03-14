@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //1.面向对象OOP:自定义的类和对象    类(构造函数)
+    //面向对象的核心是对象，对象来自于类。
+
+    //构造函数里面还是原型里面的this都是指向new出来的实例对象
+    function Showinfo() { //构造函数：内部的属性和方法都是私有的。
+        this.a = 100;
+        this.b = 200;
+        this.c = 300;
+        let d = 400; //内部的变量，给内部使用。
+    }
+
+    // Showinfo.prototype.showa = function() { //原型：公有的属性和方法。
+    //     return this.a;
+    // };
+
+    // Showinfo.prototype.showb = function() {
+    //     return this.b;
+    // };
+
+    // Showinfo.prototype.showc = function() {
+    //     return this.c;
+    // }
+    Showinfo.prototype = {
+        showa: function() {
+            return this.a;
+        },
+        showb: function() {
+            return this.b;
+        },
+        showc: function() {
+            return this.c
+        }
+    };
+    let s1 = new Showinfo(); //s1:实例对象   Showinfo:类或者构造函数。
+    // console.log(s1.a);
+    // console.log(s1.showa());
+
+    let s2 = new Showinfo();
+    // console.log(s2.a);
+    // console.log(s2.showa());
+    // console.log(s2.d); //undefined
+
+    //总结：
+    //第一种面向对象开发方式：混合开发(构造函数+原型)
+
+
+    let arr1 = new Array(1, 2, 3, 4);
+    // Array.prototype.push = function() { //失效
+    //     return 'hehe';
+    // };
+    // console.log(arr1.push(5)); //5
+    // console.log(arr1); //[1,2,3,4,5]
+
+    //自定义的hehe方法取代push.
+    Array.prototype.hehe = function() {
+        for (let i = 0; i < arguments.length; i++) {
+            this[this.length] = arguments[i]
+        }
+        return this.length;
+    }
+    console.log(arr1.hehe(5, 6, 7, 8)); //8
+    console.log(arr1); //[1,2,3,4,5,6,7,8]
+
+
+    Array.prototype.norepat = function() {
+        return [...new Set(this)];
+    }
+    let arr2 = [12, 5, 46, 78, 1, 2, 12, 5, 46, 78, 1, 2];
+
+    console.log(arr2.norepat()); //[12, 5, 46, 78, 1, 2]
+
+
+    //目的：
+    //1.更熟悉系统类和对象的形成。
+    //2.学会面向对象开发方式。
+</script>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 函数防抖的核心思路
+        // 在n秒内只执行一次事件处理函数
+        // 如果在n秒内再次触发该事件则从新计时
+
+        // https://www.rootbk.cn/?p=134
+
+        function debounce(callback, wait) {
+            var timer = null; // 计时器
+            return function() {
+                var arg = arguments; // 获得实参
+                console.log(arg)
+                if (timer) clearTimeout(timer); // 如果有计时器就清除计时器
+                timer = setTimeout(function() {
+                    callback.apply(this, arg); // 调用回调 传入实参  需要事件对象
+                }.bind(this), wait); // bind(this)  是修正 事件中的this指向
+            }
+        }
+
+
+        window.onload = function() {
+            var search = document.querySelector('#search');
+
+
+            // search.addEventListener('input', function() {
+            //     let url = 'https://www.baidu.com/sugrec?pre=1&p=3&ie=utf-8&json=1&prod=pc&from=pc_web&sugsid=32817,1462,32843,32945,31660,32723,32230,7517,32116,26350,32915,22160&wd=' + this.value + '&req=2&csor=3&pwd=12&cb=callback';
+            //     let script = document.createElement('script');
+            //     script.src = url;
+            //     document.body.appendChild(script);
+            //     document.body.removeChild(script);
+            // });
+
+            search.addEventListener('input', debounce(function(ev) {
+                console.log(ev);
+                console.log(this);
+                let url = 'https://www.baidu.com/sugrec?pre=1&p=3&ie=utf-8&json=1&prod=pc&from=pc_web&sugsid=32817,1462,32843,32945,31660,32723,32230,7517,32116,26350,32915,22160&wd=' + this.value + '&req=2&csor=3&pwd=12&cb=callback';
+                let script = document.createElement('script');
+                script.src = url;
+                document.body.appendChild(script);
+                document.body.removeChild(script);
+            }, 1000));
+
+        }
+
+        function callback(data) {
+            console.log(data);
+        }
+    </script>
+</head>
+
+<body>
+    <input type="text" id="search">
+</body>
+
+</html>

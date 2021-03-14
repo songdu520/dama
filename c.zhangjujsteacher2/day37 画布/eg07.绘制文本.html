@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #mycanvas {
+            border: 1px solid black;
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <canvas width="400" height="400" id="mycanvas">
+        您的浏览器不支持canvas元素，请升级浏览器
+    </canvas>
+
+    <script>
+        // ctx.font = "50px 微软雅黑";//定义字体
+        // ctx.strokeText('text', x, y)
+        //fillText(text,x,y) - //在 canvas 上绘制实心的文本
+
+        let canvas = document.getElementById('mycanvas');
+        let ctx = canvas.getContext('2d');
+
+        ctx.font = "50px 微软雅黑";
+
+
+
+        ctx.strokeStyle = "blue";
+        ctx.strokeText('你好世界', 102, 152);
+
+        ctx.fillText('你好世界', 100, 150);
+    </script>
+</body>
+
+</html>

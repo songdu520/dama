@@ -1,0 +1,31 @@
+@charset 'utf-8';
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.slider {
+    width: 570px;
+    height: 400px;
+    margin: 100px auto;
+    // overflow: hidden;
+    position: relative;
+    div {
+        width: 3000px;
+        position: absolute;
+        border: solid 1px #000000;
+        img {
+            float: left;
+        }
+    }
+    span {
+        font-size: 3em;
+        position: absolute;
+        top: 45%;
+        cursor: pointer;
+        user-select: none;
+        &:last-of-type {
+            right: 0;
+        }
+    }
+}

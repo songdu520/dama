@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //1.获取按键对应的键码 - unicode编码。
+    //keyCode和which 获取键盘上按键对应的unicode编码
+    //回车enter:13
+    //空格space:32
+    //event.keyCode || event.which  IE不支持
+    document.onkeydown = function(ev) {
+        var ev = ev || window.event;
+        console.log(ev.keyCode);
+        // console.log(ev.which); //不仅获取键盘按键的unicode编码,获取鼠标的键码。
+    };
+
+    // document.onmousedown = function() {
+    //     var ev = ev || window.event;
+    //     console.log(ev.which); //左中右：123
+    // }
+
+    //2.组合键event.ctrlKey、event.altKey、event.shiftKey 分别代表ctrl alt shift键
+    // document.onkeydown = function(ev) {
+    //     var ev = ev || window.event;
+    //     if (ev.keyCode === 13 && ev.ctrlKey) { //ctrl+enter
+    //         console.log(123456);
+    //     }
+    // }
+    // document.onkeydown = function(ev) {
+    //     var ev = ev || window.event
+
+    //     console.log(ev.which)
+    // }
+    // document.onmousedown = function() {
+    //     var ev = ev || event
+    //     console.log(ev.which)
+    // }
+    // document.onmousedown = function() {
+
+    // }
+</script>
+
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://dss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/css/components/user_quit_dialog-527f3ede74.css">
+    <link rel="stylesheet" href="https://passport.bdimg.com/passApi/css/uni_loginv4_32f7ef9.css">
+    <style>
+        body {
+            overflow: hidden;
+        }
+        
+        #mask {
+            display: none;
+        }
+        
+        #passport-login-pop {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="javascript:void(0)" id="link">登录</a>
+    <div id="mask" style="position:absolute;top:0px;left:0px;width:100%;height:100%;z-index:-1;opacity: 0.5; z-index: 60000; background-color: rgb(0, 0, 0);">&nbsp;</div>
+    <div id="passport-login-pop" class="tang-pass-pop-login-merge tang-pass-pop-login-tpl-mn tang-pass-pop-login-color-blue tang-pass-pop-login" style="left: 613px; top: -128.5px; z-index: 60001;">
+        <div class="tang-background" id="TANGRAM__PSP_6__" style="position:absolute; top:0px; left:0px;width:100%;height:100%;z-index:-9; -webkit-user-select:none; -moz-user-select:none;">
+            <div class="tang-background-inner" style="width:100%;height:100%;" id="TANGRAM__PSP_6__inner"></div>
+            <div style="filter:progid:DXImageTransform.Microsoft.Alpha(opacity:0);position:absolute;z-index:-1;top:0;left:0;width:100%;height:100%;opacity:0;background-color:#FFFFFF"></div>
+        </div>
+        <div class="tang-foreground" id="TANGRAM__PSP_4__foreground" style="width: 356px;">
+            <div class="tang-title tang-title-dragable" id="TANGRAM__PSP_4__title">
+                <div class="buttons" id="TANGRAM__PSP_4__titleButtons">
+                    <a id="TANGRAM__PSP_4__closeBtn" class="close-btn"></a>
+                </div><span id="TANGRAM__PSP_4__titleText">&nbsp;</span></div>
+            <div class="tang-body" id="TANGRAM__PSP_4__body">
+                <div class="tang-content" id="TANGRAM__PSP_4__content">
+                    <div id="passport-login-pop-dialog">
+                        <div class="clearfix">
+                            <div class="pass-login-pop-content">
+                                <div class="pass-login-pop-form">
+                                    <div id="passport-login-pop-api" class="tang-pass-login" style="display: block; visibility: visible; opacity: 1;">
+                                        <form id="TANGRAM__PSP_11__form" class="pass-form pass-form-normal" method="POST" autocomplete="off">
+                                            <p class="pass-form-logo">用户名密码登录</p>
+                                            <p id="TANGRAM__PSP_11__errorWrapper" class="pass-generalErrorWrapper"><span id="TANGRAM__PSP_11__error" class="pass-generalError pass-generalError-error"></span></p>
+                                            <p id="TANGRAM__PSP_11__MakeTextWrapper" class="pass-make-text" style="display:none;"></p>
+                                            <p id="TANGRAM__PSP_11__hiddenFields" style="display:none"><input type="hidden" id="TANGRAM__PSP_11__codeString" name="codeString" value=""><input type="hidden" id="TANGRAM__PSP_11__safeFlag" name="safeFlag" value="0"><input type="hidden" id="TANGRAM__PSP_11__u" name="u"
+                                                    value="https://www.baidu.com/?tn=78000241_35_hao_pg"><input type="hidden" id="TANGRAM__PSP_11__isPhone" name="isPhone" value="false"><input type="hidden" id="TANGRAM__PSP_11__detect" name="detect" value="1">
+                                                <input type="hidden" id="TANGRAM__PSP_11__gid" name="gid" value="CBEADD6-191D-4473-A940-0C24018CEF19"><input type="hidden" id="TANGRAM__PSP_11__staticPage" name="staticPage" value="https://www.baidu.com/cache/user/html/v3Jump.html">
+                                                <input type="hidden" id="TANGRAM__PSP_11__quick_user" name="quick_user" value="0">
+                                                <input type="hidden" id="TANGRAM__PSP_11__logintype" name="logintype" value="dialogLogin"><input type="hidden" id="TANGRAM__PSP_11__logLoginType" name="logLoginType" value="pc_loginDialog"><input type="hidden"
+                                                    id="TANGRAM__PSP_11__subpro" name="subpro" value=""><input type="hidden" id="TANGRAM__PSP_11__idc" name="idc" value=""><input type="hidden" id="TANGRAM__PSP_11__loginMerge" name="loginMerge" value="true">
+                                                <input type="hidden" id="TANGRAM__PSP_11__mkey" name="mkey" value=""></p>
+                                            <p id="TANGRAM__PSP_11__userNameWrapper" class="pass-form-item pass-form-item-userName" style="display:"><input type="text" style="display:none;"><input id="TANGRAM__PSP_11__userName" type="text" name="userName" class="pass-text-input pass-text-input-userName" autocomplete="off" value="" placeholder="手机/邮箱/用户名">
+                                                <span id="TANGRAM__PSP_11__userName_clearbtn" class="pass-clearbtn pass-clearbtn-userName" style="display:none;"></span><span id="TANGRAM__PSP_11__userNameTip" class="pass-item-tip pass-item-tip-userName"
+                                                    style="display:none"><span id="TANGRAM__PSP_11__userNameTipText" class="pass-item-tiptext pass-item-tiptext-userName"></span></span>
+                                            </p>
+                                            <p id="TANGRAM__PSP_11__passwordWrapper" class="pass-form-item pass-form-item-password" style="display:"><input type="password" style="display: none;"><input id="TANGRAM__PSP_11__password" type="password" name="password" class="pass-text-input pass-text-input-password" autocomplete="off" value="" placeholder="密码">
+                                                <span id="TANGRAM__PSP_11__password_clearbtn" class="pass-clearbtn pass-clearbtn-password" style="display:none;"></span><span id="TANGRAM__PSP_11__passwordTip" class="pass-item-tip pass-item-tip-password"
+                                                    style="display:none"><span id="TANGRAM__PSP_11__passwordTipText" class="pass-item-tiptext pass-item-tiptext-password"></span></span>
+                                            </p>
+                                            <p id="TANGRAM__PSP_11__verifyCodeImgWrapper" class="pass-form-item pass-form-item-verifyCode" style="display:none"><input id="TANGRAM__PSP_11__verifyCode" type="text" name="verifyCode" class="pass-text-input pass-text-input-verifyCode" maxlength="6" placeholder="验证码"><span id="TANGRAM__PSP_11__verifyCode_clearbtn" class="pass-clearbtn pass-clearbtn-verifyCode"
+                                                    style="display:none;"></span><span id="TANGRAM__PSP_11__verifyCodeImgParent" class="pass-verifyCodeImgParent"><img id="TANGRAM__PSP_11__verifyCodeImg" class="pass-verifyCode" src="https://passport.baidu.com/passApi/img/small_blank.gif"></span>
+                                                <a id="TANGRAM__PSP_11__verifyCodeChange" href="#" class="pass-change-verifyCode">换一张</a><span id="TANGRAM__PSP_11__verifyCodeError" class="pass-error pass-error-verifyCode"></span><span id="TANGRAM__PSP_11__verifyCodeTip"
+                                                    class="pass-tip pass-tip-verifyCode"></span><span id="TANGRAM__PSP_11__verifyCodeSuccess" class="pass-success pass-success-verifyCode"></span></p>
+                                            <p id="TANGRAM__PSP_11__memberPassWrapper" class="pass-form-item pass-form-item-memberPass memberPass-hidden"><input id="TANGRAM__PSP_11__memberPass" type="checkbox" name="memberPass" class="pass-checkbox-input pass-checkbox-memberPass" checked="checked"><label for="TANGRAM__PSP_11__memberPass" id="TANGRAM__PSP_11__memberPassLabel"
+                                                    class="">下次自动登录</label></p>
+                                            <p id="TANGRAM__PSP_11__submitWrapper" class="pass-form-item pass-form-item-submit"><input id="TANGRAM__PSP_11__submit" type="submit" value="登录" class="pass-button pass-button-submit"><a class="pass-fgtpwd pass-link" href="https://passport.baidu.com/?getpassindex&amp;tt=1599118203796&amp;gid=CBEADD6-191D-4473-A940-0C24018CEF19&amp;tpl=mn&amp;u=https%3A%2F%2Fwww.baidu.com%2F%3Ftn%3D78000241_35_hao_pg"
+                                                    target="_blank">忘记密码？</a></p>
+                                        </form>
+                                    </div>
+                                    <div id="TANGRAM__PSP_11__qrcode" class="clearfix tang-pass-qrcode tang-pass-login" style="display: none; visibility: hidden; opacity: 1;">
+                                        <p class="pass-form-logo">扫码登录</p>
+                                        <div class="tang-pass-qrcode-content" id="TANGRAM__PSP_11__qrcodeContent">
+                                            <div class="tang-pass-qrcode-init">
+                                                <div class="Qrcode-status-con tang-pass-qrcode-imgWrapper" id="TANGRAM__PSP_11__QrcodeMain" style="display: block; visibility: visible; opacity: 1; margin-left: 39px;"><img class="tang-pass-qrcode-img" src="https://passport.baidu.com/v2/api/qrcode?sign=6af3bcb0b919cb2729604c735ef0a2ea&amp;lp=pc&amp;qrloginfrom=pc">
+                                                    <p class="Qrcode-status-animation Qrcode-status-guideAnim" id="TANGRAM__PSP_11__QrcodeAnimation"></p>
+                                                </div>
+                                                <div class="Qrcode-status-con Qrcode-status-success" id="TANGRAM__PSP_11__QrcodeSuccess" style="display: none;">
+                                                    <p class="Qrcode-status-icon"></p>
+                                                    <p>扫描成功</p>
+                                                    <p class="Qrcode-status-msg">请在手机端确认登录</p>
+                                                </div>
+                                                <div class="Qrcode-status-con Qrcode-status-error" id="TANGRAM__PSP_11__QrcodeError" style="display: none;">
+                                                    <p class="Qrcode-status-icon"></p>
+                                                    <p>网络连接失败</p>
+                                                    <p class="Qrcode-refresh-btn" id="TANGRAM__PSP_11__QrcodeErrorfreshBtn">点击刷新</p>
+                                                </div>
+                                                <div class="Qrcode-status-con Qrcode-status-refresh" id="TANGRAM__PSP_11__QrcodeRefresh" style="display: none;">
+                                                    <p class="Qrcode-status-icon"></p>
+                                                    <p class="refresh-title refresh-timeout">二维码已失效</p>
+                                                    <p class="refresh-title refresh-loadout">二维码加载失败</p>
+                                                    <p class="Qrcode-refresh-btn" id="TANGRAM__PSP_11__QrcodeRefreshBtn">点击刷新</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <p class="tang-pass-qrcode-title">请使用<a class="pass-link" href="https://mo.baidu.com/wuxian/?from=1019447z" target="new">百度App</a>扫码登录</p>
+                                        <ul class="tang-pass-qrcode-ullist">
+                                            <li class="tang-pass-qrcode-list"><span class="tang-pass-qrcode-list-aq"></span><span>安全</span></li>
+                                            <li class="tang-pass-qrcode-list"><span class="tang-pass-qrcode-list-gx"></span><span>高效</span></li>
+                                            <li class="tang-pass-qrcode-list"><span class="tang-pass-qrcode-list-bj"></span><span>便捷</span></li>
+                                        </ul>
+                                    </div>
+                                    <div class="tang-pass-footerBar">
+                                        <p class="tang-pass-footerBarQrcode pass-link" title="扫码登录" data-type="qrcode" id="TANGRAM__PSP_11__footerQrcodeBtn" style="">扫码登录</p>
+                                        <p class="tang-pass-footerBarULogin pass-link" title="用户名登录" data-type="normal" id="TANGRAM__PSP_11__footerULoginBtn" style="display: none;">用户名登录</p>
+                                        <div class="tang-pass-footerBarPhoenix"><span class="tang-pass-footerBarPhoenixSplit"></span>
+                                            <div class="tang-pass-footerBarPhoenixItem" id="TANGRAM__PSP_11__PhoenixItem">
+                                                <div id="pass-phoenix-login" class="tang-pass-login-phoenix">
+                                                    <div id="pass-phoenix-list-login" class="pass-phoenix-list clearfix">
+                                                        <div class="pass-phoenix-btn clearfix" id="pass_phoenix_btn">
+                                                            <ul class="bd-acc-list">
+                                                                <li class="bd-acc-qzone" data-dialog="1" data-acc="15" data-height="450" data-width="750"><a class="phoenix-btn-item" href="#" data-title="qzone" title="QQ帐号">QQ帐号</a></li>
+                                                                <li class="bd-acc-tsina" data-dialog="1" data-acc="2" data-height="669" data-width="800"><a class="phoenix-btn-item" href="#" data-title="tsina" title="新浪微博">新浪微博</a></li>
+                                                                <li class="bd-acc-weixin" data-dialog="1" data-acc="42" data-height="450" data-width="850"><a class="phoenix-btn-item" href="#" data-title="weixin" title="微信">微信</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <div class="clear"></div>
+                                                </div>
+                                            </div>
+                                        </div><a class="pass-reglink pass-link" href="https://passport.baidu.com/v2/?reg&amp;tt=1599118203796&amp;overseas=undefined&amp;gid=CBEADD6-191D-4473-A940-0C24018CEF19&amp;tpl=mn&amp;u=https%3A%2F%2Fwww.baidu.com%2F%3Ftn%3D78000241_35_hao_pg"
+                                            target="_blank">立即注册</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tang-footer" id="TANGRAM__PSP_4__footer" style="display: none;">
+                <div id="TANGRAM__PSP_4__footerContainer"></div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    var oA = document.querySelector('#link'); //登录按钮
+    var oMask = document.querySelector('#mask'); //遮罩层
+    var oPassport = document.querySelector('#passport-login-pop'); //登录框
+    var title = document.querySelector('#TANGRAM__PSP_4__title'); //登录框拖拽的地方
+    var close = document.querySelector('#TANGRAM__PSP_4__closeBtn'); //登录框拖拽的地方
+
+
+    //1.点击登录按钮，对应的遮罩层和登录框显示。
+    oA.onclick = function() {
+        oMask.style.display = 'block';
+        oPassport.style.display = 'block';
+        oPassport.style.left = (document.documentElement.clientWidth - oPassport.offsetWidth) / 2 + 'px';
+        oPassport.style.top = (document.documentElement.clientHeight - oPassport.offsetHeight) / 2 + 'px';
+    };
+
+    window.onresize = function() {
+        oPassport.style.left = (document.documentElement.clientWidth - oPassport.offsetWidth) / 2 + 'px';
+        oPassport.style.top = (document.documentElement.clientHeight - oPassport.offsetHeight) / 2 + 'px';
+    };
+
+    //2.拖拽
+    title.onmousedown = function(ev) {
+        var ev = ev || window.event;
+        var shortx = ev.offsetX;
+        var shorty = ev.offsetY;
+        document.onmousemove = function(ev) {
+            var ev = ev || window.event;
+            //拖拽的是整个登录框
+            //设置边界：
+            //判断盒子的left和top不能拖出当前的可视区。
+            var left = ev.clientX - shortx;
+            var top = ev.clientY - shorty;
+            if (left <= 0) { //当前的盒子如果<=0,将盒子的位置设为0
+                left = 0;
+            } else if (left >= document.documentElement.clientWidth - oPassport.offsetWidth) {
+                left = document.documentElement.clientWidth - oPassport.offsetWidth;
+            }
+
+            if (top <= 0) { //当前的盒子如果<=0,将盒子的位置设为0
+                top = 0;
+            } else if (top >= document.documentElement.clientHeight - oPassport.offsetHeight) {
+                top = document.documentElement.clientHeight - oPassport.offsetHeight;
+            }
+            oPassport.style.left = left + 'px';
+            oPassport.style.top = top + 'px';
+        };
+        document.onmouseup = function() {
+            document.onmousemove = null;
+            document.onmouseup = null;
+        };
+        return false; //浏览器的默认行为。
+    };
+
+    // 点击close,登录框和遮罩层隐藏
+    close.onclick = function() {
+        oMask.style.display = 'none';
+        oPassport.style.display = 'none';
+    };
+</script>
+
+</html>

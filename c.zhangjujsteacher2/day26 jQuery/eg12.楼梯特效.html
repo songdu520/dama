@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        div {
+            width: 100%;
+            height: 600px;
+            line-height: 600px;
+            text-align: center;
+            font-size: 3em;
+        }
+        
+        div:nth-of-type(1) {
+            background-color: rgba(255, 0, 0, 0.7);
+        }
+        
+        div:nth-of-type(2) {
+            background-color: rgba(255, 255, 0, 0.7);
+        }
+        
+        div:nth-of-type(3) {
+            background-color: rgba(255, 0, 255, 0.7);
+        }
+        
+        div:nth-of-type(4) {
+            background-color: rgba(0, 255, 255, 0.7);
+        }
+        
+        div:nth-of-type(5) {
+            background-color: rgba(255, 255, 255, 0.7);
+        }
+        
+        div:nth-of-type(6) {
+            background-color: rgba(30, 255, 50, 0.7);
+        }
+        
+        #list {
+            position: fixed;
+            left: 50px;
+            top: 30%;
+            list-style: none;
+        }
+        
+        #list>li {
+            border: 1px solid #ccc;
+            margin: 5px;
+            padding: 10px 30px;
+            background-color: #fff;
+        }
+        
+        #list>li>a.active {
+            color: red;
+        }
+    </style>
+    <script src="./jquery.js"></script>
+    <script>
+        $(function() {
+            $('#list>li>a').on('click', function() {
+                // console.log(1);
+                // 获得 被点击的a元素对应的div元素距离页面顶部的高度
+                let top = $(`#${$(this).attr('title')}`).offset().top;
+                $('html').animate({
+                    scrollTop: top
+                }, 600);
+            });
+
+            $(window).on('scroll', function() {
+                // console.log(1);
+                // 当前文档距离顶部的高度
+                let top = $(document).scrollTop();
+                // console.log(top);
+
+                let index = Math.round(top / 600);
+                $('#list>li>a').removeClass('active').eq(index).addClass('active');
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <ul id="list">
+        <li><a href="javascript:;" title="hot" class="active">热门</a></li>
+        <li><a href="javascript:;" title="computer">电脑</a></li>
+        <li><a href="javascript:;" title="phone">手机</a></li>
+        <li><a href="javascript:;" title="office">办公</a></li>
+        <li><a href="javascript:;" title="books">图书</a></li>
+        <li><a href="javascript:;" title="tv">电视</a></li>
+    </ul>
+
+    <div id="hot">热门</div>
+    <div id="computer">电脑</div>
+    <div id="phone">手机</div>
+    <div id="office">办公</div>
+    <div id="books">图书</div>
+    <div id="tv">电视</div>
+</body>
+
+</html>

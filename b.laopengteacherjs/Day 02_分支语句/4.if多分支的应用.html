@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //案例：输入分数，判定成绩等级(if和switch两种写法)（5个等级0-100）
+    var score = +prompt('请输入一个分数0-100：');
+    if (score >= 0 && score <= 100) {
+        //多分支语句
+        if (score >= 90 && score <= 100) {
+            alert('A');
+        } else if (score >= 80 && score < 90) {
+            alert('B');
+        } else if (score >= 70 && score < 80) {
+            alert('C');
+        } else if (score >= 60 && score < 70) {
+            alert('D');
+        } else if (score >= 0 && score < 60) {
+            alert('E');
+        }
+    } else {
+        alert('输入有误');
+    }
+</script>
+
+</html>

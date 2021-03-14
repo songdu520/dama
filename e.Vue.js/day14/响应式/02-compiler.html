@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <p>{{ a }}</p>
+  <p>{{ b }}</p>
+  <p>ccc</p>
+
+
+  <script>
+    const obj = {
+      a: 3,
+      b: "hello"
+    };
+
+    function compileElement(node) {
+      let children = node.children;
+      var reg = /\{\{(.*)\}\}/;
+      // 观察所有的子节点有没有双大括号，如果有就用obj里面的内容去替换
+      Array.from(children).forEach(child => {
+        if (reg.test(child.textContent)) {
+          child.innerHTML = obj[RegExp.$1.trim()]
+        }
+      })
+    };
+
+    compileElement(document.body);
+  </script>
+</body>
+</html>

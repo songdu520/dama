@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script src="../ajaxcallback.js"></script>
+
+<script>
+    ajax({
+        url: 'http://localhost/JS2008/phpdata/newslist.php',
+        dataType: 'json',
+        success: function(data) {
+            console.log(data);
+            console.log(Object.keys(data).length); //3
+            console.log(data.data1);
+            console.log(data.data2);
+            console.log(data.data3);
+            let str = '';
+            for (let i = 0; i < Object.keys(data).length; i++) {
+                str += '<ul>';
+                for (let value of data['data' + (i + 1)]) {
+                    str += `
+                        <li><a href="">${value.title}</a><span>${value.date}</span></li>
+                    `;
+                }
+                str += '</ul>';
+            }
+
+            document.body.innerHTML = str;
+        }
+    })
+</script>
+
+</html>

@@ -1,0 +1,74 @@
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+ol,
+dl,
+dt,
+dd,
+form,
+fieldset,
+legend,
+select,
+input,
+textarea,
+p,
+button {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font: 12px "微软雅黑";
+}
+i,
+em,
+b,
+strong {
+    font-style: normal;
+    font-weight: normal;
+}
+img {
+    display: block;
+    /* 如果图片放在超链接a中，在ie的低版本浏览器中，会出现蓝色的边框 */
+    border: 0;
+}
+.clearfix:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+.wrapper {
+    width: 1226px;
+    margin: 0 auto;
+}
+.left {
+    float: left;
+}
+.right {
+    float: right;
+}
+a,
+ins {
+    text-decoration: none;
+}
+li {
+    list-style-type: none;
+}
+input,
+textarea,
+select,
+button {
+    outline: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: normal;
+}

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">{{ msg }}
+        <button v-on:click="handleClick">按钮</button>
+    </div>
+
+    <script src="../../Vue.js"></script>
+    <script>
+        const vm = new Vue({
+            // el: '#app',
+            data: {
+                msg: 'hello'
+            },
+            methods: {
+                change() {
+                    console.log(123)
+                }
+            },
+            methods: {
+                handleClick() {
+                    this.msg = Math.random()
+                }
+            },
+
+            // 初始化了内部事件和生命周期
+
+            beforeCreate() {
+                // 不能在这里做数据请求
+                console.log('beforeCreate');
+                // console.log(this.change);
+            },
+
+            // 初始化了响应式数据和methods
+
+            created() {
+                // 可以做数据请求
+                console.log('created')
+                    // console.log(this.change);
+                    // console.log(this);
+            },
+
+            // 检查是否有el和template选项
+
+            beforeMount() {
+                console.log('beforeMount')
+                    // console.log(this.msg);
+                    // console.log(this);
+                console.log(document.querySelector('#app'))
+            },
+
+            // 用真实dom去替换虚拟dom
+
+            mounted() {
+                // 在这里可以拿到真实的dom节点了
+                // 是数据请求最迟在这里做
+                console.log('mounted')
+                console.log(document.querySelector('#app'))
+                    // console.log(this);
+            },
+
+            // 当响应式数据发生改变时触发
+            // 真实dom生成的前后
+            // 不要在update里面去修改数据, 会死循环
+            beforeUpdate() {
+                this.msg = Math.random()
+                console.log('beforeUpdate')
+                console.log(document.querySelector('#app').innerHTML)
+            },
+            updated() {
+                console.log('updated')
+                console.log(document.querySelector('#app').innerHTML)
+            },
+
+            // 销毁的不是整个页面， 销毁的是响应式系统
+
+            beforeDestroy() {
+                // 清除定时器， 事件监听， websocket
+                console.log('beforeDestroy')
+            },
+            destroyed() {
+                console.log('destroyed')
+            }
+        })
+
+        vm.$mount('#app'); //没有el，也可以用这个挂载
+        //  /maʊnt/挂载
+
+        // setTimeout(() => {
+        //   vm.$destroy()
+        // }, 3000)
+    </script>
+</body>
+
+</html>

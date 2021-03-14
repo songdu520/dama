@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    #app {
+      display: flex;
+      width: 100%;
+      overflow: auto;
+    }
+    .item {
+      width: 90px;
+      height: 120px;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+    }
+    img {
+      width: 80px;
+      height: 90px;
+    }
+    p {
+      width: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <!-- <div class="item" v-for="(item, index) in movieList">
+      <img v-bind:src="item.imgUrl" alt="">
+      <p>{{ item.title }}</p>
+    </div> -->
+    <movie-list v-for="(item, index) in movieList" v-bind:item="item"></movie-list>
+  </div>
+
+  <script src="../../Vue.js"></script>
+  <script>
+
+    const MovieList = {
+      props: ['item'],
+      template: `
+        <div class="item">
+          <img v-bind:src="item.imgUrl" alt="">
+          <p>{{ item.title }}</p>
+        </div>
+      `
+    }
+
+
+    new Vue({
+      el: '#app',
+      data() {
+        return {
+          movieList: []
+        }
+      },
+      components: {
+        MovieList,
+      },
+      created() {
+        this.getList();
+      },
+      methods: {
+        getList() {
+          fetch('http://localhost:3080/api/rated/list')
+            .then(response => response.json())
+            .then(res => {
+              if (res.status === 0) {
+                this.movieList = res.result;
+              }
+            });
+        }
+      },
+    })
+  </script>
+</body>
+</html>

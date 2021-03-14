@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    li {
+        border: 1px solid black;
+        width: 400px;
+        margin: 20px;
+    }
+    
+    li a {
+        float: right;
+    }
+</style>
+
+<body>
+    <textarea name="text" placeholder="按ctrl+enter" id="" cols="30" rows="10"></textarea>
+    <ul>
+
+    </ul>
+
+</body>
+<script>
+    let text = document.querySelector('textarea')
+    let ul = document.querySelector('ul')
+    text.focus()
+    document.onkeydown = function(ev) {
+        if (ev.keyCode === 13 && ev.ctrlKey) {
+            let li = document.createElement('li')
+            li.innerHTML = text.value + ' <a href="javascript:;">删除</a>'
+            ul.appendChild(li)
+            text.value = ""
+        }
+    }
+</script>
+
+</html>

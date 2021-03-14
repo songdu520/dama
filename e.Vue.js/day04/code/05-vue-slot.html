@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <base-child>
+      <template #header>
+        <p>这是头部</p>
+      </template>
+
+            <p>这是其他</p>
+
+            <template #footer>
+        <p>这是footer</p>
+      </template>
+
+            <p>这是body</p>
+        </base-child>
+    </div>
+
+    <script src="../../Vue.js"></script>
+
+    <script>
+        const baseChild = {
+            template: `
+      <div class="container">
+        <header>
+          <slot name="header"></slot>
+        </header>
+        <main>
+          <slot name="default"></slot>
+        </main>
+        <footer>
+          <slot name="footer"></slot>
+        </footer>
+      </div>
+      `
+        }
+
+
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    msg: '这是内容'
+                }
+            },
+            components: {
+                baseChild
+            }
+        })
+    </script>
+</body>
+
+</html>

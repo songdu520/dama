@@ -1,0 +1,38 @@
+.banner{
+    height: 300px;
+    background: url(../img/151266879233170.jpg) center top ;
+}
+.main h1{
+    font-size: 40px;
+    margin: 31px 0px 50px ;
+    text-align: center;
+    font-weight: 500;
+    font-style: italic;
+}
+.main ul{
+    margin: 0px 5px 150px;
+    overflow: hidden;
+}
+.main li {
+    width: 340px;
+    /* background-color: blanchedalmond; */
+    float: left;
+    margin:20px 21px 0px;
+}
+.main li img{
+    width:340px;
+    border-radius:10px;
+    
+}
+.main li h3{
+    font-size: 16px;
+    text-align: center;
+    margin: 17px;
+}
+.main li p{
+    font-size: 11px;
+    color: #8c8c8c;
+    height: 50px;
+    overflow: hidden;
+    line-height: 26px;
+}

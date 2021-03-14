@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //2. 选择排序原理是：
+    //第一次从待排序的数据元素中选出最小（ 或最大） 的一个元素， 存放在序列的起始位置， 然后再从剩余的未
+    //排序元素中寻找到最小（ 大） 元素， 然后放到已排序的序列的末尾。 以此类推， 直到全部待排序的数据元素
+    //的个数为零。 选择排序是不稳定的排序方法。
+
+    //采用假设的方式，将每一个数字都假设为最大值。
+    var arr = [12, 5, 21, 5, -4, 33, 100, 44, 7, 2];
+    for (var i = 0; i < arr.length; i++) {
+        var minindex = i; //最小值的索引。
+        var minvalue = arr[minindex]; //假设的最小值。
+        for (var j = i + 1; j < arr.length; j++) {
+            if (minvalue > arr[j]) {
+                minvalue = arr[j];
+                minindex = j;
+            }
+        }
+        //内部的for循环执行完成才能找到第一次比较得到的真正的最小值。
+        //优化
+        //如果假设的最小值真的成立，不用交换。
+        if (i !== minindex) {
+            var temp = arr[i];
+            arr[i] = arr[minindex];
+            arr[minindex] = temp;
+        }
+
+
+    }
+
+    console.log(arr);
+
+
+    // var arr = [12, 5, 21, 5, -4, 33, 100, 44, 7, 2];
+
+    // var max = -1000000; //求最大值,假设的值设的很小。
+    // for (var i = 0; i < arr.length; i++) {
+    //     if (arr[i] > max) {
+    //         max = arr[i];
+    //     } 
+    // }
+    // console.log(max);
+</script>
+
+</html>

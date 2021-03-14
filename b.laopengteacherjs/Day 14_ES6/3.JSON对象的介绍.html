@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //1.渲染  - >需要数据 - > 数据需要格式  -> json格式。
+
+    //2.json是ES的一个子集，前后都在学习json. 拥有独立的格式。
+
+    //3.json的概述
+    //JSON是前后交互最好的数据格式(string类型或number类型)。
+    //它是基于 ECMAScript的一个子集，采用完全独立于编程语言的文本格式来存储和表示数据。
+    //json组成：简单值+'对象'+'数组'
+    //json里面字符串需要添加双引号。
+    //json没有var关键字,没有分号(;)等js相关的语法。
+
+    //4.前端获取json格式的字符串，如何处理。
+    // var str = '{"name": "zhangsan","age": 100, "score": [50, 60, 70, 80, 90] }';
+    // JSON.parse()： 用于从一个字符串中解析出json对象， 具有json检测功能。
+    // /pɑːrs/解析
+    // console.log(str);
+    // str = JSON.parse(str);
+    // console.log(str);bn.
+    // console.log(str.name); //zhangsan
+
+    // JSON.stringify()：用于从一个对象解析出json格式字符串s
+    var obj = {
+        a: 1,
+        b: 2,
+        c: 3
+    };
+
+    console.log(obj);
+    console.log(JSON.stringify(obj));
+</script>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script>
+            console.log(window.devicePixelRatio);
+        </script>
+    </head>
+    <body>
+        <!-- dpr : 设备像素比
+            设备分辨率   csspx  比值；
+            pc：       分辨率1px=css1px
+          移动端：
+          屏幕：i3
+               320px*xx   
+               屏幕分辩：320px*xx   1   
+               css div = 320px*xx  1
+               
+               i4
+               屏幕 320px*xx
+               分辨率：640px * 2xx
+
+               i5
+               屏幕 320px*568px
+               分辨率：640px * 2*568xx
+               
+               i6
+               屏幕 375px*667px
+               分辨率:750px*1334
+               css div = 414px*736px    css 1px * 2px
+
+               i6plus 414px*736px
+               分辨率:1242px*736*3
+
+               css div = 414px*736px    css 1px * 3px
+        -->
+        <div style="width: 100px; height: 100px; background: red;"></div>
+    </body>
+</html>

@@ -1,0 +1,634 @@
+.banner {background: url(../image/20190411074839708.jpg);
+    background-size: cover;
+    height: 927px;
+}
+.list-1{
+    background-color: #fff3e3;
+    height: 208px;
+}
+.list-1 .wrapper div{
+    width: 200px;
+    background-color: white;
+    height: 125px;
+    margin: 40px 85px 0 0;
+    float: left;
+    line-height: 125px;
+    padding-left: 36px;
+    vertical-align: middle;
+}
+
+.list-1 .wrapper div img{
+    display: inline-block;
+    margin-left: 39px;
+width: 75px;
+  /* margin-top: px; */
+  vertical-align: middle;
+
+}
+
+    .list-1 .wrapper div:nth-child(4) {
+        margin-right: 0;
+       
+    }
+    .list-1 .wrapper div:hover{
+        background-color: tomato;
+       color: white;
+    }
+    /* 第二部分 */
+    .list-2 {
+        background: url(../image/indexPart2.jpg) ;
+        background-size: 100%;
+   }
+        
+
+.list-2 h2{
+    margin-top: 24px;
+    font-size: 40px;
+    color: white;
+    text-align: center;
+    line-height: 94px;
+}
+
+.list-2 .box .box-1 {
+    width: 448px;
+    padding:0 30px 45px 30px;
+    background-color: #f7f7f7;
+    box-sizing: border-box;
+}
+.list-2 .box .box-1 .name{
+    font-size: 25px;
+    line-height: 80px;
+   
+}
+.list-2 .box .box-1 p:nth-child(2){
+    line-height: 45px;
+    font-size: 14px;
+    margin-bottom: 10px;
+
+}
+
+.list-2 .box .box-1 .name-2{
+    background-color: #ff950b;
+    padding: 20px 25px 13px 76px;
+}
+.list-2 .box .box-1 .name-2 h3{
+    font-size: 34px;
+    font-weight: normal;
+    color: white;
+
+
+}
+.list-2 .box .box-1 .name-2 p{
+    font-size: 14px;
+    line-height: 30px;
+    color: white;
+}
+.list-2 .box .box-1 li{float: left;
+    border: #dadada solid 1px;
+    border-radius: 4px;
+    width: 120px;
+    margin: 20px 11px 20px 0;
+   
+}
+.list-2 .box .box-1  ul li:last-child{
+    margin-right: 0;
+}
+.list-2 .box .box-1 .pass{width: 388px;
+    height: 50px;
+    background-color: #ff950b;
+    line-height: 50px;
+    text-align: center;
+
+
+}
+
+.list-2 .box .box-1 li img{
+    
+    margin: 14px auto 12px;
+}
+.list-2 .box .box-1 li p{
+   text-align: center;
+   margin-bottom: 17px;
+}
+
+
+.list-2 .box .box-2 img{
+    width: 752px;
+    margin-bottom: 67px;
+
+}
+/* 第三部分 */
+.list-3  h2{text-align: center;
+    font-size: 42px;
+ line-height: 100px;
+ 
+
+
+}
+.list-3  h2 img{
+    display: inline-block;
+}
+.list-3 .box-1{
+    width: 1200PX;
+    height: 575px;
+    overflow: hidden;
+} 
+
+.list-3 .box-1 li{float: left;
+    width: 200px;
+
+    transition: all 0.5s;
+    position: relative;
+
+    
+}
+
+.list-3 .box-1:hover li{
+    width:81px ;
+   
+}
+.list-3 .box-1 li:hover{
+    width: 795px;
+
+}
+.list-3 .box-1 li  div:nth-child(2) img{
+left:  27px;
+    position: absolute;
+    top: 284px;
+    transition: all 0.5s;
+    opacity: 1;
+}
+.list-3 .box-1 li:hover div:nth-child(2) img{
+    left: -50px;
+    opacity: 0;
+
+}
+.list-3 .box-1 li  div:nth-child(3) {
+    background-color: rgba(255, 255, 255, 0.8);
+    position: absolute;
+    left: -100px;
+    top:50%;
+    width: 200px;
+    height: 150px;
+    margin-left:-100px ;
+    margin-top: -75px;
+    transition: all 1s;
+    opacity: 0;
+}
+.list-3 .box-1 li  div:nth-child(3) h3{
+    font-size: 30px;
+    text-align: center;
+    line-height: 50px;
+    
+
+}
+.list-3 .box-1 li  div:nth-child(3) img{
+    margin-left: 80px;
+}
+.list-3 .box-1 li:hover  div:nth-child(3){
+    left: 50%;
+    opacity: 1;
+}
+.list-3{
+    height: 759px;
+}
+/* 第四部分 */
+.list-4 {
+    height:100px ;
+    background-color: #fff3e3;
+    margin-bottom: 10px;
+}
+.list-4 .wrapper>p{
+  
+    line-height: 100px;
+    font-size: 24px;
+    color: #cccccc;
+    display: inline-block;
+}
+.list-4 ul li{
+    width: 220px;
+    float: left;
+}
+
+.list-4 ul img{
+    display: inline;
+    vertical-align: middle;
+    
+}
+.list-4 ul img:hover{
+    transform: translateY(-10px);
+}
+.list-4 ul li p{
+    display: inline-block;
+   margin-top: 30px;
+   line-height: 50px;
+   
+}
+
+/* 第五部分 */
+.list-5{
+    background: url(../image/indexPart5.jpg);
+    height: 575px;
+    background-position:-330px 0;
+}
+.list-5 .box-1{
+    
+    background: url(../image/nimg392Bg.jpg);
+    padding: 25px 35px 50px 35px;
+    display: inline-block;
+    vertical-align: top;
+
+}
+.list-5 .box-1 h3{
+    line-height: 40px;
+    font-size: 21px;
+    font-weight: normal;
+    margin-bottom: 20px;
+}
+.list-5 .box-1 h3 span{
+    border-bottom: #ff950b 5px solid;
+    display: inline-block;
+
+}
+.list-5 .box-1  ul li{
+    height: 48px;
+    width: 318px;
+    background-color: white;
+    border: #dadada 1px solid;
+    margin-bottom: 10px;
+}
+.list-5 .box-1 li div{
+    display: inline-block;
+   vertical-align: middle;
+    padding-top: 17px;
+}
+.list-5 .box-1 li input{
+    height: 100%;
+    border: none;
+    vertical-align: top;
+    cursor: pointer;
+}
+.list-5 .box-1 li select{
+    height: 100%;
+    border: none;
+    vertical-align: top;
+    width: 275px;
+    cursor: pointer;
+
+}
+.list-5 .box-1 li:nth-last-child(2){
+    margin-bottom: 23px;
+}
+
+.list-5 .box-1 li input[type*="s"]{
+    text-align: center;
+    line-height: 48px;
+    width: 100%;
+    background-color: #ff950b;
+    color: white;
+    
+}
+.list-5 .box-2 {
+    margin-left: 7px;
+   display: inline-block;
+
+}
+/* 第六部分 */
+.list-6 h2{text-align: center;
+    font-size: 42px;
+ line-height: 100px;
+ 
+
+
+
+}
+.list-6  h2 img{
+    display: inline-block;
+}
+.list-6{
+    background-color: #f3f3f3;
+    padding-bottom: 60px;
+}
+.list-6 .box-1{
+    width: 192px;
+    display: inline-block;
+}
+.list-6 .box-1  div{
+    width: 180px;
+    height: 180px;
+    background-color: white;
+    overflow: hidden;
+    margin-bottom: 10px;
+    
+}
+
+.list-6 .box-1  div img{margin: 40px auto 13px;
+
+    
+}
+
+.list-6 .box-1  div p{
+    color: #ffc259;
+    text-align: center;
+    font-size: 18px;
+}
+.list-6 .box-2{
+    float: right;
+    width: 1008px;
+    
+}
+.list-6 .box-2 li{
+    float: left;
+  
+}
+.list-6 .box-2 li:nth-child(1){
+    background: url(../image/20180613023947139.jpg);
+    height: 370px;
+    width: 620px;
+
+}
+.list-6 .box-2 li:nth-child(1) img{
+    /* height: 100%; */
+   height: 100%;
+   width: 100%;
+   transition: all 1s; 
+   opacity: 0;
+ 
+}
+.list-6 .box-2 li:nth-child(1):hover img{opacity: 1;
+
+}
+.list-6 .box-2 li:nth-child(2) {
+    height: 370px;
+    width: 380px;
+    background-color: white;
+    margin-left: 8px;
+}
+.list-6 .box-2 li:nth-child(2) .tu{
+background: url(../image/20180604101723034.jpg); 
+width: 380px;
+height: 180px;}
+.list-6 .box-2 li:nth-child(2) .tu img{
+    height: 100%;
+   
+   width: 100%;
+   transition: all 1s; 
+   opacity: 0;
+}
+.list-6 .box-2 li:nth-child(2):hover .tu img{opacity: 1;
+
+}
+.list-6 .box-2 li:nth-child(2) .text{
+    padding: 16px 19px 0 19px;
+    background-color: white;
+
+}
+.list-6 .box-2 li:nth-child(2) .text h4{
+    line-height: 48px;
+    font-weight: normal;
+    font-size: 20px;
+
+}
+.list-6 .box-2 li:nth-child(2) .text p{
+    line-height: 24px;
+    font-weight: 14px;
+    color: black;
+
+}
+.list-6 .box-2 li:nth-child(2) .text:hover p{
+    color: tomato;
+}
+
+.list-6 .box-2 li:nth-child(3){
+  width: 620px;
+  padding: 24px 20px 0 20px;
+  box-sizing: border-box;
+  background-color: white;
+  height: 180px;
+  margin-top: 8px;
+
+}
+.list-6 .box-2 li:nth-child(3) h4{
+    font-size: 20px;
+}
+.list-6 .box-2 li:nth-child(3) p:nth-child(2){
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+.list-6 .box-2 li:nth-child(3) p:last-child{
+    font-size: 14px;
+    line-height: 23px;
+}
+.list-6 .box-2 li:nth-child(4){
+    width: 380px;
+    height: 180px;
+    background: url(../image/20180604100628839.jpg);
+    margin: 8px 0 0 8px;
+}
+.list-6 .box-2 li:nth-child(4) img{
+    /* height: 100%; */
+   height: 100%;
+   width: 100%;
+   transition: all 1s; 
+   opacity: 0;
+ 
+}
+.list-6 .box-2 li:nth-child(4):hover img{opacity: 1;
+
+}
+/* 第七部分 */
+.list-7 h2{text-align: center;
+    font-size: 42px;
+ line-height: 100px;
+ color: white;
+ }
+.list-7  h2 img{
+    display: inline-block;
+}
+.list-7 {
+    background: url(../image/indexPart7.jpg);
+}
+.list-7 li{
+   
+    color: white;
+}
+.list-7 li .box-1{background-color: #ffc600;
+    padding: 20px 50px  55px;
+    width: 365px;
+    box-sizing: border-box;
+
+    
+}
+
+.list-7 li .box-1 p:nth-child(1){
+    line-height: 87px;
+    text-align: center;
+    font-size: 25px;
+}
+.list-7 li .box-1 p:nth-child(2){
+    font-size: 13px;
+    line-height: 25px;
+}
+.list-7 li .box-1  div{
+    margin-top: 30px;
+    text-align: center;
+}
+.list-7 li .box-1 a{
+    border: white 1px solid;
+    border-radius:19px ;
+    line-height: 38px;
+    display: block;
+    margin: 0 auto;
+    height: 38px;
+    width: 120px;
+    color: white;}
+.list-7 li:nth-child(2) .box-1{
+        width: 330px;
+        height: 270px;
+        background-color: white;
+        color: black;
+}
+ .list-7 li:nth-child(3) .box-1{
+     background-color: #ff526c;
+     width: 364Px;
+     height: 234px;
+     margin-bottom: 10px;
+        
+    }           
+ .list-7 li:nth-child(3) .box-1  div{
+     margin-top: 0px;
+ }  
+ .list-7 li:nth-child(1) .box-2{float: left;
+     
+ }
+ .list-7 li:nth-child(1){
+     width: 861px;
+ }
+ .list-7 li:nth-child(3) .box-2{
+     float:left;
+    }
+    .list-7 li:nth-child(2) {
+        width: 330px;
+    }
+    
+    .list-7 li:nth-child(2) .box-2{
+        width: 100%;
+        background-color: orangered;
+        padding: 39px 0 34px 17px;
+        box-sizing:border-box;
+
+
+    }
+    .list-7 li:nth-child(2) .box-2 p{
+        font-size: 20px;
+        margin-bottom: 30px;
+        
+    }
+    .list-7 li:nth-child(2) .box-2 p em{
+        font-size: 31px;
+        font-weight: 900;
+    }
+
+    .list-7 li:nth-child(3){
+        width: 861px;
+    }
+    /* 第八部分 */
+.list-8{
+    background-color: #f7f7f7;
+    padding: 55px 0;
+}
+
+.list-8 .box-1{
+    width: 286px;
+    padding: 40px 0 37px;
+ background-color: white;
+ box-shadow:0 0 3px #cccccc;
+ margin-right: 14px;
+}
+.list-8  ul .box-1:nth-child(4){
+    margin-left: 0;
+}
+.list-8 .box-1 img{
+    margin-left: 90px;
+    margin-bottom: 17px;
+}
+
+.list-8 .box-1 img:nth-child(1){
+    display: none;
+}
+.list-8 .box-1:hover img:nth-child(1){
+    display: block;
+}
+.list-8 .box-1:hover img:nth-child(2){
+    display: none;
+}
+
+
+
+.list-8 .box-1 h4{
+    line-height: 50px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: normal;
+
+}
+
+.list-8 .box-1 p{
+    width: 230px;
+    margin: 0 auto;
+    font-size: 14px;
+    text-align: center;
+    line-height: 25px;
+}
+   /* 第九部分 */
+.list-9 ul{
+    position: fixed;
+    right: 50%;
+    margin-right: -650px;
+    top: 50%;
+    margin-top: -104px;
+    z-index: 8;
+}
+.list-9 ul li{
+    height: 50px;
+    width: 50px;
+    background-color: #ff526c;
+    position: relative;
+    margin-bottom: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    padding: 10px 0;
+    box-sizing: border-box;
+}
+.list-9 ul li:hover{
+    overflow: visible;
+}
+.list-9 ul li img{
+    margin: 0 auto;
+   
+
+}
+
+.list-9 ul li div{
+    position: absolute;
+    right: 60px;
+    top: 0;
+    background-color: #ff526c;
+    width: 300px;
+    line-height: 50px;
+    color: white;
+text-align: center;
+
+}
+.list-9 ul li div::after{
+    content: "";
+    border: 10px solid transparent;
+    display: block;
+    position: absolute;
+    left: 300px;
+    top: 15px;
+    border-left-color: #ff526c;
+}
+
+    
+    

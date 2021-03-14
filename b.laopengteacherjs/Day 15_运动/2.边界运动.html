@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+
+</body>
+<script>
+    //1.边界运动：
+    //当物体运动到边界后，如何处理。
+    //限定在可视区。
+    const oBox = document.querySelector('.box');
+    let timer = null;
+    let speedx = 3; //水平速度
+    let speedy = 6; //垂直速度
+    oBox.onclick = function() {
+        clearInterval(timer);
+        timer = setInterval(() => {
+            let left = oBox.offsetLeft + speedx;
+            let top = oBox.offsetTop + speedy;
+
+
+
+            if (top >= document.documentElement.clientHeight - oBox.offsetHeight) { //box最大的top值不能超过可视区的高度-盒子的高度。
+                top = document.documentElement.clientHeight - oBox.offsetHeight; //不出现滚动条
+                speedy *= -1; //速度取反
+            } else if (top <= 0) {
+                top = 0;
+                speedy *= -1; //速度取反
+            }
+
+
+            if (left >= document.documentElement.clientWidth - oBox.offsetWidth) { //box最大的left值不能超过可视区的宽度-盒子的宽度。
+                left = document.documentElement.clientWidth - oBox.offsetWidth; //不出现滚动条
+                speedx *= -1; //速度取反
+            } else if (left <= 0) {
+                left = 0;
+                speedx *= -1; //速度取反
+            }
+
+            oBox.style.left = left + 'px';
+            oBox.style.top = top + 'px';
+            console.log(speedy)
+        }, 1000 / 60);
+    };
+</script>
+
+</html>

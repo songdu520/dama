@@ -1,0 +1,10 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+div {
+  color: red;
+}
+div a {
+  color: yellow;
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .red {
+            color: red;
+        }
+        
+        .green {
+            color: green;
+        }
+    </style>
+    <script src="./Z.js"></script>
+    <script>
+        $(function() {
+            // content-type 类型对照表
+            // https://tool.oschina.net/commons/  
+
+            // get请求和post请求的区别
+            // post需要设置请求头
+            // post的数据写在send中
+            $('#username').on('input', function() {
+                let data = {
+                    username: this.value
+                };
+
+
+
+                const xhr = new XMLHttpRequest(); // 获得ajax对象
+                xhr.open('post', './interface/hasuser-json.php');
+                // key=value&key=value&key=value  设置请求头时 设置为表单数据格式
+                // xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded');
+                // xhr.send('username=' + this.value);
+
+
+
+                // 发送数据为json时 设置请求头为 application/json
+                xhr.setRequestHeader('content-type', 'application/json');
+                xhr.send(JSON.stringify(data));
+
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState == 4 && xhr.status == 200) {
+                        // console.log(xhr.responseText);
+                        let res = JSON.parse(xhr.responseText);
+
+                        $('#result').html(res.msg);
+                    }
+                }
+            });
+
+
+        });
+    </script>
+</head>
+
+<body>
+    <input type="text" id="username">
+    <span id="result"></span>
+</body>
+
+</html>

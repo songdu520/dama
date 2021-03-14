@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-model="str" v-on:keyup.13="handleKeyUp">
+        <button v-on:click="handleClick">添加</button>
+
+        <ul>
+            <li v-for="(item, index) in list">
+                {{ item }}
+                <span v-on:click="remove(index)">X</span>
+            </li>
+        </ul>
+    </div>
+
+    <script src="../../Vue.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                list: ['啊啊啊啊啊', '水水水水水', '大大大大大大'],
+                str: ''
+            },
+            methods: {
+                handleClick() {
+                    this.list.push(this.str);
+                    this.str = '';
+                },
+                handleKeyUp(e) {
+                    // if (e.keyCode === 13) {
+                    this.handleClick();
+                    // }
+                },
+                remove(i) {
+                    this.list.splice(i, 1);
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        //作用域插槽
+        <!-- <base-child>
+      {{ user.firstName }}
+    </base-child> -->
+        <base-child>
+            <!-- 
+        slotProps = {
+          user: {
+            firstName: 'zhang',
+            lastName: 'san'
+          }
+          num: 5
+        }
+
+       -->
+            <template v-slot:default="{ user, num }">
+        {{ user.firstName }}
+        {{ num }}
+      </template>
+
+            <template #header="a">
+        <div>
+          {{ a.num }}
+        </div>
+      </template>
+        </base-child>
+    </div>
+
+    <script src="../../Vue.js"></script>
+    <script>
+        const BaseChild = {
+            data() {
+                return {
+                    user: {
+                        firstName: 'zhang',
+                        lastName: 'san'
+                    }
+                }
+            },
+            template: `
+        <span>
+          <slot name="default" :user="user" :num="5">{{ user.lastName }}</slot>
+          <slot name="header" :num="6">haha</slot>
+        </span>
+      `
+        }
+
+        new Vue({
+            el: '#app',
+            components: {
+                BaseChild
+            }
+        })
+    </script>
+</body>
+
+</html>

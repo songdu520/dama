@@ -1,0 +1,45 @@
+@charset 'utf-8';
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.tabs {
+  width: 900px;
+  height: 600px;
+  margin: 10px auto 0;
+  position: relative;
+}
+.tabs > ul {
+  list-style: none;
+  overflow: hidden;
+}
+.tabs > ul > li {
+  float: left;
+  width: 130px;
+  line-height: 35px;
+  border: 1px solid black;
+  margin: 3px 5px;
+  text-align: center;
+  font-size: 1.1em;
+  padding: 3px;
+  border-radius: 3px;
+  user-select: none;
+  cursor: pointer;
+}
+.tabs > ul > li.active {
+  background-color: greenyellow;
+}
+.tabs > div {
+  width: 880px;
+  height: 500px;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 10px;
+  position: absolute;
+  margin: 10px auto 0;
+  display: none;
+}
+.tabs > div.show {
+  display: block;
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="box">
+        <ul>
+            <li>1111</li>
+            <li>2222</li>
+            <li>3333</li>
+            <li>4444</li>
+        </ul>
+    </div>
+    <img src="img/0.JPG" alt="">
+    <img src="img/0.JPG" alt="">
+    <img src="img/0.JPG" alt="">
+    <img src="img/0.JPG" alt="">
+    <img src="img/0.JPG" alt="">
+    <img src="img/0.JPG" alt="">
+    <img src="img/0.JPG" alt="">
+    <img src="img/0.JPG" alt="">
+</body>
+
+<script>
+    //1.获取元素对象。
+    //css如果选中元素，将css选择器放入方法中。
+    //获取单个 - document.querySelector('选择器')
+    //                  /ˈkwɪri/疑问/sɪˈlektər/选择 
+    // console.log(document.querySelector('.box'));
+    // console.log(document.querySelector('.box ul'));
+    // console.log(document.querySelector('.box ul li'));
+
+    //获取多个：类数组(length和索引下标)
+    console.log(document.querySelectorAll('.box li')); //4个li
+    // console.log(document.querySelectorAll('.box li').length); //4
+    // console.log(document.querySelectorAll('.box li')[0]); //<li>1111</li>
+    // console.log(document.querySelectorAll('.box li')[1]); //<li>2222</li>
+
+    //2.图片时间
+    //先获取8张图片
+    function double(n) {
+        return n < 10 ? '0' + n : n;
+    }
+
+    var imgs = document.querySelectorAll('img'); //类数组,8个图片
+
+    function picTime() {
+        var date = new Date();
+        //将时分秒转换成两位数。
+        var hour = double(date.getHours()); //时
+        var min = double(date.getMinutes()); //分
+        var sec = double(date.getSeconds()); //秒
+        var timestr = hour + ':' + min + ':' + sec;
+        // console.log(timestr); //16:40:55
+        // 将8张图片的值转换成对应的日期字符串里面的值。
+        for (var i = 0; i < imgs.length; i++) { //i:0-7
+            if (i === 2 || i === 5) {
+                imgs[i].src = 'img/mh.JPG';
+            } else {
+                imgs[i].src = 'img/' + timestr[i] + '.JPG';
+            }
+        }
+    }
+    picTime();
+    setInterval(function() {
+        picTime();
+    }, 1000);
+</script>
+
+</html>

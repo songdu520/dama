@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <child1></child1>
+    </div>
+
+    <script src="../../Vue.js"></script>
+    <script>
+        const Child2 = {
+            inject: ['msg'],
+            ///ɪnˈdʒekt/ 注入；注射
+            template: `
+        <div>child2 {{ msg }}</div>
+      `
+        }
+
+        const Child1 = {
+            // inject: ['msg'],
+            template: `
+        <div>
+          child1
+          <child2></child2>
+        </div>
+      `,
+            components: {
+                Child2
+            }
+        }
+
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    msg: 'hello'
+                }
+            },
+            provide() {
+                // /prəˈvaɪd/  提供
+                return {
+                    msg: this.msg
+                }
+            },
+            components: {
+                Child1
+            },
+
+        })
+    </script>
+</body>
+
+</html>

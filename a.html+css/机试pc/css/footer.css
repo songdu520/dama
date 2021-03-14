@@ -1,0 +1,43 @@
+footer  .box-1 ul .ti{background: url(../image/nimg58_1.png)  no-repeat bottom ;
+font-size: 15px;
+line-height: 40px;
+}
+footer{
+    background-color: black;
+    color: white;
+    padding: 36px 0;
+}
+footer  .box-1  ul{
+    width: 61px;
+    float: left;
+    margin-right: 84px;
+
+}
+
+footer  .box-1 ul li{
+    line-height: 38px;
+    font-size: 15px;
+    font-weight: 100;
+}
+footer .box-1{
+    border-right: 1px solid #3c3c3c;
+}
+footer  .box-1 ul li:hover{color: orange;
+
+}
+footer .box-2{
+    padding-left: 96px;}
+footer .box-2 h1 img{width: 245px;
+    margin-bottom: 24px;
+
+}
+footer .box-2 ul li{height: 38px;
+    font-size: 14px;
+    font-weight: 100;
+
+}
+footer .box-2 ul li em{
+    border-right: #cccccc 2px  solid;
+    
+
+}

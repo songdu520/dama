@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // var oBox = document.querySelector('.box'); //无法获取div元素。
+        // 因为代码执行到这里，根本无法得知.box是谁
+        // alert(oBox); //null
+
+        //通过onload事件解决：
+        //onload事件：页面内容加载完成后触发此事件(DOM结构，图片等所有内容加载完成.....)
+        //通过此事件将页面的代码放到页面的任何地方，总是会等结构等其他信息加载完成执行。
+        // window.onload = function() {
+        //     var oBox = document.querySelector('.box');
+        //     alert(oBox); //[object HTMLDivElement]
+        // };
+    </script>
+</head>
+
+<body>
+    <div class="box">123456</div>
+    <p>11111111</p>
+    <p>11111111</p>
+    <p>11111111</p>
+    <p>11111111</p>
+    <p>11111111</p>
+    <p>11111111</p>
+    <p>11111111</p>
+    <p>11111111</p>
+    <p>11111111</p>
+    <p>11111111</p>
+    <p>11111111</p>
+    <p>11111111</p>
+    <p>11111111</p>
+    <p>11111111</p>
+    <p>11111111</p>
+    <p>11111111</p>
+    <p>11111111</p>
+    <p>11111111</p>
+    <p>11111111</p>
+    <p>11111111</p>
+    <p>11111111</p>
+    <p>11111111</p>
+    <p>11111111</p>
+    <p>11111111</p>
+    <p>11111111</p>
+    <p>11111111</p>
+    <p>11111111</p>
+    <p>11111111</p>
+    <p>11111111</p>
+    <p>11111111</p>
+    <p>11111111</p>
+    <p>11111111</p>
+    <p>11111111</p>
+    <p>11111111</p>
+    <p>11111111</p>
+    <p>11111111</p>
+    <p>11111111</p>
+    <p>11111111</p>
+    <p>11111111</p>
+    <p>11111111</p>
+    <p>11111111</p>
+    <p>11111111</p>
+    <p>11111111</p>
+    <p>11111111</p>
+    <p>11111111</p>
+    <p>11111111</p>
+    <p>11111111</p>
+    <p>11111111</p>
+    <p>11111111</p>
+    <p>11111111</p>
+    <p>11111111</p>
+</body>
+<script>
+    //一.window下面的方法。
+    //window.alert() - 信息框
+    //window.prompt() - 输入框
+    //window.confirm() - 选择框
+
+    //二.window下面的常用事件。
+    //1.onload事件：页面内容加载完成后触发此事件(DOM结构，图片等内容.....)。
+    // /loʊd/ 加载
+    //2.onscroll事件：拖动浏览器的滚动条触发此事件,事件触发频率很高。
+    ///skroʊl/
+    // var num = 0;
+    // window.onscroll = function() {
+    //     num++;n() {n() {
+    //     num++;
+    //     num++;
+    //     console.log(num);
+    // };
+    //3.onresize事件：浏览器可视窗口缩放(改变)所触发的事件。
+    // var num = 0;
+    // window.onresize = function() {
+    //     num++;
+    //     console.log(num);
+    // };
+
+    //三.可视区的宽高:浏览器内部看得见的区域。
+    // document:document文档对象
+    // document.documentElement:html元素对象。
+    // document.body:body元素对象
+
+    // document.documentElement.clientWidth:可视区的宽(html元素对象的宽)
+    //                        / ˈklaɪənt/客户端
+    // document.documentElement.clientHeight:可视区的高(html元素对象的高)
+    // window.onresize = function() {
+    //     console.log(document.documentElement.clientWidth, document.documentElement.clientHeight);
+    // };
+</script>
+
+</html>

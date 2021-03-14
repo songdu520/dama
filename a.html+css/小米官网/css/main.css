@@ -1,0 +1,57 @@
+.main .banner img{width: 100%;
+
+}
+.main .inner {
+    position: relative;
+}
+.main .menu{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    background-color: rgba(0, 0, 0, 0.2);
+    height: 428px;
+    width: 233px;
+    padding: 16px 0;
+}
+.main .menu li a{height:42px ;
+    display: block;
+   
+    padding-left: 29px;
+    line-height: 42px;
+    color: white;
+
+    }
+ .main .menu li a em{
+     float: right;
+     padding:0 22px ;
+
+ }   
+ .main .menu>li>a:hover{
+     background-color: tomato;
+ }
+ .main .submenu {
+     position: absolute;
+     left: 233px;
+     top: 0;
+     height: 100%;
+     background-color:#fff;
+     border: 1px solid #e0e0e0;
+     width: 992px;
+     display: none;
+ }
+ .main .submenu li{
+     float: left;
+ }
+ .main .submenu li a{
+     display: block;
+    line-height: 40px;
+    padding: 18px 20px;
+    color: #000;
+    transition: color .7s;
+ }
+ .main .submenu li a:hover{
+     color: tomato;
+ }
+ .main  .menu li:hover .submenu{
+     display: block;
+ }

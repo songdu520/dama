@@ -1,0 +1,186 @@
+// 幻灯片
+.banner {
+    height: 500px;
+    width: 1920px;
+    margin: 0 auto;
+    position: relative;
+    ul {
+        li {
+            opacity: 0;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    }
+    ol {
+        position: absolute;
+        left: 50px;
+        bottom: 20px;
+        li {
+            float: left;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #ccc;
+            text-indent: -999em;
+            margin-right: 5px;
+            cursor: pointer;
+        }
+        .active {
+            background: rgba($color: #fff, $alpha: 1);
+            border: #fff 3px solid;
+        }
+    }
+}
+
+.lunbo {
+    position: relative;
+    a {
+        background: rgba($color: #000000, $alpha: .2);
+    }
+    #left,
+    #right {
+        position: absolute;
+        top: 50%;
+        font-size: 50px;
+        color: #fff;
+        display: none;
+    }
+    #left {
+        left: 0;
+    }
+    #right {
+        right: 0;
+    }
+}
+
+@mixin foolsyle {
+    padding-top: 60px;
+    h3 {
+        font-size: 28px;
+        padding-bottom: 30px;
+    }
+    ;
+}
+
+@mixin hoversyle($boxWidth:100%, $boxHeight:481px) {
+    width: $boxWidth;
+    height: $boxHeight;
+    overflow: hidden;
+    img {
+        transition: all 1s;
+    }
+    img:hover {
+        transform: scale(1.1);
+    }
+}
+
+@mixin ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+//海信官网
+.fool-1 {
+    @include foolsyle();
+    section {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        div {
+            img {
+                width: 100%;
+                height: 100%;
+            }
+            &:nth-child(1) {
+                width: 588px;
+                height: 296px;
+            }
+            &:nth-child(2) {
+                width: 294px;
+                height: 296px;
+            }
+            &:nth-child(3) {
+                width: 294px;
+                height: 296px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                .one {
+                    height: 145px;
+                    width: 100%;
+                    img {
+                        width: 100%;
+                    }
+                }
+                .two {
+                    height: 145px;
+                }
+            }
+        }
+    }
+}
+
+.fool-2 {
+    @include foolsyle();
+    div {
+        @include hoversyle();
+    }
+}
+
+.fool-3 {
+    @include foolsyle();
+    .pic {
+        display: flex;
+        width: 100%;
+        height: 600px;
+        .pic1 {
+            background: greenyellow;
+            @include hoversyle(593px, 100%);
+            img {
+                height: 100%;
+                width: 593px;
+            }
+        }
+        .pic2 {
+            div {
+                @include hoversyle(593px, 300px);
+            }
+            img {
+                height: 300px
+            }
+        }
+    }
+    ul {
+        display: flex;
+        margin-top: 30px;
+        justify-content: space-between;
+        li {
+            background: #fff;
+            width: 272px;
+            padding: 8px;
+            // box-sizing: border-box;
+            a {
+                color: #000;
+                text-align: center;
+                line-height: 20px;
+            }
+            img {
+                height: 272px;
+                width: 272px;
+            }
+            h5 {
+                font-size: 14px;
+                @include ellipsis()
+            }
+            .item {
+                color: #cccccc;
+                line-height: 24px;
+            }
+            .price {
+                color: #cc0010;
+            }
+        }
+    }
+}

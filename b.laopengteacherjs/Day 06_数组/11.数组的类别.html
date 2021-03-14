@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //1.二维数组：数组项的值还是数组。
+    //通过索引读写数组的值
+    // var arr = [1, 2, 3, 4, [5, 6, 7, 8]];
+    // console.log(arr[4][0]);
+    // arr[4][1] = 600;
+    // console.log(arr);
+
+    // var arr = [1, 2, [3, 4, [5, 6, [7, 8, [9, 10]]]]];
+    // console.log(arr[2][2][2][2][0]);
+
+    //多维数组赋值的时候，确定数组的值还是数组。
+
+    // var arr = [];
+    // arr[0] = 'apple';
+    // arr[1] = 'orange';
+    // arr[2] = []; //必须的
+    // arr[2][0] = 'hello'
+    // console.log(arr);
+
+
+    //2.对象数组。
+    // var arr = [{
+    //     a: 1,
+    //     b: 2
+    // }, {
+    //     c: 3,
+    //     d: 4
+    // }];
+
+    // console.log(arr[0].a);
+    // console.log(arr[0].b);
+
+    // var arr = [];
+    // arr[0] = {};
+    // arr[0].name = 'zhangsan';
+    // arr[0].age = '100';
+    // console.log(arr);
+
+    //3.案例
+    // var taobaodata = {
+    //     "result": [
+    //         ["手机壳", "1296949.1654922352"],
+    //         ["手机壳苹果11", "149745.7006300351"],
+    //         ["手机包", "1057803.7869458538"],
+    //         ["手机壳苹果", "213464.79902174984"],
+    //         ["手机壳苹果x", "273722.6596587791"],
+    //         ["手机华为", "447810.4269322504"],
+    //         ["手机车载支架", "150435.59568985464"],
+    //         ["手机壳苹果xr", "199560.92799635077"],
+    //         ["手机挂绳", "143927.42113147577"],
+    //         ["手机壳xr", "304558.93837162433"]
+    //     ],
+    //     "magic": [{
+    //         "index": "3",
+    //         "type": "tag_group",
+    //         "data": [
+    //             [{
+    //                 "title": "女包"
+    //             }, {
+    //                 "title": "斜挎包",
+    //                 "type": "hot"
+    //             }],
+    //             [{
+    //                 "title": "真皮"
+    //             }, {
+    //                 "title": "皮带",
+    //                 "type": "hot"
+    //             }],
+    //             [{
+    //                 "title": "防水"
+    //             }, {
+    //                 "title": "苹果"
+    //             }, {
+    //                 "title": "男士"
+    //             }, {
+    //                 "title": "单肩"
+    //             }, {
+    //                 "title": "布艺hello"
+    //             }, {
+    //                 "title": "大屏",
+    //                 "type": "hot"
+    //             }]
+    //         ]
+    //     }]
+    // };
+    // console.log(taobaodata.magic[0].data[2][4].title);
+</script>
+
+</html>

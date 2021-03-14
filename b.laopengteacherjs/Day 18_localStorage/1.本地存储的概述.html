@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //localStorage   sessionStorage   cookie 将数据(string)存储到浏览器中
+
+    //1.本地存储的概念：
+    // 在HTML5中，新加入了一个localStorage特性，这个特性主要是用来作为本地存储来使用的，localStorage中一般浏览器支持的是5M大小，这个在不同的浏览器中localStorage会有所不同。
+
+
+    //2.本地存储特点：
+    // localStorage拓展了cookie的4K限制，永久存储，除非手动删除
+    ///ˈstɔːrɪdʒ/储存
+    // localStorage会将第一次请求的数据直接存储到本地，这个相当于一个5M大小的针对于前端页面的数据库，但只有在高版本的浏览器中才支持的。
+    // 目前所有的浏览器中都会把localStorage的值类型限定为string类型，如果是对象类型，需要JSON.stringify方法进行转换后，再存储。
+    // localStorage本质上是对字符串的读取，如果存储内容多的话会消耗内存空间，会导致页面变卡。
+    // 不同的浏览器本地存储不能相互进行访问。
+</script>
+
+</html>

@@ -1,0 +1,98 @@
+<!-- 
+    1.变量的概念和特点。
+        - 所谓变量，就是特定时间用于保存特定值的一个名字而已，并且初始化后可以再次改变的量。
+        - 写入内存、松散类型、值可以改变、定义多个、前置访问undefined.
+        - 变量的命名规则：数字、字母、下划线、$符号组成，其中数字不能做开头。
+
+    2.为什么使用变量。
+        - 公有值存储到内存，直接调用
+        - 特定的名称表示。
+
+    3.变量的数据类型
+        - 两大类(基本类型、引用类型)
+        - 基本类型 - number/string/boolean/null/undefined
+        - 引用类型 - object
+        - 检测数据类型的方法 - typeof 
+    
+    4.运算符
+        - 赋值运算符 (= +=)
+        - 数学运算符 (+ %)
+        - 比较运算符 (== ===)
+        - 逻辑运算符 (&& || !)
+        - 一元运算符 (++ --)
+    
+    5.显式转换和隐式转换。
+        - 显式转换:强制转换，手动转换 (Number/String/Boolean/parseInt/isNaN)
+        - 隐式转换：系统的一些符号自动进行转换
+          - + - * / % ++ -- ! ==
+ -->
+<input type="text" class="box1" value="100">
+<script>
+    // var n1 = 10;
+    // var n2 = 5;
+    // var a = n1 + n2;
+    // var b = n1 * n2;
+    // var c = n1 / n2;
+    // var d = n1 - n2;
+
+    // //获取标签
+    // var box = document.querySelector('.box1')
+    // document.querySelector('.box1').text
+    // document.querySelector('.box1').value
+    // document.querySelector('.box1').value
+    // document.querySelector('.box1').value
+    // document.querySelector('.box1').value
+
+    // box.text
+    // box.value
+    // box.value
+    // box.value
+    // box.value
+
+    // var str = 'hello';
+    // str += 'world'; //str=str+'world'
+    // alert(str);
+
+    //梳理：
+    //1.字符串 - 引号
+    //字符串的比较：
+    //将字符串转换成对应的Unicode编码(全世界的每一个文字符号都对应一个数字编码)。
+    // 0-9  unicode  48-57
+    // A-Z  unicode  65-90
+    // a-z  unicode  97-122
+    // alert(3 > 2); //true
+    // alert('3' > '29'); //true  比较的是第一个字符。如果第一个相同，比较第二个。
+
+    //2.一元运算符
+    // var a = 5;
+    // var b = a++ + ++a; //重点关注赋值,并不是操作数自身.操作数自身肯定是+1
+    // alert(a); //7
+    // alert(b); //12
+
+    //3.== 和 ===区别
+    //写条件时，一般选择===进行匹配，省略了隐式转换。
+    // console.log('5' == 5); //true
+    // console.log(5 == 5); //true
+    // console.log('5' === 5); //false
+
+    // console.log(0 == ''); //true
+    // console.log(0 == ' '); //true
+    // console.log(0 == false); //true
+
+    // console.log(0 === ''); //false
+    // console.log(0 === ' '); //false
+    // console.log(0 === false); //false
+
+    //4.+号
+    // var name = '张三';
+    // var age = 100;
+    // var sex = '男';
+    // console.log('我的姓名是' + name + '我今年' + age + '岁我是' + sex + '的');
+
+    //5.常用的方法
+    // alert();
+    // console.log();
+    // document.write();
+
+    //6.类，对象，属性，方法
+</script>

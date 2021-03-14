@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //一.发送任意类型数据
+    //发送数据的格式：键值对(name=zhangsan&age=100)
+    let str1 = 'hello';
+    let str2 = 'hi';
+    let arr = [1, 2, 3, 4, 5];
+    let obj = {
+        a: 1,
+        b: 2,
+        c: 3,
+        d: 4
+    };
+    console.log(Object.prototype.toString.call(obj))
+        //a=1&b=2&c=3
+        // let objarr = [];
+        // for (let i in obj) {
+        //     objarr.push(i + '=' + obj[i]);
+        // }
+        // console.log(objarr.join('&')); //a=1&b=2&c=3
+
+    //封装函数：将对象转换成ajax识别的字符串格式
+    // function objtostring(obj) {
+    //     //如何判断传入的obj一定是对象。
+    //     if (Object.prototype.toString.call(obj) === '[object Object]') {
+    //         let objarr = [];
+    //         for (let i in obj) {
+    //             objarr.push(i + '=' + obj[i]);
+    //         }
+    //         return objarr.join('&')
+    //     } else {
+    //         throw new Error('请输入一个自定义对象'); //抛错  自定义错误
+    //     } 
+    // }
+
+
+    // console.log(objtostring(arr));
+
+    //最好的数据类型的判断方式    
+    // console.log(Object.prototype.toString.call(123)); //[object Number]
+    // console.log(Object.prototype.toString.call('hello')); //[object String]
+    // console.log(Object.prototype.toString.call(null)); //[object Null]
+    // console.log(Object.prototype.toString.call(undefined)); //[object Undefined]
+    // console.log(Object.prototype.toString.call([])); //[object Array]
+    // console.log(Object.prototype.toString.call({})); //[object Object]
+    // console.log(Object.prototype.toString.call(/\d/)); //[object RegExp]
+    // console.log(Object.prototype.toString.call(new Date)); //[object Date]
+    // console.log(Object.prototype.toString.call(function() {})); //[object Function]
+    // console.log(Object.prototype.toString.call(true)); //[object Boolean]
+
+    // let ajax = new XMLHttpRequest();
+    // ajax.open('get', 'http://localhost/JS2008/Day%2022_ajax/getdata.php?a=' + str1 + '&b=' + str2, true);
+    // ajax.open('get', `http://localhost/JS2008/Day%2022_ajax/getdata.php?a=${str1}&b=${str2}`, true);
+    // ajax.open('get', `http://localhost/JS2008/Day%2022_ajax/getdata.php?a=${arr}`, true);
+    // 对象格式的传输一定要重新转换。
+    // ajax.open('get', `http://localhost/JS2008/Day%2022_ajax/getdata.php?a=${JSON.stringify(obj)}`, true);//有问题,后端不方便操作
+    // ajax.open('get', `http://localhost/JS2008/Day%2022_ajax/getdata.php?${objtostring(obj)}`, true); //重要的方式
+    // ajax.send();
+    // ajax.onreadystatechange = function() {
+
+    // }
+
+
+
+    // let ajax = new XMLHttpRequest();
+    // ajax.open('post', `http://localhost/JS2008/Day%2022_ajax/getdata.php`, true);
+    // ajax.setRequestHeader('content-type', 'application/x-www-form-urlencoded'); //设置请求头
+    // ajax.send(objtostring(obj));
+
+
+    //二.同步和异步
+    //异步的，ajax.onreadystatechange任意放置
+    // let ajax = new XMLHttpRequest();
+    // // console.log(ajax.readyState); //0
+    // ajax.open('post', 'http://localhost/JS2008/phpdata/taobaodata.php', true);
+    // // console.log(ajax.readyState); //1
+    // ajax.send();
+    // ajax.onreadystatechange = function() { //监听
+    //     console.log(ajax.readyState); //2,3,4
+    //     if (ajax.readyState === 4) {
+    //         console.log(JSON.parse(ajax.responseText));
+    //     }
+    // }
+
+
+    //同步：必须顺序执行
+    // let ajax = new XMLHttpRequest();
+    // ajax.open('post', 'http://localhost/JS2008/phpdata/taobaodata.php', false);
+    // ajax.send();
+    // console.log(JSON.parse(ajax.responseText));
+</script>
+
+</html>

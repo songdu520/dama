@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #mycanvas {
+            border: 1px solid black;
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas width="400" height="400" id="mycanvas">
+        您的浏览器不支持canvas元素，请升级浏览器
+    </canvas>
+    <script>
+        let canvas = document.getElementById('mycanvas');
+        let ctx = canvas.getContext('2d');
+
+        // ctx.moveTo(x,y)  将画笔移动到某个点
+        // ctx.lineTo(x,y)  从上一个lineTo或moveTo点 绘制线段到 本次坐标点
+
+        // 通常用于绘制多边形
+        // moveTo和lineTo也是路径
+
+        // ctx.moveTo(100, 100);
+        // ctx.lineTo(200, 200);
+        // ctx.lineTo(100, 200);
+        // ctx.lineTo(200, 100);
+        // ctx.lineTo(100, 150);
+        // ctx.lineTo(150, 250);
+        // ctx.stroke();
+        // ctx.fill();
+
+        ctx.moveTo(156, 32);
+        ctx.lineTo(70, 310);
+        ctx.lineTo(293, 141);
+        ctx.lineTo(18, 141);
+        ctx.lineTo(241, 310);
+        ctx.fillStyle = "yellow";
+        ctx.fill();
+    </script>
+</body>
+
+</html>

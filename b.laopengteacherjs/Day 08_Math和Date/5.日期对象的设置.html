@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //一.设置日期 - 不能设置星期。
+    //1.利用字符串设置日期 - 不会自动进位 
+    // var d1 = new Date('2020.10.1 12:13:14'); //2020/10/1 下午12:13:14
+    // var d2 = new Date('2020-10-1 12:13:14'); //2020/10/1 下午12:13:14
+    // var d3 = new Date('2020/10/1 12:13:14'); //2020/10/1 下午12:13:14
+    // var d4 = new Date('2020\10\1 12:13:14'); //有问题的 \ :计算机的转义字符。
+    // console.log(d1.toLocaleString());
+    // console.log(d2.toLocaleString());
+    // console.log(d3.toLocaleString());
+    // console.log(d4.toLocaleString());
+
+    // var d5 = new Date('2020.13.1 12:13:14');
+    // console.log(d5.toLocaleString()); //Invalid Date 无效日期 不存在自动进位。
+
+
+    //2.利用数字进行设置 - 自动进位(月份自动+1)
+    // var d1 = new Date(2020, 10, 1, 12, 13, 14);
+    // console.log(d1.toLocaleString()); //2020/11/1 下午12:13:14
+
+    // var d2 = new Date(2020, 13, 1, 12, 13, 14);
+    // console.log(d2.toLocaleString()); //2021/2/1 下午12:13:14
+
+    //3.利用方法进行设置 - 自动进位。
+    // var d1 = new Date();
+    // d1.setDate(d1.getDate() + 10); //获取今天的日期+10天,设置回去
+    // console.log(d1.toLocaleString()); //2020/9/7 下午4:13:36
+
+    // d1.setMonth(d1.getMonth() + 10); //月份自动+1
+    // console.log(d1.toLocaleString());
+
+    // d1.setFullYear(d1.getFullYear() + 100);
+    // console.log(d1.toLocaleString());
+</script>
+
+</html>

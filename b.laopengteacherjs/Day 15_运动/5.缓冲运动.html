@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <div style="width:1px;height:600px;background:black;position:absolute;left:700px;top:0px;"></div>
+</body>
+<script>
+    //缓冲运动
+    //离目标点越远速度越大，离目标点越近速度越慢。
+
+    const oBox = document.querySelector('.box');
+    let timer = null;
+    let speed = 0;
+    oBox.onclick = function() {
+        clearInterval(timer);
+        timer = setInterval(() => {
+            //求缓冲的速度
+            // speed = Math.ceil((700 - oBox.offsetLeft) / 10);
+            // speed = Math.floor((700 - oBox.offsetLeft) / 10);
+
+            speed = (700 - oBox.offsetLeft) / 10;
+            speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+
+            //物体的运动和停止
+            if (oBox.offsetLeft === 700) {
+                clearInterval(timer);
+            } else {
+                oBox.style.left = oBox.offsetLeft + speed + 'px';
+            }
+            console.log(speed);
+        }, 1000 / 60)
+    }
+</script>
+
+</html>

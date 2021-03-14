@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function A() {
+            this.a = 'aaaaaa';
+            this.fn = function() {
+                console.log(this.a);
+            }
+        }
+
+        function B() {
+            this.a = 'bbbbbbbbbbbbbb';
+        }
+
+        // var a = new A();
+        // console.log(a);
+
+        // 所谓继承指的是从其他对象获得属性或方法
+
+        // 让B的实例拥有A的方法
+
+        // 将A的实例设置成B的原型
+
+        // A的私有属性变成了B的公有属性
+
+        // 通过原型继承私有属性
+
+        B.prototype = new A();
+
+        var b = new B();
+        console.log(b);
+        b.fn();
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

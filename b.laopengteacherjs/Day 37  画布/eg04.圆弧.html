@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #mycanvas {
+            border: 1px solid black;
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas width="400" height="400" id="mycanvas">
+        您的浏览器不支持canvas元素，请升级浏览器
+    </canvas>
+    <script>
+        let canvas = document.getElementById('mycanvas');
+        let ctx = canvas.getContext('2d');
+
+        // 绘制圆弧
+        // context.arc(x, y, radius, starAngle,endAngle, anticlockwise)
+        // anticlockwise 默认值是false 顺时针     true为逆时针
+
+
+        // 在JS中 没有角度
+        // 只有弧度
+        // 180°  PI
+        // 360°  2PI
+        // 角度是顺时针计算  右边是0度 左边是180度
+        // ctx.arc(200, 200, 50, 0, Math.PI / 2); // 设置圆弧
+        // ctx.strokeStyle = 'blue';
+        // ctx.stroke();
+
+        // 填充绘制 是起点到终点 闭合最近的路径进行填充
+        // ctx.arc(200, 200, 50, 0, Math.PI / 2, true);
+        // ctx.fill();
+
+        // 在canvas中圆弧是一种路径
+        // canvas会自动从上个路径连接到下一个路径
+
+        // 当需要独立路径时  
+        // 手动设置
+        // context.beginPath();  开始路径
+        // context.closePath();  结束路径
+
+        // ctx.beginPath();
+        // ctx.arc(100, 100, 50, 0, Math.PI);
+        // ctx.stroke();
+        // ctx.closePath();
+
+        // ctx.beginPath();
+        // ctx.arc(300, 300, 50, 0, Math.PI);
+        // ctx.stroke();
+        // ctx.closePath();
+        // ctx.fill();
+
+        for (let i = 0; i < 10; i++) {
+            ctx.beginPath();
+            ctx.arc(30 * i, 30 * i, i * 10, 0, Math.PI * 2);
+            ctx.stroke();
+            ctx.closePath();
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //发布— 订阅模式又叫观察者模式， 它定义对象间的一种一对多的依赖关系， 当一个对象的状态发生改变时，所有依赖于它的对象都将得到通知。 在 JavaScript开发中， 我们一般用事件模型来替代传统的发布— 订阅模式
+
+    // document.addEventListener('click', function() {
+    //     console.log(1);
+    // });
+    // document.addEventListener('click', function() {
+    //     console.log(2);
+    // });
+    // document.addEventListener('click', function() {
+    //     console.log(3);
+    // });
+    // document.addEventListener('click', function() {
+    //     console.log(4);
+    // });
+    // document.addEventListener('click', function() {
+    //     console.log(5);
+    // });
+
+
+    //模拟事件模型
+    //买菜：买青菜，白菜，香菜，苋菜
+    //买车：买宝马，奥迪，奔驰
+    //买房：商品房，别墅，大平层。
+    //...
+
+    //事件类型：买菜，买车，买房...
+    //事件处理函数：fn
+    //添加事件，绑定事件 - on 
+    //删除事件 - remove
+    //触发事件 - emit
+    class Obsever {
+        constructor() {
+            this.message = []; //账本
+        }
+        on(type, fn) { //添加事件,绑定事件  type:事件类型  fn:事件处理函数
+            //this.message['买菜''] = [function(){青菜},function(){白菜}...];
+            //this.message['buycar'] = [function(){宝马},function(){奔驰}...];
+            if (!this.message[type]) { //当前的事件不存在。
+                this.message[type] = [fn];
+            } else { // 当前的事件存在。
+                this.message[type].push(fn);
+            }
+        }
+        emit(type) { //触发事件
+            if (!this.message[type]) return; // if语句的执行的语句块只有一行代码可以省略{}
+            this.message[type].forEach(item => {
+                item();
+            });
+        }
+        remove(type, fn) { //删除事件
+            if (!this.message[type]) return;
+            for (let i = 0; i < this.message[type].length; i++) {
+                let ev = this.message[type][i];
+                if (ev === fn) {
+                    this.message[type].splice(i, 1); //splice改变原数组
+                    i--;
+                }
+            }
+        }
+    }
+
+    let obsever = new Obsever();
+    //添加事件
+    obsever.on('buycai', 白菜);
+    obsever.on('buycai', 青菜);
+    obsever.on('buycai', 萝卜);
+    obsever.on('buyhouse', 别墅);
+    obsever.on('buyhouse', 大平层);
+
+    //删除对应事件类型下面的事件。
+    obsever.remove('buycai', 萝卜);
+    obsever.remove('buyhouse', 别墅);
+
+
+    //执行事件
+    obsever.emit('buycai');
+    obsever.emit('buyhouse');
+
+
+
+
+    function 白菜() {
+        console.log('白菜');
+    }
+
+    function 青菜() {
+        console.log('青菜');
+    }
+
+    function 萝卜() {
+        console.log('萝卜');
+    }
+
+    function 别墅() {
+        console.log('别墅');
+    }
+
+    function 大平层() {
+        console.log('大平层');
+    }
+</script>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="box"></div>
+</body>
+<script>
+    function double(n) {
+        return n < 10 ? '0' + n : n;
+    }
+
+    //未来时间 - 当前时间 换算成对应的(天 时 分 秒)
+    function countDown() {
+        var futureTime = new Date('2020.9.30 16:00:00'); //未来时间
+        var currentTime = new Date(); //当前时间。
+
+        var time = parseInt((futureTime - currentTime) / 1000); //结果是毫秒,换算成秒
+
+        var day = parseInt(time / 86400);
+        var hours = parseInt(time % 86400 / 3600);
+        var min = parseInt(time % 3600 / 60);
+        var sec = time % 60
+
+        return '离2020年国庆节放假还剩：' + day + '天' + double(hours) + '时' + double(min) + '分' + double(sec) + '秒'
+
+    }
+
+    box.innerHTML = countDown()
+
+    setInterval(function() {
+        box.innerHTML = countDown()
+    }, 1000)
+</script>
+
+</html>

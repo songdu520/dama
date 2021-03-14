@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>111111</li>
+        <li>222222</li>
+        <li>333333</li>
+        <li>444444</li>
+        <li>555555</li>
+    </ul>
+</body>
+<script>
+    var oUl = document.querySelector('ul'); //ul
+    //1.childNodes 获取当前元素节点的所有子节点,这里面包含空白节点(换行),但在IE9之前,IE浏览器会自动忽略空白节点.结果是类数组。
+    console.log(oUl.childNodes); //ul下面的子节点的集合
+    // console.log(oUl.childNodes.length); //11
+    //NodeList(11) [text, li, text, li, text, li, text, li, text, li, text]
+    //文本节点：
+    // console.log(oUl.childNodes[0].nodeType); //3
+    // console.log(oUl.childNodes[0].nodeName); //#text
+    // console.log(oUl.childNodes[0].nodeValue); //空
+
+    // console.log(oUl.childNodes[1]);
+    // console.log(oUl.childNodes[1].innerHTML);
+    // console.log(oUl.childNodes[1].childNodes.length); //1
+    // console.log(oUl.childNodes[1].childNodes[0]); //1
+
+
+    //2.children 获取当前元素节点的所有子节点,这里面不包含空白节点(元素),结果是类数组。
+    console.log(oUl.children); //HTMLCollection(5) [li, li, li, li, li]
+    // console.log(oUl.children.length); //5
+    // console.log(oUl.children[0].innerHTML);
+
+
+
+    //3.第一个子元素,最后一个子元素
+    //包含空白
+    // console.log(oUl.firstChild); //#text 
+    // console.log(oUl.lastChild); //#text
+    //不包含空白
+    // console.log(oUl.firstElementChild); //<li>111111</li>
+    // console.log(oUl.lastElementChild); //<li>555555</li>
+
+    //4.上一个兄弟元素,下一个兄弟元素。
+    //包含空白
+    // var middleElement = oUl.children[2]; //<li>333333</li>
+    // console.log(middleElement.previousSibling); //#text
+    //                           /ˈpriːviəs/ 上一个
+    // console.log(middleElement.nextSibling); //#text
+    //                                /ˈsɪblɪŋ/兄弟姊妹
+    //不包含空白
+    // console.log(middleElement.previousElementSibling); //<li>2222222</li>
+    // console.log(middleElement.nextElementSibling); //<li>4444444</li>
+</script>
+
+</html>

@@ -1,0 +1,397 @@
+<html>
+
+<head>
+    <title>Evernote Export</title>
+    <basefont face="微软雅黑" size="2" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="exporter-version" content="YXBJ Windows/600587 (zh-CN, DDL); Windows/10.0.0 (Win64);" />
+    <style>
+        body,
+        td {
+            font-family: 微软雅黑;
+            font-size: 10pt;
+        }
+    </style>
+</head>
+
+<body>
+    <a name="390" />
+
+    <div>
+        <span><div><br/></div><div>这次我们讲的设计模式叫做 Adapter， 适配器模式</div><div><br/></div><div><span style="line-height: 1.45;">所谓适配，就是将两个不兼容的东西变得兼容起来。</span></div>
+    <div><br/></div>
+    <div>举如：   我们的笔记本电脑，接收的电压通常在30~50V之间。</div>
+    <div>可是国内的通用电压都是220V， 因此我们的笔记本电脑无法直接使用墙插上的电压</div>
+    <div><span style="color: rgb(54, 101, 238); font-weight: bold;">所以笔记本电源线就是一个适配器</span></div>
+    <div><br/></div>
+    <div><img src="设计模式（适配器）_files/NSFileHandle.png" type="image/png" data-filename="NSFileHandle.png" width="200" /> <span style="font-size: 48pt;">通过</span> <img src="设计模式（适配器）_files/NSFileHandle [1].png" type="image/png" data-filename="NSFileHandle.png"
+            width="140" /><span style="font-size: 48pt;">适配</span><img src="设计模式（适配器）_files/NSFileHandle [2].png" type="image/png" data-filename="NSFileHandle.png" width="128" /></div>
+    <div><br/></div>
+    <div>
+        <hr/>
+    </div>
+    <div>再比如，苹果笔记是没有办法直接连接投影仪的。</div>
+    <div><span style="line-height: 1.45;">因为苹果笔记本的接口是长这样的（下图），我们管它叫雷电接口</span></div>
+    <div><img src="设计模式（适配器）_files/Image.jpg" type="image/jpeg" data-filename="Image.jpg" width="295" /></div>
+    <div>
+        <hr/>
+    </div>
+    <div>然而投影仪的接口长这样（下图），我们管它叫VGA接口</div>
+    <div><img src="设计模式（适配器）_files/Image [1].jpg" type="image/jpeg" data-filename="Image.jpg" width="308" /></div>
+    <div>
+        <hr/>
+    </div>
+    <div>所以我们需要一个适配器（下图）</div>
+    <div><img src="设计模式（适配器）_files/Image [2].jpg" type="image/jpeg" data-filename="Image.jpg" width="295" /></div>
+    <div><br/></div>
+    <div>
+        <hr/>
+    </div>
+    <div><br/></div>
+    <div>适配器还有一种应用场景，在平时也很常见。</div>
+    <div>比如你现在有这么一个需求， 你的好友喜得贵子，<span style="font-size: 9pt;">某天你要去探望，</span>结果到了家门口发现忘了买礼物（随礼是中国人的陋习，不提倡）</div>
+    <div><br/></div>
+    <div>不过好在身上有1000块，于是你就想干脆直接给钱吧，这样更实在。</div>
+    <div><br/></div>
+    <div>可是！  难道直接这样给么？</div>
+    <div><img src="设计模式（适配器）_files/Image [3].jpg" type="image/jpeg" data-filename="Image.jpg" width="348" /></div>
+    <div><br/></div>
+    <div>这样太不雅观了，给人一种不礼貌不认真的感觉。主要是这样对方不好意思要。</div>
+    <div>于是你去超市，花1块钱买了个红包，就像这样</div>
+    <div><img src="data:image/jpeg;base64,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"></img>
+    </div>
+    <div><br/></div>
+    <div>这下看起来好多了有没有？！   好了， 这个红包，就叫做适配器。它对我们的钱进行了包装，让对方可以欣然接受。</div>
+    <div><br/></div>
+    <div>编程当中，我们更多的是采用这个红包的例子。</div>
+    <div>比如：</div>
+    <div style="box-sizing: border-box; padding: 8px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; background-color: rgb(251, 250, 248); border: 1px solid rgba(0, 0, 0, 0.14902);">
+        <div style="font-size: 12px;">
+            <div><br/></div>
+            <table style="border-collapse: collapse; min-width: 100%;">
+                <colgroup>
+                    <col style="width: 560px;"></col>
+                </colgroup>
+                <tbody>
+                    <tr>
+                        <td style="background-color: rgb(63, 63, 63); border: 1px solid rgb(50, 50, 50); width: 560px; padding: 8px;">
+                            <div><span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(102, 217, 239); font-family: consolas; font-style: italic;">function</span> <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(166, 226, 46); font-family: consolas;">IPHONE</span>
+                                <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">(){</span>
+                            </div>
+                            <div style="min-height: 13pt;"><span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">   </span> <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(102, 217, 239); font-family: consolas; font-style: italic;">this</span>
+                                <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">.</span><span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(166, 226, 46); font-family: consolas;">phonecall</span>                                <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(249, 38, 114); font-family: consolas;">=</span> <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(102, 217, 239); font-family: consolas; font-style: italic;">function</span>
+                                <span
+                                    style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">(){</span>
+                            </div>
+                            <div style="min-height: 13pt;">
+                                <font style="font-size: 10pt;"><span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">      </span><span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(102, 217, 239); font-family: consolas; font-style: italic;">console</span>
+                                    <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">.log(</span><span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(230, 219, 116); font-family: consolas;">&quot;iphone打电话...&quot;</span>
+                                    <span
+                                        style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">);</span>
+                                </font>
+                            </div>
+                            <div style="min-height: 13pt;"><span style="min-height: 13pt; background-color: rgb(63, 63, 63);"><span style="background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">    };</span></span>
+                            </div>
+                            <div style="min-height: 13pt;"><span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">   </span> <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(102, 217, 239); font-family: consolas; font-style: italic;">this</span>
+                                <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">.</span><span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(166, 226, 46); font-family: consolas;">playgame</span>                                <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(249, 38, 114); font-family: consolas;">=</span> <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(102, 217, 239); font-family: consolas; font-style: italic;">function</span>
+                                <span
+                                    style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">(){</span>
+                            </div>
+                            <div style="min-height: 13pt;">
+                                <font style="font-size: 10pt;"><span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">      </span><span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(102, 217, 239); font-family: consolas; font-style: italic;">console</span>
+                                    <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">.log(</span><span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(230, 219, 116); font-family: consolas;">&quot;iphone玩游戏...&quot;</span>
+                                    <span
+                                        style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">);</span>
+                                </font>
+                            </div>
+                            <div style="min-height: 13pt;"><span style="min-height: 13pt; background-color: rgb(63, 63, 63);"><span style="background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">    };</span></span>
+                            </div>
+                            <div style="min-height: 13pt;"><span style="min-height: 13pt; background-color: rgb(63, 63, 63);"><span style="background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">}</span></span>
+                            </div>
+                            <div style="min-height: 13pt;"><span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(102, 217, 239); font-family: consolas; font-style: italic;">function</span> <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(166, 226, 46); font-family: consolas;">IPAD</span>
+                                <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">(){</span>
+                            </div>
+                            <div style="min-height: 13pt;"><span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">   </span> <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(102, 217, 239); font-family: consolas; font-style: italic;">this</span>
+                                <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">.</span><span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(166, 226, 46); font-family: consolas;">playgame</span>                                <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(249, 38, 114); font-family: consolas;">=</span> <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(102, 217, 239); font-family: consolas; font-style: italic;">function</span>
+                                <span
+                                    style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">(){</span>
+                            </div>
+                            <div style="min-height: 13pt;">
+                                <font style="font-size: 10pt;"><span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">      </span><span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(102, 217, 239); font-family: consolas; font-style: italic;">console</span>
+                                    <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">.log(</span><span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(230, 219, 116); font-family: consolas;">&quot;ipad玩游戏...&quot;</span>
+                                    <span
+                                        style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">);</span>
+                                </font>
+                            </div>
+                            <div style="min-height: 13pt;"><span style="min-height: 13pt; background-color: rgb(63, 63, 63);"><span style="background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">    };</span></span>
+                            </div>
+                            <div style="min-height: 13pt;"><span style="min-height: 13pt; background-color: rgb(63, 63, 63);"><span style="background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">}</span></span>
+                            </div>
+                            <div style="min-height: 13pt;"></div>
+                            <div style="min-height: 13pt;"><span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(102, 217, 239); font-family: consolas; font-style: italic;">var</span> <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">iphone</span>                                <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(249, 38, 114); font-family: consolas;">= new</span> <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(174, 129, 255); font-family: consolas;">IPHONE</span>
+                                <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">();</span> <span style="min-height: 13pt;"><span style="background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(247, 255, 0); font-family: consolas;">//生产了一台手机</span></span>
+                            </div>
+                            <div><span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(102, 217, 239); font-family: consolas; font-style: italic;">var</span> <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">ipad</span>                                <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(249, 38, 114); font-family: consolas;">= new</span> <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(174, 129, 255); font-family: consolas;">IPAD</span>
+                                <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">();</span> <span style="min-height: 13pt;"><span style="background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(247, 255, 0); font-family: consolas;">//生产了一台平板</span></span>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div><br/></div>
+        </div>
+        <div><span style="background-color: rgb(251, 250, 248);"><span style="background-color: rgb(251, 250, 248); color: rgb(51, 51, 51); font-family: Arial; line-height: 1.45; font-size: 10pt;">//在出厂前，要对产品进行测试。 注意，ipad只能玩游戏，不能打电话</span></span>
+        </div>
+        <div><span style="background-color: rgb(251, 250, 248);"><span style="background-color: rgb(251, 250, 248);"><span style="background-color: rgb(251, 250, 248); color: rgb(51, 51, 51); font-family: Arial; font-size: 10pt;">//这是测试工具</span></span>
+            </span>
+        </div>
+        <div style="font-size: 12px;">
+            <div><br/></div>
+            <table style="border-collapse: collapse; min-width: 100%;">
+                <colgroup>
+                    <col style="width: 559px;"></col>
+                </colgroup>
+                <tbody>
+                    <tr>
+                        <td style="background-color: rgb(63, 63, 63); border: 1px solid rgb(50, 50, 50); width: 559px; padding: 8px;">
+                            <div><span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(102, 217, 239); font-family: consolas; font-style: italic;">function</span> <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(166, 226, 46); font-family: consolas;">test</span>
+                                <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">(</span><span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(253, 151, 31); font-family: consolas; font-style: italic;">target</span>
+                                <span
+                                    style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">){</span>
+                            </div>
+                            <div style="min-height: 13pt;"><span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">   </span> <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(249, 38, 114); font-family: consolas;">try</span>
+                                <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">{</span>
+                            </div>
+                            <div style="min-height: 13pt;"><span style="min-height: 13pt; background-color: rgb(63, 63, 63);"><span style="background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">        target.playgame();</span></span>
+                            </div>
+                            <div style="min-height: 13pt;"><span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">  </span><span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(1, 1, 1); font-family: consolas;"> </span>                                <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">}</span> <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(249, 38, 114); font-family: consolas;">catch</span>
+                                <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">(e){</span>
+                            </div>
+                            <div style="min-height: 13pt;"><span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">       </span> <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(102, 217, 239); font-family: consolas; font-style: italic;">console</span>
+                                <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">.</span><span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(102, 217, 239); font-family: consolas; font-style: italic;">error</span>
+                                <span
+                                    style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">(</span>
+                                    <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(230, 219, 116); font-family: consolas;">&quot;玩游戏功能测试失败！&quot;</span><span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">);</span></div>
+                            <div style="min-height: 13pt;"><span style="min-height: 13pt; background-color: rgb(63, 63, 63);"><span style="background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">    }</span></span>
+                            </div>
+                            <div style="min-height: 13pt;"><span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">   </span> <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(249, 38, 114); font-family: consolas;">try</span>
+                                <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">{</span>
+                            </div>
+                            <div style="min-height: 13pt;"><span style="min-height: 13pt; background-color: rgb(63, 63, 63);"><span style="background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">        target.phonecall();</span></span>
+                            </div>
+                            <div style="min-height: 13pt;"><span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">    }</span> <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(249, 38, 114); font-family: consolas;">catch</span>
+                                <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">(e){</span>
+                            </div>
+                            <div style="min-height: 13pt;">
+                                <font style="font-size: 10pt;"><span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">        consol.</span><span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(102, 217, 239); font-family: consolas; font-style: italic;">error</span>
+                                    <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">(</span><span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(230, 219, 116); font-family: consolas;">&quot;打电话功能测试失败！&quot;</span>
+                                    <span
+                                        style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">);</span>
+                                </font>
+                            </div>
+                            <div style="min-height: 13pt;"><span style="min-height: 13pt; background-color: rgb(63, 63, 63);"><span style="background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">    }</span></span>
+                            </div>
+                            <div><span style="min-height: 13pt; background-color: rgb(63, 63, 63);"><span style="background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">}</span></span>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div><br/></div>
+        </div>
+        <div>
+            <font style="font-size: 10pt;"><span style="background-color: rgb(251, 250, 248); font-size: 10pt; color: rgb(51, 51, 51); font-family: Arial; line-height: 1.45;">//开始测试</span></font>
+        </div>
+        <div><span style="background-color: rgb(251, 250, 248);"><span style="background-color: rgb(251, 250, 248);"><span style="background-color: rgb(251, 250, 248); color: rgb(51, 51, 51); font-family: Arial; font-size: 10pt;">test(iphone);</span></span>
+            </span>
+        </div>
+        <div><span style="background-color: rgb(251, 250, 248);"><span style="background-color: rgb(251, 250, 248);"><span style="background-color: rgb(251, 250, 248); color: rgb(51, 51, 51); font-family: Arial; font-size: 10pt;">test(ipad);</span></span>
+            </span>
+        </div>
+        <div><br/></div>
+        <div>
+            <font style="font-size: 10pt;"><span style="background-color: rgb(251, 250, 248); font-size: 10pt; color: rgb(51, 51, 51); font-family: Arial;">结果发现，ipad在测试</span><span style="background-color: rgb(251, 250, 248); font-size: 10pt; color: rgb(51, 51, 51); font-family: Arial;">phonecall（</span>
+                <span style="background-color: rgb(251, 250, 248); font-size: 10pt; color: rgb(51, 51, 51); font-family: Arial;">打电话）功能时，出现失败！</span>
+            </font>
+        </div>
+        <div><br/></div>
+        <div><span style="background-color: rgb(251, 250, 248);"><span style="background-color: rgb(251, 250, 248);"><span style="background-color: rgb(251, 250, 248); color: rgb(51, 51, 51); font-family: Arial; font-size: 10pt;">因为ipad原本在设计的时候，就不具备通话功能，但是要想经过这道测试工序，我们就必须想点办法了</span></span>
+            </span>
+        </div>
+        <div><br/></div>
+        <div><span style="background-color: rgb(251, 250, 248);"><span style="background-color: rgb(251, 250, 248);"><span style="background-color: rgb(251, 250, 248); color: rgb(54, 101, 238); font-family: Arial; font-size: 10pt;">问题描述：   </span></span>
+            </span>
+        </div>
+        <div><span style="background-color: rgb(251, 250, 248);"><span style="background-color: rgb(251, 250, 248);"><span style="background-color: rgb(251, 250, 248); color: rgb(54, 101, 238); font-family: Arial; font-size: 10pt;">1，test要接受一个产品</span></span>
+            </span>
+        </div>
+        <div><span style="background-color: rgb(251, 250, 248);"><span style="background-color: rgb(251, 250, 248);"><span style="background-color: rgb(251, 250, 248); color: rgb(54, 101, 238); font-family: Arial; font-size: 10pt;">2，我们手里有一个ipad</span></span>
+            </span>
+        </div>
+        <div><span style="background-color: rgb(251, 250, 248);"><span style="background-color: rgb(251, 250, 248);"><span style="background-color: rgb(251, 250, 248); color: rgb(54, 101, 238); font-family: Arial; font-size: 10pt;">3，ipad不太符合test的需求，会导致不应该出现的错误</span></span>
+            </span>
+        </div>
+        <div><span style="background-color: rgb(251, 250, 248);"><span style="background-color: rgb(251, 250, 248);"><span style="background-color: rgb(251, 250, 248); color: rgb(54, 101, 238); font-family: Arial; font-size: 10pt;">4，想办法在不修改ipad前提下，让ipad通过测试</span></span>
+            </span>
+        </div>
+        <div><br/></div>
+        <div>
+            <font style="font-size: 10pt;"><span style="background-color: rgb(251, 250, 248); font-size: 10pt; color: rgb(51, 51, 51); font-family: Arial; font-weight: bold;">这非常符合我们刚才所说的不兼容的场景， 于是，适配器模式要出现了！！</span></font>
+        </div>
+        <div><br/></div>
+        <div><br/></div>
+        <div><span style="background-color: rgb(251, 250, 248);"><span style="background-color: rgb(251, 250, 248);"><span style="background-color: rgb(251, 250, 248); color: rgb(51, 51, 51); font-family: Arial; font-size: 10pt;">我们首先做一个适配器（红包），然后将ipad（钱）包装起来。</span></span>
+            </span>
+        </div>
+        <div style="font-size: 12px;">
+            <div><br/></div>
+            <table style="border-collapse: collapse; min-width: 100%;">
+                <colgroup>
+                    <col style="width: 688px;"></col>
+                </colgroup>
+                <tbody>
+                    <tr>
+                        <td style="background-color: rgb(63, 63, 63); border: 1px solid rgb(50, 50, 50); width: 688px; padding: 8px;">
+                            <div><span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(102, 217, 239); font-family: consolas; font-style: italic;">function</span> <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(166, 226, 46); font-family: consolas;">Adapter</span>
+                                <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">(</span><span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(253, 151, 31); font-family: consolas; font-style: italic;">target</span>
+                                <span
+                                    style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">){</span>
+                            </div>
+                            <div style="min-height: 13pt;"><span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">  </span><span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(1, 1, 1); font-family: consolas;"> </span>                                <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(102, 217, 239); font-family: consolas; font-style: italic;">this</span><span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">.</span>
+                                <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(166, 226, 46); font-family: consolas;">playgame</span> <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(249, 38, 114); font-family: consolas;">=</span>                                <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(102, 217, 239); font-family: consolas; font-style: italic;">function</span>
+                                <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">(){</span>
+                            </div>
+                            <div style="min-height: 13pt;"><span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">       </span> <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(249, 38, 114); font-family: consolas;">if</span>
+                                <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">(</span><span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(249, 38, 114); font-family: consolas;">!!</span>
+                                <span
+                                    style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">target.playgame</span> <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(249, 38, 114); font-family: consolas;">&amp;&amp; typeof</span> <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">target.playgame</span>                                    <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(249, 38, 114); font-family: consolas;">===</span> <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(230, 219, 116); font-family: consolas;">&quot;function&quot;</span>
+                                    <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">){</span>
+                            </div>
+                            <div style="min-height: 13pt;"><span style="min-height: 13pt; background-color: rgb(63, 63, 63);"><span style="background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">            target.playgame();</span></span>
+                            </div>
+                            <div style="min-height: 13pt;"><span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">        }</span> <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(249, 38, 114); font-family: consolas;">else</span>                                <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">{</span></div>
+                            <div style="min-height: 13pt;"><span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">           </span> <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(102, 217, 239); font-family: consolas; font-style: italic;">console</span>
+                                <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">.log(</span><span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(230, 219, 116); font-family: consolas;">&quot;该产品目前不支持playgame功能&quot;</span>
+                                <span
+                                    style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">);</span>
+                            </div>
+                            <div style="min-height: 13pt;"><span style="min-height: 13pt; background-color: rgb(63, 63, 63);"><span style="background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">        }</span></span>
+                            </div>
+                            <div style="min-height: 13pt;"><span style="min-height: 13pt; background-color: rgb(63, 63, 63);"><span style="background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">    }</span></span>
+                            </div>
+                            <div style="min-height: 13pt;"><span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">   </span> <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(102, 217, 239); font-family: consolas; font-style: italic;">this</span>
+                                <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">.</span><span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(166, 226, 46); font-family: consolas;">phonecall</span>                                <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(249, 38, 114); font-family: consolas;">=</span> <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(102, 217, 239); font-family: consolas; font-style: italic;">function</span>
+                                <span
+                                    style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">(){</span>
+                            </div>
+                            <div style="min-height: 13pt;"><span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">       </span> <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(249, 38, 114); font-family: consolas;">if</span>
+                                <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">(</span><span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(249, 38, 114); font-family: consolas;">!!</span>
+                                <span
+                                    style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">target.phonecall</span> <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(249, 38, 114); font-family: consolas;">&amp;&amp; typeof</span> <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">target.phonecall</span>                                    <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(249, 38, 114); font-family: consolas;">===</span> <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(230, 219, 116); font-family: consolas;">&quot;function&quot;</span>
+                                    <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">){</span>
+                            </div>
+                            <div style="min-height: 13pt;"><span style="min-height: 13pt; background-color: rgb(63, 63, 63);"><span style="background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">            target.phonecall();</span></span>
+                            </div>
+                            <div style="min-height: 13pt;"><span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">        }</span> <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(249, 38, 114); font-family: consolas;">else</span>                                <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">{</span></div>
+                            <div style="min-height: 13pt;"><span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">           </span> <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(102, 217, 239); font-family: consolas; font-style: italic;">console</span>
+                                <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">.log(</span><span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(230, 219, 116); font-family: consolas;">&quot;该产品目前不支持phonecall功能&quot;</span>
+                                <span
+                                    style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">);</span>
+                            </div>
+                            <div style="min-height: 13pt;"><span style="min-height: 13pt; background-color: rgb(63, 63, 63);"><span style="background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">        }</span></span>
+                            </div>
+                            <div style="min-height: 13pt;"><span style="min-height: 13pt; background-color: rgb(63, 63, 63);"><span style="background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">    }</span></span>
+                            </div>
+                            <div style="min-height: 13pt;"><span style="min-height: 13pt; background-color: rgb(63, 63, 63);"><span style="background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">}</span></span>
+                            </div>
+                            <div style="min-height: 13pt;"></div>
+                            <div style="min-height: 13pt;"><span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(102, 217, 239); font-family: consolas; font-style: italic;">var </span> <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">ipad_apt</span>                                <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(249, 38, 114); font-family: consolas;">= new</span> <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">Adapter(</span>
+                                <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(249, 38, 114); font-family: consolas;">new</span> <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(174, 129, 255); font-family: consolas;">IPAD</span>
+                                <span
+                                    style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">());</span>
+                            </div>
+                            <div><span style="min-height: 13pt; background-color: rgb(63, 63, 63);"><span style="background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">test(ipad_apt); </span></span>
+                            </div>
+                            <div><span style="min-height: 13pt;"><span style="background-color: rgb(63, 63, 63);"><span style="background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(107, 231, 72); font-family: consolas;">//测试通过！</span></span>
+                                </span>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div><br/></div>
+        </div>
+    </div>
+    <div><br/></div>
+    <div><br/></div>
+    <div><span style="font-size: 12pt;">实战练习：</span></div>
+    <div style="box-sizing: border-box; padding: 8px; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; background-color: rgb(251, 250, 248); border: 1px solid rgba(0, 0, 0, 0.14902);">
+        <div><span style="background-color: rgb(251, 250, 248);"><span style="background-color: rgb(251, 250, 248);"><span style="background-color: rgb(251, 250, 248); color: rgb(51, 51, 51); font-family: Monaco, Menlo, Consolas, 'Courier New', monospace; font-size: 10pt;">Math.min方法用来求最小值，但很可惜它只接收2个参数，多余参数会被忽略</span></span>
+            </span>
+        </div>
+        <div><br/></div>
+        <div><span style="background-color: rgb(251, 250, 248);"><span style="background-color: rgb(251, 250, 248);"><span style="background-color: rgb(251, 250, 248); color: rgb(51, 51, 51); font-family: Monaco, Menlo, Consolas, 'Courier New', monospace; font-size: 10pt;">于是我们做个适配器包装一下，让它可以接收任意多个参数</span></span>
+            </span>
+        </div>
+        <div>
+            <div><br/></div>
+            <table style="border-collapse: collapse; min-width: 100%;">
+                <colgroup>
+                    <col style="width: 685px;"></col>
+                </colgroup>
+                <tbody>
+                    <tr>
+                        <td style="background-color: rgb(63, 63, 63); border: 1px solid rgb(50, 50, 50); width: 685px; padding: 8px;">
+                            <div><span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(102, 217, 239); font-family: consolas; font-style: italic;">var</span> <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">MathAdapter</span>                                <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(249, 38, 114); font-family: consolas;">=</span> <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">{</span></div>
+                            <div style="min-height: 13pt;"><span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">    min :</span> <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(102, 217, 239); font-family: consolas; font-style: italic;">function</span>
+                                <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">(){</span>
+                            </div>
+                            <div style="min-height: 13pt;"><span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">        Math.min.apply(</span><span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(102, 217, 239); font-family: consolas; font-style: italic;">window</span>
+                                <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">.Math,</span> <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(102, 217, 239); font-family: consolas; font-style: italic;">arguments</span>
+                                <span
+                                    style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">);</span>
+                            </div>
+                            <div style="min-height: 13pt;"><span style="min-height: 13pt;"><span style="background-color: rgb(63, 63, 63);"><span style="background-color: rgb(63, 63, 63); color: rgb(248, 248, 242); font-family: consolas; font-size: 10pt;">    }</span></span>
+                                </span>
+                            </div>
+                            <div style="min-height: 13pt;"><span style="min-height: 13pt;"><span style="background-color: rgb(63, 63, 63);"><span style="background-color: rgb(63, 63, 63); color: rgb(248, 248, 242); font-family: consolas; font-size: 10pt;">}</span></span>
+                                </span>
+                            </div>
+                            <div style="min-height: 13pt;"></div>
+                            <div style="min-height: 13pt;"><span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">Math.min(</span><span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(174, 129, 255); font-family: consolas;">5</span>
+                                <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">,</span><span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(174, 129, 255); font-family: consolas;">4</span>
+                                <span
+                                    style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">,</span>
+                                    <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(174, 129, 255); font-family: consolas;">3</span><span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">,</span>
+                                    <span
+                                        style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(174, 129, 255); font-family: consolas;">2</span>
+                                        <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">,</span><span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(174, 129, 255); font-family: consolas;">1</span>
+                                        <span
+                                            style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">); </span> <span style="min-height: 13pt;"><span style="background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(168, 168, 168); font-family: consolas;">//返回4</span></span>
+                            </div>
+                            <div><span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">MathAdapter.min(</span><span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(174, 129, 255); font-family: consolas;">5</span>
+                                <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">,</span><span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(174, 129, 255); font-family: consolas;">4</span>
+                                <span
+                                    style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">,</span>
+                                    <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(174, 129, 255); font-family: consolas;">3</span><span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">,</span>
+                                    <span
+                                        style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(174, 129, 255); font-family: consolas;">2</span>
+                                        <span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">,</span><span style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(174, 129, 255); font-family: consolas;">1</span>
+                                        <span
+                                            style="min-height: 13pt; background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(248, 248, 242); font-family: consolas;">); </span> <span style="min-height: 13pt;"><span style="background-color: rgb(63, 63, 63); font-size: 10pt; color: rgb(168, 168, 168); font-family: consolas;">//返回1</span></span>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div style="font-size: 12px;"><br/></div>
+        </div>
+    </div>
+    <div><br/></div>
+    <div><br/></div>
+    <div><br/></div>
+    </span>
+    </div>
+</body>
+
+</html> 

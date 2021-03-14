@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //一.if语句
+    //if条件可以是任意类型的数据。但最终的结果一定是布尔值(ECMAScript会自动调用Boolean()转换函数将这个表达式的结果转换为一个布尔值)
+    //数字非零即真，字符串非空即真，null,undefined都是false
+
+
+    //1.单分支基本控制结构
+    // if (条件) {
+    //     满足条件执行的语句块。
+    // }
+
+    // if (3) { //3转换成布尔值。
+    //     console.log('满足条件执行的代码');
+    //     console.log('满足条件执行的代码');
+    //     console.log('满足条件执行的代码');
+    //     console.log('满足条件执行的代码');
+    // }
+
+    // var a = prompt('请输入一个数字');
+    // if (!isNaN(a)) {
+    //     alert('是数字')
+    // }
+
+    //2.双分支语句基本控制结构
+    // if (条件) {
+    //     满足条件执行的语句块。
+    // } else {
+    //     不满足条件执行的语句块。
+    // }
+
+    // var a = prompt('请输入一个数字');
+    // if (!isNaN(a)) {
+    //     alert('是数字');
+    // } else {
+    //     alert('不是数字');
+    // }
+
+    // var num = prompt('请输入一个数字:');
+    // if (!isNaN(num)) { //判断是数字,继续测试是偶数还是奇数
+
+    //     if (num % 2 === 0) {
+    //         console.log('偶数');
+    //     } else {
+    //         console.log('奇数');
+    //     }
+
+    // } else {
+    //     alert('不是数字');
+    // }
+
+
+    //3.多分支语句基本结构
+    /*  
+     if(条件1){
+         满足条件1执行的语句块。
+     }
+     else if(条件2){
+         满足条件2执行的语句块。
+     }
+     else if(条件3){
+         满足条件3执行的语句块。
+     }
+     ...
+     else{
+         除了上面条件之外的其他情况
+     } 
+     
+     */
+
+    // var num = +prompt('请输入一个数字:');
+    // if (num > 0) {
+    //     alert('正数');
+    // } else if (num < 0) {
+    //     alert('负数');
+    // } else if (num === 0) {
+    //     alert('零');
+    // } else { //其他情况
+    //     alert('输入有误')
+    // }
+
+    //二.总结：
+    /*
+        if语句的特点：
+        1.if条件可以是任意类型的数据。但最终的结果一定是布尔值
+        2.else可以省略,如果满足if语句。else会自动跳过(短路操作)
+        3.将最大的可能给if语句。
+        
+    */
+
+    // if ('饿了困了') {
+    //     alert('喝东鹏特饮');
+    // } else { //短路
+    //     dfajkldfjlkasjdfklads;
+    // }
+</script>
+
+</html>

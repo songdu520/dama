@@ -1,0 +1,226 @@
+body,
+html {
+    height: 100%;
+}
+html {
+    font-size: 100px;
+    /* 根据设备的宽度而适配
+       750px     100px =  7.5
+    获得设备宽度   ?    =  7.5
+       750px  / 7.5 = font-size:100px
+       375px /  7.5 = font-size:50px;
+       320px / 7.5 =  font-size:42.667
+       414px / 7.5 = font-size:55.2   
+    */
+}
+body {
+    font-size: 16px;
+}
+/* main */
+main {
+    height: 100%;
+    background: #eeeeee;
+    padding-bottom: 100px;
+    box-sizing: border-box;
+    overflow: auto;
+}
+/* main第一个部分 */
+.header {
+    background: linear-gradient(
+            to bottom,
+            rgba(244, 43, 39, 0.7),
+            rgba(255, 136, 45, 0.7)
+        ),
+        url(../img/4.jpg) no-repeat left top/cover;
+    position: relative;
+    padding: 0.3rem 0.4rem;
+}
+.header img {
+    width: 1.35rem;
+    height: 1.35rem;
+    border-radius: 50%;
+}
+.header > div {
+    display: inline-block;
+    vertical-align: middle;
+    color: #fff;
+}
+.header h2 {
+    font-size: 0.32rem;
+    margin-bottom: 0.1rem;
+}
+.header p {
+    font-size: 0.24rem;
+    /* 省略号 */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.header > div:nth-child(1) {
+    margin-right: 0.1rem;
+}
+.header > div:nth-child(3) {
+    position: absolute;
+    top: 0.15rem;
+    right: 0.3rem;
+    font-size: 0.45rem;
+}
+/* main 的第二个部分 */
+main .nav {
+    background: #fff;
+    margin-bottom: 0.2rem;
+}
+.nav-order {
+    height: 0.8rem;
+    border-bottom: 1px solid #ccc;
+    padding: 0 0.3rem;
+    display: flex;
+    justify-content: space-between;
+    line-height: 0.8rem;
+    font-size: 0.26rem;
+}
+.nav-order a {
+    color: #999;
+}
+.nav-order span {
+    color: #000;
+}
+.nav-list ul {
+    display: flex;
+    height: 1.6rem;
+}
+.nav-list li {
+    width: 25%;
+    position: relative;
+}
+.nav-list li a {
+    display: flex;
+    height: 1.6rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #000;
+}
+.nav-list li i {
+    font-size: 0.5rem;
+}
+.nav-list li span {
+    font-size: 0.26rem;
+}
+.nav-list li:nth-child(4)::after {
+    content: "3";
+    display: block;
+    width: 0.3rem;
+    height: 0.3rem;
+    border-radius: 50%;
+    background: red;
+    color: #fff;
+    text-align: center;
+    line-height: 0.3rem;
+    position: absolute;
+    top: 12%;
+    right: 35%;
+}
+/* main 第三个部分 */
+.nav-list-bot {
+    background: #fff;
+    margin-bottom: 0.2rem;
+}
+.nav-list-bot ul {
+    display: flex;
+    flex-wrap: wrap;
+}
+.nav-list-bot ul li {
+    width: 25%;
+}
+.nav-list-bot ul li:nth-child(odd) i {
+    color: orange;
+}
+.nav-list-bot ul li:nth-child(even) i {
+    color: pink;
+}
+.nav-list-bot ul a {
+    display: flex;
+    height: 1.8rem;
+    border: 1px solid #ccc;
+    border-left: 0;
+    border-bottom: 0;
+    box-sizing: border-box;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.nav-list-bot a i {
+    font-size: 0.5rem;
+}
+.nav-list-bot a span {
+    font-size: 0.24rem;
+    color: #000;
+}
+/* 第四个部分 */
+.pro-choice h2 {
+    text-align: center;
+    line-height: 0.9rem;
+    color: darkred;
+    font-size: 0.34rem;
+    background: #fff;
+}
+.pro-choice ul {
+    display: flex;
+    flex-wrap: wrap;
+}
+.pro-choice ul li:nth-child(odd) {
+    margin-right: 2%;
+}
+.pro-choice ul li {
+    width: 49%;
+    background: #fff;
+}
+.pro-choice ul li img {
+    width: 100%;
+    height: 3.7rem;
+}
+.product-dis {
+    padding: 0 0.2rem;
+}
+.pro-choice ul p {
+    color: #000;
+    font-size: 0.24rem;
+    padding: 0.2rem 0;
+}
+
+.pro-choice ul ins {
+    color: red;
+    font-size: 0.24rem;
+    margin-right: 0.1rem;
+}
+.pro-choice ul b {
+    font-size: 0.3rem;
+}
+.pro-choice ul del {
+    color: #d9d9d9;
+    font-size: 0.24rem;
+}
+.product-dis div {
+    border-top: 1px solid #ccc;
+    height: 0.56rem;
+    line-height: 0.56rem;
+    display: flex;
+    justify-content: space-between;
+    color: #9b9b9b;
+    font-size: 0.24rem;
+}
+/* footer */
+footer {
+    height: 1rem;
+    background: cyan;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 1000;
+}
+/* 元素设置绝对定位或者固定定位之后，在没有设置width的情况下：
+   宽度根据内容而定；
+   如果内容太多，超出定位元素父元素的宽度了，那么这个定位元素的宽度就与父元素同宽；
+   如果没有内容，宽度为0； */

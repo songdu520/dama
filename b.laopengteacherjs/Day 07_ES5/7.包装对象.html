@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //一.问题
+    //1.一切皆对象??? - number/string/boolean(包装对象) null/undefined(空对象)  object(对象)
+    //2.基本类拥有属性和方法。
+    //因为基本类型使用数学和方法的时候，系统以对象的身份临时创建。
+
+
+    var arr = [1, 2, 3, 4];
+    arr.length = 2;
+    console.log(arr.length); //2
+    console.log(arr)
+
+    // var str = 'hello';
+    // str.length = 2;//new String('hello')
+    // console.log(str.length); //5 //new String('hello')
+
+
+    // var num = 3.1415926; //基本类型
+    // console.log(num.toFixed(2)); //3.14
+    // console.log(typeof num); //number
+
+
+    // var a = 1;
+    // a.hehe = 100;
+    // console.log(a.hehe); //undefined
+
+    // var arr1 = [1, 2, 3];
+    // arr1.hehe = 100;
+    // console.log(arr1.hehe); //100
+
+
+    //二.包装对象(临时性)
+    // var str1 = 'hello'; //字面量
+    // var str2 = new String('hello'); //构造函数(系统去隐式创建)
+    // console.log(str1 == str2); //true 值相等。
+    // console.log(typeof str1); //string
+    // console.log(typeof str2); //object
+
+    //临时性：当我们使用string/number/boolean相关类型的属性和方法时，系统会临时采用(new String())帮我们临时创建。
+    //一旦使用完成，立刻销毁。
+    var str = 'hello';
+    str.length = 2; //这里系统会临时创建  new String(str),用完即销毁。
+    console.log(str.length); //这里的结果和上面没有关系，上面已经销毁了。这里再使用，系统依然new String(str)创建。
+</script>
+
+</html>

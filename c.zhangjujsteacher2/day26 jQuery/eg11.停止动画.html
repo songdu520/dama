@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+    <script src="./jquery.js"></script>
+    <script>
+        $(function() {
+            $('.box').on('click', function() {
+                $(this)
+                    .animate({
+                        width: 300
+                    }, 1000)
+                    .animate({
+                        height: 300
+                    }, 1000)
+                    .animate({
+                        width: 100
+                    }, 1000)
+                    .animate({
+                        height: 100
+                    }, 1000);
+            });
+
+            $('.stop1').on('click', function() {
+                // :animated 选择正在执行动画的元素 
+                // 任意的jQuery效果
+
+                // 立即停止当前正在执行的动画
+                $(':animated').stop();
+            });
+
+            $('.stop2').on('click', function() {
+                // stop第一个参数的含义是  清空动画队列  true  
+                // 默认值 false
+                $(':animated').stop(true);
+            });
+
+            $('.stop3').on('click', function() {
+                // stop的第二个参数的含义是 立即完成当前正在执行的动画
+                $(':animated').stop(false, true);
+            });
+
+
+            $('.stop4').on('click', function() {
+                $(':animated').stop(true, true);
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <button class="stop1">停止1</button>
+    <button class="stop2">停止2</button>
+    <button class="stop3">停止3</button>
+    <button class="stop4">停止4</button>
+    <div class="box"></div>
+</body>
+
+</html>

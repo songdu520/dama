@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <textarea name="" id="t1" cols="80" rows="10"></textarea>
+    <br>
+    <button>转换</button>
+    <br>
+    <textarea name="" id="t2" cols="80" rows="10"></textarea>
+</body>
+<script>
+    // 1.提供一个字符串，英文占一个字符，中文占两个字符，输出长度。
+    // var str = 'hello你好';
+    // console.log(str.length); //7
+    // console.log(str.replace(/[\u4e00-\u9fa5]/g, 'aa').length);
+
+    // 2.两个字符串
+    //从第一个字符串中删除第二个字符串里面存着的字符。
+    // var str1 = 'my name is zhangsan';
+    // var str2 = 'mashang';
+    // console.log(str1.replace(/[mashang]/g, '')); //y e i z
+    // var reg = new RegExp('[' + str2 + ']', 'g');
+    // console.log(str1.replace(reg, '')); //y e i z
+
+    // 3.获取标签结构里面的文本内容
+    // var oT1 = document.querySelector('#t1');
+    // var oT2 = document.querySelector('#t2');
+    // var oBtn = document.querySelector('button');
+    //<a href="javascript:void(0);"><i class="iconfont icon-guanbi"></i>不感兴趣</a>
+    // oBtn.onclick = function() {
+    //     var reg = /<[^>]+>/g;
+    //     oT2.value = oT1.value.replace(reg, '')
+    // }
+
+    // var str = '<a href="javascript:void(0);"><i class="iconfont icon-guanbi"></i>不感兴趣</a>';
+    // console.log(str.match(/<[^>]+>/g));
+    //["<a href="javascript:void(0);">", "<i class="iconfont icon-guanbi">", "</i>", "</a>"]
+</script>
+
+</html>

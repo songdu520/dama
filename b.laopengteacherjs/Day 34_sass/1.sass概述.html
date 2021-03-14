@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/syntax.css">
+</head>
+
+<body>
+    <p>这意味着color: red这条规则将会被应用到选择器article a :hover，article元素内链接的所有子元素在被hover时都会变成红色。这是不正确的！你想把这条规则应用到超链接自身，而后代选择器的方式无法帮你实现。 解决之道为使用一个特殊的sass选择器，即父选择器。在使用嵌套规则时，父选择器能对于嵌套规则如何解开提供更好的控制。它就是一个简单的&符号，且可以放在任何一个选择器可出现的地方，比如h1放在哪，它就可以放在哪。
+    </p>
+    <!-- 
+        一.sass的概述 - css预编译框架
+        1.世界上最成熟、最稳定、最强大的专业级CSS扩展语言！
+        2.CSS 不是一个编程语言，可以用它来开发网页样式，但是没有办法用它进行编程，SASS 的出现，让 CSS可以 实现编程。
+        3.网页最终引入还是css文件，css依靠sass框架编译出来的。
+        4.css预编译框架 - sass  less两种
+        最早的是sass - sass格式问题（代码没有分号和花括号）- 出现 less(正常的css代码)快速抢占市场 - sass改变策略（正常的css代码）
+        sass文件有两种扩展名
+        .sass：早期的格式，css代码不支持分号和花括号
+        .scss：当前的格式，支持正常的css格式√
+        .map：css依赖map文件进行调试。
+
+
+        二.sass的意义
+        1.sass适合大型的项目，不适合企业网站，集团网站。（bootstrap）
+        2.sass合理应用 - sass应用需要花费一些时间合理安排应用(学习sass容易，用好很难) - 经验很重要。
+        3.css预编译框架 - 安装编译环境。
+
+        三.sass的编译环境
+        1.vscode - easysass插件编译
+        2.考拉Koala软件编译
+        3.sass基于ruby语言(小型的面向对象语言)开发出来的，ruby环境编译 √
+        4.gulp编译 √
+        5.webpack编译 
+        6.compass编译   
+        ...
+
+
+        四.ruby编译（sass基于ruby语言开发出来的）
+        sass基于Ruby语言开发而成，因此安装sass前需要安装Ruby。（注:mac下自带Ruby无需在安装Ruby!）
+        1.安装ruby - 默认安装 - 检测ruby是否安装成功  - 打开cmd命令 - 输入  ruby -v (ruby --version打印版本)  - 显示版本信息 - 安装成功
+        ruby -v
+        gem -v
+
+        2.ruby软件下面自带一个gem的包管理工具，里面放置有sass，compass等一些包（插件或者模块）
+
+        3.由于网络安装比较慢，一般采用本地安装sass.
+
+        4.本地安装sass
+        gem install 本地sass文件的路径（尽量避免中文）
+        // /ɪnˈstɔːl/安装
+
+        5.sass -v 输出版本，安装成功，将sass文件转换成css文件。
+        
+        6.sass编译命令介绍
+        进入目录（看到编译sass文件 )，
+        编译命令： sass  --watch sass目录/.:css目录/.   --style expanded
+        //                                                 /ɪkˈspændɪd/ 扩充的，展开的         
+        --watch:监听sass文件，取消监听ctrl+c
+        //--style compressed  全部压缩成一行
+        //         /kəmˈprest/压缩
+        //--style expanded  扩展(完全格式化标准)
+
+
+
+
+     -->
+</body>
+
+</html>

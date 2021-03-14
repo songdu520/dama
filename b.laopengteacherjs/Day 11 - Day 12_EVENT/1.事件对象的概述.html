@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // 一.事件对象的概念。
+    // 在触发DOM上的某个事件时，会产生一个事件对象event,这个对象包含着所有事件相关的信息。
+
+    // 二.如何获取事件对象 - window.event
+    // 早期的浏览器自带event对象，window.event
+    // 标准浏览器的事件对象是事件处理函数中的一个隐藏的（第一个）参数，可以通过参数获取对象。 
+    // document.onclick = function(ev) { //事件处理函数中的第一个参数
+    //     console.log(arguments[0]);//第一个参数
+    //     console.log(ev);//第一个参数 - 推荐的
+    //     console.log(event);//系统默认提供的 - 早期的
+    // };
+
+    // 三.获取事件对象的写法
+    // document.onclick = function(ev) {
+    //     var ev = ev || window.event; //兼容的写法
+    //     console.log(ev); //ev事件对象
+    // };
+</script>
+
+</html>

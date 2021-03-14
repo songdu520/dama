@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+<style>
+    div {
+        background: url();
+    }
+</style>
+
+<body>
+
+    <div class="bigpic"></div>
+    <ul>
+        <li><img src="./images/1.png" alt=""></li>
+        <li><img src="./images/2.png" alt=""></li>
+        <li><img src="./images/3.png" alt=""></li>
+
+    </ul>
+</body>
+<script src="./jquery.js"></script>
+<script>
+    let bigpic = $('.bigpic')
+    $('li').on('click', function() {
+        bigpic.empty()
+        bigpic.css({
+            "background": ' url(' + $(this).children().attr('src') + ')'
+        })
+        for (let i = 0; i < Math.ceil(bigpic.height() / 10); i++) {
+            let div = $('<div style=" height: 10px;;  width: 570px; position: absolute;top:' + 10 * i + 'px;  background: #ffffff;"></div>')
+            bigpic.append(div)
+        }
+        bigpic.find('div').each(function(i, e) {
+            $(e).delay(i * 20).fadeOut(200)
+        })
+
+    })
+</script>
+
+</html>

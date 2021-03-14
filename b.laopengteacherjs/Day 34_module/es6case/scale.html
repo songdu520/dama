@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+        
+        .scale {
+            margin: 30px 0 0 50px;
+        }
+        
+        .spic {
+            width: 400px;
+            height: 400px;
+            border: 1px solid #ccc;
+            position: relative;
+            float: left;
+        }
+        
+        .spic img {
+            width: 400px;
+            height: 400px;
+            display: block;
+        }
+        
+        .sf {
+            opacity: 0.3;
+            background-color: orange;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            visibility: hidden;
+            cursor: move;
+        }
+        
+        .bf {
+            width: 500px;
+            height: 500px;
+            border: 1px solid #ccc;
+            float: left;
+            overflow: hidden;
+            margin-left: -1px;
+            position: relative;
+            visibility: hidden;
+        }
+        
+        .bpic {
+            width: 800px;
+            height: 800px;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+        }
+    </style>
+    <script src="js/usescale.js" type="module" async="true" defer></script>
+</head>
+
+<body>
+    <div class="scale">
+        <div class="spic">
+            <!-- 小图 -->
+            <img src="scale.jpg" alt="">
+            <div class="sf"></div>
+            <!-- 小放 -->
+        </div>
+        <div class="bf">
+            <!-- 大放 -->
+            <img src="scale.jpg" alt="" class="bpic">
+            <!-- 大图 -->
+        </div>
+    </div>
+</body>
+
+</html>

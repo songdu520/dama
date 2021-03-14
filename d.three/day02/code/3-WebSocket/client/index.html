@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 400px;
+            height: 500px;
+            border: 1px solid red;
+            overflow: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <input type="text" name="" id="input">
+    <button id="button">发送</button>
+
+
+
+    <script>
+        const name = prompt('请输入昵称：')
+
+        const Div = document.querySelector('div');
+        const Input = document.querySelector('#input');
+        const Button = document.querySelector('#button');
+
+
+        // 连接到websocket
+        var ws = new WebSocket("ws://10.31.162.37:8080");
+        //            /ˈsɑːkɪt/ 插座
+
+        // 第一次连接时触发的函数
+        ws.onopen = function(evt) {
+            console.log("Connection open ...");
+            // 发送给后端
+            // ws.send("Hello WebSockets!");
+            ws.send('!@$%%^^' + name);
+        };
+
+        // 收到后端发送过来信息时触发的函数
+        ws.onmessage = function(evt) {
+            // console.log( "Received Message: " + evt.data);
+            // 主动断开连接
+            // ws.close();
+            if (evt.data.split('说')[0] === name) {
+                Div.innerHTML += '<p style="text-align: right">' + evt.data + '</p>';
+            } else {
+                Div.innerHTML += '<p>' + evt.data + '</p>';
+            }
+        };
+
+        // ws断开连接时触发的函数
+        ws.onclose = function(evt) {
+            console.log("Connection closed.");
+        };
+
+
+        Button.onclick = () => {
+            ws.send(Input.value);
+            Input.value = '';
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //1.改变变量的值。
+    var a = 1; //全局
+    a = 2;
+    console.log(a); //2
+
+
+    //2.变量重复声明，下面的覆盖上面
+    var b = 1; //全局
+    var b = 2;
+    console.log(b); //2
+
+    //3.声明变量没有var,变量声明没有添加var关键字，此变量就变成了全局作用域。
+    c = 1; //全局
+    c = 2;
+    console.log(c);
+
+    function fn() {
+        num = 100; //变量声明没有添加var关键字，此变量就变成了全局作用域
+        console.log(num); //100
+    }
+    fn();
+    console.log(num); //100
+</script>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //案例：输入年份，计算某一年是否是闰年（闰年能被4整除且不能被100整除，或能被400整除）；
+    // var year = prompt('请输入一个四位的年份：');
+    // if (year >= 1000 && year <= 9999) { //这里js禁止使用a<c<b
+    //     if (year % 4 === 0 && year % 100 !== 0 || year % 400 === 0) {
+    //         alert('闰年');
+    //     } else {
+    //         alert('非闰年');
+    //     }
+    // } else {
+    //     alert('输入有误');
+    // }
+
+    //开发一款软件，根据公式（身高-108）*2=体重，可以有10斤左右的浮动。来观察测试者体重是否合适(身高：cm)
+    //偏瘦 （身高-108）*2-10
+    //偏旁 （身高-108）*2+10
+    //标准  两者的中间
+
+    var height = prompt('请输入你的身高：');
+    var weight = prompt('请输入你的体重：');
+
+    var min = (height - 108) * 2 - 10; //标准最低
+    var max = (height - 108) * 2 + 10; //标准最高
+
+    if (weight < min) {
+        alert('偏瘦');
+    } else if (weight > max) {
+        alert('偏胖')
+    } else if (weight >= min && weight <= max) {
+        alert('标准');
+    } else {
+        alert('输入有误');
+    }
+</script>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        // jQuery.getJSON(url, [data], [callback])
+
+        // $.getJSON可以获取json文件的数据
+        // 使用get请求方式
+
+        // $.getJSON('./interface/city.json', function(data) {
+        //     console.log(data);
+        // });
+
+        // 可以使用$.getJSON进行JSONP请求
+
+        $(function() {
+            $('#search').on('input', function() {
+                let url = 'https://www.baidu.com/sugrec?pre=1&p=3&ie=utf-8&json=1&prod=pc&from=pc_web&sugsid=32817,1462,32843,31660,32723,32230,7517,32116,26350,32915,22160&wd=' + $(this).val() + '&req=2&csor=3&pwd=12&cb=?';
+                $.getJSON(url, function(data) {
+
+                    let li = '';
+                    data.g.forEach(el => {
+                        li += `<li><a href="https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&rsv_idx=1&tn=baidu&wd=${el.q}&fenlei=256&rsv_pq=f86a3c7a00040508&rsv_t=f5a4X%2B7I3Sg5EpV30mGBtcZLg7tJRLCd3Euz18Tl9Q9PFBfzQhd7g6HfGgI&rqlang=cn&rsv_enter=1&rsv_dl=ib&rsv_sug3=6&rsv_sug1=3&rsv_sug7=101">${el.q}</a></li>`;
+                    });
+
+                    $('#list').html(li);
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <input type="text" id="search">
+    <ul id="list"></ul>
+</body>
+
+</html>

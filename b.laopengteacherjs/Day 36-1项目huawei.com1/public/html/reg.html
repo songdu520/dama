@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .row {
+            margin-bottom: 5px;
+        }
+        
+        .row>.col-lg-offset-3 {
+            line-height: 34px;
+            font-size: 1.2em;
+            padding-right: 5px;
+            user-select: none;
+            color: #999;
+        }
+    </style>
+    <script src="../js/reg.js" type="module"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="text-center h1">注册页面</div>
+
+
+        <div class="row">
+            <div class="col-lg-1 col-lg-offset-3 text-right">用户名</div>
+            <div class="col-lg-4">
+                <input type="text" class="form-control" placeholder="请输入用户名">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-1 col-lg-offset-3 text-right">密码</div>
+            <div class="col-lg-4">
+                <input type="text" class="form-control" placeholder="请输入密码">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-1 col-lg-offset-3 text-right">邮箱</div>
+            <div class="col-lg-4">
+                <div class="input-group">
+                    <input type="text" class="form-control" id="email" placeholder="请输入邮箱">
+                    <span class="input-group-btn">
+                      <a class="btn btn-default" href="javascript:;" id="getcode">获得验证码</a>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-1 col-lg-offset-3 text-right">验证码</div>
+            <div class="col-lg-4">
+                <input type="text" class="form-control" placeholder="请输入验证码">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-1 col-lg-offset-3 text-right">手机号</div>
+            <div class="col-lg-4">
+                <input type="text" class="form-control" placeholder="请输入手机号">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-1 col-lg-offset-3 text-right">地址</div>
+            <div class="col-lg-4">
+                <input type="text" class="form-control" placeholder="请输入地址">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4 col-lg-offset-4">
+                <input class="btn btn-success btn-block btn-sm" type="button" id="submit" value="提交">
+            </div>
+        </div>
+
+
+
+        <!-- <div class="input-group">
+            <span class="input-group-addon" id="username">username</span>
+            <input type="text" class="form-control" placeholder="Username" aria-describedby="username" name="username">
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon" id="password">password</span>
+            <input type="text" class="form-control" placeholder="password" aria-describedby="password" name="password">
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon" id="email">email</span>
+            <input type="text" class="form-control" placeholder="email" aria-describedby="email" name="email">
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon" id="phone">phone</span>
+            <input type="text" class="form-control" placeholder="phone" aria-describedby="phone" name="phone">
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon" id="address">address</span>
+            <input type="text" class="form-control" placeholder="address" aria-describedby="address" name="address">
+        </div>
+
+        <input type="button" value="提交" id="submit" class="btn btn-success btn-block"> -->
+
+    </div>
+</body>
+
+</html>

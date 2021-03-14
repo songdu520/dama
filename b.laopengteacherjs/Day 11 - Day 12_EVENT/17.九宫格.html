@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        
+        .picwall {
+            width: 942px;
+            height: 534px;
+            border: 1px solid red;
+            margin: 50px auto;
+        }
+        
+        .picwall ul {
+            padding: 5px;
+        }
+        
+        .picwall li {
+            float: left;
+            margin: 5px;
+        }
+        
+        .picwall li img {
+            width: 300px;
+            height: 164px;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="picwall">
+        <ul>
+            <li><img src="img/1.jpg" alt=""></li>
+            <li><img src="img/2.jpg" alt=""></li>
+            <li><img src="img/3.jpg" alt=""></li>
+            <li><img src="img/4.jpg" alt=""></li>
+            <li><img src="img/5.jpg" alt=""></li>
+            <li><img src="img/6.jpg" alt=""></li>
+            <li><img src="img/7.jpg" alt=""></li>
+            <li><img src="img/8.jpg" alt=""></li>
+            <li><img src="img/9.jpg" alt=""></li>
+        </ul>
+    </div>
+</body>
+<script>
+    var aLi = document.querySelectorAll('li');
+    //1.将浮动布局改成定位布局。
+    var arrposition = []; //保存当前图片的位置 - 二维数组。
+    var num = 0;
+    for (var i = 0; i < aLi.length; i++) {
+        arrposition.push([aLi[i].offsetLeft, aLi[i].offsetTop]);
+    }
+    //继续将图片的位置赋值给图片
+    for (var i = 0; i < aLi.length; i++) {
+        aLi[i].style.position = 'absolute';
+        aLi[i].style.left = arrposition[i][0] + 'px';
+        aLi[i].style.top = arrposition[i][1] + 'px';
+        aLi[i].style.margin = 0; //取消li里面margin值。
+    }
+    console.log(arrposition);
+    //2.每一个元素都能拖拽。
+    for (var i = 0; i < aLi.length; i++) {
+        aLi[i].index = i; //每一个li里面添加一个自定义的索引,和数组的索引的匹配。
+        drag(aLi[i]);
+    }
+
+    function drag(obj) { //obj:当前拖拽的元素
+        obj.onmousedown = function(ev) {
+            obj.style.zIndex = ++num; //当前点击的li层级是最高的。
+            //1.求短线(offsetX/offsetY)
+            var ev = ev || event;
+            var shortx = ev.offsetX;
+            var shorty = ev.offsetY;
+            document.onmousemove = function(ev) {
+                var ev = ev || event; //重新获取事件对象，每一次移动事件对象的值是变化的。
+                obj.style.left = ev.clientX - shortx + 'px';
+                obj.style.top = ev.clientY - shorty + 'px';
+                //测试碰撞检查函数
+                for (var i = 0; i < aLi.length; i++) {
+                    aLi[i].style.border = 0;
+                    // if (hit(obj, aLi[i])) {
+                    //     aLi[i].style.border = '3px solid blue';
+                    // }
+                }
+
+                //6.获取最具体的盒子，添加一个边框。
+                var minbox = getminbox(obj);
+                if (minbox) { //判断存在
+                    minbox.style.border = '3px solid blue';
+                }
+
+            };
+            document.onmouseup = function() { //结束拖拽
+                document.onmousemove = null; //取消事件
+                document.onmouseup = null; //取消事件
+
+                //7.鼠标松开交换位置。
+                var minbox = getminbox(obj);
+                if (minbox) { //交换
+                    obj.style.left = arrposition[minbox.index][0] + 'px';
+                    obj.style.top = arrposition[minbox.index][1] + 'px';
+                    minbox.style.left = arrposition[obj.index][0] + 'px';
+                    minbox.style.top = arrposition[obj.index][1] + 'px';
+                    minbox.style.border = 0;
+                    var temp = obj.index;
+                    obj.index = minbox.index;
+                    minbox.index = temp;
+
+                } else { //回到原来的位置
+                    obj.style.left = arrposition[obj.index][0] + 'px';
+                    obj.style.top = arrposition[obj.index][1] + 'px';
+                }
+
+            };
+            return false; //取消默认行为。
+        }
+    }
+    //3.碰撞检查
+    function hit(obj1, obj2) {
+        if (obj1.offsetLeft + obj1.offsetWidth >= obj2.offsetLeft && obj1.offsetLeft <= obj2.offsetLeft + obj2.offsetWidth && obj1.offsetTop + obj1.offsetHeight >= obj2.offsetTop && obj1.offsetTop <= obj2.offsetTop + obj2.offsetHeight) { //碰上了
+            return true;
+        } else {
+            return false;
+        }
+    }
+    //4.勾股定理
+    function gg(obj1, obj2) {
+        var a = obj1.offsetLeft - obj2.offsetLeft;
+        var b = obj1.offsetTop - obj2.offsetTop;
+        return Math.sqrt(a * a + b * b);
+    }
+
+    //5.求离当前拖拽的盒子最近的盒子
+    function getminbox(obj) { //obj当前拖拽的盒子
+        var minindex = -1; //假设的最小索引。
+        var minvalue = 10000; //假设的最小值。
+        for (var i = 0; i < aLi.length; i++) {
+            if (hit(obj, aLi[i]) && obj !== aLi[i]) { //求碰上并且不是自己的元素。
+                var distance = gg(obj, aLi[i]);
+                if (distance < minvalue) {
+                    minvalue = distance;
+                    minindex = i;
+                }
+            }
+        }
+
+        return aLi[minindex]; //最小距离的盒子。
+    }
+</script>
+
+</html>

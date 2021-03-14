@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="ajaxpromise.js"></script>
+</head>
+
+<body>
+
+</body>
+<script>
+    let newpromise = Promise.all([
+        ajax({
+            url: 'http://localhost/h5/b.teacherjs/phpdata/news.php',
+            dataType: 'json'
+        }),
+        ajax({
+            url: 'http://localhost/h/b.teacherjs/phpdata/newslist.php',
+            dataType: 'json'
+        }),
+        ajax({
+            url: 'http://localhost/h5/b.teacherjs/phpdata/news.php',
+            dataType: 'json'
+        })
+    ])
+    newpromise.then(function(data) {
+        console.log(data)
+    }).catch(function(err) {
+        console.log('接口地址错误')
+    })
+</script>
+
+</html>

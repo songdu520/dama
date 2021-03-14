@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // 1.位置方法--indexOf()/lastIndexOf()返回要查找的项在数组中的索引位置，没找到的情况下返回-1。
+    // indexOf() 方法从数组的开头开始向后查找。
+    // lastIndexOf() 方法则从数组的末尾开始向前查找。
+    // 两个参数：要查找的数组项 和 （可选的参数）表示查找起点位置的索引
+
+    // var arr = ['hello', 'zhangsan', 'lisi', 'hi', 'zhangsan', 'lisi'];
+
+    //indexOf() 方法从数组的开头开始向后查找。
+    // console.log(arr.indexOf('zhangsan')); //1  第一次出现的
+    // console.log(arr.indexOf('zhangsan')); //1  第一次出现的
+    // console.log(arr.indexOf('zhangsan', 2)); //4  以第二个参数为起点位置进行查找。
+    // console.log(arr.indexOf('wang')); //-1  没找到的情况下返回-1
+
+    //lastIndexOf() 方法则从数组的末尾开始向前查找(数组的索引默认的从前往后进行分配的)
+
+    // console.log(arr.lastIndexOf('zhangsan')); //4
+
+    //数组去重
+    // var arr = [12, 12, 12, 12, 3, 45, 6, 12, 3, 45];
+    // var newarr = [];
+    // for (var i = 0; i < arr.length; i++) {
+    //     if (newarr.indexOf(arr[i]) === -1) { //不存在新数组  -1很好的标记
+    //         newarr.push(arr[i])
+    //     }
+    // }
+    // console.log(newarr);
+
+
+    // var arr = [100, 250, 12, 12, 12, 12, 3, 45, 6, 12, 3, 45];
+
+    // console.log(arr.includes(12)); // 存在：true
+    // console.log(arr.includes(120)); //不存在：false
+
+
+    // var newarr = [];
+    // for (var i = 0; i < arr.length; i++) {
+    //     if (!newarr.includes(arr[i])) { //不存在新数组
+    //         newarr.push(arr[i])
+    //     }
+    // }
+    // console.log(newarr); //[100, 250, 12, 3, 45, 6]
+</script>
+
+</html>

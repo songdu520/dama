@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+</body>
+<script>
+    //一.读写物体css属性。
+    //offsetLeft offsetTop  可视区位置(没有单位)
+    //offsetWidth offsetHeight  盒模型尺寸(没有单位)
+    //getComputedStyle/currentStyle 获取任意的css属性值（有单位）
+
+
+    //element.style.width
+    //element.style.cssText
+    //element.className = 'active'
+
+    function getStyle(obj, attr) { //obj:元素对象   attr:css属性名
+        if (window.getComputedStyle) { //标准
+            return window.getComputedStyle(obj)[attr];
+        } else {
+            return obj.currentStyle[attr];
+        }
+    }
+
+    //二.定时器
+    //window.setInterval()
+    //window.clearInterval()
+    //window.setTimeout()
+    //window.clearTimeout()
+
+
+    //三.定时器不断改变物体的属性值，形成连贯的动作。
+
+    //四.物体运动起来
+    const oBox = document.querySelector('.box');
+    // oBox.onclick = function() {
+    //     setInterval(() => {
+    //         oBox.style.left = oBox.offsetLeft + 5 + 'px'; //oBox.offsetLeft:读取，不断的读取新的left的值。
+    //     }, 1000 / 60);
+    // };
+
+    //问题：当运动需要事件触发，注意定时器的叠加。
+    let timer = null; //定时器的返回值
+    oBox.onclick = function() {
+        clearInterval(timer); //每次点击事件，清除前面定时器。
+        timer = setInterval(() => {
+            oBox.style.left = oBox.offsetLeft + 1 + 'px'; //oBox.offsetLeft:读取，不断的读取新的left的值。
+        }, 1000 / 60);
+    };
+</script>
+
+</html>

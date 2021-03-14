@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // HTML5 新增的特性
+        // web worker  
+        // 多线程
+
+        // 处理超大计算量的解决方案
+        // worker 需要在服务环境使用
+
+        let worker = new Worker('./f1.js');
+
+        // postMessage() 发送消息
+        // onmessage()   接收消息
+
+        worker.postMessage(40);
+        worker.onmessage = function(ev) {
+            console.log(ev.data);
+        }
+
+
+
+
+        // console.time('fib');
+        // console.log(fib(40));
+        // console.timeEnd('fib');
+
+        console.log('ok');
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

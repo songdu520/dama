@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //window.localStorage:window下面的子对象。
+    //1.存储的方式 - 三种。  永久存储。
+    //存储的格式：键值对，key=value
+    //如果key值相同，会覆盖。
+
+    //值可以是任何类型，但是最终转换成字符串。
+    // window.localStorage.name = 'zhangsan';
+    // window.localStorage['age'] = 1000;
+
+    //最好的存储方式：
+    // window.localStorage.setItem('sex', '男');
+
+    //2.存储数组和对象
+    let arr = ['hello', 'hi'];
+    let obj = {
+        a: 1,
+        b: 2,
+        c: 3
+    };
+
+    window.localStorage.setItem('arrdata', arr);
+    window.localStorage.setItem('objdata', obj);
+    window.localStorage.setItem('objdata123', JSON.stringify(obj));
+    window.localStorage.setItem('objdata123', '覆盖上面的数据');
+</script>
+
+</html>

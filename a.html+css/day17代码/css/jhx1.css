@@ -1,0 +1,20 @@
+body,
+html {
+    height: 100%;
+}
+body {
+    display: flex;
+    flex-direction: column;
+}
+/* main */
+main {
+    flex: 1;
+    background: lightcyan;
+    overflow: auto;
+}
+/* footer */
+footer {
+    height: 100px;
+    box-sizing: border-box;
+    background: cyan;
+}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- <script src="./cookie.js"></script> -->
+
+    <script>
+        $(function() {
+            // jQuery.getScript(url, [callback])
+            // 延迟加载JS 按需加载(懒加载)
+
+            $('#reg').on('click', function() {
+                $.getScript('./cookie.js', function() {
+                    console.log(cookie);
+                });
+
+
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <button id="reg">登陆</button>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <base-child name="zhangsan" :age="25"></base-child>
+
+    </div>
+
+    <script src="../../Vue.js"></script>
+    <script>
+        Vue.component('base-child', {
+            // props: ['name', 'age'],
+            props: {
+                name: String,
+                age: Number
+            },
+            template: `
+        <div>{{ name }}的年龄是{{ age }}岁</div>
+      `
+        },
+        
+        )
+
+
+
+        new Vue({
+            el: '#app',
+            // data() {
+            //   return {
+            //     age: 25
+            //   }
+            // }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // 1.cookie的存储(存储字符串)。                                                                                                
+    // cookie存储时候的注意情况：
+
+    // cookie存储键值对name=value
+    // cookie存储的路径 - 任意目录获取(/)
+    // cookie存储的时间 - 设定过期时间。
+    // cookie存储中文尽量编码
+    // encodeURIComponent:编码
+    // decodeURIComponent:解码
+    //           /kəmˈpoʊnənt/组成部分；成分
+
+    // cookie存储时如果name值相同，会覆盖。
+
+    // document.cookie = 'name=zhangsan';
+    // document.cookie = 'age=100';
+
+    // let date = new Date();
+    // date.setDate(date.getDate() + 10);
+    // document.cookie = `username=张三;expires=${date};path=/`;
+    //                             /ɪk'spaɪəz/到期；有效期  /pæθ/ 道路；小路
+
+    //封装函数-实现cookie的存储
+    function addcookie(name, value, days) {
+        let date = new Date();
+        date.setDate(date.getDate() + days);
+        document.cookie = `${name}=${encodeURIComponent(value)};expires=${date};path=/`;
+    }
+
+    // let arr = ['zhangsan', 'lisi', 'wangwu'];
+    // let obj = {
+    //     a: 1,
+    //     b: 2,
+    //     c: 3
+    // }
+
+    // addcookie('arrdata', arr, 7);
+    // addcookie('objdata', JSON.stringify(obj), 7);
+
+    // addcookie('name', 'zhangsan', 7);
+    addcookie('name', 'wangwu', 7);
+    addcookie('age', '100', 7);
+    addcookie('sex', '男', 7);
+
+    //2.cookie的获取
+    // alert(document.cookie); //获取所有的当前浏览器里面存储的cookie
+    // 封装函数 - cookie获取
+    function getcookie(name) {
+        //decodeURIComponent(document.cookie);//age=100; sex=男; name=wangwu
+        let arr = decodeURIComponent(document.cookie).split('; '); //分号后面有一个空格 
+        //["age=100", "sex=男", "name=wangwu"]
+        for (let value of arr) {
+            let newarr = value.split('='); //["name", "wangwu"] ["age", "100"] ["sex", "男"]
+            if (newarr[0] === name) {
+                return newarr[1];
+            }
+        }
+    }
+
+    console.log(getcookie('name')); //wangwu
+    console.log(getcookie('age')); //100
+    console.log(getcookie('sex')); //男
+
+    //3.删除cookie
+    //cookie的name值相同会覆盖，过期时间。
+    //添加一个相同的name值，将时间变成过去的时间。
+    // addcookie('name', '', -1);
+    // addcookie('age', '', -1);
+    function delcookie(name) {
+        addcookie(name, '', -1);
+    }
+    // delcookie('sex');
+</script>
+
+</html>

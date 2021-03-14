@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 300px;
+            height: 400px;
+            background-color: red;
+            position: absolute;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <a href="http://www.baidu.com">link baidu</a> -->
+    <div class="box"></div>
+</body>
+<script>
+    //1.浏览器的默认行为
+    //javascript中的默认行为是指javascript中事件本身具有的属性，如<a>标签可以跳转，文本框可输入文字、字母、图片路径等，右键浏览器会出现菜单等行为便被称为浏览器的默认行为。
+    //浏览器本身自带的一些行为。
+
+    //2.阻止浏览器的默认行为
+    //ev.preventDefault(); 标准浏览器阻止默认事件,DOM事件使用此方法取消默认事件。
+    ///prɪˈvent/预防阻止/ˈdiːfɔːlt/系统默认值
+    //ev.returnValue = false; 非标准浏览器（IE8）阻止默认事件
+
+    //return false;  退出执行, 所有触发事件和动作都不会被执行. 可以用来替代 preventDefault
+
+    //取消a的默认行为
+    // var oA = document.querySelector('a');
+    // oA.onclick = function(ev) {
+    //     var ev = ev || window.event;
+    //     ev.preventDefault();
+    // };
+
+
+    //取消右键事件：oncontextmenu
+    var oBox = document.querySelector('.box');
+    document.oncontextmenu = function(ev) {
+        var ev = ev || window.event;
+        // ev.returnValue = false;//非标准
+        // ev.preventDefault();//标准
+        // return false;
+        //兼容的写法
+        if (ev.preventDefault) {
+            ev.preventDefault();
+        } else {
+            ev.returnValue = false;
+        }
+        oBox.style.cssText = 'display:block;left:' + ev.clientX + 'px;top:' + ev.clientY + 'px;';
+    };
+
+    document.onclick = function() {
+        oBox.style.display = 'none';
+    }
+</script>
+
+</html>

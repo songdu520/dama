@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./Z.js"></script>
+    <script>
+        $(function() {
+            // console.log($('.box').html());
+
+
+            // $('.box').html('<h1>你好世界</h1>');
+
+            $('.box').html(function(oldvalue, i) {
+                // console.log(oldvalue, i);
+                return oldvalue + '<h1>你好世界</h1>';
+            })
+        });
+    </script>
+</head>
+
+<body>
+    <div class="box">
+        hello1
+    </div>
+    <div class="box">
+        hello2
+    </div>
+    <div class="box">
+        hello3
+    </div>
+</body>
+
+</html>

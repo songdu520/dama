@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //1.编写函数norepeat(arr) 将数组的重复元素去掉，并返回新的数组。
+    // var arr = [12, 12, 12, 12, 3, 45, 6, 12, 3, 45];
+    // //比较法
+    // for (var i = 0; i < arr.length; i++) { //12
+    //     for (var j = i + 1; j < arr.length; j++) { //12(1), 12(2), 12(3), 3, 45, 6, 12, 3, 45
+    //         if (arr[i] === arr[j]) { //如果满足条件，出现重复值，删除
+    //             arr.splice(j, 1); //splice改变原数组。
+    //             j--; //对原数组删除1个,原数组被改变了,然后j++,跳过一个值。
+    //         }
+    //     }
+    // }
+    // console.log(arr);
+
+    //2.有一个从小到大排好序的数组。现输入一个数，要求按原来的规律将它插入数组中。
+    // var arr = [1, 3, 5, 7, 9, 11];
+    // //8
+
+    // for (var i = 0; i < arr.length; i++) {
+    //     if (arr[i] > 8) {
+    //         break; //停止循环  i:4
+    //     }
+    // }
+
+    // //后面的比8大的每一项后移一位。
+    // for (var j = arr.length - 1; j >= i; j--) { //反向遍历。i之后的包括i都要后移一位。
+    //     arr[j + 1] = arr[j];
+    // }
+
+    // arr[i] = 8; //后移一位之后进行赋值
+
+    // console.log(arr);
+</script>
+
+</html>

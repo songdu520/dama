@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //1.[]:区间范围，匹配中括号里面的一个字符。
+    //[0-9]:数字  [3-5]
+    //[3578]:匹配数字3，5，7，8中的一个字符
+    //[a-z]:小写字符
+    //[A-Z]:大写字符
+    //[\u4e00-\u9fa5]:匹配中文
+    //[^a-z]:匹配非小写字符  取反
+
+    // 2.字母表示的
+    // \d:匹配数字[0-9]  
+    // \D:匹配非数字
+    // \w:匹配数字字母和下划线 [0-9a-zA-Z_]
+    // \W:匹配非数字字母和下划 [^0-9a-zA-Z_]
+    // \s:匹配空白字符、空格、制表符和换行符
+
+    // 3.行首行尾匹配
+    // ^行首匹配以及取反
+    // $行尾匹配
+
+    // console.log(/hello/.test('abchelloabc')); //true
+    // console.log(/^hello$/.test('abchelloabc')); //false 恒等匹配
+    // console.log(/^hello$/.test('hello')); //true 恒等匹配
+
+    // 例子：trim()：清除字符串的前后空格
+    // var str = '    abc de f           ';
+    // console.log('(' + str + ')');
+    // console.log('(' + str.trim() + ')');
+    // function hehe(str) {
+    //     return str.replace(/^\s+|\s+$/g, '');
+    // }
+    // console.log('(' + hehe(str) + ')');
+
+    // 4.量词
+    // x?：匹配0个或1个x
+    // console.log(/\d/.test('abc')); //false
+    // console.log(/\d/.test('a1bc')); //true
+    // console.log(/^\d$/.test('1')); //true
+    // console.log(/^\d?$/.test('')); //true
+    // console.log(/^\d?$/.test('1')); //true
+    // console.log(/^\d?$/.test('11')); //false
+
+    // x*：匹配0个或任意多个x
+    // console.log(/^\d*$/.test('1')); //true
+    // console.log(/^\d*$/.test('')); //true
+    // console.log(/^\d*$/.test('11')); //true
+    // console.log(/^\d*$/.test('11111')); //true
+    // console.log(/^\d*$/.test('11a111')); //false
+
+    // x+：匹配至少一个x
+    // console.log(/^\d+$/.test('1')); //true
+    // console.log(/^\d+$/.test('11111')); //true
+    // console.log(/^\d+$/.test('11s111')); //false
+
+
+    // (xyz)+：匹配至少一个(xyz)
+    // console.log(/xyz/g.test('abcxyzabc')); //true
+    // console.log(/^xy(z)+$/g.test('abcxyzabc')); //false
+    // console.log(/^xy(z)+$/g.test('xyz')); //true
+    // console.log(/^xy(z)+$/g.test('xyzz')); //true
+    // console.log(/^xy(z)+$/g.test('xyzzzz')); //true
+    // console.log(/^xy(z)+$/g.test('xyzxyz')); //false
+    // console.log(/^(xyz)+$/g.test('xyz')); //true
+    // console.log(/^(xyz)+$/g.test('xyzxyz')); //true
+    // console.log(/^(xyz)+$/g.test('xyzzzz')); //false
+
+    // x{m,n}：匹配最少m个、最多n个x
+    // x{m}：匹配m个
+    // x{m,}：至少m个
+    // x{m,n}：匹配最少m个、最多n个x
+
+    //例子：验证手机号码
+    // console.log(/^1[3578]\d{9}$/.test('13912345678')); //true
+    // console.log(/^1[3578]\d{9}$/.test('13312345678')); //true
+    // console.log(/^1[3578]\d{9}$/.test('133123456789')); //false
+    // console.log(/^1[3578]\d{9}$/.test('1331234567')); //false
+    // console.log(/^1[3578]\d{9}$/.test('12345678911')); //false
+    // console.log(/^1[3578]\d{9}$/.test('16345678911')); //false
+    // console.log(/^1[3578]\d{9}$/.test('14345678911')); //false
+    // console.log(/^1[3578]\d{9}$/.test('13345678911')); //true
+
+    // 4.替代字符
+    //this|where|logo：匹配this或where或logo中任意一个。
+    // var str = '这件衣服是你妈的,还是你妹的,我猜是你大爷的';
+    // var reg = /妈|妹|大爷/g;
+    // console.log(str.replace(reg, '*'));
+</script>
+
+</html>

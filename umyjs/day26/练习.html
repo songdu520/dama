@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    div {
+        width: 200px;
+        height: 200px;
+        background-color: red;
+    }
+</style>
+
+<body>
+    <button id="btn">按钮</button>
+
+    <div></div>
+
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.12.4/jquery.min.js">
+</script>
+<script>
+    $(function() {
+        let btn = $('#btn')
+
+        let div = $('div')
+        btn.on('click', function() {
+            div.stop().fadeIn(2000)
+        })
+
+    })
+</script>
+
+</html>

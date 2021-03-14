@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 观察者模式(发布-订阅模式)
+        // 两种角色 发布者  订阅者
+        // 微信公众号 天气预报 电视台
+
+        // 一对多
+        // 当发布者发布信息时  所有的订阅者 都会收到信息
+
+        function Child(dad, mum) {
+            this.dad = dad;
+            this.mum = mum;
+
+            this.cry = function() {
+                console.log('发送信息');
+                this.mum.suckle();
+            }
+
+            setTimeout(function() {
+                this.cry();
+            }.bind(this), Math.random() * 10000 + 5000);
+        }
+
+        function Mum() {
+            this.suckle = function() {
+                console.log('喂奶');
+            }
+        }
+
+        var mum = new Mum();
+        var child = new Child(null, mum);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

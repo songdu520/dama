@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery.js"></script>
+    <script>
+        $(function() {
+            // $('#btn').on('click', function() {
+            // $('selector').attr(attrName);
+            // 获得第一个被选元素的 属性值
+            // console.log($('.box').attr('title'));
+
+            // $('selector').attr(attrName,value);
+            // 为所有被选择的元素 添加或修改属性值
+            // $('.box').attr('style', 'color:yellow;');
+
+            // 高级修改  
+            // 参数有回调函数
+            // $('selector').attr(attrName,callback)
+            // 回调参数
+            // index 每一个被选元素的索引值
+            // value attrName所对应的属性值
+
+            // $('.box').attr('title', function(i, oldvalue) {
+            //     // console.log(i, oldvalue);
+            //     return oldvalue + 'hello world';
+            // });
+
+            // 为被选元素修改多个属性值
+            // $('.box').attr({
+            //     'title': 'hello',
+            //     'style': 'color:green'
+            // });
+
+            // $('.box').attr({
+            //     'title': function(i, v) {
+            //         return v + 'aaa'
+            //     },
+            //     'style': 'color:green'
+            // });
+
+            // 删除所有被选元素的属性
+            // $('#box').removeAttr('id');
+            // });
+
+
+            // -----------------------------------------
+
+            // $(selector).prop();
+
+            $('input:checkbox:first').on('click', function() {
+                // $(DOMElement) 将DOM元素转成 jQuery对象
+                // 单选按钮和复选按钮的 checked属性是一个JS的内部属性
+                // 它是一个布尔类型的值
+                // attr() 无法获得内部属性 只能获得标签中写有的属性
+                // console.log($(this).attr('checked'));
+
+                // console.log($(this).prop('checked'));
+                $('input:checkbox:not(:first)').prop('checked', $(this).prop('checked'));
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <!-- <button id="btn">按钮</button>
+    <div class="box" id="box" title="DIV ELEMENT1" style="color:red;">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia maiores, ipsam repellat similique perspiciatis consequuntur. Possimus consectetur rerum facere nihil impedit incidunt officiis sit nam aspernatur, ab sunt blanditiis tempora.
+    </div>
+
+    <div class="box" title="DIV ELEMENT2" style="color:red;">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia maiores, ipsam repellat similique perspiciatis consequuntur. Possimus consectetur rerum facere nihil impedit incidunt officiis sit nam aspernatur, ab sunt blanditiis tempora.
+    </div>
+
+    <div class="box" title="DIV ELEMENT3" style="color:red;">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia maiores, ipsam repellat similique perspiciatis consequuntur. Possimus consectetur rerum facere nihil impedit incidunt officiis sit nam aspernatur, ab sunt blanditiis tempora.
+    </div> -->
+
+    <input type="checkbox">
+    <input type="checkbox">
+    <input type="checkbox">
+    <input type="checkbox">
+    <input type="checkbox">
+    <input type="checkbox">
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        {{ name }}
+        <base-child :name="name"></base-child>
+    </div>
+
+    <script src="../../Vue.js"></script>
+    <script>
+        Vue.component('base-child', {
+            // props: ['name', 'age'],
+            props: {
+                name: String,
+            },
+            data() {
+                return {
+                    name2: this.name
+                }
+            },
+            template: `
+        <div>我是{{ name2 }}<button @click="change">按钮</button></div>
+      `,
+            methods: {
+                change() {
+                    this.name2 = 'lisi';
+                }
+            },
+        })
+
+
+
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    name: 'zhangsan'
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

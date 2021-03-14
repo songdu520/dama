@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <!-- <input type="text" :value="value" @input="handleInput"> -->
+    <!-- <input type="text" v-model="value"> -->
+
+    <span>Multiline message is:</span>
+    <p style="white-space: pre-line;">{{ message }}</p>
+    <textarea v-model="message" placeholder="add multiple lines"></textarea>
+
+
+    <hr>
+
+
+    <h3>复选框</h3>
+    <input type="checkbox" id="checkbox" v-model="checked">
+    <label for="checkbox">{{ checked }}</label>
+
+    <input type="checkbox" v-model="checked2" name="ck" value="zhangsan">
+    <input type="checkbox" v-model="checked2" name="ck" value="lisi">
+    <p>{{ checked2 }}</p>
+
+
+
+    <hr>
+
+
+
+    <h3>单选</h3>
+    <input type="radio" id="one" value="One1" v-model="picked">
+    <label for="one">One</label>
+    <br>
+    <input type="radio" id="two" value="Two1" v-model="picked">
+    <label for="two">Two</label>
+    <br>
+    <span>Picked: {{ picked }}</span>
+
+
+
+    <hr>
+
+
+
+    <h3>下拉框</h3>
+    <select v-model="selected">
+      <option disabled value="">请选择</option>
+      <option>A</option>
+      <option>B</option>
+      <option>C</option>
+    </select>
+    <span>Selected: {{ selected }}</span>
+
+
+    <hr>
+
+
+    <h3>下拉框多选</h3>
+    <select v-model="selected2" multiple style="width: 50px;">
+      <option>A</option>
+      <option>B</option>
+      <option>C</option>
+    </select>
+    <br>
+    <span>Selected2: {{ selected2 }}</span>
+
+
+
+    <hr>
+
+
+
+    <h3>复选框值绑定</h3>
+    <input type="checkbox" v-model="checkbox" true-value="男" false-value="女">
+    <button @click="handleClick">按钮</button>
+
+
+
+    <hr>
+
+
+
+    <h3>v-model修饰符</h3>
+    <input v-model.lazy="msg">
+
+    <input type="number" v-model.number="num">
+
+    <input type="text" v-model.trim="text">
+
+
+  </div>
+
+  <script src="../../Vue.js"></script>
+
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        message: '',
+        checked: true,
+        checked2: [],
+        picked: '',
+        selected: '',
+        selected2: [],
+        checkbox: '女',
+        msg: '',
+        num: '',
+        text: ''
+      },
+      mounted() {
+        setInterval(() => {
+          console.log(this.text)
+        }, 1000);
+      },
+      methods: {
+        handleClick () {
+          // this.checkbox ? console.log('男') : console.log('女')
+          console.log(this.checkbox)
+        }
+      },
+    })
+  </script>
+</body>
+</html>

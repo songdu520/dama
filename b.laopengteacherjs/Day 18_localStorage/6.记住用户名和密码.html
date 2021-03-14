@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <fieldset style="width: 800px;margin:0 auto;">
+        <legend>用户登录</legend>
+        <p>用户姓名：<input type="text" class="username"></p>
+        <p>用户密码：<input type="password" class="password"></p>
+        <p><input type="checkbox" class="checkbox"> 记住用户名和密码</p>
+        <p><input type="button" value="用户登录" class="login"> <a href="registry.html">请注册</a></p>
+        </form>
+    </fieldset>
+</body>
+<script src="sha1.js"></script>
+<script>
+    //如果复选框是勾选(checked)的，存储用户名和密码
+
+    //下次访问获取用户名和密码，将其赋值给当前的表单。
+
+    const username = document.querySelector('.username');
+    const password = document.querySelector('.password');
+    const checkbox = document.querySelector('.checkbox');
+    const login = document.querySelector('.login');
+
+    //每次访问，如果本地存储里面存在用户名和密码，取出赋值
+    if (localStorage.getItem('user') && localStorage.getItem('pass')) {
+        username.value = localStorage.getItem('user');
+        password.value = localStorage.getItem('pass');
+        checkbox.checked = true;
+    }
+
+    //点击登录按钮
+    login.onclick = function() {
+        // alert(checkbox.checked);//布尔值，将其作为条件
+        if (checkbox.checked) { //选中
+            localStorage.setItem('user', username.value);
+            localStorage.setItem('pass', hex_sha1(password.value));
+        } else { //未选中
+            localStorage.removeItem('user');
+            localStorage.removeItem('pass');
+        }
+        alert('登录按钮被触发');
+    }
+</script>
+
+</html>

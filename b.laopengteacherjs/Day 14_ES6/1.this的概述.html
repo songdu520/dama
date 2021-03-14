@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //1.this的概念：
+    //this是Javascript语言的一个关键字。它代表函数运行时，自动生成的一个内部对象，只能在函数内部使用。随着函数使用场合的不同，this的值会发生变化。但是有一个总的原则，那就是this指的是调用函数的那个对象。
+
+    //谁调用函数this指向谁。
+
+
+    //2.this的指向
+    //2.1.普通函数，函数表达式，自执行函数，回调函数(函数做参数) - window（严格模式指向undefined）
+    // 普通函数
+    // function fn1() {
+    //     console.log(this);
+    // }
+    // fn1();
+    // window.fn1();
+    // 函数表达
+    // var fn2 = function() {
+    //     console.log(this);
+    // }
+
+    // fn2();
+    // 自执行函数
+    // ! function() {
+    //     console.log(this);
+    // }();
+    //回调函数(函数做参数，给另外一个函数)
+    // var arr = [1, 2, 3, 4];
+    // arr.forEach(function() {
+    //     console.log(this);
+    // });
+
+    // setTimeout(function() {
+    //     console.log(this);
+    // }, 0);
+
+    //2.2.对象的方法/事件处理函数 - this指向当前操作的对象
+    // var obj = {
+    //     a: 1,
+    //     show: function() {
+    //         console.log(this); //this指向当前操作的对象
+    //         console.log(this.a); //1
+    //     }
+    // };
+    // obj.show();
+
+    // document.documentElement.onclick = function() {
+    //     console.log(this); //this指向当前操作的对象
+    // };
+
+    // var obj1 = {
+    //     a: 1,
+    //     obj2: {
+    //         show: function() {
+    //             console.log(this); //obj2
+    //         }
+    //     }
+    // }
+    // obj1.obj2.show();
+
+    //3.构造函数：类，首字母大写，new运算符调用。
+    function Fn() {
+        this.num = 100; //new 出来的实例对象。
+        console.log(this);
+    }
+    // Fn(); //this - window
+
+    var f1 = new Fn() //this - new出来的实例对象f1
+    var f2 = new Fn() //this - new出来的实例对象f2
+
+    console.log(f1.num); //100
+    console.log(f2.num); //100
+</script>
+
+</html>

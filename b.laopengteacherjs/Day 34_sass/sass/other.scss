@@ -1,0 +1,62 @@
+@charset "utf-8"; //设置中文字符
+//判断
+//@if 指令是 SASS 中的一个控制指令，用于在表达式满足条件（true）的时候输出指定的样式，在不满足条件（false）或者表达式为 null 的情况下输出其他的样式
+// $color:red;
+// .box {
+//     @if ($color==red) {
+//         background-color: $color;
+//     }
+//     @else {
+//         background-color: pink;
+//     }
+// }
+// @if ($color==red) {
+//     .box1 {
+//         background-color: $color;
+//     }
+// }
+// @else {
+//     .box2 {
+//         background-color: #abcdef;
+//     }
+// }
+//遍历
+// @for $var from <开始值> through <结束值>  包括结束值 - 有规律的数字
+// @for $num from 1 through 10 {
+//     //$num:1-10
+//     //$num：特殊变量，普通变量
+//     .section_#{$num} {
+//         width: 10*$num;
+//     }
+// }
+// @for $var from <start> to <end> 不包括结束值 - 有规律的数字
+// @for $num from 1 to 10 {
+//     //$num:1-9
+//     //$num：特殊变量，普通变量
+//     .section_#{$num} {
+//         width: 10*$num;
+//     }
+// }
+// @each $var in list {}  任意值遍历  $var 表示list里面的值
+// @each $var in left,
+// middle,
+// right {
+//     .box_#{$var} {
+//         background-image: url('img/banner_#{$var}.jpg');
+//     }
+// }
+// Sass-function介绍
+// 函数的功能主要是数据的运算，SASS 中可以将一些值交给函数进行处理，具体的处理方式
+// 由定义的函数具体的设计确定。
+// $c:pink;
+// @function fn($c) {
+//     @return $c;
+// }
+// body {
+//     background-color: fn($c);
+// }
+// body {
+//     font-size: 12+2+px;
+//     font-size: ceil(12.5px);
+//     font-size: floor(12.5px);
+// }

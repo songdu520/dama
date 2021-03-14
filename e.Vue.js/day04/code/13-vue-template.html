@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <!-- <child inline-template>
+      <div>
+        <span>child1w34</span>
+      </div>
+    </child> -->
+    <child></child>
+  </div>
+
+  <script src="../../Vue.js"></script>  
+
+  <script type="text/x-template" id="childdd">
+    <p>Hello hello hello</p>
+  </script>
+
+
+  <script>
+
+    const Child = {
+      data() {
+        return {}
+      },
+      template: '#childdd'
+    }
+
+    new Vue({
+      el: '#app',
+      components: {
+        Child
+      },
+    })
+  </script>
+</body>
+</html>

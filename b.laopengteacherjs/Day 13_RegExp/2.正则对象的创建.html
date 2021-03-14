@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // 1.构造函数创建正则。
+    // var reg = new RegExp(正则规则,修饰符)
+    // 正则规则:字符组成的规则(匹配，替换，检索),可以是变量和字符串
+    // 修饰符：i(忽略大小写)  g(全局匹配)  m(多行匹配)
+
+    // var reg1 = new RegExp('\\d+', 'g'); // 规则：数字
+    // var reg2 = new RegExp('[a-z]+', 'g'); //全局  规则：小写字母
+    // var reg3 = new RegExp('[A-Z]+', 'g'); //全局  规则：大写字母
+    // var reg4 = new RegExp('[\u4e00-\u9fa5]+', 'g'); //全局  规则：中文
+    // var str = 'daFDASF358你好437gDFfd好好sgdD7f6d87很好gfASDF78fds非常';
+    // console.log(str.match(reg1));
+    // console.log(str.match(reg2));
+    // console.log(str.match(reg3));
+    // console.log(str.match(reg4));
+
+
+
+
+
+
+
+
+
+    // 2.字面量创建方式
+    // var reg = /正则规则/修饰符;   
+    // 注意字面量方式正则规则一定是字符串，无需引号
+    // var reg1 = /\d+/g; // 规则：数字
+    // var reg2 = /[a-z]+/g; //全局  规则：小写字母
+    // var reg3 = /[A-Z]+/g; //全局  规则：大写字母
+    // var reg4 = /[\u4e00-\u9fa5]+/g; //全局  规则：中文
+    // var str = 'daFDASF358你好437gDFfd好好sgdD7f6d87很好gfASDF78fds非常';
+    // console.log(str.match(reg1));
+    // console.log(str.match(reg2));
+    // console.log(str.match(reg3));
+    // console.log(str.match(reg4));
+
+    //总结：
+    //如果正则规则是一个变量，必须使用构造函数方式创建。其他的都可以使用字面量。
+    //修饰符写到一起   /\d+/igm   new RegExp('\\d+', 'mig');
+</script>
+
+</html>

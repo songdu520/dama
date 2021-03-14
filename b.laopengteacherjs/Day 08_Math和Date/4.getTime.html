@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //getTime()
+    //获取1970.1.1午夜-->当前的时间的毫秒数：getTime()
+    //1970年1月1日作为UNIX系统的纪元时间（开始时间）
+
+    //getYear():获取1900年-当前时间的一个年份差。
+    var d = new Date();
+    console.log(d.getTime()); //1598586749181 
+
+    //将上面的时间进行简单的换算。
+
+    console.log(parseInt(d.getTime() / 1000)); //秒
+    console.log(parseInt(d.getTime() / 1000) / 86400); //天 185021.63256944445
+    console.log(parseInt(d.getTime() / 1000) / 86400 / 365); //年 50.69085977929985
+
+    //东八区：时间有八小时差值
+
+
+
+
+    console.log(d.getYear()); //120  2020-1900
+</script>
+
+</html>

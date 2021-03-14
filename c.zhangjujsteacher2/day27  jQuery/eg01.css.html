@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div.box {
+            width: 200px;
+            height: 200px;
+            padding: 10px;
+            background-color: red;
+            box-sizing: border-box;
+            border: 3px solid black;
+        }
+    </style>
+    <script src="./jquery.js"></script>
+    <script>
+        $(function() {
+            // $(selector).css()
+            // 获得第一个被选元素的计算后样式 
+            // console.log($('.box').css('width'));
+
+            // 为所有被选元素设置行内样式
+            // $('.box').css('color', 'yellow');
+            // console.log($('.box').css('color'));
+
+            // 为被选元素设置多个行内样式  对象语法
+            // $('.box').css({
+            //     'background': 'blue',
+            //     'color': 'red'
+            // });
+
+            $('.box').on('click', function() {
+                $(this).css({
+                    'width': function(index, value) {
+                        // console.log(index, value);
+
+                        return parseFloat(value) * 2;
+                    }
+                })
+            });
+
+            console.log($('.box').height()); // 内容高度
+            console.log($('.box').width()); // 内容宽度
+
+            console.log($('.box').innerHeight()); // padding+content
+
+            console.log($('.box').outerHeight()); // padding+content+border
+        });
+    </script>
+</head>
+
+<body>
+    <div class="box">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. At sapiente vel natus perspiciatis? Quos adipisci dignissimos iste ratione tempore natus ullam veniam error id, tempora maiores. Ducimus, ad? Nulla, quia.
+    </div>
+
+    <div class="box">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. At sapiente vel natus perspiciatis? Quos adipisci dignissimos iste ratione tempore natus ullam veniam error id, tempora maiores. Ducimus, ad? Nulla, quia.
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //1.随机在可视区中创建盒子(尺寸：100*100 位置：随机  颜色：随机)
+    function rannum(min, max) {
+        return Math.round(Math.random() * (max - min)) + min;
+    }
+
+    // document.onkeydown = function() { //键盘按键按下
+    //     var cDiv = document.createElement('div');
+    //     cDiv.style.cssText = ';width:' + rannum(30, 200) + 'px;height:' + rannum(30, 200) + 'px;background:rgb(' + rannum(0, 255) + ',' + rannum(0, 255) + ',' + rannum(0, 255) + ');position:absolute;left:' + rannum(0, document.documentElement.clientWidth - 100) + 'px;top:' + rannum(0, document.documentElement.clientHeight - 100) + 'px;border-radius:' + rannum(30, 50) + '%  ';
+    //     document.body.appendChild(cDiv);
+    // }
+
+    // function rannum(min, max) {
+    //     return Math.round(Math.random() * (max - min)) + min
+    // }
+    // document.onkeydown = function() {
+    //     var cDiv = document.createElement('div')
+    //     cDiv.style.cssText = 'width:100px height:100px background:rmb(' + rannum(0, 255) + ',' + rannum(0, 255) + ',' + rannum(0, 255) + ');position:absolute:absolute;left:' + rannum(0, document.documentElement.clientWidth - 100) + 'px;top:' + rannum(0, document.documentElement.clientHeight - 100) + 'px;'
+    //     document.body.appendChild(cDiv);
+
+    // }
+</script>
+
+</html>

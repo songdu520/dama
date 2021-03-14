@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //一.定时器
+    //setInterval(函数名称/函数体，时间ms)；间隔定时器(反复调用)
+    //clearInterval( 定时器的返回值 );  停止定时器
+
+    //开启
+    //每个多少时间执行内部的函数。
+    // var num = 1;
+    // var timer = setInterval(function() { //每个1s执行一次内部的函数。
+    //     console.log(num);
+    //     num++;
+    // }, 1000);
+
+    //关闭
+    // document.onclick = function() {
+    //     clearInterval(timer); //参数是开启定时器的返回值。
+    // }
+
+
+    //setTimeout(函数名称/函数体，时间); 延时定时器，执行一次
+    //clearTimeout( 定时器的返回值 ); 停止定时器
+    //规定的时间内执行一次，然后结束。
+    // var t = 0;
+    // t = setTimeout(function() { //开启
+    //     console.log('hello');
+    // }, 1000);
+    // clearTimeout(t); //关闭
+
+
+    // var num = 1;
+
+    // function fn() {
+    //     console.log(num);
+    //     num++;
+    // }
+
+    // setInterval(fn, 1000);//这样也是可以的
+    // setInterval(fn(), 1000); //这里函数已经调用了。和定时器没有关系
+
+    // 二.JavaScript单线程和同步异步问题
+    // 1.js是单线程的,只有一个主线程,每次只能执行一个任务或者说后一个任务等到前一个任务完成才会执行。执行任务的过程中，如果前面的任务出现错误，js停止解析。
+    // alert(a); //报错
+    // alert('hehe');
+
+    // 2.同步和异步
+    // 同步：后一个任务等到前一个任务完成才会执行,js里面的大部分代码都是同步的。
+    // 异步：将任务放到一个队列中,等主线程的任务完成，执行队列的代码。定时器是异步的。
+    // setTimeout(function() { //定时器是异步的
+    //     console.log(1);
+    // }, 0);
+    // console.log(2); //同步
+    //结果：2,1
+    // console.log(1); //同步
+    // setTimeout(function() { //异步的
+    //     console.log(2);
+    // }, 10);
+    // setTimeout(function() { //异步的
+    //     console.log(3);
+    // }, 1);
+    // console.log(4); //同步
+
+    //结果：1,4,3,2
+
+    //面试题
+    //先同步再异步，同步执行完成，循环结束了，i=6
+    // for (var i = 1; i <= 5; i++) { //同步
+    //     // console.log(i);//i=1-5
+    //     setTimeout(function() { //异步
+    //         console.log(i); //i=6
+    //     }, 1000);
+    // }
+
+    //结果：5个6
+
+    //注意：定时器的时间以ms毫秒为单位，但是不区分0ms和1ms。
+    // console.log(1); //同步
+    // setTimeout(function() { //异步的
+    //     console.log(2);
+    // }, 1);
+    // setTimeout(function() { //异步的
+    //     console.log(3);
+    // }, 0);
+    // console.log(4); //同步
+
+    //1,4,2,3
+</script>
+
+</html>

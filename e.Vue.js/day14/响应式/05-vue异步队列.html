@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    {{ count }}
+  </div>
+
+  <script src="../Vue.js"></script>
+  <script>
+    new Vue({
+      el: "#app",
+      data() {
+        return {
+          count: 1
+        }
+      },
+      mounted() {
+        // setTimeout(() => {
+        //   this.count++;
+        //   this.$nextTick(() => {
+        //     this.count++;
+        //   })
+        // }, 2000)
+        setTimeout(async () => {
+          this.count++;
+          // await this.$nextTick();
+          this.count++;
+          // await this.$nextTick();
+          this.count++;
+          // await this.$nextTick();
+          this.count++;
+          // await this.$nextTick();
+          this.count++;
+          // await this.$nextTick();
+          this.count++;
+          // await this.$nextTick();
+          this.count++;
+          // await this.$nextTick();
+          this.count++;
+        }, 2000) 
+      }
+    });
+  </script>
+</body>
+</html>

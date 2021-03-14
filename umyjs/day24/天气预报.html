@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #city {
+        display: block;
+        margin: 0 auto;
+    }
+    
+    #list {
+        list-style: none;
+        overflow: hidden;
+    }
+    
+    #list>li {
+        float: left;
+        margin: 20px;
+        border: 1px solid black;
+        padding: 30px;
+        width: 310px;
+        box-shadow: 3px 3px 3px #ccc;
+        border-radius: 5px;
+    }
+</style>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+<body>
+    <input type="text" id="city">
+    <ul id="list">
+    </ul>
+</body>
+<script>
+    ! function($) {
+        $('#city').on('change', function() {
+            var script = document.createElement('script');
+            script.src = `http://api.k780.com/?app=weather.realtime&weaid=${$(this).val()}&ag=today,futureDay,lifeIndex,futureHour&appkey=54251&sign=66d673c373c3d6459ba6471a65228dc2&format=json&jsoncallback=fn`;
+            $('body').append(script);
+        })
+    }(jQuery)
+
+    function fn(data) {
+
+
+    }
+</script>
+<!-- <script src="http://api.k780.com/?app=weather.realtime&weaid=1111&ag=today,futureDay,lifeIndex,futureHour&appkey=54251&sign=66d673c373c3d6459ba6471a65228dc2&format=json&jsoncallback=fn "></script> -->
+<!-- <script src="http://api.k780.com/?app=weather.realtime&weaid=1&ag=today,futureDay,lifeIndex,futureHour&appkey=54251&sign=66d673c373c3d6459ba6471a65228dc2&format=json&jsoncallback=fn"></script> -->
+
+
+</html>

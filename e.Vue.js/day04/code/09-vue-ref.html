@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <span ref="span1">你好</span>
+    <input type="text">
+    <button ref="button1">按钮</button>
+    <child1 ref="child1"></child1>
+  </div>
+
+  <script src="../../Vue.js"></script>
+  <script>
+    //访问子组件实例或子元素
+    const Child1 = {
+      data () {
+        return {
+          msg: 'hello'
+        }
+      },
+      methods: {
+        fn () {
+          // sdfsdf
+        }
+      },
+      template: `
+        <div>child1</div>
+      `
+    }
+
+    new Vue({
+      el: '#app',
+      mounted() {
+        // console.log(document.querySelector('span'))
+        // console.log(this.$refs.span1);
+        console.log(this.$refs.child1.fn)
+      },
+      components: {
+        Child1
+      }
+    })
+  </script>
+</body>
+</html>

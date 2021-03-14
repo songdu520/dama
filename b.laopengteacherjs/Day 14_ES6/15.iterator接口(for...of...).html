@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>1111</li>
+        <li>2222</li>
+        <li>3333</li>
+        <li>4444</li>
+    </ul>
+</body>
+<script>
+    const aLi = document.querySelectorAll('li');
+    for (let list of aLi) {
+        list.onclick = function() {
+            console.log(list.innerHTML);
+        }
+    }
+
+    console.log(aLi[Symbol.iterator]()); //Array Iterator {}
+</script>
+
+</html>

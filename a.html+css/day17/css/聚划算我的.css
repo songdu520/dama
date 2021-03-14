@@ -1,0 +1,215 @@
+html{
+    height: 100%;
+    font-size: 100px;
+}
+body{
+    height: 100%;
+    font-size: 0.20rem;
+}
+main{
+    height: 100%;
+    padding-bottom: 1rem;
+    background-color: #eeeeee;
+    box-sizing: border-box;
+    overflow: auto;
+
+
+}
+main header{
+    background-image: linear-gradient(to bottom,rgba(243,42,37,.7),rgba( 225,137,46,.7)) ,url(../../day17代码/img/9.jpg) ;
+    height: 2rem;
+}
+header section{
+    padding: 0.25rem 0.45rem 0.3rem;
+    position: relative;
+    color: white;
+}
+header img{
+    width: 1.35rem;
+    height: 1.35rem;
+    border-radius: 50%;
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: 0.2rem;
+    margin-right: 0.3rem;
+}
+header .texe{
+display: inline-block;
+vertical-align: middle;
+
+}
+header .texe h2{
+    font-size: 0.35rem;
+    margin-bottom: 0.3rem;
+}
+header .texe p{
+    font-size: 0.25rem;
+}
+header section .ico{
+    position: absolute;
+    top: 0.2rem;
+    right: 0.3rem;
+}
+header section .ico em{
+    margin-left: 0.25rem;
+    font-size: 0.46rem;
+}
+/* 订单 */
+.order{height: 0.77rem;
+border-bottom:#ccc solid 1px ;
+background-color: white;
+}
+
+
+
+.order span{
+    font-size: 0.28rem;
+    margin-left: 0.3rem;
+    line-height: 0.77rem;
+}
+.order a{
+    float: right;
+    line-height: 0.7rem;
+    color: #c0c0c0;
+    margin-right: 0.26rem;
+
+}
+.nav-list ul{
+    height: 1.6rem;
+    background-color: white;
+}
+.nav-list ul{
+    display: flex;
+    justify-content: space-around;
+
+
+}
+.nav-list ul em{
+    font-size: 0.54rem;
+    display: inline-block;
+    padding-top: 0.38rem;
+    
+}
+.nav-list ul p{
+    font-size: 0.27rem;
+    line-height: 0.8rem;
+
+}
+.nav-list{
+    margin-bottom: 0.2rem;
+}
+
+.list3 ul{
+    height: 3.6rem;
+    background-color: white;
+}
+.list3 ul{
+    display: flex;
+    justify-content: space-around;
+   flex-wrap: wrap;
+}
+.list3 ul li{
+    width: 25%;
+    border-top: #ccc  0.01rem solid;
+    border-left: #ccc 0.01rem solid;
+    box-sizing: border-box;
+    text-align: center;
+}
+.list3 ul em{
+    font-size: 0.54rem;
+    display: inline-block;
+    padding-top: 0.38rem;
+}
+.list3 ul li:nth-child(odd) em{
+    color: greenyellow;
+}
+.list3 ul li:nth-child(even) em{
+    color: red;
+}
+
+.list3 ul p{
+    font-size: 0.27rem;
+    line-height: 0.8rem;}
+
+.list4 {
+    margin-top: 0.19rem;
+}
+.list4 h2{line-height: 0.86rem;
+    text-align: center;
+    color: #e61919;
+    font-size: 0.27rem;
+    background-color: white;
+
+}
+.list4 .pro{
+   display: flex;
+   justify-content: space-between;
+   flex-wrap: wrap;
+}
+.list4 .pro .pro1{
+    width: calc(50% - 0.05rem);
+    background-color: white;
+    margin-bottom: 0.1rem;
+}
+.pro1 img{
+    width: 100%;
+}
+.pro1 .text-f{font-size: 0.24rem;
+    margin: 0 0.21rem;
+    }
+
+.pro1 .text-f p:nth-child(1){width: 2.97rem;
+    margin-top: 0.2rem;
+    }
+    .pro1 .text-f p:nth-child(2) {
+        line-height: 0.83rem;
+
+    }  
+    .pro1 .text-f p:nth-child(2) em{
+        font-size: 0.4rem;
+        
+    } 
+    .pro1 .text-f p:nth-child(2) span{
+        color: red;
+    }  
+    .pro1 .text-f p:nth-child(2) del{
+        color: #c0c0c0;
+    } 
+    .pro1 .text {
+        border-top: #eeeeee 1px solid;
+        color: #dfdfdf;
+        line-height: 0.56rem;
+        display: flex;
+        justify-content: space-between;
+    }
+
+/* 脚部 */
+footer{
+    height: 1rem;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color:rgba(255,255,255,.8);
+    z-index: 10000;
+    border-top: #ccc 1px solid;
+}
+
+footer ul{
+    display: flex;
+    justify-content: space-around;
+
+
+}
+footer ul em{
+    font-size: 0.45rem;
+    display: inline-block;
+    padding-top: 0.12rem;
+    
+}
+footer ul p{
+    font-size: 0.20rem;
+    line-height: 0.4rem;
+
+}
+

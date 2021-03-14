@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //策略模式: 定义一系列的算法，把它们一个个封装起来，并且使它们可以相互替换。 - 封装函数
+
+    //适配器模式
+    // 适配器模式的作用是解决两个软件实体间的接口不兼容的问题。使用适配器模式之后，原本由于接口不兼容而不能工作的两个软件实体可以一起工作。
+    //适配器模式是一种“亡羊补牢”的模式，没有人会在程序的设计之初就使用它。因为没有人可以完全预料到未来的事情.
+    var googleMap = {
+        show: function() {
+            console.log('开始渲染谷歌地图');
+        }
+    };
+    var baiduMap = {
+        xianshi: function() {
+            console.log('开始渲染百度地图');
+        }
+    };
+
+    var baidu = { //适配上面的对象
+        show: (function() {
+            return baiduMap.xianshi;
+        })()
+    }
+
+    var renderMap = function(map) {
+        if (map.show instanceof Function) {
+            map.show();
+        }
+    };
+    renderMap(googleMap); // 输出：开始渲染谷歌地图 
+    renderMap(baidu); // 输出：开始渲染百度地图
+</script>
+
+</html>

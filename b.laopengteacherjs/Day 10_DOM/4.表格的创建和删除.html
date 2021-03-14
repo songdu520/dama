@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // 删除的方法：
+    // 父节点.removeChild(node)  删除父节点内部的子节点
+
+    // parentNode:获取当前元素的父节点。
+
+
+    //1.动态创建表格和删除操作
+    function createTable(rows, cols) {
+        var cTable = document.createElement('table'); //创建
+        cTable.border = 1; //设置边框
+        for (var i = 1; i <= rows; i++) {
+            var cTr = document.createElement('tr');
+            for (var j = 1; j <= cols; j++) {
+                var cTd = document.createElement('td');
+                if (j === cols) {
+                    cTd.innerHTML = '<a href="javascript:void(0);">删除整行' + i + '</a>';
+                } else {
+                    cTd.innerHTML = '111111111';
+                }
+                cTr.appendChild(cTd);
+            }
+            cTable.appendChild(cTr);
+        }
+        document.body.appendChild(cTable); //追加
+
+        var aA = document.querySelectorAll('a');
+        for (var i = 0; i < aA.length; i++) {
+            aA[i].onclick = function() {
+                // alert(i); //循环的最后一次值。
+                // this:谁调用函数this指向谁。当前点击的a元素。
+                if (window.confirm('你确定要删除?')) {
+                    this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode);
+                }
+            };
+        }
+    }
+
+    createTable(5, 6);
+</script>
+
+</html>

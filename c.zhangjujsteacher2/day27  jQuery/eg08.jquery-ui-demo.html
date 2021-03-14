@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery.js"></script>
+    <script src="./jquery-ui-1.12.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="./jquery-ui-1.12.1/jquery-ui.min.css">
+
+    <style>
+        .box {
+            width: 600px;
+            height: 600px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        
+        .box>div {
+            width: 188px;
+            height: 188px;
+            margin: 5px;
+            font-size: 3em;
+            text-align: center;
+            line-height: 190px;
+            float: left;
+            border: 1px solid black;
+            user-select: none;
+            cursor: pointer;
+        }
+    </style>
+
+    <script>
+        $(function() {
+            // $('.box').draggable();
+            // $('.box').resizable().draggable();
+
+            // $('ul').sortable();
+
+            $('.box').sortable();
+            $("#tabs").tabs();
+        });
+    </script>
+</head>
+
+<body>
+
+    <div id="tabs">
+        <ul>
+            <li><a href="#fragment-1"><span>One</span></a></li>
+            <li><a href="#fragment-2"><span>Two</span></a></li>
+            <li><a href="#fragment-3"><span>Three</span></a></li>
+        </ul>
+        <div id="fragment-1">
+            <p>First tab is active by default:</p>
+            <pre><code>$( "#tabs" ).tabs(); </code></pre>
+        </div>
+        <div id="fragment-2">
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet
+            dolore magna aliquam erat volutpat.
+        </div>
+        <div id="fragment-3">
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet
+            dolore magna aliquam erat volutpat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+        </div>
+    </div>
+    <!-- <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div> -->
+
+    <!-- <ul>
+        <li>第1个li</li>
+        <li>第2个li</li>
+        <li>第3个li</li>
+        <li>第4个li</li>
+        <li>第5个li</li>
+        <li>第6个li</li>
+        <li>第7个li</li>
+        <li>第8个li</li>
+        <li>第9个li</li>
+        <li>第10个li</li>
+    </ul> -->
+
+    <div class="box">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+    </div>
+</body>
+
+</html>

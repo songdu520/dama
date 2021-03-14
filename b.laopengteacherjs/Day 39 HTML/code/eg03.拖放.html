@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .box {
+            text-align: center;
+            width: 500px;
+            height: 200px;
+            border: 5px dashed darkcyan;
+            line-height: 200px;
+            margin: 0 auto;
+            font-size: 1.3em;
+            user-select: none;
+            color: #ccc;
+        }
+        
+        .showimg {
+            width: 500px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .showimg>img {
+            width: 300px;
+        }
+    </style>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(function() {
+            $(document).on('dragover', ev => {
+                ev.preventDefault();
+            });
+
+            $('.box').on('drop', ev => {
+                ev.preventDefault();
+                let file = ev.originalEvent.dataTransfer.files[0];
+
+                let reader = new FileReader();
+                reader.readAsDataURL(file);
+                reader.onload = function() {
+                    $('.showimg').append(`<img src="${reader.result}">`);
+                }
+            })
+        });
+    </script>
+</head>
+
+<body>
+    <div class="box">
+        请将图片拖动到此处
+    </div>
+
+    <div class="showimg"></div>
+
+    <!-- draggable 是HTML5新增的全局属性 可以用于任何元素 -->
+    <!-- 当为元素添加 draggable 为true时  该元素为可 拖放元素 -->
+    <!-- img元素默认可拖放 -->
+    <!-- <div style="width:100px;height:100px;background:red;" draggable="true"></div>
+    <img src="C:\Users\Administrator\Desktop\timg.jpg" alt="" draggable="false"> -->
+</body>
+
+</html>

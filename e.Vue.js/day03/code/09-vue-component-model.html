@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <child :msg="msg" @message="msgChange"></child>
+  </div>
+
+  <script src="../../Vue.js"></script>
+  <script>
+
+    const Child = {
+      props: ['msg'],
+      template: `
+        <div>
+          <input type="text" :value="msg" @input="handleInput"/>
+        </div>
+      `,
+      methods: {
+        handleInput(e) {
+          this.$emit('message', e.target.value)
+        }
+      },
+    }
+
+    new Vue({
+      el: '#app',
+      data() {
+        return {
+          msg: 'a'
+        }
+      },
+      components: {
+        Child
+      },
+      methods: {
+        msgChange(val) {
+          this.msg = val;
+          console.log(this.msg)
+        }
+      }
+    })
+  </script>
+</body>
+</html>

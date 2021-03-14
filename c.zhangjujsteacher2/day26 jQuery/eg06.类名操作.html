@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 300px;
+            height: 300px;
+            border: 1px solid black;
+        }
+        
+        .red {
+            background-color: red;
+        }
+        
+        .green {
+            background-color: green;
+        }
+    </style>
+    <script src="./jquery.js"></script>
+    <script>
+        $(function() {
+            // $('#btn').on('click', function() {
+            // $(selector).addClass();
+            // 为所有被选元素 添加类名
+
+            // $('.box').addClass('red');
+
+            // $('.box').addClass(function(i, val) {
+            //     // console.log(i, val);
+            //     return val + i;
+            // });
+
+
+            // });
+
+            // $('.box').on('click', function() {
+            //     // $(this).removeClass('box'); //  有参数 删除指定类名
+            //     // $(this).removeClass('box');
+
+            //     $(this).removeClass(); // 如果没有参数 则参数所有类名
+            // })
+
+            $('.box').on('click', function() {
+                // $(selector).toggleClass()  有就删除类名 没有就添加类名
+                $(this).toggleClass('red');
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <button id="btn" type="button">按钮</button>
+    <div class="box"></div>
+    <div class="box a1"></div>
+    <div class="box a2"></div>
+</body>
+
+</html>

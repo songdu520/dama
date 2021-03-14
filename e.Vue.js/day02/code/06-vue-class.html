@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* .active {
+      color: red;
+    }
+    .default {
+      font-size: 30px;
+    } */
+        
+        .active {
+            background: red;
+        }
+        
+        .default {
+            font-size: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 对象语法 -->
+        <!-- key指的是class类名，value是变量或者表达式 -->
+        <!-- class对象key中间有连字符，需要加引号 -->
+
+        <!-- <div :class="{active: isActive === 2, default: isDefault}">hello</div> -->
+        <!-- <ul>
+      <li 
+        v-for="(item, index) in list" 
+        @click="handleClick(index)"
+        :class="{ListActive: listIndex === index}"
+        class="default"
+        可以同时写好几个class
+      >{{ item }}</li>
+    </ul> -->
+        <!-- <p :class="{active: isActive, default: isDefault}">hello</p> -->
+        <!-- <p :class="obj">hello</p> -->
+
+
+        <!-- 数组语法 -->
+        <!-- <p :class="[a, b]">hello</p> -->
+        <!-- <p :class="[done ? a : '', b]">hello2</p> -->
+        <p :class="[{active: done}, b]">hello3</p>
+    </div>
+
+    <script src="../../Vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data() {
+                return {
+                    // list: ['a', 'b', 'c'],
+                    // listIndex: -1,
+                    // obj: {
+                    //   active: true,
+                    //   default: true,
+                    // }
+
+                    a: 'active',
+                    b: 'default',
+                    done: true
+                }
+            },
+            computed: {
+                obj() {
+                    return {
+                        active: this.listIndex === -1,
+                        default: true,
+                    }
+                }
+            },
+            methods: {
+                handleClick(i) {
+                    this.listIndex = i;
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>

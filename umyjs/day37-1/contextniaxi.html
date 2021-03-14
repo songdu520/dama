@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #mycanvas {
+        border: 1px solid black;
+        display: block;
+        margin: 0 auto;
+    }
+</style>
+
+<body>
+    <canvas width="500" height="500" id="mycanvas">
+        您的浏览器不支持canvas元素，请升级浏览器
+    </canvas>
+</body>
+<script>
+    /** @type {HTMLCanvasElement} */
+    let canvas = document.getElementById('mycanvas')
+    let ctx = canvas.getContext('2d')
+        // context.fillStyle = "red"
+        // context.fillRect(100, 100, 300, 300)
+        // context.clearRect(100, 100, 100, 100)
+        // context.arc()
+
+    ctx.moveTo(156, 32);
+    ctx.lineTo(70, 310);
+    ctx.lineTo(293, 141);
+    ctx.lineTo(18, 141);
+    ctx.lineTo(241, 310);
+    // ctx.stroke()
+    ctx.fillStyle = 'yellow'
+    ctx.fill()
+    ctx.font = "30px 微软雅黑"
+    ctx.strokeText('你好实际', 300, 300)
+</script>
+
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //1.对象数组。
+    // var arr = [{
+    //     a: 1
+    // }, {
+    //     b: 2,
+    //     c: 3,
+    //     d: {
+    //         name: 'lisi',
+    //         age: 100
+    //     }
+    // }];
+
+    // console.log(arr);
+    // console.log(arr[1]); //{b: 2, c: 3}
+    // console.log(arr[1].c);
+    // console.log(arr[1]['c']);
+
+    // console.log(arr[1].d.name); //lisi
+    // console.log(arr);
+    // console.log(arr[1]);
+    // console.log(arr[1].d);
+    // console.log(arr[1].d.name);
+
+
+    //总结：见到数组下标取值，见到对象点操作符和中括号。
+
+    //2.多维数组取值
+    // var arr = [1, 2, [3, 4],
+    //     [5, 6],
+    //     [7, 8, [9, 10]]
+    // ];
+
+    // console.log(arr[4][2][0]); //三维数组
+
+    //3.二维数组赋值。
+    //如果数组是多维的，告知程序数组的值还是数组。
+    // var arr = [];
+    // arr[0][0] = 100;//报错的。不能直接对多维数组进行赋值
+    // arr[0] = []; //必须告知程序数组的值还是数组。
+    // arr[0][0] = 100;
+    // arr[0][1] = 200;
+
+    // arr[1] = [];
+    // arr[1][0] = 300;
+    // arr[1][1] = 400;
+    // console.log(arr); //[[100,200],[300,400]]
+</script>
+
+</html>

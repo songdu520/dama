@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //一.ajax发送数据
+    //通过network控制面板插卡
+
+    //1.get方式：将数据发送到地址栏上面通过?和&进行拼接
+
+    // let ajax = new XMLHttpRequest();
+    // ajax.open('get', 'http://localhost/JS2008/Day%2022_ajax/getdata.php?name=zhangsan&age=100', true);
+    // ajax.send();
+    // ajax.onreadystatechange = function() {
+
+    //     if (ajax.readyState === 4) {
+    //         console.log(ajax.responseText); //后端echo后面的数据，都能获取
+    //     }
+    // }
+
+    //2.post方式
+    //将数据放到send里面进行发送。。
+    //设置发送请求头(设置编码类型）ajax.setRequestHeader()
+    let ajax = new XMLHttpRequest();
+    ajax.open('post', 'http://localhost/h5/teacherjs/Day%2022_ajax/getdata.php', true);
+    ajax.setRequestHeader('content-type', 'application/x-www-form-urlencoded');
+    ajax.send('name=wangwu&age=250&sex=男');
+    ajax.onreadystatechange = function() {
+        if (ajax.readyState === 4) {
+            console.log(ajax.responseText); //后端echo后面的数据，都能获取
+        }
+    };
+</script>
+
+</html>

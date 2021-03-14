@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //1.本地存储 - 取
+    //根据key值进行获取，如果key值不存在，输出undefined
+    console.log(window.localStorage.name);
+    console.log(window.localStorage['age']);
+    console.log(window.localStorage.getItem('arrdata').split(',')); //["hello", "hi"]
+    console.log(window.localStorage.getItem('objdata')); //[object Object]
+    console.log(JSON.parse(window.localStorage.getItem('objdata123'))); //{a: 1, b: 2, c: 3}
+</script>
+
+</html>

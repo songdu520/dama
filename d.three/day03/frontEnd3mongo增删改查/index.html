@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <title>Document</title>
+    <style>
+        .btn-primary {
+            margin: 10px 0;
+            float: right;
+        }
+        
+        .shadow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.2);
+            display: none;
+        }
+        
+        .addForm {
+            margin: auto;
+            width: 400px;
+            background: #fff;
+            border-radius: 10px;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <button type="button" class="btn btn-primary" onclick="addShow()">添加学员</button>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">姓名</th>
+                    <th scope="col">年龄</th>
+                    <th scope="col">性别</th>
+                    <th scope="col">手机号</th>
+                    <th scope="col">学号</th>
+                    <th scope="col">地址</th>
+                    <th scope="col">爱好</th>
+                    <th scope="col">操作</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+
+        <nav aria-label="Page navigation example" style="float: right;">
+            <ul class="pagination">
+            </ul>
+        </nav>
+    </div>
+
+
+    <div class="shadow">
+        <div class="addForm">
+            <h5>新增学员</h5>
+            <div class="form-group">
+                <label for="name">姓名</label>
+                <input type="text" class="form-control" id="name">
+            </div>
+            <div class="form-group">
+                <label for="age">年龄</label>
+                <input type="number" class="form-control" id="age">
+            </div>
+            <div class="form-group">
+                <label for="sex">性别</label>
+                <select class="custom-select" id="sex">
+          <option value="1">男</option>
+          <option value="2">女</option>
+        </select>
+            </div>
+            <div class="form-group">
+                <label for="phone">手机号</label>
+                <input type="number" class="form-control" id="phone">
+            </div>
+            <div class="form-group">
+                <label for="num">学号</label>
+                <input type="number" class="form-control" id="num">
+            </div>
+            <div class="form-group">
+                <label for="address">地址</label>
+                <input type="text" class="form-control" id="address">
+            </div>
+            <button class="btn btn-primary" onclick="addclose()">关闭</button>
+            <button class="btn btn-primary" onclick="addStudent()">Submit</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        // 当前第几页
+        let pageCount = 1;
+        // 每页几条
+        let pageSize = 10;
+        // 总共的条数
+        let totalCount = 0;
+
+        let type = 'add';
+        let editId = '';
+
+        getList();
+
+        // 获取表格数据
+        function getList() {
+            $.ajax({
+                url: 'http://127.0.0.1:3000/api/students/get',
+                method: 'GET',
+                data: {
+                    pageCount,
+                    pageSize
+                },
+                success(res) {
+                    if (res.status === 0) {
+                        const {
+                            result,
+                            count
+                        } = res;
+                        totalCount = count;
+                        // 渲染表格
+                        let str = ''
+                        result.forEach((item, index) => {
+                            // console.log(item._id)
+                            str += `
+              <tr>
+                <th scope="row">${item.name}</th>
+                <td>${item.age}</td>
+                <td>${item.sex === 1 ? '男' : '女'}</td>
+                <td>${item.phone}</td>
+                <td>${item.num}</td>
+                <td>${item.add}</td>
+                <td>${item.likes ? item.likes.join() : ''}</td>
+                <td>
+                  <button onclick="updateStudent(this)" class="${item._id}">编辑</button>
+                  <button onclick="removeStudent(this)" id="${item._id}">删除</button>
+                </td>
+              </tr>
+              `
+                        })
+                        document.querySelector('tbody').innerHTML = str;
+
+                        // 渲染分页
+                        let str2 = `
+              <li class="page-item">
+                <a class="page-link" href="#" aria-label="Previous" onclick="prev()">
+                  <span aria-hidden="true">&laquo;</span>
+                </a>
+              </li>
+            `
+                        for (let j = 1; j <= Math.ceil(res.count / pageSize); j++) {
+                            str2 += `<li class="page-item"><a class="page-link" href="#" onclick="changePage(${j})">${j}</a></li>`
+                        }
+                        str2 += `
+              <li class="page-item">
+                <a class="page-link" href="#" aria-label="Next" onclick="next()">
+                  <span aria-hidden="true">&raquo;</span>
+                </a>
+              </li>
+            `
+                        document.querySelector('.pagination').innerHTML = str2;
+                    }
+                }
+            })
+        }
+
+
+        // 改变页数
+        function changePage(j) {
+            pageCount = j;
+            getList();
+        }
+
+        // 上一页
+        function prev() {
+            if (pageCount > 1) {
+                pageCount--;
+                getList()
+            }
+        }
+
+        // 下一页
+        function next() {
+            console.log(totalCount, pageSize)
+            if (pageCount < Math.ceil(totalCount / pageSize)) {
+                pageCount++;
+                getList()
+            }
+        }
+
+        // 显示添加的模态框
+        function addShow() {
+            type = 'add';
+            $('.shadow').css('display', 'flex');
+        }
+
+        // 关闭模态框
+        function addclose() {
+            $('.shadow').css('display', 'none');
+        }
+
+
+        // 添加学员
+        function addStudent() {
+            if (type === 'add') {
+                $.ajax({
+                    url: 'http://127.0.0.1:3000/api/students/add',
+                    method: 'POST',
+                    data: {
+                        name: $('#name').val(),
+                        age: $('#age').val(),
+                        sex: $('#sex').val(),
+                        phone: $('#phone').val(),
+                        num: $('#num').val(),
+                        add: $('#address').val()
+                    },
+                    success(res) {
+                        if (res.status === 0) {
+                            $('.shadow').css('display', 'none');
+                            getList();
+                        }
+                    }
+                })
+            } else {
+                $.ajax({
+                    url: 'http://127.0.0.1:3000/api/students/edit',
+                    method: 'POST',
+                    data: {
+                        id: editId,
+                        name: $('#name').val(),
+                        age: $('#age').val(),
+                        sex: $('#sex').val(),
+                        phone: $('#phone').val(),
+                        num: $('#num').val(),
+                        add: $('#address').val()
+                    },
+                    success(res) {
+                        if (res.status === 0) {
+                            $('.shadow').css('display', 'none');
+                            getList();
+                        }
+                    }
+                })
+            }
+
+        }
+
+
+        // 删除学员
+        function removeStudent(item) {
+            // console.log(item.id)
+            $.ajax({
+                url: 'http://127.0.0.1:3000/api/students/del',
+                method: 'POST',
+                data: {
+                    id: item.id
+                },
+                success(res) {
+                    if (res.status === 0) {
+                        getList();
+                    }
+                }
+            })
+        }
+
+        // 编辑学员
+        function updateStudent(item) {
+            type = 'edit';
+            editId = item.className;
+            $('.shadow').css('display', 'flex');
+            // console.log(item.className)
+            $.ajax({
+                url: 'http://127.0.0.1:3000/api/students/item',
+                method: 'GET',
+                data: {
+                    id: item.className
+                },
+                success(res) {
+                    if (res.status === 0) {
+                        const {
+                            result
+                        } = res
+                        $('#name').val(result.name)
+                        $('#age').val(result.age)
+                        $('#sex').val(result.sex)
+                        $('#phone').val(result.phone)
+                        $('#num').val(result.num)
+                        $('#address').val(result.add)
+                    }
+                }
+            })
+        }
+    </script>
+</body>
+
+</html>

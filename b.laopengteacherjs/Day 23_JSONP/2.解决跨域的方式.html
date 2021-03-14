@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //一.解决跨越的方式。
+    //1.后端代理：后端不存在跨域- file_get_contents()
+
+    //2.cors:全称是"跨域资源共享"（Cross-origin resource sharing） - 低版本浏览器有兼容问题。
+    //需要服务器(提供接口的源码里面)添加下面两句话。
+    //header('Access-Control-Allow-Origin:*');   任意地址都可以访问
+    //header('Access-Control-Allow-Method:POST,GET');  跨越请求的方式
+
+    //3.JSONP(JSON with Padding) - 前端
+    //配合后端做出jsonp的接口
+    //如果第三方接口是jsonp格式的。前端直接获取，无需后端参与。除了ajax获取数据的第二种方式。
+
+    //二.JSONP
+    //1.利用script标签的src属性不存在跨域的。script 请求各种类型的数据。
+    //2.不管文件的扩展名是什么,只要是里面的代码是一种函数调用并传参的格式，获取传入的参数 , 不存在跨域。
+    //3.前端利用get方式传入函数名给后端。
+</script>
+<!-- <script src="hehe.txt"></script> -->
+<!-- 上面的文件是本地 -->
+<!-- <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.12.4/jquery.js"></script> -->
+<!-- 第三方文件一旦引入就可以使用 -->
+<script>
+    // console.log(arr); // ["zhangsan", "lisi", "wangwu"]
+    // console.log($);
+</script>
+<script>
+    // function hehe(data) {
+    //     console.log(data);
+    // }
+</script>
+<!-- <script src="arr.js"></script> -->
+<!--  hehe(["zhangsan","lisi","wangwu"]) -->
+<!-- 注意：注意script标签执行顺序 -->
+
+<script>
+    function taobao(data) {
+        console.log(data);
+    }
+</script>
+
+<script src="https://suggest.taobao.com/sug?code=utf-8&q=苹果手机&_ksTS=1600308396217_331&callback=taobao"></script>
+
+</html>

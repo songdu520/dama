@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(function() {
+            var reader = new FileReader();
+
+            $('#file').on('change', function(e) {
+                // console.log(e.currentTarget.files);
+
+                reader.readAsDataURL(e.currentTarget.files[0]);
+
+                reader.onload = function() {
+                    // console.log(reader.result);
+
+                    $('#showimg').append(`<img style="width:200px;" src="${reader.result}">`);
+
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <input type="file" id="file">
+
+    <div id="showimg"></div>
+</body>
+
+</html>

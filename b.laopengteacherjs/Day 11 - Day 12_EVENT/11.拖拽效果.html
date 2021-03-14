@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+</body>
+<script>
+    //1.拖拽
+    //拖拽的核心：鼠标按下有一个不变的短线(offsetX/offsetY),鼠标移动的时候，鼠标的位置不断发生变化。不断的给当前的盒子赋值left和top
+    //拖拽的元素一定要有定位。
+
+    //事件类型：
+    //onmousedown:鼠标按下 - 求短线(offsetX/offsetY)
+    //onmousemove:鼠标移动 - 不断给盒子赋值left和top值(鼠标的位置是变化的)
+    //onmouseup:鼠标抬起(拖拽结束了)
+
+
+    var oBox = document.querySelector('.box');
+    oBox.onmousedown = function(ev) {
+        //1.求短线(offsetX/offsetY)
+        var ev = ev || event;
+        var shortx = ev.offsetX;
+        var shorty = ev.offsetY;
+        document.onmousemove = function(ev) {
+            var ev = ev || event; //重新获取事件对象，每一次移动事件对象的值是变化的。
+            oBox.style.left = ev.clientX - shortx + 'px';
+            oBox.style.top = ev.clientY - shorty + 'px';
+        };
+        document.onmouseup = function() { //结束拖拽
+            document.onmousemove = null; //取消事件
+            document.onmouseup = null; //取消事件
+        };
+        return false; //取消默认行为。
+    }
+</script>
+
+</html>

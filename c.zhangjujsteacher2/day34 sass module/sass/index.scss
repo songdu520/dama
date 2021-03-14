@@ -1,0 +1,47 @@
+@charset 'utf-8';
+// * {
+//     margin: 0;
+//     padding: 0;
+// }
+// $color:red; // 变量定义使用$
+// @mixin yuan($arg) {
+//     border-radius: $arg;
+// }
+// .box {
+//     width: 1200px;
+//     ul {
+//         width: 1200px;
+//         height: 100px;
+//         li {
+//             list-style: none;
+//             @include yuan(50%);
+//             a {
+//                 color: blue;
+//                 &:hover {
+//                     color: $color;
+//                 }
+//             }
+//         }
+//     }
+// }
+// $flag:flase;
+// @if $flag==true {
+//     .box {
+//         color: red;
+//     }
+// }
+// @else {
+//     .box {
+//         color: blue;
+//     }
+// }
+// @for $i from 1 through 5 {
+//     .li-#{$i} {
+//         color: red;
+//         width: (10*$i)px;
+//     }
+// }
+// @import './header.scss';
+// @import './nav.scss';
+// @import './body.scss';
+// @import './footer.scss';

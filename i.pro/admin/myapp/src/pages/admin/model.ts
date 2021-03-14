@@ -1,0 +1,69 @@
+// 内置好的ts接口
+import { Effect, Reducer, Subscription } from 'umi';
+// import { getRemoteList } from './service';
+import menu from "@/resouce/menu"
+// 定义了model的state的类型
+export interface IndexModelState {
+  pageTitle: string
+}
+
+// 定义了model的类型
+export interface IndexModelType {
+  namespace: 'admin';
+  state: IndexModelState;
+  effects: {};
+  reducers: {
+    changeTitle: Reducer
+  };
+  subscriptions: { setup: Subscription };
+}
+
+const IndexModel: IndexModelType = {
+  // 定义模块
+  namespace: 'admin',
+  // store的数据
+  state: {
+    pageTitle:""
+  },
+  // 写同步方法的
+  reducers: {
+    changeTitle(state,{payload}){
+      // console.log(payload)
+      return{
+        ...state,
+        pageTitle:payload
+      }
+    }
+  },
+  // 写异步方法
+  effects: {},
+  // 订阅
+  subscriptions: {
+    setup({ dispatch, history }) {
+
+      return history.listen(({ pathname }) => {
+
+        for(let i = 0;i <menu.length;i++){
+          if(menu[i].children){
+            for(let j=0;j<menu[i].children.length;j++){
+              if(menu[i].children[j].key===pathname){
+                dispatch({
+                        type: 'changeTitle',
+                        payload:menu[i].children[j].title
+                      })
+              }
+            }
+          }else{
+            if(menu[i].key===pathname){
+              dispatch({
+                      type: 'changeTitle',
+                      payload:menu[i].title
+                    })
+            }
+          }
+         }
+      })
+    }
+  }
+};
+export default IndexModel;

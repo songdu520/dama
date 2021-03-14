@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    {{ count }}
+    <child @ffff="handleClick"></child>
+  </div>
+
+  <script src="../../Vue.js"></script>
+  <script>
+    const Child = {
+      template: `
+        <div>child</div>
+      `,
+      beforeCreate() {
+        console.log('子组件开始创建')
+      },
+      mounted() {
+        console.log('子组件挂载完成')
+        this.$emit('ffff', 567, 999);
+      },
+      // methods: {
+      //   handleChildClick () {
+      //     this.$emit('ffff', 567, 999)
+      //   }
+      // },
+    };
+
+
+
+    new Vue({
+      el: '#app',
+      data() {
+        return {
+          count: 888
+        }
+      },
+      beforeCreate() {
+        console.log('父组件开始创建')
+      },
+      mounted() {
+        console.log('父组件挂载完成')
+      },
+      components: {
+        Child
+      },
+      methods: {
+        handleClick(num, num2) {
+          // console.log(num, num2)
+          this.count = num2;
+        }
+      },
+    })
+  </script>
+</body>
+</html>

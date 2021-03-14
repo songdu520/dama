@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //1.实现面向对象编程，先得有类和对象。
+    let person1 = new Object();
+    person1.name = 'zhangsan';
+    person1.showname = function() {
+        console.log(this.name);
+    };
+    // let person2 = new Object();
+    // person2.name = 'lisi';
+    // person2.showname = function() {
+    //     console.log(this.name);
+    // }
+    // let person3 = new Object();
+    // person3.name = 'wangwu';
+    // person3.showname = function() {
+    //     console.log(this.name);
+    // }
+    // let person4 = new Object();
+    // person4.name = 'zhaoliu';
+    // person4.showname = function() {
+    //     console.log(this.name);
+    // }
+    // person1.showname();
+    // person2.showname();
+    // person3.showname();
+    // person4.showname();
+    //弊端：定义多个对象的时候，代码重复很大(代码冗余)
+    //解决方式：封装解决。
+    // function CreatePerson(name) {
+    //     let this = new Object();
+    //     this.name = name;
+    //     this.showname = function() {
+    //         console.log(this.name);
+    //     };
+    //     return this;//隐式返回
+    // }
+
+    // 弊端：利用函数解决代码冗余问题，但是无法解决对象的识别问题，对象依然是object,不像数组对象，日期对象...
+    // 如果调用函数前面添加new关键字，函数体内部发生变化。
+    // 以 new 操作符调用函数的时候，函数内部发生以下变化：
+    // 1、创建一个空对象，并且 this 变量引用该对象。
+    // 2、属性和方法被加入到 this 引用的对象中。
+    // 3、并且最后隐式的返回 this （言外之意，创建也是隐式）。 
+
+    //解决方式：通过设置new关键字，首字母大写，最终形成一个构造函数。
+    //检测方式：系统提供一个属性词获取对象的构造函数 - constructor
+
+    // function CreatePerson(name) {
+    //     this.name = name;
+    //     this.showname = function() {
+    //         console.log(this.name);
+    //     };
+    // }
+
+    // let c1 = new CreatePerson('zhangsan'); //c1:person对象
+    // c1.name = 'zhangsan123';
+    // c1.showname();
+
+    // let c2 = new CreatePerson('lisi'); //c1:person对象
+    // c2.name = 'lisi123';
+    // c2.showname();
+    // console.log(c1.showname === c2.showname); //false
+
+
+    // alert(c1.constructor);
+    //弊端：构造函数还是有问题，构造函数内部的属性和方法是私有的，但是属性私有是正常的，方法一般都是公有的。
+    //确定一个结果：方法不是写着构造函数里面的。
+    //解决：每一个函数下面都有一个原型(对象属性prototype),里面放置的是公有的属性和方法，原型里面的this依然执行实例对象。
+
+    function CreatePerson(name) {
+        this.name = name; //属性时私有的，构造函数都是私有的。
+    }
+
+    CreatePerson.prototype.showname = function() { //方法是公有的，写着原型下面。
+        console.log(this.name);
+    };
+
+    let c1 = new CreatePerson('zhangsan'); //c1:person对象
+    c1.name = 'zhangsan123';
+    c1.showname();
+
+    let c2 = new CreatePerson('lisi'); //c1:person对象
+    c2.name = 'lisi123';
+    c2.showname();
+
+    console.log(c1.showname === c2.showname); //true
+
+
+    //目标：
+    // Array:类(构造函数)
+
+    // alert(arr1.constructor); //function Array() { [native code] }
+    let arr1 = new Array();
+    arr1.length = 10;
+    arr1.push(1);
+
+    let arr2 = new Array();
+    arr2.length = 10;
+    arr2.push(1);
+
+
+    console.log(arr1.push === arr2.push); //true
+</script>
+
+</html>

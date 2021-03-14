@@ -1,0 +1,54 @@
+.searchWrap {
+  height: 24px;
+  background: #f5f5f5;
+  display: flex;
+  address {
+    width: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .search {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    &::before {
+      content: '|';
+      margin-right: 15px;
+    }
+  }
+}
+
+
+.tarbar {
+  height: 45px;
+  border: solid #f5f5f5;
+  border-width: 1px 0;
+  display: flex;
+  position: relative;
+  .item {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .select {
+    width: 100%;
+    position: absolute;
+    top: 43px;
+    background: #fff;
+    .areaItem {
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 1px solid #ccc;
+    }
+  }
+  
+}
+
+.rentUl {
+  flex: 1;
+  overflow: auto;
+}

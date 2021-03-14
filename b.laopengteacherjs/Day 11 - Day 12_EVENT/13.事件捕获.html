@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" class="html">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .div1 {
+            width: 400px;
+            height: 400px;
+            background-color: red;
+            margin: 50px auto;
+            border-radius: 50%;
+            padding: 100px;
+        }
+        
+        .div2 {
+            width: 200px;
+            height: 200px;
+            background-color: green;
+            border-radius: 50%;
+            padding: 100px;
+        }
+        
+        .div3 {
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body class="body">
+    <div class="div1">
+        <div class="div2">
+            <div class="div3"></div>
+        </div>
+    </div>
+</body>
+<script>
+    function addEvent(obj, etype, fn, bool) { //obj:元素对象  etype:事件类型  fn:事件处理函数  bool:是否捕获
+        bool = bool || false;
+        if (obj.addEventListener) {
+            obj.addEventListener(etype, fn, bool);
+        } else {
+            obj.attachEvent('on' + etype, fn);
+        }
+    }
+    var div1 = document.querySelector('.div1');
+    var div2 = document.querySelector('.div2');
+    var div3 = document.querySelector('.div3');
+    //Netscape(网景)团队提出的另一种事件流叫做事件捕获,即事件开始时由最不具体的节点应该早接收到事件，而最具体的节点应该最后接收到事件。
+    // function fn() {
+    //     console.log(this.className);
+    // }
+    // addEvent(div3, 'click', fn, true);
+    // addEvent(div2, 'click', fn, false);
+    // addEvent(div1, 'click', fn, true);
+    // addEvent(document.body, 'click', fn, false);
+    // addEvent(document.documentElement, 'click', fn, true);
+    // addEvent(document, 'click', function() {
+    //     console.log('document');
+    // }, false);
+
+    //点击div3,输出顺序
+    //html->div1->div3->div2->body->document
+</script>
+
+</html>

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span {
+            padding-left: 10px;
+            ;
+        }
+    </style>
+</head>
+
+<body>
+    <fieldset style="width: 800px;margin:0 auto;">
+        <legend>用户注册</legend>
+        <form action="success.html" method="POST" id="registry">
+            <!-- action:递交的地址  method:提交方法 -->
+            <p>用户姓名：<input type="text" class="username"><span></span></p>
+            <p>手机号码：<input type="text" class="telphone"><span></span></p>
+            <p>电子邮箱：<input type="text" class="email"><span></span></p>
+            <p>身份证号：<input type="text" class="cartid"><span></span></p>
+            <p>用户密码：<input type="text" class="password"><span></span></p>
+            <p><input type="submit" value="提交注册"></p>
+        </form>
+    </fieldset>
+</body>
+<script>
+    var registry = document.querySelector('#registry');
+    var username = document.querySelector('.username');
+    var telphone = document.querySelector('.telphone');
+    var email = document.querySelector('.email');
+    var cartid = document.querySelector('.cartid');
+    var password = document.querySelector('.password');
+    var message = document.querySelectorAll('#registry span'); //5
+
+    //每一个表单添加一个标记，验证是否成功。
+    var userflag = true;
+    var telflag = true;
+    var emailflag = true;
+    var cartidflag = true;
+    var passflag = true;
+
+    //1.用户名的匹配
+    //获得焦点
+    username.onfocus = function() {
+        message[0].innerHTML = '设置后不可更改，中英文均可，最长14个英文或7个汉字';
+        message[0].style.color = '#666';
+    };
+
+    //失去焦点
+    username.onblur = function() {
+        if (this.value !== '') { //不为空
+            var len = this.value.replace(/[\u4e00-\u9fa5]/g, '**').length; //获取字符串的长度
+            var reg = /^[a-zA-Z\u4e00-\u9fa5]+$/; //中英文均可
+            if (len >= 7 && len <= 14) { //限制长度
+                if (reg.test(this.value)) { //满足正则条件
+                    message[0].innerHTML = '√';
+                    message[0].style.color = 'green';
+                    userflag = true;
+                } else { //不满足条件
+                    message[0].innerHTML = '用户名格式输入有误';
+                    message[0].style.color = 'red';
+                    userflag = false;
+                }
+            } else { //长度有问题
+                message[0].innerHTML = '用户名长度有问题';
+                message[0].style.color = 'red';
+                userflag = false;
+            }
+
+        } else { //为空
+            message[0].innerHTML = '用户名不能为空';
+            message[0].style.color = 'red';
+            userflag = false;
+        }
+    }
+
+    //2.手机号码验证
+    telphone.onfocus = function() {
+        message[1].innerHTML = '请输入11位正确的手机号码';
+        message[1].style.color = '#666';
+    };
+
+    telphone.onblur = function() {
+        if (this.value !== '') {
+            var reg = /^1[3578]\d{9}$/;
+            if (reg.test(this.value)) {
+                message[1].innerHTML = '√';
+                message[1].style.color = 'green';
+                telflag = true;
+            } else {
+                message[1].innerHTML = '手机号码格式有误';
+                message[1].style.color = 'red';
+                telflag = false;
+            }
+        } else {
+            message[1].innerHTML = '手机号码不能为空';
+            message[1].style.color = 'red';
+            telflag = false;
+        }
+    }
+
+    //3.电子验证
+    email.onfocus = function() {
+        message[2].innerHTML = '请输入正确的电子邮箱';
+        message[2].style.color = '#666';
+    };
+
+    email.onblur = function() {
+        if (this.value !== '') {
+            var reg = /^\w+([+.-]\w+)*@(\w+([.-]\w+)*)\.(\w+([.-]\w+)*)$/;
+            if (reg.test(this.value)) {
+                message[2].innerHTML = '√';
+                message[2].style.color = 'green';
+                emailflag = true;
+            } else {
+                message[2].innerHTML = '电子邮箱格式有误';
+                message[2].style.color = 'red';
+                emailflag = false;
+            }
+        } else {
+            message[2].innerHTML = '电子邮箱不能为空';
+            message[2].style.color = 'red';
+            emailflag = false;
+        }
+    }
+
+    //4.身份证号
+    cartid.onfocus = function() {
+        message[3].innerHTML = '请输入正确的身份证号';
+        message[3].style.color = '#666';
+    };
+
+    cartid.onblur = function() {
+        if (this.value !== '') {
+            // var reg = /^\d{17}(\d|X|x)$/;
+            var reg = /^\d{6}(19|20)\d{2}(0[1-9]|1[0-2])(0[1-9]|1[0-9]|2[0-9]|3[0-1])\d{3}(\d|X|x)$/;
+            if (reg.test(this.value)) {
+                message[3].innerHTML = '√';
+                message[3].style.color = 'green';
+                cartidflag = true;
+            } else {
+                message[3].innerHTML = '身份证号格式有误';
+                message[3].style.color = 'red';
+                cartidflag = false;
+            }
+        } else {
+            message[3].innerHTML = '身份证号不能为空';
+            message[3].style.color = 'red';
+            cartidflag = false;
+        }
+    }
+
+    //5.用户密码(数字，大小写字符，特殊字符)
+    //1种字符：弱
+    //2种字符：中
+    //3种字符：中
+    //4种字符：强
+
+    password.onfocus = function() {
+        message[4].innerHTML = '请输入密码,长度为8-14个字符';
+        message[4].style.color = '#666';
+    };
+
+    password.oninput = function() {
+        if (this.value.length >= 8 && this.value.length <= 14) {
+            var regnum = /\d+/g;
+            var reglower = /[a-z]+/g;
+            var regupper = /[A-Z]+/g;
+            var other = /[\W\_]+/g;
+            var count = 0; //统计字符的种类
+            if (regnum.test(this.value)) {
+                count++;
+            }
+
+            if (reglower.test(this.value)) {
+                count++;
+            }
+
+            if (regupper.test(this.value)) {
+                count++;
+            }
+
+            if (other.test(this.value)) {
+                count++;
+            }
+
+            //通过种类判断输出弱中强
+            switch (count) {
+                case 1:
+                    message[4].innerHTML = '弱';
+                    message[4].style.color = 'red';
+                    passflag = false;
+                    break;
+
+                case 3:
+                    message[4].innerHTML = '中';
+                    message[4].style.color = 'orange';
+                    passflag = true;
+                    break;
+                case 4:
+                    message[4].innerHTML = '强';
+                    message[4].style.color = 'green';
+                    passflag = true;
+                    break;
+            }
+
+        } else {
+            message[4].innerHTML = '密码长度有问题';
+            message[4].style.color = 'red';
+            passflag = false;
+        }
+    };
+
+    password.onblur = function() {
+        if (this.value !== '') {
+            if (passflag) {
+                message[4].innerHTML = '√';
+                message[4].style.color = 'green';
+            }
+        } else {
+            message[4].innerHTML = '密码不能为空';
+            message[4].style.color = 'red';
+            passflag = false;
+        }
+    };
+
+    //提交事件。
+    registry.onsubmit = function() { //表单提交事件
+        if (username.value === '') {
+            message[0].innerHTML = '用户名不能为空';
+            message[0].style.color = 'red';
+            userflag = false;
+        }
+        if (telphone.value === '') {
+            message[1].innerHTML = '手机号码不能为空';
+            message[1].style.color = 'red';
+            telflag = false;
+        }
+        if (email.value === '') {
+            message[2].innerHTML = '电子邮箱不能为空';
+            message[2].style.color = 'red';
+            emailflag = false;
+        }
+        if (cartid.value === '') {
+            message[3].innerHTML = '身份证号不能为空';
+            message[3].style.color = 'red';
+            cartidflag = false;
+        }
+        if (password.value === '') {
+            message[4].innerHTML = '密码不能为空';
+            message[4].style.color = 'red';
+            passflag = false;
+        }
+        //如果任何一个标记为false，都阻止提交
+        if (!userflag || !telflag || !emailflag || !cartidflag || !passflag) {
+            return false; //阻止提交
+        }
+    }
+</script>
+
+</html>

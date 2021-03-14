@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //迭代方法（不会改变原数组）- 自带遍历
+    //迭代是重复反馈过程的活动，其目的通常是为了逼近所需目标或结果.
+    //迭代方法的第一个参数：函数,函数做参数. 做参数的函数又有三个参数(数组的值,数组索引,数组本身)
+
+    //迭代方法的第二个参数：this指向问题。(可选)
+
+
+    // 1.every()对数组中的每一项运行给定函数， 如果该函数对每一项都返回 true， 则返回 true。
+    // var arr = [10, 20, 30, 40, 50, 60, 70, 80, 90];
+    // var result = arr.every(function(value, index, array) {
+    //     return value > 0;
+    // });
+    // console.log(result);
+
+    //检测数组的每一项都是字符串。
+    // function checkstring(arr) {
+    //     return arr.every(function(value) {
+    //         return typeof value === 'string';
+    //     });
+    // }
+
+    // console.log(checkstring(['a', 'hello', '3', 'hi']));
+
+    // 2.some()对数组中的每一项运行给定函数， 如果该函数对任意一项返回 true， 则返回 true。
+    // var arr = [10, 20, 30, 40, 50, 60, 70, 80, 90];
+    // var result = arr.some(function(value, index, array) {
+    //     return value > 50;
+    // });
+    // console.log(result); //true
+
+    // function has(arr, num) {
+    //     return arr.some(function(value, index, array) {
+    //         return value === num;
+    //     });
+    // }
+    // console.log(has([12, 40, 4, 7], 4));
+
+    // 3.filter()对数组中的每一项运行给定函数， 返回该函数结果为 true 的项组成的数组。(过滤)
+    // /ˈfɪltər/过滤器
+    // var arr = [10, 20, 30, 40, 50, 60, 70, 80, 90];
+    // var newarr = arr.filter(function(value, index, array) {
+    //     return value > 50;
+    // });
+    // console.log(newarr); // [60, 70, 80, 90]
+
+    //数组去重
+    // var arr = [100, 100, 100, 250, 12, 12, 12, 12, 3, 45, 6, 12, 3, 45];
+    // var newarr = arr.filter(function(value, index, array) {
+    //     // arr.indexOf(value);//找第一次出现的值的索引位置。100->0  100->0  100->0
+    //     // index：每一个数字对应的索引   100->  100->1  100->2
+    //     return arr.indexOf(value) === index
+    // });
+
+    // console.log(newarr);
+
+    // 4.map()对数组中的每一项运行给定函数， 返回每次函数调用的结果组成的数组。返回就是数组,不考虑true或者false。一一映射关系。
+    // var arr = [10, 20, 30, 40, 50, 60, 70, 80, 90];
+    // var newarr = arr.map(function(value, index, array) {
+    //     return value > 50;
+    // });
+
+    // console.log(newarr);//[false, false, false, false, false, true, true, true, true]
+
+    // var arr = [10, 20, 30, 40, 50, 60, 70, 80, 90];
+    // var newarr = arr.map(function(value, index, array) {
+    //     return value * 1000;
+    // });
+
+    // console.log(newarr);// [10000, 20000, 30000, 40000, 50000, 60000, 70000, 80000, 90000]
+    // var arr = [10, 'hello', true, 40, 50, function() {}, 70, [1, 2, 3], {
+    //     a: 1
+    // }];
+    // var newarr = arr.map(function(value, index, array) {
+    //     return typeof value;
+    // });
+
+    // console.log(newarr);//["number", "string", "boolean", "number", "number", "function", "number", "object", "object"]
+    // 5.forEach()对数组中的每一项运行给定函数。 这个方法没有返回值。
+    // var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    // arr.forEach(function(value, index, array) { //value:数组项的值  index:数组项索引  array:数组本身
+    //     console.log(index + ":" + value);
+    // });
+
+    // var arr = [12, 12, 12, 12, 3, 45, 6, 12, 3, 45];
+    // var newarr = [];
+    // arr.forEach(function(value) { //value:数组项的值。
+    //     if (newarr.indexOf(value) === -1) { //不存在新数组  -1很好的标记
+    //         newarr.push(value)
+    //     }
+    // });
+    // console.log(newarr);
+
+
+    //第二个参数的应用 - this;
+    var obj = {
+        a: 100,
+        show: function() {
+            console.log(this.a); //1  this->obj  obj.a = 100
+        }
+    }
+    obj.show();
+
+    var arr = ['ok'];
+    console.log(arr.map(function() {
+        // return this; //[window]
+        return this.a; //[100]
+    }, obj)); //第二个代表this指向，this->obj
+</script>
+
+</html>

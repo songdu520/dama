@@ -1,0 +1,12 @@
+$page_width:1200px;
+$page_color:blue;
+$fontsize:14px;
+$t:text-decoration;
+$n:none;
+$h:100px;
+.banner {
+    content: 'banner';
+    width: $page_width;
+    height: $h;
+    background-color: $page_color;
+}

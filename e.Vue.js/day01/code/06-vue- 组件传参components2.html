@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+            <!-- <Child v-for="item in list" v-bind:item="item"></Child> -->
+            <Child v-for="item in list" v-bind:url="item.url" v-bind:title="item.title"></Child>
+        </ul>
+    </div>
+
+    <script src="../../Vue.js"></script>
+    <script>
+        // 组件传参（父传子）
+        // 在父组件里面定义一个自定义的属性
+        // 在子组件里面使用props去接受
+        // const Child = {
+        //   // props是一个option，值是数组
+        //   props: ['item'],
+        //   template: `
+        //     <li>
+        //       <img v-bind:src="item.url" alt="" />
+        //       <p>{{ item.title }}</p>
+        //     </li>
+        //   `
+        // }
+        const Child = {
+            // props是一个option，值是数组
+            props: ['url', 'title'],
+            template: `
+        <li>
+          <img v-bind:src="url" alt="" />
+          <p>{{ title }}</p>
+        </li>
+      `
+        }
+
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    list: [{
+                        url: 'https://p1.meituan.net/170.230/moviemachine/5cbf9a626b7ed27c96ca3c748655b3ec2550103.jpg',
+                        title: '金刚川'
+                    }, {
+                        url: 'https://p0.meituan.net/170.230/moviemachine/cf7d6942f2aa9189cce20519b490b6b1879487.jpg',
+                        title: '野性的呼唤'
+                    }, {
+                        url: 'https://p0.meituan.net/170.230/moviemachine/e2a379d0aea6c27c8798724f7933e5771882126.jpg',
+                        title: '流浪地球'
+                    }]
+                }
+            },
+            components: {
+                Child
+            }
+        })
+    </script>
+</body>
+
+</html>

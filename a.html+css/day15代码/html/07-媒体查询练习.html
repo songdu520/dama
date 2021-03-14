@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            div {
+                background: black;
+                font-size: 40px;
+            }
+            @media only all and (max-width: 700px) {
+                div {
+                    width: 100px;
+                    height: 100px;
+                    color: yellow;
+                }
+            }
+            @media only all and (min-width: 700px) and (max-width: 1200px) {
+                div {
+                    width: 200px;
+                    height: 200px;
+                    color: green;
+                }
+            }
+            @media only all and (min-width: 1200px) {
+                div {
+                    width: 300px;
+                    height: 300px;
+                    color: pink;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <!--  结构:div  
+
+    要求：
+       设备宽度再700以内，div宽高为100px，颜色为黄色
+       设备再700~1200之间，div宽高为200px，颜色为绿色
+       设备在1200以上 ，div宽高为300px，颜色粉色；
+
+       理解：not only的作用 -->
+        <div>media</div>
+    </body>
+</html>

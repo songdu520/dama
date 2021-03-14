@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <!-- 
+            老版本中：只有媒体设备类型的判断，没有媒体设备条件的判断
+            这个媒体设备条件的判断，是css3里面新增的
+
+            老的浏览器把media后边的第一个英语单词，判断成是媒体设备
+         -->
+        <style media="screen">
+            div {
+                width: 300px;
+                height: 300px;
+                background: red;
+            }
+        </style>
+        <link rel="stylesheet" href="../css/01.css" media="screen" />
+        <link rel="stylesheet" href="../css/02.css" media="print" />
+    </head>
+    <body>
+        <div></div>
+    </body>
+</html>

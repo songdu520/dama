@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style: none;
+        }
+        img{
+            display: block;
+        }
+        ul{
+            margin: 100px auto;
+            background-color: aqua;
+            width: 500px;
+            height: 200px;
+            overflow: hidden;
+        }
+        ul li{
+            width: 100px;
+            
+            float: left;
+            position: relative;
+            transition: width 0.5s;
+        }
+        ul li p{
+            height: 50px;
+            background: rgba(0, 0, 0, .4);
+            color: #000;
+            text-align: center;
+            line-height: 50px;
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            color: white;
+        }
+        
+        ul li img{
+            width: 420px;
+        }
+        ul:hover li{
+            width: 20px;
+        }
+        ul li:hover {
+            width:420px ;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li><img src="./img/img1.jpg" alt=""> <p>png</p></li>
+        <li><img src="./img/img2.jpg" alt=""> <p>png</p></li>
+        <li><img src="./img/img3.jpg" alt=""> <p>png</p></li>
+        <li><img src="./img/img4.jpg" alt=""> <p>png</p></li>
+        <li><img src="./img/img5.jpg" alt=""> <p>png</p></li>
+    </ul>
+</body>
+</html>

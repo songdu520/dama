@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let p = new Promise((resolve, reject) => {
+            // resolve('成功');
+            reject('失败');
+            // /rɪˈdʒekt/拒绝；排斥；抵制；丢弃
+        });
+
+        // promise的then函数支持链式调用
+        // 当then函数链式调用时 多个then依次执行
+        // 多个then链式调用时 第一个then的参数是resolve的值
+        // 而后面每一个then的参数都是上一个then的返回值
+        // p.then(val => {
+        //     console.log(val);
+        //     return val;
+        // }).then(val => {
+        //     console.log(2)
+        //     console.log(val);
+        //     return val;
+        // }).then(val => {
+        //     console.log(3)
+        //     console.log(val);
+        //     return '789';
+        // }).then(val => {
+        //     console.log(4)
+        //     console.log(val);
+        // }).catch(val => {
+        //     console.log(val);
+        // });
+
+        // 当then函数中有两个回调函数时,
+        // 第一个回调表示成功  第二个回调表示失败
+        // p.then(val => {
+        //     console.log('成功');
+        // }, val => {
+        //     console.log('失败');
+        // });
+
+        p.then(val => val)
+            .catch(val => {
+                console.log(1);
+            })
+            .finally(() => {
+                // 无论成功失败都会执行
+                console.log(123);
+            });
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

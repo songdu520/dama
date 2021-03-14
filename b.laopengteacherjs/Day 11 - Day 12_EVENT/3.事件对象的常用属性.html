@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            width: 400px;
+            position: absolute;
+            /* cursor: move; */
+            left: 200px;
+            top: 200px;
+        }
+    </style>
+</head>
+
+<body style="height: 3000px;">
+    <img src="https://aecpm.alicdn.com/simba/img/TB1JNHwKFXXXXafXVXXSutbFXXX.jpg" alt="">
+</body>
+<script>
+    //1.button属性：它是一个数字，代表鼠标按键
+    //0代表鼠标按下了左键  1代表按下了滚轮键    2代表按下了右键
+    // document.onmousedown = function(ev) { //按下鼠标按键触发
+    //     var ev = ev || window.event; //获取事件对象
+    //     console.log(ev.button);
+    // }
+
+
+    //2.鼠标事件中获取鼠标的位置属性
+    // 2.1.clientX,clientY：鼠标相对于可视区的位置。
+    var oImg = document.querySelector('img');
+    document.onmousemove = function(ev) {
+        var ev = ev || window.event; //获取事件对象
+        console.log(ev.clientX, ev.clientY);
+        oImg.style.left = ev.clientX - oImg.offsetWidth / 2 + 'px';
+        oImg.style.top = ev.clientY - oImg.offsetHeight / 2 + 'px';
+    }
+
+    // 2.2.pageX,pageY：鼠标相对于文档的位置
+    // document.onmousemove = function(ev) {
+    //     var ev = ev || window.event; //获取事件对象
+    //     console.log('可视区位置：' + ev.clientX, ev.clientY);
+    //     console.log('文档的位置：' + ev.pageX, ev.pageY);
+    //     console.log('---------------------------------------------------------');
+    // }
+
+    // 2.3.offsetX,offsetY：鼠标相对于操作元素(鼠标位置)到元素边缘(左上)的位置.
+    //   /ˈɔːfset/ 
+    var oImg = document.querySelector('img');
+    oImg.onmousemove = function(ev) {
+        var ev = ev || window.event; //获取事件对象
+        console.log(ev.offsetX, ev.offsetY);
+    }
+
+    // 2.4.screenX,screenY :鼠标相对于屏幕的位置
+    //   /skriːn/
+    // document.onmousemove = function(ev) {
+    //     var ev = ev || window.event; //获取事件对象
+    //     console.log(ev.screenX, ev.screenY);
+    // }
+</script>
+
+</html>

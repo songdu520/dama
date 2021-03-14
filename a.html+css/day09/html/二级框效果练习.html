@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+
+
+        .inner {
+            width: 1050px;
+            margin: auto;
+            padding: 20px 0;
+        }
+
+        .inner h1 img {
+            height: 100px;
+
+        }
+
+        .inner h1 a {
+            display: inline-block;
+        }
+
+
+        .nav ul {
+            width: 1000px;
+            margin: auto;
+            background-color: bisque;
+        }
+
+        .nav ul::after {
+            content: "";
+            display: block;
+            clear: both;
+            background-color: aqua;
+            visibility: hidden;
+            height: 0;
+            overflow: hidden;
+
+
+        }
+
+        .nav ul li {
+            float: left;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            list-style: none;
+            width: 100px;
+
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .nav ul li a {
+            /* display: block; */
+            position: relative;
+            color: #000000;
+            font-size: 12px;
+        }
+
+        .nav ul li a::after {
+            content: "";
+            display: inline-block;
+            border: transparent 5px solid;
+            border-top-color: #5f80b4;
+            position: absolute;
+            left: 50%;
+            bottom: -15px;
+
+        }
+
+        /* 二级导航 */
+        .nav {
+            position: relative;
+        }
+
+        .nav ul li div {
+            background: rgba(225, 225, 225, 0.5);
+            height: 60px;
+            position: absolute;
+            width: 100%;
+            left: 0;
+            line-height: 60px;
+            display: none;
+            border-top: 2px solid lightseagreen;
+            z-index: 9999;
+
+        }
+        span{
+            margin: 0 20px;
+        }
+        .nav li:hover div{
+            display: block;
+        }
+
+        .banner {
+            height: 367px;
+        }
+
+        .banner img {
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="head">
+        <div class="inner">
+            <h1>
+                <a href="#">
+                    <img src="../img/logo.png" alt="">
+                </a>
+            </h1>
+        </div>
+        <div class="nav">
+            <ul>
+                <li><a href="#">网站首页</a>
+                    <div><span>研究生教育</span><span>研究生教育</span></div>
+                </li>
+                <li><a href="#">网站首页</a>
+                    <div><span>研究生教育</span><span>研究生教育</span></div>
+                </li>
+                <li><a href="#">网站首页</a>
+                    <div><span>研究生教育</span><span>研究生教育</span></div>
+                </li>
+                <li><a href="#">网站首页</a>
+                    <div><span>研究生教育</span><span>研究生教育</span></div>
+                </li>
+                <li><a href="#">网站首页</a>
+                    <div><span>研究生教育</span><span>研究生教育</span></div>
+                </li>
+                <li><a href="#">网站首页</a>
+                    <div><span>研究生教育</span><span>研究生教育</span></div>
+                </li>
+                <li><a href="#">网站首页</a>
+                    <div><span>研究生教育</span><span>研究生教育</span></div>
+                </li>
+                <li><a href="#">网站首页</a>
+                    <div><span>研究生教育</span><span>研究生教育</span></div>
+                </li>
+                <li><a href="#">网站首页</a>
+                    <div><span>研究生教育</span><span>研究生教育</span></div>
+                </li>
+                <li><a href="#">网站首页</a>
+                    <div><span>研究生教育</span><span>研究生教育</span></div>
+                </li>
+
+
+            </ul>
+        </div>
+        <div class="banner"><img src="../img/201909121632111000.jpg" alt=""></div>
+    </div>
+</body>
+
+</html>

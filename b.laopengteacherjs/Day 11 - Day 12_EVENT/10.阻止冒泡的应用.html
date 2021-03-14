@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 300px;
+            background-color: red;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <button>显示box</button>
+    <div class="box"></div>
+</body>
+<script>
+    var btn = document.querySelector('button');
+    var box = document.querySelector('.box');
+
+    //点击btn显示box
+    btn.onclick = function(ev) {
+        var ev = ev || event;
+        ev.stopPropagation(); //阻止冒泡
+        box.style.display = 'block';
+    };
+
+    //点击document,box消失
+    document.onclick = function() {
+        // setTimeout(function() {
+        box.style.display = 'none';
+        // }, 3000);
+    }
+</script>
+
+</html>

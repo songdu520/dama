@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <fieldset style="width: 800px;margin:0 auto;">
+        <legend>用户登录</legend>
+        <p>用户姓名：<input type="text" class="username"></p>
+        <p>用户密码：<input type="password" class="password"></p>
+        <p><input type="button" value="用户登录" class="login"> <a href="registry.html">请注册</a></p>
+        </form>
+    </fieldset>
+</body>
+<script src="../../../ajaxcallback.js"></script>
+<script src="sha1.js"></script>
+<!-- 加载的加密插件 -->
+<script>
+    const login = document.querySelector('.login');
+    const username = document.querySelector('.username');
+    const password = document.querySelector('.password');
+    //登录：将前端的用户名和密码传递给后端。(加密传输)
+    login.onclick = function() {
+        ajax({
+            type: 'post',
+            url: 'http://localhost/JS2008/Day%2022_ajax/loginregistry/php/login.php',
+            data: {
+                user: username.value,
+                pass: hex_sha1(password.value)
+            },
+            success: function(data) {
+                if (!data) { //不通过
+                    alert('用户名或者密码错误');
+                    //情况用户名和密码里面的值
+                    username.value = '';
+                    password.value = '';
+                } else {
+                    //跳转到首页。
+                    location.href = "index.html";
+                }
+            }
+        })
+    }
+</script>
+
+</html>

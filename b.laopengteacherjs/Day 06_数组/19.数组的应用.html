@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 200px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            border: 1px solid red;
+            margin: 100px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">请开始抽奖</div>
+</body>
+<script>
+    //1.编写函数has(arr , 60) 判断数组中是否存在60这个元素，返回布尔类型
+    // function has(arr, num) {
+    //     for (var i = 0; i < arr.length; i++) {
+    //         if (arr[i] === num) { //满足条件,程序结束了。
+    //             return true;
+    //         }
+    //     }
+    //     return false;
+    // }
+    // console.log(has([12, 5, 78, 9], 9));
+
+    //2.扩展练习:随机点名程序 - Math.random():0-1之间的数，不包括1
+    var arr = ['笔记本电脑', '宝马汽车', '现金100万', '新马泰一年游', '谢谢惠顾', '苹果手机', '洗衣服一袋', '报送清华', '哈哈一乐']; //索引：0-7
+
+    // window.setInterval(函数体,时间ms):间隔定时器。
+    // window.setInterval(函数体,5):每个5毫秒执行一次函数。
+    // var num = 1;
+    // window.setInterval(function() {
+    //     console.log(num);
+    //     num++;
+    // }, 1000);
+
+    //window.clearInterval(开启定时器的返回值):停止间隔定时器
+
+    // box.innerHTML = 'hello';
+    var a = window.setInterval(function() {
+        var rannum = parseInt(Math.random() * arr.length); //随机产生数组的索引0-8
+        box.innerHTML = arr[rannum];
+    }, 5);
+
+    document.onclick = function() {
+        window.clearInterval(a);
+    }
+</script>
+
+</html>

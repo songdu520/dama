@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //1.普通字符串不允许换行。
+    let arr = ['1111111', '4444444', '999999999', 'aaaaaaa', 'fffffffffff'];
+    //将数组的5项值分别放到对应的5个标签中，标签分别为<div><p><li><span><h1>
+    // let str = '<div>' + arr[0] + '</div><p>' + arr[1] + '</p><li>' + arr[2] + '</li><span>' + arr[3] + '</span><h1>' + arr[4] + '</h1>';
+    // document.body.innerHTML = str;
+
+
+    //2.模板字符串（template string）是增强版的字符串，用反引号（`）标识。它可以当作普通字符串使用，也可以用来定义多行字符串，或者在字符串中嵌入变量（${}）。
+    // let str = `
+    //         <div>${arr[0]}</div>
+    //         <p>${arr[1]}</p>
+    //         <li>${arr[2]}</li>
+    //         <span>${arr[3]}</span>
+    //         <h1>${arr[4]}</h1>  
+    // `;
+    // document.body.innerHTML = str;
+
+    let d = new Date();
+    document.body.innerHTML = `
+        今天是：${d.getFullYear()}年${d.getMonth()+1}月${d.getDate()}日
+    `;
+</script>
+
+</html>

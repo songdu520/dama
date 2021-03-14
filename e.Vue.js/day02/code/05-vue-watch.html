@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <input type="text" v-model="firstName">
+    <input type="text" v-model="lastName">
+    <p>{{ fullName }}</p>
+  </div>
+
+  <script src="../../Vue.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data() {
+        return {
+          firstName: 'zhang',
+          lastName: 'jun',
+          // fullName: 'zhang jun'
+        }
+      },
+      // watch: {
+      //   // 可以接受两个参数, 第一个参数是改变后的新值， 第二个参数是旧值
+      //   firstName(val, oldVal) {
+      //     this.fullName = val + ' ' + this.lastName
+      //   },
+      //   lastName(val, oldVal) {
+      //     this.fullName = this.firstName + ' ' + val
+      //   }
+      // },
+      computed: {
+        fullName() {
+          return this.firstName + ' ' + this.lastName;
+        }
+      },
+    })
+  </script>
+</body>
+</html>

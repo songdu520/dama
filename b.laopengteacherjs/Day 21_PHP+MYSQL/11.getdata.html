@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        
+        .list {
+            width: 1160px;
+            margin: 0 auto;
+            font-size: 14px;
+        }
+        
+        .list li {
+            width: 200px;
+            padding: 10px;
+            float: left;
+            margin: 0 10px 10px 0;
+            border: 1px solid #ccc;
+            height: 310px;
+            position: relative;
+        }
+        
+        .list li p {
+            width: 200px;
+            height: 48px;
+            line-height: 24px;
+            overflow: hidden;
+        }
+        
+        .list li img {
+            width: 200px;
+            height: 200px;
+            display: block;
+        }
+        
+        .list li span {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="list">
+        <ul>
+
+        </ul>
+    </div>
+</body>
+<script>
+    let ajax = new XMLHttpRequest();
+    ajax.open('get', 'http://localhost/JS2008/phpdata/taobaodata.php', true);
+    ajax.send();
+    ajax.onreadystatechange = function() {
+        if (ajax.readyState === 4) {
+            // console.log(JSON.parse(ajax.responseText));
+            let arr = JSON.parse(ajax.responseText);
+            console.log(arr);
+            const list = document.querySelector('.list ul');
+            let str = '';
+            for (let value of arr) { //value数组的每一项值    
+                str += `
+                    <li>
+                        <img src="${value.url}"/>
+                        <p>${value.title}</p>
+                        <span>${value.price}</span>
+                        <span>${value.sailnumber}</span>
+                    </li>
+                `;
+            }
+            list.innerHTML = str;
+        }
+    }
+</script>
+
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>企业站</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <!-- 页面的头部 -->
+    <div id="header">
+        <!-- <img src="./images/logo.png" alt=""> -->
+        <!-- logo -->
+        <h1>企业站</h1>
+        <!-- 搜索框 -->
+        <form class="search">
+            <input type="text" placeholder="SEARCH...">
+            <button>
+        <img src="./images/glass.png" alt="">
+      </button>
+        </form>
+    </div>
+
+    <!-- 导航部分 -->
+    <div id="nav">
+        <ul class="navMain">
+            <li>集团介绍</li>
+            <li>产品中心</li>
+            <li>集团介绍</li>
+            <li>产品中心</li>
+            <li>集团介绍</li>
+            <li>产品中心</li>
+            <li>集团介绍</li>
+            <li class="lastLi">产品中心</li>
+        </ul>
+    </div>
+
+    <!-- 广告图部分 -->
+    <div id="banner">
+        <img src="./images/banner.jpg" alt="">
+    </div>
+
+    <!-- 新闻部分 -->
+    <div id="news">
+        <div class="newsLeft">
+            <h3>公司新闻</h3>
+            <ul>
+                <% data.forEach(function (item, index) { %>
+                    <li>
+                        <p>
+                            <%- item.title %>
+                        </p>
+                        <span><%- item.day %></span>
+                    </li>
+                    <% }) %>
+                        <!-- <li>
+          <p>陈建诚东芝在出席销售大会陈建诚东芝在出席销售大会</p>
+          <span>2020/7/20</span>
+        </li>
+        <li>
+          <p>陈建诚东芝在出席销售大会</p>
+          <span>2020/7/20</span>
+        </li>
+        <li>
+          <p>陈建诚东芝在出席销 售大会陈建诚东芝在出席销售大会陈建诚东芝 在出席销售大会陈建诚东芝在出席销售大会陈建诚东芝在出席销售大会陈建诚东芝在出席销售大会陈建诚东芝在出席销售大会陈建诚东芝在出席销售大会陈建诚东芝在出席销售大会陈建诚东芝在出席销售大会</p>
+          <span>2020/7/20</span>
+        </li>
+        <li>
+          <p>陈建诚 东芝在出席销售大会</p>
+          <span>2020/7/20</span>
+        </li>
+        <li>
+          <p>陈建诚东 芝在出席销售大会陈建诚东芝在出席销售大会陈建诚东芝在出席销售大会陈建诚东芝在出席销售大会陈建诚东芝在出席销售大会陈建诚东芝在出席销售大会陈建诚东芝在出席销售大会</p>
+          <span>2020/7/20</span>
+        </li>
+        <li>
+          <p>陈建诚东芝在出席销售大会陈建诚东芝在出席销售大会</p>
+          <span>2020/7/20</span>
+        </li> -->
+            </ul>
+        </div>
+        <div class="newsCenter">
+            <h3>公司介绍</h3>
+            <p>公司成立于1984年，<br>经过近30年的发展</p>
+            <p>经过近30年的发展经过近30年的发展经过近30年的发展经过</p>
+        </div>
+        <div class="newsRight">
+            <h3>人才招聘</h3>
+            <div class="button">more ➡</div>
+        </div>
+    </div>
+
+    <!-- 市场项目 -->
+    <div id="project">
+        <h2>市场项目</h2>
+        <!-- 市场列表 -->
+        <ul>
+            <li>
+                <img src="./images/project.jpg" alt="">
+                <p>经过近30年的发展经过近30年的发展经过近30年的发展</p>
+            </li>
+            <li>
+                <img src="./images/project.jpg" alt="">
+                <p>经过近30年的发展经过近30年的发展经过近30年的发展</p>
+            </li>
+            <li>
+                <img src="./images/project.jpg" alt="">
+                <p>经过近30年的发展经过近30年的发展经过近30年的发展</p>
+            </li>
+            <li class="lastLi">
+                <img src="./images/project.jpg" alt="">
+                <p>经过近30年的发展经过近30年的发展经过近30年的发展</p>
+            </li>
+        </ul>
+    </div>
+
+    <!-- 产品中心 -->
+    <div id="product">
+        <div class="productMain">
+            <div class="productLeft">
+                <h4 class="productTitle">
+                    产品中心
+                </h4>
+                <div class="leftWrap">
+                    <ul class="part1 part">
+                        <li>汽车几点</li>
+                        <li>汽车几点</li>
+                        <li>汽车几点</li>
+                        <li>汽车几点</li>
+                        <li>汽车几点</li>
+                    </ul>
+                    <ul class="part2 part">
+                        <li>汽车几点</li>
+                        <li>汽车几点汽车</li>
+                        <li>汽车几点</li>
+                        <li>汽车几点</li>
+                        <li>汽车几点</li>
+                        <li>汽车几点</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 页尾 -->
+    <div id="footer">
+        <p>
+            <a href="#">网站地图</a> |
+            <a href="#">网站地图</a> |
+            <a href="#">网站地图</a> |
+            <a href="#">网站地图</a>
+        </p>
+    </div>
+</body>
+
+</html>

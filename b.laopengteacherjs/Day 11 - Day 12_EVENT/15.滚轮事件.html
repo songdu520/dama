@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //滚轮事件
+    //chrome和IE  事件   onmousewheel         方向属性：ev.wheelDelta
+    //firefox     事件   DOMMouseScroll       方向属性：ev.detail
+
+    // document.onmousewheel = function(ev) {
+    //     var ev = ev || window.event;
+    //     alert(ev.wheelDelta); //上：120   下：-120
+    // };
+
+    // DOMMouseScroll:DOM事件，DOM必须使用事件绑定
+    // document.addEventListener('DOMMouseScroll', function(ev) {
+    //     var ev = ev || window.event;
+    //     alert(ev.detail); //上：-3   下：3
+    // })
+
+    function addEvent(obj, etype, fn, bool) { //obj:元素对象  etype:事件类型  fn:事件处理函数  bool:是否捕获
+        bool = bool || false;
+        if (obj.addEventListener) {
+            obj.addEventListener(etype, fn, bool);
+        } else {
+            obj.attachEvent('on' + etype, fn);
+        }
+    }
+
+    addEvent(document, 'mousewheel', fn);
+    addEvent(document, 'DOMMouseScroll', fn);
+
+    function fn(ev) {
+        var ev = ev || window.event;
+        var flag = true;
+        if (ev.wheelDelta) { //chrome
+            flag = ev.wheelDelta > 0 ? true : false;
+        } else { //firefox
+            flag = ev.detail < 0 ? true : false;
+        }
+
+        alert(flag);
+    }
+</script>
+
+</html>

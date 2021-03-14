@@ -1,0 +1,16 @@
+div{
+    width: 100px;
+    height: 100px;
+    background-color: red;
+}
+h1{
+    border-color: green;
+    border-width: 10px;
+    border-style: dotted;
+
+}
+p{font: size 30px;
+    color: pink;
+    background-color: black;
+
+}

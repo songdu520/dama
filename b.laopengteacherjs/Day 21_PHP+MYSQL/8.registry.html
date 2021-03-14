@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <fieldset>
+        <legend>用户注册：</legend>
+        <form action="9.registry.php" method="POST" id="registry">
+            <!-- 
+                action:递交的地址  
+                method:提交方法,默认是get 
+                get将表单的值放到地址栏的后面。 get不安全
+                post适合数据传输。安全性
+             -->
+            <p>用户姓名：<input type="text" name="username"></p>
+            <p>用户密码：<input type="password" name="password"></p>
+            <p>电子邮箱：<input type="text" name="email"></p>
+            <p><input type="submit" value="提交注册"></p>
+        </form>
+    </fieldset>
+</body>
+<script>
+    // 如何将表单数据提交到数据库。
+    // 1.前端无法直接操作数据库
+    // 2.前端将数据先给后端，后端将前端传入的数据提交到数据库。
+    // form+name+method+submit
+</script>
+
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <div style="width:1px;height:600px;background:black;position:absolute;left:700px;top:0px;"></div>
+</body>
+<script>
+    //加减速运动
+    //目标点设定加速和减速。
+    const oBox = document.querySelector('.box');
+    let timer = null;
+    let speedx = 0;
+    oBox.onclick = function() {
+        clearInterval(timer);
+        timer = setInterval(() => {
+            if (oBox.offsetLeft <= 700) {
+                speedx++;
+            } else {
+                speedx--;
+            }
+            oBox.style.left = oBox.offsetLeft + speedx + 'px';
+        }, 1000 / 60);
+    };
+
+    //速度太柔了，爆发力
+    // const oBox = document.querySelector('.box');
+    // let timer = null;
+    // let speedx = 0;
+    // oBox.onclick = function() {
+    //     clearInterval(timer);
+    //     timer = setInterval(() => {
+    //         if (oBox.offsetLeft <= 700) {
+    //             speedx += (700 - oBox.offsetLeft) / 10; //越来越慢的速度
+    //         } else {
+    //             speedx -= (oBox.offsetLeft - 700) / 10;
+    //         }
+    //         oBox.style.left = oBox.offsetLeft + speedx + 'px';
+    //     }, 1000 / 60);
+    // };
+
+    //弹性运动
+    // const oBox = document.querySelector('.box');
+    // let timer = null;
+    // let speedx = 0;
+    // oBox.onclick = function() {
+    //     clearInterval(timer);
+    //     timer = setInterval(() => {
+    //         speedx += (700 - oBox.offsetLeft) / 10; //越来越慢的速度
+    //         speedx *= 0.95; //速度损耗
+    //         if (Math.abs(speedx) < 1 && Math.abs(700 - oBox.offsetLeft) < 1) {
+    //             speedx = 0;
+    //             oBox.style.left = 700 + 'px';
+    //             clearInterval(timer);
+    //         }
+    //         oBox.style.left = oBox.offsetLeft + speedx + 'px';
+    //     }, 1000 / 60);
+    // };
+</script>
+
+</html>

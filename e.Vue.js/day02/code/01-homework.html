@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    li {
+      float: left;
+      list-style: none;
+      border: 1px solid #333;
+      width: 70px;
+      height: 40px;
+      text-align: center;
+      line-height: 40px;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <ul>
+      <li v-for="(item, index) in liList" v-on:click="handleClick(index, $event)">{{ item }}</li>
+    </ul>
+
+    <div class="content">
+      <p>{{ contentList[show] }}</p>
+    </div>
+  </div>
+
+  <script src="../../Vue.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data() {
+        return {
+          liList: ['tab1', 'tab2', 'tab3', 'tab4'],
+          contentList: ['content1', 'content2', 'content3', 'content4'],
+          show: 0
+        }
+      },
+      methods: {
+        handleClick(i, e) {
+          this.show = i;
+        }
+      },
+    })
+  </script>
+</body>
+</html>

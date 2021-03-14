@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        .banner {
+            width: 790px;
+            height: 340px;
+            position: relative;
+            border: 1px solid orange;
+            margin: 10px auto;
+            overflow: hidden;
+        }
+        
+        .banner ul {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+        }
+        
+        .banner ul li {
+            float: left;
+            width: 790px;
+        }
+        
+        .banner ol {
+            position: absolute;
+            width: 180px;
+            height: 20px;
+            left: 50%;
+            margin-left: -90px;
+            bottom: 20px;
+        }
+        
+        .banner ol li {
+            float: left;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #000;
+            margin: 0 5px;
+            text-indent: -99999px;
+            cursor: pointer;
+        }
+        
+        .banner ol li.active {
+            background: blue;
+        }
+        
+        #right,
+        #left {
+            font-size: 100px;
+            color: #fff;
+            font-family: verdana;
+            position: absolute;
+            text-decoration: none;
+            top: 110px;
+        }
+        
+        #left {
+            left: 20px;
+        }
+        
+        #right {
+            right: 20px;
+        }
+        
+        #right:hover,
+        #left:hover {
+            color: #000;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="banner">
+        <ul>
+            <li>
+                <a href="#"><img src="img/1.jpg" /></a>
+            </li>
+            <li>
+                <a href="#"><img src="img/2.jpg" /></a>
+            </li>
+            <li>
+                <a href="#"><img src="img/3.jpg" /></a>
+            </li>
+            <li>
+                <a href="#"><img src="img/4.jpg" /></a>
+            </li>
+            <li>
+                <a href="#"><img src="img/5.jpg" /></a>
+            </li>
+            <li>
+                <a href="#"><img src="img/1.jpg" /></a>
+            </li>
+        </ul>
+        <ol>
+            <li class="active">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ol>
+        <a href="javascript:;" id="left">&lt;</a>
+        <a href="javascript:;" id="right">&gt;</a>
+    </div>
+
+</body>
+<script src="move.js"></script>
+<script>
+    function Taobao() {
+        //获取元素
+        this.banner = document.querySelector('.banner');
+        this.list = document.querySelector('.banner ul');
+        this.picli = document.querySelectorAll('.banner ul li'); //6张图
+        this.picbtn = document.querySelectorAll('.banner ol li'); //5个圆圈
+        this.leftarrow = document.querySelector('#left');
+        this.rightarrow = document.querySelector('#right');
+        this.index = 0; //存储索引的变量。
+        this.timer = null;
+
+    }
+
+    Taobao.prototype.init = function() {
+        //1.改变了布局，重新设置ul的width
+        this.list.style.width = this.picli.length * this.picli[0].offsetWidth + 'px';
+        this.liwidth = this.picli[0].offsetWidth; //一个li的宽度。
+        //2.给picbtn添加点击事件。
+        for (let i = 0; i < this.picbtn.length; i++) {
+            this.picbtn[i].onclick = () => {
+                this.index = i - 1;
+                //this.tabswitch有一个this.index++;
+                this.tabswitch()
+            }
+        }
+        //3.左右箭头事件。
+        this.rightarrow.onclick = () => {
+            this.tabswitch();
+        }
+
+        this.leftarrow.onclick = () => {
+                //本身减1  tabswitch有加1
+                this.index -= 2;
+                this.tabswitch();
+            }
+            //4.自动播放
+        this.timer = setInterval(() => {
+            this.rightarrow.onclick();
+        }, 3000);
+
+        this.banner.onmouseover = () => {
+            clearInterval(this.timer);
+        }
+        this.banner.onmouseout = () => {
+            this.timer = setInterval(() => {
+                this.rightarrow.onclick();
+            }, 3000);
+        }
+    };
+
+    //封装一个方法将切换的过程单独封装。
+    Taobao.prototype.tabswitch = function() {
+        this.index++;
+        if (this.index === this.picbtn.length + 1) { //右箭头
+            this.list.style.left = 0 + 'px'; //从0开始运动完一张。
+            this.index = 1; //第二张图片进来
+        }
+        if (this.index === -1) { //左键头
+            this.list.style.left = -this.liwidth * this.picbtn.length - 1 + 'px';
+            this.index = this.picbtn.length - 1; //索引4
+        }
+        for (let i = 0; i < this.picbtn.length; i++) {
+            this.picbtn[i].className = ''
+        }
+        if (this.index === this.picbtn.length) { //this.picbtn.length:5
+            this.picbtn[0].className = 'active';
+        } else {
+            this.picbtn[this.index].className = 'active';
+        }
+        bufferMove(this.list, {
+            left: -this.index * this.liwidth
+        });
+        document.title = this.index;
+    }
+    new Taobao().init(); //实例化+调用初始化方法。
+</script>
+
+</html>

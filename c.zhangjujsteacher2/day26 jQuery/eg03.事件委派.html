@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(function() {
+            // 事件委派(事件委托)
+
+            // 将事件绑定给目标的父级或祖先级元素
+            // 为未来元素（脚本创建的元素）添加事件
+
+            // 原理 使用的是事件冒泡机制 判断事件源对象
+
+            // jQuery将事件委托进行了封装 
+            // 让事件委托更简单易用
+
+            // jQuery 1.x使用delegate 进行事件委托
+            // $('.box').delegate('span', 'click mouseover', function(ev) {
+            //     console.log(ev.type);
+            // });
+
+            // 高版本jQuery使用 on 函数实现事件委托
+            // $('.box').on('click', 'span', function() {
+            //     alert(1);
+            // })
+
+
+            // DOM2级 事件监听
+            // $('.box').on({
+            //     'click': function() {
+            //         console.log(1);
+            //     },
+            //     'mouseover': function() {
+            //         console.log(2);
+            //     },
+            //     'mouseout': function() {
+            //         console.log(3);
+            //     }
+            // }, 'button');
+
+            $('.box').on('mouseover mouseout', function(ev) {
+                if (ev.type == 'mouseover') {
+                    console.log(1);
+                } else {
+                    console.log(2);
+                }
+            });
+
+        });
+    </script>
+</head>
+
+<body>
+    <div class="box">
+        <button>123</button>
+        <span>456</span>
+        <span>456</span>
+        <span>456</span>
+        <span>456</span>
+        <span>456</span>
+    </div>
+</body>
+
+</html>

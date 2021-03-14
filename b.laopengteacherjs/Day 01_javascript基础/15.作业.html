@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="n1" value="100">+
+    <input type="text" id="n2" value="200">
+</body>
+<script>
+    //1.为抵抗洪水，战士连续作战89小时，编程计算共多少天零多少小时？
+    // var a = 89;
+    // var b = 24;
+    // var day = parseInt(89 / b);
+    // var hour = 89 % 24;
+    // console.log('为抵抗洪水，战士连续作战89小时，编程计算共' + day + '天零' + hour + '小时');
+
+    // var a = prompt('请输入一个小时数：');
+    // var b = 24;
+    // var day = parseInt(a / b);
+    // var hour = a % b;
+    // console.log('为抵抗洪水，战士连续作战' + a + '小时，编程计算共' + day + '天零' + hour + '小时');
+
+    //2.小明要到美国旅游，可是那里的温度是以华氏度为单位记录的。它需要一个程序将华氏温度（80度）转换为摄氏度，并以华氏度和摄氏度为单位分别显示该温度。
+    //提示：摄氏度与华氏度的转换公式为：摄氏度 = 5/9.0*(华氏度-32)保留3位小数 - toFixed(3)
+    // var a = prompt('请输入一个华氏温度：');
+    // var b = 5 / 9.0 * (a - 32)
+    // console.log('你输入的是' + a + '华氏温度' + '根据公式输出的摄氏度是：' + b.toFixed(3));
+
+    //3.输入一个五位数，分别输出个十百千万位； - 数学运算符
+    // var num = prompt('请输入一个5位数：'); //24689
+    // var a = num % 10;
+    // var b = parseInt(num % 100 / 10);
+    // var c = parseInt(num % 1000 / 100);
+    // var d = parseInt(num % 10000 / 1000);
+    // var e = parseInt(num / 10000);
+    // console.log(e, d, c, b, a); //输出多个值
+
+    //4.扩展练习：计算两个文本框的和
+    // <input type="text" id="n1" value="100">
+    // 获取元素对象(标签)：如果元素对象里面有id选择器，直接通过id选择器获取元素对象。
+    // 标签除了标签名本身，其他标签里面(<>)都是标签(元素对象)的属性。
+    // n1:元素对象 - input
+    // n2:元素对象 - input
+    // type value id都是元素对象的属性名，通过属性名访问属性值
+    // console.log(n1.type); //text
+    // console.log(n1.id); //n1
+    // console.log(n1.value); //获取元素对象里面的值
+    // console.log(n2.value); //获取元素对象里面的值
+    // console.log(+n1.value + +n2.value) //计算他们的和
+</script>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script src="../ajaxcallback.js"></script>
+<script>
+    //一.获取三个接口的值(如果第一个接口成功，获取第二个接口，然后继续第三个接口)
+    //1.http://localhost/JS2008/phpdata/news.php
+    //2.http://localhost/JS2008/phpdata/newslist.php
+    //3.http://localhost/JS2008/phpdata/piclist.php
+
+    ajax({
+        type: 'get',
+        url: 'http://localhost/JS2008/phpdata/news.php',
+        data: {
+            'one': '获取第一个接口的数据'
+        },
+        async: 'true',
+        dataType: 'json',
+        success: function(data) {
+            console.log(data);
+            ajax({
+                type: 'get',
+                url: 'http://localhost/JS2008/phpdata/newslist.php',
+                data: {
+                    'two': '第二个接口的数据'
+                },
+                async: 'true',
+                dataType: 'json',
+                success: function(data) {
+                    console.log(data);
+                    ajax({
+                        type: 'get',
+                        url: 'http://localhost/JS2008/phpdata/piclist.php',
+                        data: {
+                            'one': '第三个接口的数据'
+                        },
+                        async: 'true',
+                        dataType: 'json',
+                        success: function(data) {
+                            console.log(data);
+                        }
+                    });
+                }
+            });
+        }
+    });
+
+    //上面的写法有弊端：回调函数嵌套可读性很差(形成回调地狱)
+</script>
+
+</html>

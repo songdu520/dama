@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 同源策略
+
+        // 浏览器提供了一种 安全策略(协议)
+        // 网站 不允许访问 非相同来源的数据(跨源数据)
+
+        // 源 源头(来源)
+        // 保证所有数据来自相同的来源
+
+        // ajax 只能请求到 同源数据
+
+        // 同源 必须满足三个条件
+        // 1. 来自相同的地址(ip 域名)
+        // 2. 来自相同的端口
+        // 3. 来自相同的协议
+
+        // 有的项目需求要获得第三方的数据
+        // 需求 跨源访问数据
+        // ajax不支持跨源访问
+
+        // 跨源(跨域)
+        // 1. JSONP (前端实现的跨域方式，需要后端配合)
+        // 2. XHR2(CORS) 通过后端开放访问权限 允许ajax跨源访问
+        // 3. 反向代理 使用最多的方式之一 使用(web)服务器理请求的地址
+
+        // JSONP 和 JSON 没有关系
+        // JSONP是一种诞生于社区( 非官方标准 )的跨域解决方案
+
+        // html部分元素允许跨源访问数据
+        // 用于src属性的
+        // src属性 不受同源策略的限制
+
+        let xhr = new XMLHttpRequest();
+        xhr.open('get', 'http://localhost/2009/day4/1.txt');
+        xhr.send();
+        xhr.onreadystatechange = function() {
+            if (xhr.status == 200 && xhr.readyState == 4) {
+                console.log(xhr.responseText);
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
+    <!-- <iframe src="https://www.baidu.com" frameborder="0"></iframe> -->
+    <!-- <img src="https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png" alt=""> -->
+</body>
+
+</html>

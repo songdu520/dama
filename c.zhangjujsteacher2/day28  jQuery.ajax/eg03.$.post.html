@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .red {
+            color: red;
+        }
+        
+        .green {
+            color: green;
+        }
+    </style>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(function() {
+            // jQuery.post(url, [data], [callback], [type])
+
+            $('#username').on('input', function() {
+                $.post('./interface/hasuser.php', {
+                    username: $(this).val()
+                }, function(data) {
+                    $('#res').html(data.msg).removeClass().addClass(data.has ? 'red' : 'green');
+                }, 'json');
+            })
+        });
+    </script>
+</head>
+
+<body>
+    <input type="text" id="username">
+    <span id="res"></span>
+</body>
+
+</html>

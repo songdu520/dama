@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .red {
+            color: red;
+        }
+        
+        .green {
+            color: green;
+        }
+    </style>
+    <script src="./Z.js"></script>
+    <script>
+        $(function() {
+            $('#username').on('input', function() {
+                const xhr = new XMLHttpRequest();
+                // get发送的数据在地址栏后的 search部分
+                xhr.open('get', './interface/hasuser.php?username=' + this.value);
+                xhr.send();
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState == 4 && xhr.status == 200) {
+                        // console.log(xhr.responseText);
+                        let data = JSON.parse(xhr.responseText);
+
+                        if (data.has) {
+                            $('#result').removeClass('green').addClass('red');
+                        } else {
+                            $('#result').removeClass('red').addClass('green');
+                        }
+                        $('#result')[0].innerHTML = data.msg;
+                    }
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <input type="text" id="username">
+    <span id="result"></span>
+</body>
+
+</html>

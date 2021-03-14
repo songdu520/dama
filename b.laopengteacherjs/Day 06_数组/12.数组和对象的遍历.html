@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //数组和对象的遍历
+    //1.数组的遍历 - 数组是有序的 -  for/for...in(最好用for循环)
+    // var arr = ['a', 'b', 'c', 'd'];
+    // for (var i = 0; i < arr.length; i++) { //遍历是索引。
+    //     console.log(arr[i]);
+    // }
+
+    // for (var i in arr) {
+    //     console.log(i + ':' + arr[i]);
+    // }
+
+    //2.对象的遍历 - 无序 - for...in(对象而来的)
+    var obj = {
+        name: 'zhangsan',
+        age: 100,
+        sex: '男'
+    };
+
+    for (var i in obj) { //i:对象的属性名
+        console.log(i + ':' + obj[i]);
+    }
+</script>
+
+</html>

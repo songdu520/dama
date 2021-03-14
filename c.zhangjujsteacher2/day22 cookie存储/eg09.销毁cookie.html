@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./Z.js"></script>
+    <script>
+        $(function() {
+            $('#remove').on('click', function() {
+                // 生存期 时间到了 cookie自动失效
+
+                // 1. 将cookie的值设置成空字符串(立即失效) 
+                // 2. 将生存期设置成-1(session) 
+
+                document.cookie = 'username="";expires=-1';
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <button id="remove">销毁cookie</button>
+</body>
+
+</html>

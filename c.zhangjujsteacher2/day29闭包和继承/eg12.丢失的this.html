@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="box"></div>
+    <script>
+        // var box = document.getElementById('box');
+        // console.log(box);
+
+        // var byid = document.getElementById;
+        // console.log(byid === document.getElementById);
+        // console.log(byid('box')); // 报错 this 丢失
+
+
+        // 修复this
+        // var byid = (function(fn) {
+        //     return function() {
+        //         return fn.apply(document, arguments);
+        //     }
+        // })(document.getElementById);
+
+        var byid = document.getElementById.bind(document);
+
+        console.log(byid('box'));
+    </script>
+</body>
+
+</html>

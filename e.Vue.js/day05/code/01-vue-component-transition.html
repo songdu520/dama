@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* .fade-enter-active, .fade-leave-active {
+      transition: all .5s;
+    }
+    .fade-enter, .fade-leave-to  {
+      opacity: 0;
+      font-size: 30px;
+    } */
+        
+        .slide-fade-enter-active {
+            transition: all .3s ease;
+        }
+        
+        .slide-fade-leave-active {
+            transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+        }
+        
+        .slide-fade-enter,
+        .slide-fade-leave-to
+        /* .slide-fade-leave-active for below version 2.1.8 */
+        
+        {
+            transform: translateX(10px);
+            opacity: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="(item, index) in list" :key="item" @click="changIndex(index)">
+                {{ item }}
+            </li>
+        </ul>
+        <transition name="slide-fade">
+            <component :is="currentComponent"></component>
+        </transition>
+
+    </div>
+
+    <script src="../../Vue.js"></script>
+    <script>
+        const Child1 = {
+            template: `
+        <span>Child1</span>
+      `
+        }
+
+        const Child2 = {
+            template: `
+        <span>Child2</span>
+      `
+        }
+
+        const Child3 = {
+            template: `
+        <span>Child3</span>
+      `
+        }
+
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    list: ['tab1', 'tab2', 'tab3'],
+                    index: 0,
+                    currentComponent: ''
+                }
+            },
+            methods: {
+                changIndex(i) {
+                    this.currentComponent = `Child${i + 1}`;
+                }
+            },
+            components: {
+                Child1: Child1,
+                Child2,
+                Child3
+            }
+        })
+    </script>
+</body>
+
+</html>

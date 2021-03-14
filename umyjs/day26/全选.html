@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="checkbox" class="all">全选<br>
+    <input type="checkbox">1<br>
+    <input type="checkbox">2<br>
+    <input type="checkbox">3<br>
+    <input type="checkbox">4<br>
+    <input type="checkbox">5
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+    $('.all').on('click', function() {
+
+        $("input").not($('.all')).prop('checked', $(this).prop('checked'))
+
+    })
+    $('input').not($('.all')).on('click', function() {
+        if ($('input:checked').not($('.all')).size() === $('input').not($('.all')).size()) {
+            $('.all').prop('checked', true)
+        } else {
+            $('.all').prop('checked', false)
+        }
+    })
+</script>
+
+</html>

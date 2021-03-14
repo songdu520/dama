@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+  <title>Document</title>
+</head>
+<body>
+  <div id="example-3">
+    <button @click="show = !show">
+      Toggle render
+    </button>
+    
+    <transition
+      name="custom-classes-transition"
+      enter-active-class="animate__animated animate__slideInUp"
+      leave-active-class="animate__animated animate__slideOutLeft"
+    >
+      <p v-if="show">hello</p>
+    </transition>
+  </div>
+
+  <script src="../../Vue.js"></script>
+  <script>
+    new Vue({
+      el: '#example-3',
+      data: {
+        show: true
+      }
+    })
+  </script>
+</body>
+</html>

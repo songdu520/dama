@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        .lunbo {
+            width: 790px;
+            height: 340px;
+            border: 1px solid red;
+            margin: 20px auto;
+            position: relative;
+        }
+        
+        .lunbo ul li {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            opacity: 0;
+        }
+        
+        .lunbo ol {
+            position: absolute;
+            left: 50px;
+            bottom: 20px;
+        }
+        
+        .lunbo ol li {
+            float: left;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #ccc;
+            text-indent: -999em;
+            margin-right: 5px;
+            cursor: pointer;
+        }
+        
+        .lunbo ol li.active {
+            background: blue;
+        }
+        
+        #left,
+        #right {
+            position: absolute;
+            top: 50%;
+            margin-top: -60px;
+            color: #fff;
+            font-size: 100px;
+            text-decoration: none;
+            display: none;
+        }
+        
+        #left {
+            left: 20px;
+        }
+        
+        #right {
+            right: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="lunbo">
+        <ul>
+            <li style="opacity: 1;"><img src="img/1.jpg" alt=""></li>
+            <li><img src="img/2.jpg" alt=""></li>
+            <li><img src="img/3.jpg" alt=""></li>
+            <li><img src="img/4.jpg" alt=""></li>
+            <li><img src="img/5.jpg" alt=""></li>
+            <li><img src="img/6.jpg" alt=""></li>
+            <li><img src="img/7.jpg" alt=""></li>
+            <li><img src="img/8.jpg" alt=""></li>
+        </ul>
+        <ol>
+            <li class="active">1</li>
+            <li>1</li>
+            <li>1</li>
+            <li>1</li>
+            <li>1</li>
+            <li>1</li>
+            <li>1</li>
+            <li>1</li>
+        </ol>
+        <a href="javascript:;" id="left">&lt;</a>
+        <a href="javascript:;" id="right">&gt;</a>
+    </div>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>
+        //方法介绍
+    </script>
+    <script>
+        //效果
+        // 1.鼠标移入lunbo,显示左右箭头，反之隐藏
+        // 2.点击对应得小圆圈，当前点击的小圆圈添加类名，其他的隐藏（和小圆圈对应的图片显示）
+        // 3.点击左右箭头进行图片切换
+        // 4.自动轮播
+        // 5.鼠标移入lunbo,停止。
+        ! function($) {
+            class Lunbo {
+                constructor() {
+                    this.lunbo = $('.lunbo');
+                    this.piclist = $('.lunbo ul li');
+                    this.btnlist = $('.lunbo ol li');
+                    this.leftarrow = $('#left');
+                    this.rightarrow = $('#right');
+                    this.index = 0;
+                    this.timer = null;
+                }
+                init() {
+                    // 1.鼠标移入lunbo,显示左右箭头，反之隐藏
+                    //事件里面的this指向当前操作的元素对象。方法里面的this指向实例。
+                    let _this = this; //实例对象
+                    this.lunbo.hover(function() {
+                        _this.leftarrow.show();
+                        _this.rightarrow.show();
+                        // 5.鼠标移入lunbo,停止。
+                        clearInterval(_this.timer);
+                    }, function() {
+                        _this.leftarrow.hide();
+                        _this.rightarrow.hide();
+                        //继续轮播
+                        this.timer = window.setInterval(function() {
+                            _this.rightarrowclick();
+                        }, 3000);
+                    });
+                    // 2.点击对应得小圆圈，当前点击的小圆圈添加类名，其他的隐藏（和小圆圈对应的图片显示）
+                    this.btnlist.on('click', function() {
+                        _this.index = $(this).index(); //将当前按钮对应的索引存储下来
+                        _this.tabswitch();
+                    });
+
+                    //3.点击左右箭头进行图片切换
+                    this.rightarrow.on('click', function() {
+                        _this.rightarrowclick();
+                    });
+
+                    this.leftarrow.on('click', function() {
+                        _this.leftarrowclick();
+                    });
+
+                    //4.自动轮播
+                    this.timer = window.setInterval(function() {
+                        _this.rightarrowclick();
+                    }, 3000);
+                }
+
+                tabswitch() {
+                    this.btnlist.eq(this.index).addClass('active').siblings().removeClass('active');
+                    this.piclist.eq(this.index).stop(true).animate({
+                        opacity: 1
+                    }).siblings().stop(true).animate({
+                        opacity: 0
+                    });
+                }
+
+                rightarrowclick() {
+                    this.index++;
+                    if (this.index > this.btnlist.size() - 1) {
+                        this.index = 0;
+                    }
+                    this.tabswitch();
+                }
+
+                leftarrowclick() {
+                    this.index--;
+                    if (this.index < 0) {
+                        this.index = this.btnlist.size() - 1;
+                    }
+                    this.tabswitch();
+                }
+            }
+            new Lunbo().init();
+        }(jQuery);
+    </script>
+</body>
+
+</html>

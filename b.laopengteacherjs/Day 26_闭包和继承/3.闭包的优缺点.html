@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // 闭包的好处：
+    // 希望一个变量长期存储在内存中（ 延长作用域）。
+    ! function() {
+        var a = 10; //私有变量一直存在
+
+        function fn() {
+            console.log(a);
+        }
+        fn();
+    }();
+    // 避免全局的污染 - 避免冲突
+    ! function() {
+        var a = 10;
+
+        function fn() {
+            console.log(a);
+        }
+        fn();
+    }();
+    ! function() {
+        var a = 10;
+
+        function fn() {
+            console.log(a);
+        }
+        fn();
+    }();
+    // 私有成员（ 函数内部的变量） 的存在。
+    ! function() {
+        var a = 10; //私有的
+
+        function fn() {
+            console.log(a);
+        }
+        fn();
+        a = null;
+    }();
+
+    //闭包的缺点：
+
+    // 变量常驻内存，增加内存使用量--手动销毁，设为null  
+    // 使用不当会造成内存泄漏--IE
+    // 内存泄漏：变量不被使用，但是不能进行回收，造成内存泄漏。
+</script>
+
+</html>

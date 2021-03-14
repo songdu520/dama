@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1,
+        .box2 {
+            width: 200px;
+            height: 200px;
+            position: absolute;
+        }
+        
+        .box1 {
+            background-color: red;
+            left: 0px;
+            top: 0px;
+        }
+        
+        .box2 {
+            background-color: blue;
+            left: 200px;
+            top: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1">自由拖拽</div>
+    <div class="box2">限定范围拖拽</div>
+</body>
+<script>
+    class Drag {
+        constructor(selector) {
+            this.box = document.querySelector(selector);
+        }
+        init() {
+            this.box.onmousedown = (ev) => {
+                var ev = ev || window.event;
+                this.shortx = ev.offsetX;
+                this.shorty = ev.offsetY;
+                document.onmousemove = (ev) => {
+                    var ev = ev || window.event;
+                    this.boxmove(ev);
+                };
+                document.onmouseup = () => {
+                    this.boxup();
+                };
+                return false; //取消默认行为
+            }
+        }
+
+        boxmove(ev) {
+            this.box.style.left = ev.clientX - this.shortx + 'px';
+            this.box.style.top = ev.clientY - this.shorty + 'px';
+        }
+
+        boxup() {
+            document.onmousemove = null;
+            document.onmouseup = null;
+        }
+
+    }
+
+    new Drag('.box1').init();
+
+    class LimitDrag extends Drag {
+        constructor(selector) {
+            super(selector);
+        }
+        boxmove(ev) {
+            let left = ev.clientX - this.shortx;
+            let top = ev.clientY - this.shorty;
+            if (left <= 0) {
+                left = 0;
+            } else if (left >= document.documentElement.clientWidth - this.box.offsetWidth) {
+                left = document.documentElement.clientWidth - this.box.offsetWidth;
+            }
+
+            if (top <= 0) {
+                top = 0;
+            } else if (top >= document.documentElement.clientHeight - this.box.offsetHeight) {
+                top = document.documentElement.clientHeight - this.box.offsetHeight;
+            }
+            this.box.style.left = left + 'px';
+            this.box.style.top = top + 'px';
+        }
+    }
+
+    new LimitDrag('.box2').init();
+</script>
+
+</html>

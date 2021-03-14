@@ -1,0 +1,1 @@
+ hehe(["zhangsan","lisi","wangwu"])

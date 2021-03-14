@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            position: absolute;
+            top: 50px;
+            left: 0;
+            border-radius: 0;
+        }
+    </style>
+    <script src="./jquery.js"></script>
+    <script>
+        $(function() {
+            // jQuery 提供了强大的 自定义动画功能
+            // $(selector).animate(动画属性,动画时长,回调函数)
+
+            // jQuery动画提供了强大的容错机制
+
+            // 宽/高/透明度 可以设置
+            // hide/show/toggle
+
+            $('#btn').on('click', function() {
+                $('.box').animate({
+                    // css动画结果
+                    // width: 500,
+                    // height: 'hide',
+                    // width: 'toggle',
+                    opacity: 0.5,
+                    left: '+=100',
+                    // height: '+=100',
+                    'border-radius': '50%',
+                    'background-color': 'yellow'
+                }, 1000);
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <button id="btn">按钮</button>
+    <div class="box"></div>
+</body>
+
+</html>

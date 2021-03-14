@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #mycanvas {
+            border: 1px solid black;
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas width="400" height="400" id="mycanvas">
+        您的浏览器不支持canvas元素，请升级浏览器
+    </canvas>
+
+    <script>
+        let canvas = document.getElementById('mycanvas');
+        let context = canvas.getContext('2d'); // 获得canvas平面上下文对象
+
+        // 上下文对象 context 它就是画笔
+        // canvas中有两种绘制方式
+        // fill 填充绘制
+        // stroke 边框绘制
+        //canvas元素绘制图像的时候有两种方法，分别是
+        // context.fill()//填充
+        // context.stroke()//绘制边框
+        // /stroʊk/画笔 冲程
+        // 在绘制图形之前需要先设置绘制的样式
+        // 颜色 线条尺寸
+
+        // context.fillStyle   填充色
+        // context.strokeStyle 边框色
+        // context.lineWidth   边框宽度
+
+        // 绘制矩形
+        // context.fillRect(x,y,width,height);    绘制填充矩形
+        //rect 矩形
+        // context.strokeRect(x,y,width,height);  绘制边框矩形
+
+
+
+        context.fillStyle = 'green';
+        context.fillRect(50, 50, 200, 200);
+
+        context.fillStyle = 'red';
+        context.fillRect(150, 150, 200, 200);
+
+        context.fillStyle = 'yellow';
+        context.fillRect(100, 100, 200, 200);
+
+        context.strokeStyle = 'blue';
+        context.lineWidth = 5; // number 类型  单位是px
+        context.strokeRect(100, 100, 200, 200);
+    </script>
+</body>
+
+</html>

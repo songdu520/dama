@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 300px;
+            height: 300px;
+            background-color: red;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            opacity: 0.1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+</body>
+<script>
+    //缓冲运动
+    //离目标点越远速度越大，离目标点越近速度越慢。
+
+    //封装函数：
+    //封装，重用，可扩展(配置参数)
+
+    //任意属性的运动(px为单位)
+    //宽高，位置，字体大小...
+
+    //任意属性的运动(px为单位) + 透明度
+    //透明度取值扩大100倍，设置目标扩大100倍
+    //赋值的缩小100倍，opacity接收0-1之间的值。
+
+
+    const oBox = document.querySelector('.box');
+
+
+    let timer = null;
+    let speed = 0;
+
+    function getStyle(obj, attr) { //obj:运动的物体   attr:运动物体的属性
+        if (window.getComputedStyle) { //标准
+            return window.getComputedStyle(obj)[attr];
+        } else {
+            return obj.currentStyle[attr];
+        }
+    }
+
+    function bufferMove(obj, attr, target) { //obj:运动的物体  attr:运动物体的属性   target:运动的目标点
+        clearInterval(timer);
+        timer = setInterval(() => {
+            //求当前值(透明度有问题)
+            let currentvalue = null;
+            if (attr === 'opacity') { //透明度
+                currentvalue = getStyle(obj, attr) * 100; //将透明度的值扩大100倍。
+            } else {
+                currentvalue = parseInt(getStyle(obj, attr));
+            }
+            //求缓冲的速度
+            speed = (target - currentvalue) / 10;
+            speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+            //物体的运动和停止
+            if (currentvalue === target) {
+                clearInterval(timer);
+            } else {
+                //透明度有问题,透明度没有单位
+                if (attr === 'opacity') {
+                    obj.style.opacity = (currentvalue + speed) / 100; //缩小100倍，0-1之间的值进行赋值
+                } else {
+                    obj.style[attr] = currentvalue + speed + 'px';
+                }
+            }
+            console.log(speed);
+        }, 1000 / 60)
+    }
+    oBox.onclick = function() {
+        bufferMove(this, 'opacity', 100); //目标值扩大100倍
+    }
+</script>
+
+</html>

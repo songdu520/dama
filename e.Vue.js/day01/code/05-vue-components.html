@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- <v-header></v-header>
+    {{ msg }}
+    <v-footer></v-footer> -->
+
+        <v-header></v-header>
+        <v-footer></v-footer>
+    </div>
+
+    <script src="../../Vue.js"></script>
+    <script>
+        // 生成组件有两种方式
+
+
+        // 1. 全局声明组件
+        // 第一个参数是组件名，1.用连字符 2.用大驼峰
+        // 不能和现有的标签名重复
+        // 调用的时候用连字符写法
+
+        // 一个组件只允许有一个根元素
+
+        // template的作用就相当于 outerHtml
+        // Vue.component('VHeader', {
+        ///kəmˈpoʊnənt/组件
+        //   // 写options，除了el
+        //   // 一定要有option，template
+        //                     /ˈtemplət/模板
+        //   template: `
+        //     <div>
+        //       这是头部
+        //     </div>
+        //   `
+        // })
+
+        // Vue.component('VFooter', {
+        //   // 写options，除了el,其他都可以
+        //   // 一定要有option，template
+        //   template: `
+        //     <div>
+        //       这是底部
+        //     </div>
+        //   `
+        // })
+
+        // Vue.component('HeaderInput', {
+        //   // 写options，除了el
+        //   // 一定要有option，template
+        //   template: `
+        //     <div>
+        //       <input type="text"/>
+        //       <input type="text"/>
+        //     </div>
+        //   `
+        // })
+
+
+
+
+
+        //  2.局部声明组件
+        // 取名不能用连字符
+
+        const HeaderInput = {
+            template: `
+        <input type="text"/>
+      `
+        }
+
+        const VHeader = {
+            // 写options
+            //data 局部声明组件必须写成函数返回对象 ,根组件里可以直接写对象
+
+            data() {
+                return {
+                    content: '这是头部'
+                }
+            },
+            template: `
+        <div>
+          {{ content }}
+          <header-input></header-input>
+        </div>
+      `,
+            components: {
+                HeaderInput
+            }
+        }
+
+        const VFooter = {
+            // 写options
+            template: `
+        <div>
+          这是底部
+        </div>
+      `
+        }
+
+
+
+        //也可以说是根组件
+        new Vue({
+            el: '#app',
+            data: {
+                msg: 'heelo'
+            },
+            // template: '<div>world</div>'
+            // components用来注册组件
+            components: {
+                VHeader,
+                VFooter
+            }
+        })
+    </script>
+</body>
+
+</html>

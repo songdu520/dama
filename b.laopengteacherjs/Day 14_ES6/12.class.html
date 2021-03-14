@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //1.创建一个类。
+    class person {
+        //一般情况下类内部定义的都是属性和方法，给对象使用
+        constructor() { //属性
+            ///kənˈstrʌktər/ 构造函数
+            this.num = 100;
+        }
+        show() {
+            console.log(this.num);
+        }
+    }
+
+    //2.利用构造函数改下类
+    // function person() {
+    //     this.num = 100;
+    // }
+    // person.prototype.show = function() {
+    //     console.log(this.num);
+    // };
+
+    let p1 = new person(); //person:类   p1:实例对象
+    console.log(p1.num); //100
+    p1.show();
+
+    //语法糖指计算机语言中添加的某种语法，这种语法对语言的功能并没有影响，但是更方便程序员使用。通常来说使用语法糖能够增加程序的可读性，从而减少程序代码出错的机会。
+</script>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //文档碎片在理论上可以提高DOM操作的执行效率，将要追加的dom操作先放置在文档碎片中，最后再追加给对应的元素
+    //创建10000个div元素,div里面的内容就是1-10000
+    console.time('fragment');
+    var str = '';
+    for (var i = 1; i <= 100000; i++) {
+        str += '<div>' + i + '</div>';
+    }
+    //前面都在拼接一个字符串，最终渲染一次。
+    document.body.innerHTML = str;
+    console.timeEnd('fragment'); //fragment: 263.7060546875ms
+    //                             / fræɡˈment/ 碎片
+</script>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="checkbox" class="all">全选<br>
+    <input type="checkbox">1<br>
+    <input type="checkbox">2<br>
+    <input type="checkbox">3<br>
+    <input type="checkbox">4<br>
+    <input type="checkbox">5
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+    //方法介绍
+    //1.not(expr|ele|fn)删除与指定表达式匹配的元素.
+    //2.prop(name|properties|key,value|fn) 读写在匹配的元素集中属性值。
+    ///prɑːp/属性  
+    // alert(all.prop('checked')); //获取
+    // all.prop('checked',true);//设置
+    //3.:checked 匹配所有选中复选框、单选框等 ,   不是方法，必须跟在选择器后面
+    //4.size()jQuery 对象中元素的个数。length属性可以获取
+</script>
+<script>
+    //效果
+    ! function($) {
+        const all = $('.all'); //全选按钮
+        const inputs = $('input').not('.all') //除了全选按钮之外的input
+
+        //1.点击全选按钮
+        all.on('click', function() {
+            // if ($(this).prop('checked')) { //选中
+            //     inputs.prop('checked', true);
+            // } else {
+            //     inputs.prop('checked', false);
+            // }
+            inputs.prop('checked', $(this).prop('checked'));
+        });
+
+        //2.下面所有的复选框选中，全选对应的选择
+        //除了全选，选中的长度等于复选框的长度，全选勾选。
+        inputs.on('click', function() {
+            if ($('input:checked').not('.all').size() === inputs.length) {
+                all.prop('checked', true);
+            } else {
+                all.prop('checked', false);
+            }
+        });
+    }(jQuery);
+</script>
+
+</html>

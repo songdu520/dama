@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery.js"></script>
+    <script>
+        $(function() {
+            $('#btn').on('click', function() {
+                // $(selector).append()
+                // 参数 string number element jQuery elmstring
+
+                // $('.box').append(123);
+                // $('.box').append('hello world');
+                // let span = document.createElement('span');
+                // $('.box').append(span);
+                // $('.box').append($('#list'));
+                // $('.box').append('<div>hello</div>');
+
+                // jQuery创建元素
+                // let div = $('<div style="color:red">你好世界</div>');
+                // console.log(div);
+                // $('.box').append(div);
+
+
+                // 回调参数中的value是元素的html内容
+                // $('.box').append(function(index, value) {
+                //     // console.log(index, value);
+                //     return value + 'abc';
+                // });
+
+                // $('<div>hello</div>').appendTo('.box');
+
+
+                // $('.box').prepend('456');
+
+                // $('<span>123</span>').prependTo('.box');
+
+                // $('.box').after('<div>在...之后</div>');
+
+                // $('.box').before('abc');
+
+                // $('.box').wrap('<div></div>');
+                $('.box').wrapAll('<div></div>');
+
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <button id="btn">按钮</button>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+
+    <!-- <div class="box">123</div>
+    <div class="box">
+        <h1>456</h1>
+    </div> -->
+
+    <ul id="list">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+</body>
+
+</html>

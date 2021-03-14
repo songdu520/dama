@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // 一.BOM概念
+    // BOM: Browser Object Model 浏览器对象模型， 用来描述与浏览器进行交互的方法和接口 
+    // BOM提供了很多对象， 用于访问浏览器的功能， 这些功能与任何网页内容无关。 
+    // BOM 的核心对象是 window， 它表示浏览器的一个实例。 
+    // window对象有双重角色， 它既是通过JavaScript 访问浏览器窗口的一个接口， 又是ECMAScript规定的全局对象。
+
+    // 二.window对象
+    // window对象下面包括(子对象,属性,方法)。
+    // window对象在很多时候是可以省略的。
+
+
+    // 三.window下面的子对象 - 重点
+    // 1.location对象：控制地址栏
+    // 地址栏的组成：https://www.taobao.com/html/index.html?a=1&b=2&c=3#tab
+    // 地址栏的组成：
+    // 协议(http/https):电脑要通信必须要有协议
+    // 域名(www.taobao.com):因为ip地址不好记忆,有了域名,便于记忆的名称。
+    // 路径(/html/index.html) : 访问的路径
+    // 数据(?a=1&b=2&c=3) :通过地址不同数据进行一些相关操作，非常重要。
+    // 哈希(#tab):控制页面跳转的。
+
+    // 2.location对象的属性和方法
+    // 2.1.href属性：读写地址栏。
+    // 如果单纯聊地址栏的跳转（下面三个都可以跳转）：
+    // location.href = url
+    // location = url
+    // location.assign(url)
+    //        /əˈsaɪn/分配
+    // window.setTimeout(function() {
+    //     window.location.href = 'http://www.jd.com'; //写入
+    // }, 3000);
+    // console.log(window.location.href);
+    // file:///C:/wamp/www/JS2008/Day%2009_BOM/2.BOM%E7%9A%84%E6%93%8D%E4%BD%9C.html
+    // 地址栏对中文字符或者空格进行自动编码。
+    // encodeURIComponent():编码的方法(中文以及特殊字符)
+    //            /kəmˈpoʊnənt/
+    // decodeURIComponent():解码的方法
+
+    // 2.2.search属性：获取地址栏的数据(?后面的值,包含问号)。地址栏的数据通过?号和地址拼接在一起。如果是多条数据，数据之间用一个&符号进行连接。
+    //   /sɜːrtʃ/
+    // https://www.taobao.com/html/index.html?a=1&b=2&c=3#tab
+    // console.log(window.location.search);
+
+    // 2.3.hash属性：获取地址栏#后面的值,包含#号,控制页面跳转的.
+    // console.log(window.location.hash);
+
+
+    // 2.4.reload():刷新页面。如果参数为true,通过缓存刷新。
+    ///ˌriːˈloʊd/
+    // alert('hello'); //页面不断刷新，一直输出。
+    // window.location.reload(true); //刷新页面。
+
+
+    // 3.history对象 - 熟悉即可
+    // 浏览者通常可以使用浏览器的前进与后退按钮访问曾经浏览过的页面。JavaScript的history对象记录了用户曾经浏览过的页面，并可以实现浏览器前进与后退相似的导航功能。
+    // history.go() 函数 -- 前进或后退指定的页面数（负数后退，正数前进）
+    // history.back() 函数--后退一页
+    // history.forward() 函数 -- 前进一页
+    // history.length 属性 -- history对象中缓存了多少个URL
+
+    // 4.navigator对象 : 获取浏览器相关的信息。
+    ///ˈnævɪɡeɪtər/ 领航员
+    // userAgent  用户代理信息，通过该属性可以获取浏览器及操作系统信息
+    ///ˈeɪdʒənt/ 代理
+    // console.log(navigator.userAgent);
+    // Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36
+
+    // Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; WOW64; Trident/4.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; .NET4.0C; .NET4.0E)
+</script>
+
+</html>

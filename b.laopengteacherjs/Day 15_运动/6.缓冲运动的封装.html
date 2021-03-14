@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">123</div>
+</body>
+<script>
+    //缓冲运动
+    //离目标点越远速度越大，离目标点越近速度越慢。
+
+    //封装函数：
+    //封装，重用，可扩展(配置参数)
+
+    //任意属性的运动(px为单位)
+    //宽高，位置，字体大小...
+
+
+    const oBox = document.querySelector('.box');
+
+
+    let timer = null;
+    let speed = 0;
+
+    function getStyle(obj, attr) { //obj:运动的物体   attr:运动物体的属性
+        if (window.getComputedStyle) { //标准
+            return window.getComputedStyle(obj)[attr];
+        } else {
+            return obj.currentStyle[attr];
+        }
+    }
+
+    function bufferMove(obj, attr, target) { //obj:运动的物体  attr:运动物体的属性   target:运动的目标点
+        clearInterval(timer);
+        timer = setInterval(() => {
+            //求当前值
+            let currentvalue = parseInt(getStyle(obj, attr));
+            //求缓冲的速度
+            speed = (target - currentvalue) / 10;
+            speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+            //物体的运动和停止
+            if (currentvalue === target) {
+                clearInterval(timer);
+            } else {
+                obj.style[attr] = currentvalue + speed + 'px';
+            }
+            console.log(speed);
+        }, 1000 / 60)
+    }
+    oBox.onclick = function() {
+        bufferMove(this, 'fontSize', 100);
+    }
+</script>
+
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //一.ajax的特点
+    //1.通过在后端与服务器进行少量数据交换，AJAX 可以使网页实现异步(局部)更新 - 定时器
+    //每个2s重新获取接口数据，重新进行渲染。
+    function update() {
+        更新
+        let ajax = new XMLHttpRequest();
+        ajax.open('get', 'http://localhost/JS2008/phpdata/news.php', true);
+        ajax.send();
+        ajax.onreadystatechange = function() {
+            if (ajax.readyState === 4) {
+                console.log(JSON.parse(ajax.responseText));
+                let arr = JSON.parse(ajax.responseText);
+                let str = '';
+                for (let value of arr) {
+                    str += `
+                    <div>
+                        <a href="#">${value.title}</a>
+                        <span>${value.date}</span>
+                    </div>
+                `;
+                }
+                document.body.innerHTML = str;
+            }
+        }
+    }
+    update();
+    setInterval(update, 2000);
+    //2.可以把一部分以前由服务器负担的工作转移到客户端，利用客户端的闲置的资源进行处理，减轻服务器和带宽的负担，节约空间和成本。(前端和后端负载平衡)
+    //3.可以调用xml、json、php等外部数据。(获取任意格式的数据)
+    //4.ajax需要配合服务器的环境。
+
+    //二.js的容错处理。
+    // js容错处理方式：try...catch...finally
+    // 先执行 try { ... }的代码,如果try里面的代码出错，转而执行 catch (e) { ... }代码，如果try里面的代码正常，跳过catch，最后执行 finally { ... }代码，也就是finally里面的代码一定会执行。最后请注意，catch和 finally可以省略。
+    try {
+        // alert(a);
+    } catch (e) {
+        // alert('catch');
+        // alert(e); //ReferenceError: a is not defined  try里面报错信息
+    } finally {
+        // alert('finally一定会执行');
+    }
+
+    //容错也能做兼容
+    try {
+        let ajax = new XMLHttpRequest(); //标准
+    } catch (error) {
+        var ajax = new ActiveXObject("Microsoft.XMLHTTP"); //IE
+    }
+
+    //兼容的方式：try...catch   if语句   三目运算符    || 
+
+    //三.get和post的区别 - 面试重点
+    //语义化：get获取   post传输发送。
+    //安全性：get不安全  post安全。
+    //发送数据：get显示在地址栏(?&)    post：通过设置请求头。
+    //数据长度：get有限制(地址栏最多2000多个字符)    post理论上没有限制。
+    //缓存问题：get有缓存    post没有缓存。
+</script>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+</head>
+
+<body>
+    <div class="goodslist">
+        <!--<ul>
+				<li>
+					<a href="http://127.0.0.1/js1808/taobaocart/src/details.html?sid=1" target="_blank">
+						<img src="https://img.alicdn.com/bao/uploaded/i1/376829845/TB21AAQoeuSBuNjSsziXXbq8pXa_!!376829845.jpg_200x200q90.jpg_.webp">
+						<h4>海边风景 地中海 欧陆 马赛克剪画 玻璃冰瓷玉背景墙玄关装饰瓷砖</h4>
+						<p>¥13.45</p>
+					</a>
+				</li>
+			</ul>-->
+    </div>
+    <script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+        $.ajax({
+            url: '../php/taobaodata.php',
+            dataType: 'json'
+        }).done(function(data) {
+            var strhtml = '<ul>';
+            $.each(data, function(index, value) {
+                console.log(value);
+                strhtml += `
+						<li>
+							<a href="details.html?sid=${value.sid}" target="_blank">
+								<img src="${value.url}">
+								<h4>${value.title}</h4>
+								<p>${value.price}</p>
+							</a>
+						</li>
+					`;
+            });
+            strhtml += '</ul>';
+            $('.goodslist').html(strhtml);
+        });
+    </script>
+    <!--<script src="js/index.js" type="text/javascript" charset="utf-8"></script>-->
+</body>
+
+</html>

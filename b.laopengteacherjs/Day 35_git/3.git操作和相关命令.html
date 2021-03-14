@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 
+        1.创建中央服务器 - github网站或者码云(代码托管平台)
+        创建任意个仓库。
+        仓库就是中央服务器。
+
+        2.将仓库克隆到本地进行相关的开发。（先创建仓库，然后进行克隆操作）
+        
+        配置用户名和邮箱
+        git config --global user.name "英文的用户名"
+        ///kənˈfɪɡ/ 配置/ˈɡloʊbl/ 全球的；总体的
+        git config --global  user.email "注册时填写的邮箱"
+        git config  --list (查看所有配置项) 
+
+        git clone  https地址或者ssh地址(将远程仓库里面的代码克隆到本地)
+        git clone  https地址  - 每次需要输入用户名和密码进行匹配
+        git clone  ssh地址 - 在本地生成秘钥(公钥和私钥)，将公钥传给github网站，私有留着本地。  √
+
+        git status 查看状态 --对比本地和本地服务器的区别  √
+        ///ˈsteɪtəs/状态
+
+        3.如何将本地改变的文件提交到远程服务器上面。
+        步骤：工作区 -> 暂存区 -> 本地服务器 -> 远程服务器(远程仓库)
+        git add .      提交所有改变的文件(add后面的点表示所有文件)到暂存区  √(. 表示的是当前目录)
+        git commit -m "提交的说明文字"    暂存区到本地服务器  √
+        ///kəˈmɪt/ 委托，提交
+        git push origin master  本地服务器到远程服务器(origin:远程仓库的默认名称，master：主分支)  √
+        git pull origin master 更新远程仓库的代码。 √
+        //       /ˈɔːrɪdʒɪn/ 起源；原点
+
+        注意空文件夹提交不到远程仓库.
+        弊端：
+        项目名称一定要和远程仓库的名称一样。
+        每次提交到远程仓库都要输入用户名和密码。
+
+        4.配置ssh秘钥 - 固定配置 - github命令行完成(任意位置)。
+        配置ssh之前一定要配置用户名和邮箱。
+        输入如下命令：ssh-keygen  -t  rsa  -C  "你的邮箱"  -- 回车直到结束。生成ssh
+        进入.ssh目录命令：cd  ~/.ssh      
+        查看文件内容的命令：cat  ~/.ssh/id_rsa.pub
+        进入github网站---点击右上角小图片---settings---左侧菜单SSH and GPG keys
+
+        接下来再和github进行通信，选择ssh的地址进行操作。后面的操作过程中，不需要输入用户名和密码了。
+
+        5.将本地目录和远程仓库同步（将本地项目和远程仓库相连接）
+        一旦同步完成，无需再执行同步的相关命令。
+        git init  :  通过命令 git init 把这个目录变成git可以管理的仓库
+        git add .  :  使用命令 git add .添加到暂存区里面去
+        git commit -m "提交注释"   :  用命令 git commit告诉Git，把文件提交到仓库。引号内为提交说明
+        git remote add origin "仓库地址"  : 关联到远程仓库
+        // /rɪˈmoʊt/遥远的
+        git branch -M main 设置主分支
+        git pull --rebase origin main : 获取远程仓库的内容与本地同步合并（如果远程库不为空必须做这一步，否则后面的提交会失败）
+        //       /ri'beis/  重定的基准
+        git push -u origin main : 把本地库的内容推送到远程，使用 git push命令
+        //                 /ˈmæstər/ 主人
+
+        6.回滚代码
+        git log查看提交日志（显示不全，通过回车键显示所有的提交日志）
+        q键退出。
+        利用commit后面的哈希值进行回到某个版本操作。
+        git reset --hard commit_id     
+        git push origin head --force  强推到远程
+        //                      /fɔːrs/力量,强迫
+
+        7.代码冲突(主分支和子分支，同事间的代码冲突)
+        git branch 分支名称  --- 创建分支
+        // /bræntʃ/ 分支
+        git checkout 分支名称 ---  切换分支
+        git branch 查看分支
+        git merge  分支合并
+        // /mɜːrdʒ/合并
+     -->
+</body>
+
+</html>

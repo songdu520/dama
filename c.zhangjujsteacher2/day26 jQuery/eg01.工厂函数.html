@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        // jQuery的工厂函数 jQuery
+        // 工厂函数的别名 $
+
+        // console.log(jQuery);
+        // console.log($);
+        // console.log(jQuery == $);
+
+        // jQuery的就绪事件采用的是HTML5的新事件
+        // DOMContentLoaded DOM结构加载完毕就会执行
+
+        // $(document).ready(function() {
+        //     let box = document.getElementById('box');
+        //     console.log(box);
+        // });
+
+        // $(function() {
+        //     // 就绪事件的简写
+        // })
+
+        $(function() {
+            // 工厂函数的作用就是创建对象
+            // 使用jQuery工厂函数创建的对象 叫做 jQuery对象
+
+            // jQuery的基本语法
+            // $('selector').action();
+            // $(选择器).动作()
+
+            console.log($());
+        });
+    </script>
+</head>
+
+<body>
+    <div id="box"></div>
+</body>
+
+</html>

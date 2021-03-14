@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //1.归并方法-- reduce()  reduceRight()
+    //           减少
+    //迭代：每一次迭代得到的结果会作为下一次迭代的初始值。
+    //这两个方法都会迭代数组的所有项，然后构建一个最终返回的值。
+
+    //两个参数：
+    //参1：每一项上调用的函数
+    //参2：（可选的）作为归并的初始值。
+
+    // var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    // var sum = 0;
+    // arr.forEach(function(value) {
+    //     sum += value;
+    // });
+
+    // console.log(sum);
+
+    // arr.map(function(value) {
+    //     sum += value;
+    // });
+
+    // console.log(sum);
+
+
+    //只有一个参数的情况
+    // var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    // var result = arr.reduce(function(prev, curr, index, array) { //prev：前一个值  curr:当前值
+    //     console.log(prev + '|' + curr);
+    //     //prev:第一次指向数组的第一项值。后面每一次都是迭代的结果。
+    //      /priv/
+    //     //curr:表示数组从第二项开始的值。
+    //      /kɜː/
+    //     return prev + curr;
+    // });
+
+    // console.log(result);
+
+    // var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    // var result = arr.reduceRight(function(prev, curr, index, array) { //prev：前一个值  curr:当前值
+    //     console.log(prev + '|' + curr);
+    //     //prev:第一次指向数组的最后一项值。后面每一次都是迭代的结果。
+    //     //curr:表示数组从后往前数，第二个值开始。
+    //     return prev + curr;
+    // });
+
+    // console.log(result);
+
+
+    //有二个参数的情况(参2：（可选的）作为归并的初始值。)
+
+    var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    var result = arr.reduce(function(prev, curr, index, array) { //prev：前一个值  curr:当前值
+        console.log(prev + '|' + curr);
+        //prev:第一次指向迭代的初始值。后面每一次都是迭代的结果。                           
+        //curr:表示数组从第一项开始的值。
+        return prev + curr;
+    }, 100);
+    console.log(result);
+</script>
+
+</html>

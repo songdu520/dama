@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //一.正则的方法
+    //1.test(str):在字符串中查找是否存在指定的正则表达式(规则),并返回布尔值,存在返回true,不存在返回 false
+    //测验，考查
+    // var reg = /hello/;
+    // var str = 'abchelloabcdefg';
+    // console.log(reg.test(str)); //true
+
+    // var reg1 = /hello/;
+    // var str1 = 'abchElloabcdefg';
+    // console.log(reg1.test(str1)); //false
+
+    // var reg2 = /hello/i;
+    // var str2 = 'abchElloabcdefg';
+    // console.log(reg2.test(str2)); //true
+
+    // var reg3 = /hello/i;
+    // var str3 = 'abcheallobcdefg';
+    // console.log(reg3.test(str3)); //false
+
+    //2.exec():根据正则规则查找匹配的值,以数组的形式返回这个值,如果它没有找到任何匹配返回null,和全局没有关系 - 了解
+    // /ɪɡˈzek/ 执行，执行程序
+    // var reg = /hello/g;
+    // console.log(reg.exec('abchelloabchelloabc')); //["hello"]
+
+    //二.字符串的方法
+    // 使用 match(reg)方法获取满足匹配的内容，返回数组。
+    // /mætʃ/相配;比赛
+    // var reg = /hello/g;
+    // console.log('abchelloabchelloabc'.match(reg)); // ["hello", "hello"]
+    // var reg1 = /\d+/g;
+    // console.log('1fas34324h4g5jh42g5'.match(reg1)); //["1", "34324", "4", "5", "42", "5"] 
+    // 使用 search 来查找匹配数据，和全局没有关系，查找第一个匹配值的位置。(-1) - 了解
+    // console.log('abcde'.search(/c/g)); //2
+    // console.log('abcde'.search(/f/g)); //-1
+
+    // 使用 replace 替换匹配到的数据,2个参数：1代表正则，2代表用来替换的字符(函数做参数)
+    // var str = '这件衣服是你妈的,还是你妹的,我猜是你大爷的';
+    // var reg = /妈|妹|大爷/g;
+    // console.log(str.replace(reg, '*'));
+
+    // 使用 split 拆分成字符串数组.参数1：拆分的符号，参数2：截取的长度
+    //      /splɪt/ 分离
+    // var str = 'a1b2c3d4e5f';
+    // console.log(str.split('3'));
+    // console.log(str.split(/\d/g)); //["a", "b", "c", "d", "e", "f"]
+</script>
+
+</html>

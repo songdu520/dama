@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <child @msg="handleClick"></child>
+  </div>
+
+  <script src="../../Vue.js"></script>  
+  <script>
+
+    const Child = {
+      template: `
+        <div @click="childClick">child</div>
+      `,
+      methods: {
+        childClick() {
+          this.$emit('msg', 1)
+        }
+      },
+      mounted() {
+        this.$once('msg', (val) => {
+          console.log(val)
+        })
+      },
+      beforeDestroy() {
+        this.$off('msg', () => {
+          console.log('取消了对msg的侦听')
+        })
+      },
+    }
+
+    new Vue({
+      el: '#app',
+      components: {
+        Child
+      },
+      methods: {
+        handleClick() {
+          console.log(123)
+        }
+      },
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //7.concat() 方可以基于当前数组中的所有项创建一个新数组，参数可以是数组项或者数组。
+    //扁平一级数组
+    // 数组的扁平化：将多维数组转换成一维数组。 var arr = [1,[2,3],4]
+    // var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    // var newarr = arr.concat(10, 11, 12, arr, arr);
+    // console.log(arr); //原数组
+    // console.log(newarr); //新数组
+
+    //8.slice() 方法它能够基于当前数组中的一或多个项创建一个新数组。可以接受一或两个参数，即要返回项的起始和结束位置，不包括结束位置。
+    // /slaɪs/
+    // var arr = ["a", "b", "c", "d", "e", "f", "g"];
+    // console.log(arr.slice()); // ["a", "b", "c", "d", "e", "f", "g"]
+    // console.log(arr.slice(3)); //3:起始索引位置 ["d", "e", "f", "g"]
+    // console.log(arr.slice(1, 5)); //1:起始位置 5:结束位置,不包括结束位置 ["b", "c", "d", "e"]
+    // console.log(arr.slice(1, -5)); //负数从后往前数,截取从前往后,-1开始数 ["b"]
+    // console.log(arr.slice(1, 2)); //["b"]
+    // console.log(arr.slice(1, -20)); //无法截取 []
+    // console.log(arr.slice(6, 2)); //无法截取 []
+    // console.log(arr); //原数组   ["a", "b", "c", "d", "e", "f", "g"]
+
+
+
+    //9.splice()方法对数组进行删除、插入、替换,是最强大的数组方法,返回值删除的值组成的数组,改变原数组。
+    //删除
+    // var arr = ["a", "b", "c", "d", "e", "f", "g"];
+    // console.log(arr.splice(2, 3)); //2开始删除的索引  3删除的长度  ["c", "d", "e"]返回值是数组
+    // console.log(arr.splice(2, -3)); //无法删除
+
+    //插入：删除零0,后续添加。
+    // console.log(arr.splice(2, 0, 'hehe', 'haha')); //[]
+
+    //替换：删除几项，添加几项。
+    // console.log(arr.splice(3, 3, 'hehe', 'haha', 'xixi')); //["d", "e", "f"]
+
+    // console.log(arr); //改变原数组。
+
+
+    //10.join()方法，将数组转换成对应的字符串。参数就是连接符。
+    // var arr = ["a", "b", "c", "d", "e", "f", "g"];
+    // console.log(arr.join('&')); //a&b&c&d&e&f&g
+    // console.log(arr.join('')); //abcdefg
+    // console.log(arr.join('a')); //aabacadaeafag
+</script>
+
+</html>

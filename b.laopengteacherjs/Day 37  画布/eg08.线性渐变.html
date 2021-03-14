@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #mycanvas {
+            border: 1px solid black;
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- canvas是html5 新增的图形容器 -->
+    <!-- 行内块元素 inline-block -->
+    <!-- 兼容性不好 在低版本的ie无法使用 -->
+    <!-- 需要为canvas元素设置大小 写属性 不写样式 -->
+    <!-- 兼容处理 当低版本浏览器无法识别标签时 会自动当作行内元素处理 -->
+    <canvas width="400" height="400" id="mycanvas">
+        您的浏览器不支持canvas元素，请升级浏览器
+    </canvas>
+
+    <script>
+        let canvas = document.getElementById('mycanvas');
+        let ctx = canvas.getContext('2d');
+
+        let grd = ctx.createLinearGradient(0, 0, 200, 0);
+
+        // 使用addColorStop() 添加颜色 0-1
+        grd.addColorStop(0, 'blue');
+        grd.addColorStop(0.5, 'yellow')
+        grd.addColorStop(1, 'red');
+
+        // 将渐变设置成样式
+        // ctx.fillStyle = grd;
+        // ctx.fillRect(0, 0, 200, 200);
+
+        ctx.strokeStyle = grd;
+        // ctx.strokeRect(0, 0, 400, 400);
+
+        ctx.font = '50px 宋体';
+        ctx.strokeText('你好世界', 20, 50);
+    </script>
+</body>
+
+</html>

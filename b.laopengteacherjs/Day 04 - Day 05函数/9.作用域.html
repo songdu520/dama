@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //一.作用域
+    //任何程序设计语言都有作用域的概念，简单的说，作用域就是变量与函数的可访问范围，即作用域控制着变量与函数的可见性和生命周期。
+    //1.全局作用域：整个script程序都有效，即整个代码中都可以调用全局作用域。
+    //2.局部作用域：定义在函数内部，只对函数内部有效，即只能在本变量声明的函数内部调用。
+
+    // var a1 = 100; //全局
+
+    // function fn() {
+    //     console.log(a1); //100
+    // }
+
+    // fn();
+    // console.log(a1); //100
+
+    // console.log('----------------------------------------------');
+
+    var a2 = 200; //全局
+
+    function fn1() {
+        var a3 = 300; //局部，函数内部有效，函数外面无法访问。
+        console.log(a2); //200
+        console.log(a3); //300
+    }
+    fn1();
+    console.log(a2); //200
+    console.log(a3); //报错，a3是局部的。
+
+
+
+    //二.函数的嵌套作用域。
+    // function a() {
+    //     function b() { //局部的函数
+    //         alert('b');
+    //     }
+    // }
+
+    // b();//b is not defined
+
+
+    // function a() { //全局的函数
+    //     function b() { //局部的函数
+    //         alert('b');
+    //     }
+    //     b(); //这里调用
+    // }
+
+    // a();//ok
+
+    //总结：函数是半透明的，函数能够找到外面的变量和函数，但是外面找不到函数里面的变量和函数。
+    //函数内部对外面来说，是不可见的。
+
+
+    //三.作用域链 - 查找变量的顺序。
+    //通俗地讲，当声明一个函数时，局部作用域一级一级向上(外)包起来，就是作用域链。
+    //当执行函数时，总是先从函数内部找寻局部变量,如果内部找不到（函数的局部作用域没有）,则会向创建函数的作用域（外层的函数）寻找，依次向上查找。
+    var num = 1;
+
+    function fn1() {
+        var num = 2;
+
+        function fn2() {
+            var num = 3;
+
+            function fn3() {
+                var num = 4;
+                alert(num);
+            }
+            fn3();
+        }
+        fn2();
+    }
+
+    fn1();
+</script>
+
+</html>

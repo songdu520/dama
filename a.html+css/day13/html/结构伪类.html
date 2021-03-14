@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul li:first-child {
+            border: red dashed 1px;
+        }
+        ul li:nth-child(2){
+            border: pink dashed 1px;
+        }
+        ul li:nth-of-type(3){
+            background-color: powderblue;
+        }
+        ul p:nth-of-type(1){
+            border: red 1px solid;
+        }
+        ul a:only-of-type{
+            color: #000;
+        }
+        ul div:first-of-type{
+            background: url(../../day12/img/hua2.png);
+            height: 50px;
+            background-size: 50px;
+        }
+        ul li:nth-last-child(2){
+            background: url(../../day12/img/pic.png);
+        }
+        ul li:last-child{
+            border: solid 1px green;
+        }
+
+    </style>
+</head>
+<body>
+    <ul><li>第一孩</li>
+    <li>第一孩</li>
+    <li>第一孩</li>
+    <p>第一孩</p>
+    <p>第一孩</p>
+    <a href="#">第一孩</a>
+    <div></div>
+    <li>第一孩</li>
+    <li>第一孩</li></ul>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // var num = 1; //初始值
+    // while (num <= 10) {
+    //     console.log(num);
+    //     num++;
+    // }
+    // console.log(num);//11 循环的最后一次值。 
+
+
+    //1.for循环的基本控制结构
+    // 将for循环理解成while的一种紧凑的写法。
+    // for(初始值;限制条件;累加累减){
+    //     满足条件执行的循环体
+    // }
+    //初始值：多条语句，逗号分隔。
+    //限制条件：多条语句，逗号分隔，起作用的是后者。
+
+    // for (var num = 1; num <= 10; num++) {
+    //     console.log(num);
+    // }
+    // console.log(num); //11 循环的最后一次值。
+
+
+    //2.九九乘法表。
+    // document.write('<table border=1>');
+    // for (var i = 1; i <= 9; i++) {
+    //     document.write('<tr>');
+    //     for (var j = 1; j <= i; j++) {
+    //         document.write('<td>' + j + 'x' + i + '=' + i * j + '</td>');
+    //     }
+    //     document.write('</tr>');
+    // }
+    // docuemnt.write('</table>');
+
+    //3.面试题:限制条件：多条语句，逗号分隔，起作用的是后者
+    // for (var i = 1, j = 1; i <= 5, j <= 10; i++, j++) {
+    //     var sum = i + j; //10+10
+    // }
+    // console.log(i); //11
+    // console.log(j); //11
+    // console.log(sum); //20
+
+    // for (var i = 1, j = 1; i <= 10, j <= 5; i++, j++) {
+    //     var sum = i + j;//5+5
+    // }
+    // console.log(i); //6
+    // console.log(j); //6
+    // console.log(sum); //10
+</script>
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 拷贝 copy
+        // 复制
+
+        // var o = {
+        //     x: 1,
+        //     y: [1, 2, 3]
+        // }
+
+
+        // var o2 = o;
+
+        // o.x = 3;
+
+        // console.log(o2);
+        // console.log(o2 === o);
+
+        // 数组 函数 Map  Set  
+        // 对象是引用类型的数据
+        // 赋值的是地址
+
+        // 需要一个新的内容相同的对象
+        var o = {
+            x: 1,
+            y: [1, 2, 3]
+        }
+
+        var o2 = {};
+
+        // 遍历完成属性的复制
+        // 遍历对象的方式 只遍历了一层的数据
+        // 对内部的引用类型没有进行进一步的处理
+        // 浅拷贝
+        for (var key in o) {
+            o2[key] = o[key];
+        }
+
+        // o.x = 3;
+        o.y[0] = 9;
+        console.log(o2);
+        console.log(o);
+        console.log(o == o2);
+        console.log(o.y === o2.y);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

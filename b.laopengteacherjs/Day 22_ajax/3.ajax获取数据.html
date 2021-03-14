@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //一.ajax获取任意类型的数据
+    //xml,json,html,(重要的接口文件：php,asp,jsp,python...)
+
+    //1.html文件
+    // let ajax = new XMLHttpRequest();
+    // ajax.open('get', 'data.html', true);
+    // ajax.send();
+    // ajax.onreadystatechange = function() {
+    //     if (ajax.readyState === 4) {
+    //         console.log(ajax.responseText);
+    //         document.body.innerHTML = ajax.responseText;
+    //     }
+    // }
+
+    //2.json格式
+    // let ajax = new XMLHttpRequest();
+    // ajax.open('get', 'data.json', true);
+    // ajax.send();
+    // ajax.onreadystatechange = function() {
+    //     if (ajax.readyState === 4) {
+    //         console.log(ajax.responseText);
+    //         console.log(JSON.parse(ajax.responseText));
+    //     }
+    // }
+
+    //3.xml文件
+    // let ajax = new XMLHttpRequest();
+    // ajax.open('get', 'data.xml', true);
+    // ajax.send();
+    // ajax.onreadystatechange = function() {
+    //     if (ajax.readyState === 4) {
+    //         // ajax.responseXML：获取xml格式的数据。
+    //         // console.log(ajax.responseXML);
+    //         let xmldoc = ajax.responseXML; //xml文档
+    //         console.log(xmldoc.querySelector('name').innerHTML);// javascript高级程序设计
+    //     }
+    // }
+
+    //4.第三方接口 - 天气预报。
+    //https://www.nowapi.com/ 免费接口的网站
+    //http://api.k780.com/?app=weather.realtime&weaid=1&ag=today,futureDay,lifeIndex,futureHour&appkey=10003&sign=b59bc3ef6191eb9f747dd4e83c99f2a4&format=json
+
+    let ajax = new XMLHttpRequest();
+    ajax.open('get', 'http://api.k780.com/?app=weather.realtime&weaid=101210101&ag=today,futureDay,lifeIndex,futureHour&appkey=10003&sign=b59bc3ef6191eb9f747dd4e83c99f2a4&format=json', true);
+    ajax.send();
+    ajax.onreadystatechange = function() {
+        if (ajax.readyState === 4) {
+            console.log(JSON.parse(ajax.responseText));
+            console.log(JSON.parse(ajax.responseText).result);
+            console.log(JSON.parse(ajax.responseText).result.area_1);
+            console.log(JSON.parse(ajax.responseText).result.area_2);
+            console.log(JSON.parse(ajax.responseText).result.area_3);
+
+            console.log(JSON.parse(ajax.responseText).result.futureDay); //数组，未来一周的天气预报
+
+            let arr = JSON.parse(ajax.responseText).result.futureDay;
+            let str = '<table border=1>'
+            for (let value of arr) { //遍历6次
+                str += '<tr>';
+                for (let attr in value) {
+                    str += '<td>' + value[attr] + '</td>';
+                }
+                str += '</tr>';
+            }
+            str += '</table>';
+            document.body.innerHTML = str;
+        }
+    }
+</script>
+
+</html>

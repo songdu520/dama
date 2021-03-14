@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+
+        此人性别为{{ sex | filter | filter2 }}
+        <ul>
+            <li v-for="(item, index) in arr" :key="url">
+                <p>{{ item.title }}</p>
+                <img :src="item.url | formatUrl" alt="">
+            </li>
+        </ul>
+    </div>
+
+    <script src="../../Vue.js"></script>
+
+    <script>
+        //Vue.js 允许你自定义过滤器，可被用于一些常见的文本格式化
+      
+        //filters/ˈfɪltər/过滤器 
+        new Vue({
+            el: '#app',
+            data() {
+                return {
+                    sex: 1,
+                    arr: [{
+                        title: '机器猫',
+                        url: 'https://p1.meituan.net/movie/f6ec2a022d3644ef493f881d359f65303190471.jpg@1l_1e_1c_170w_230h'
+                    }]
+                }
+            },
+            filters: {
+
+                filter(val) {
+                    return val === 1 ? '男' : '女'
+                },
+                filter2(val) {
+                    return val === '男' ? '♂' : '♀'
+                },
+                formatUrl(val) {
+                    return val.split('@')[0]
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            display: none;
+        }
+    </style>
+    <script src="./jquery.js"></script>
+    <script>
+        $(function() {
+            // jQuery 一共提供了三组预定义的动画效果
+            // 分别是 隐藏/显示  滑动   淡入/淡出
+
+            // 预设动画时长
+            // 'slow' 600ms
+            // 'normal' 400ms
+            // 'fast' 200ms
+
+            // 可以为动画效果自定义动画时长
+            // 数据类型为number 单位为ms
+            $('#btn').on('click', function() {
+
+                // $(selector).hide([time,fn])
+                // 动画的回调函数会在动画执行结束后执行
+                // $('div').hide(2000, function() {
+                //     alert('动画完成了');
+                // });
+
+                // -----------------------
+                // $('div').show(2000, function() {
+                //     alert('动画完成')
+                // });
+
+                // $('div').show(2000, function() {
+                //     $('div').hide(2000);
+                // })
+
+                // $('div').show(2000).hide(2000);
+
+                // -------------------------
+
+                // 隐藏/显示 切换
+                // $('div').toggle(2000);
+                ///ˈtɑːɡl/. 切换
+
+
+                // ------------------------------------------
+                // $('div').slideDown(2000);
+
+                // $('div').slideUp(2000);
+
+                // $('div').slideToggle(2000);
+
+                // ------------------------------------------
+                // $('div').fadeOut(2000);
+
+                // $('div').fadeIn(2000);
+                //       /feɪd/ 褪色
+
+                // $('div').fadeToggle(2000);
+
+                // $(selector).fadeTo(time,opacity,fn)
+                $('div').fadeTo(2000, 0.3);
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <button id="btn">按钮</button>
+
+    <div></div>
+
+</body>
+
+</html>

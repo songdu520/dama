@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // 混合开发：构造函数+prototype(原型)
+    //构造函数的继承 - call/apply继承(包括属性和方法)
+    //人类
+    function Person(name, age, sex) {
+        this.name = name;
+        this.age = age;
+        this.sex = sex;
+        this.showinfo = function() {
+            return `我的姓名是${this.name}，我今年${this.age}岁，我是${this.sex}的`;
+        }
+    }
+    Person.prototype.username = '我是原型上面的属性';
+    Person.prototype.showother = function() {
+        return `我是原型上的：我的姓名是${this.name}，我今年${this.age}岁，我是${this.sex}的`;
+    };
+    // let p1 = new Person('zhagsan', '100', '男');
+    // console.log(p1.showinfo());
+
+    //学生
+    function Student(name, age, sex, pro) {
+        Person.call(this, name, age, sex); //继承构造函数里面的属性和方法
+        this.pro = pro; //私有的
+        this.showinfo = function() {
+            return `我的姓名是${this.name}，我今年${this.age}岁，我是${this.sex}的，我的专业是${this.pro}`;
+        }
+    }
+
+    //原型继承：拷贝继承（将原型对象上面的属性和方法拷贝到子类原型上面）
+    // Student.prototype = Person.prototype;//引用传递,拷贝的是地址,值是相同的
+
+    // 对象的拷贝
+    // Object.assign(Student.prototype, Person.prototype);
+
+    // 对象的拷贝
+    for (let i in Person.prototype) {
+        Student.prototype[i] = Person.prototype[i];
+    }
+
+    let s1 = new Student('wangwu', 250, '女', '前端开发');
+    // console.log(s1.name); //wangwu  继承的
+    // console.log(s1.pro); //前端开发   私有的
+    // console.log(s1.showinfo()); //如果子类没有这个方法，继承父类，如果存在一样的方法，使用自己下面的方法。
+    console.log(s1.username);
+    console.log(s1.showother());
+
+    //总结：
+    //构造函数继承：call/apply 
+    //prototype(原型继承)：拷贝继承(Object.assign()/遍历拷贝)
+</script>
+
+</html>

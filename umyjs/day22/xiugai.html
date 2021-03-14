@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+<script src="./cookie.js"></script>
+<script src="./Z.js"></script>
+
+<body>
+    <div class="container">
+        <h1 class="h1 text-center">用户信息修改</h1>
+        <form action="update.php" method="POST">
+            <div class="input-group">
+                <span class="input-group-addon">用户id</span>
+                <input type="text" class="form-control" name="id" id="userid" readonly>
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon">用户名</span>
+                <input type="text" class="form-control" placeholder="Username" id="username" readonly>
+            </div>
+
+            <div class="input-group">
+                <span class="input-group-addon">密&nbsp;&nbsp;&nbsp;码</span>
+                <input type="text" class="form-control" placeholder="Password" id="password" name="password">
+            </div>
+
+            <div class="input-group">
+                <span class="input-group-addon">邮&nbsp;&nbsp;&nbsp;箱</span>
+                <input type="text" class="form-control" placeholder="email" id="email" name="email">
+            </div>
+
+            <input type="submit" class="btn btn-success btn-block">
+        </form>
+    </div>
+
+</body>
+<script>
+</script>
+
+</html>

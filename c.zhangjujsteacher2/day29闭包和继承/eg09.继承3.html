@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // Function.prototype.bind(obj,[arg...])
+        // obj 需要替换掉函数中的this指向
+        // arg 函数的绑定的实际参数
+        // 返回一个新函数 将this指向了obj 并且绑定了实参
+        // bind返回的新函数会立即吗？ 不会
+
+        // Function.prototype.call(obj,[arg...])
+        // obj 需要替换掉函数中的this指向
+        // arg 函数的实际参数
+        // 立即调用函数 并修改this指向为obj 传入参数 arg
+
+        // Function.prototype.apply(obj,[arraylike])
+        // obj 需要替换掉函数中的this指向
+        // arraylike 类数组对象 将类数组展开为函数的实际参数
+        // 立即调用函数 并修改this指向为 obj 开展类数组对象作为参数传递
+
+        // var username = 'lisi';
+        // var o = {
+        //     username: 'zhangsan',
+        //     fn: function() {
+        //         console.log(this.username);
+        //     }
+        // }
+
+        // var o2 = {
+        //     username: 'wangwu'
+        // }
+
+        // o.fn(); // zhangsan
+        // var fn = o.fn;
+        // fn(); //lisi
+
+        // var fn = o.fn.bind(o2);
+        // fn(); // wangwu
+
+        // o.fn.call(o2); // wangwu
+        // o.fn.call(this); // lisi
+        // o.fn.call(null); // null为默认this  lisi
+        // o.fn.call(o); //zhangsan
+
+        // var o = {
+        //     num: 5
+        // }
+
+        // var num = 10;
+
+        // function fn(a, b, c) {
+        //     console.log(this.num + a + b + c);
+        // }
+
+        // var fn2 = fn.bind(o, 1, 1, 1);
+
+        // fn2();
+
+        // fn.call(this, 1, 2, 3);
+        // fn.apply(this, [1, 2, 3]);
+
+
+        var o = {
+            x: 1,
+            fn: function() {
+                console.log(this.x);
+            }
+        }
+
+        var o2 = {
+            x: 2
+        }
+
+        o.fn.call(o2);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

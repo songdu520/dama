@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //1.利用Promise类 -> 新建promise对象
+    //函数做参数
+    //做参数的回调函数又有两个参数（而且这两个参数表示两个函数。）
+    //resolve - 成功的回调
+    //reject - 失败的回调
+    //拒绝
+    // let promise = new Promise((resolve, reject) => { //Promise里面的代码是同步的。
+    //     resolve(); //已解决  - > 执行then里面的代码
+    //     reject(); //未解决- > 执行catch里面的代码
+    // });
+
+
+    //2.promise原型下面三个常用的方法：给promise实例实现。
+    // then(callback)：成功的回调，如果上面的状态是成功的，走then里面的代码
+    // catch()：失败的回调，如果上面的状态是失败的，走catch里面的代码
+    //捕获
+    // finially() :  不管上面的状态是成功还是失败，走finially里面的代码
+
+
+    // let pro = new Promise((resolve, reject) => { //promise实例
+    //     console.log(1);
+    //     resolve('promise传来的参数'); // 执行then里面的代码，resolve里面的参数传递给then里面函数。  状态一旦设定，无法改变
+    //     // reject();
+    //     // reject();
+    //     // reject();
+    // });
+
+    // pro.then((data) => { //data是resolve传入的参数  
+    //     console.log(data);
+    //     console.log('then');
+    // });
+
+    // pro.catch(() => {
+    //     console.log('catch');
+    // });
+
+    //3.promise核心的问题。
+    //1.状态自由设定，状态一旦设定，无法改变
+    //2.resolve->then   reject->catch   彼此可以传递参数。
+    //3.then里面可以传递两个函数做参数，第一个函数是成功的回调（resolve ) 第二个参数是可选的，表示失败的回调(reject)
+    // new Promise().then(()=>{},()=>{})
+    //4.then可以无限链式操作
+    // let promise = new Promise((resolve, reject) => {
+    //     resolve('resolve传入的参数');
+    // });
+
+    // promise
+    //     .then((data) => {
+    //         console.log(data);
+    //         console.log('第一个then');
+    //     })
+    //     .then(() => { //无法接受上面的参数
+    //         console.log('第二个then');
+    //     })
+    //     .then(() => { //无法接受上面的参数
+    //         console.log('第三个then');
+    //     });
+    //5.promise内部的代码是同步的，then里面的代码是异步的。
+    // let promise = new Promise((resolve, reject) => {
+    //     console.log(1); //同步的
+    //     resolve();
+    //     console.log(2); //同步的
+    // });
+    // console.log(3); //同步的
+    // setTimeout(function() { //异步的,比then慢
+    //     console.log(4);
+    // }, 10);
+    // promise
+    //     .then(() => {
+    //         console.log(5); //异步的
+    //     });
+    // setTimeout(function() { //异步的,比then慢
+    //     console.log(6);
+    // }, 0);
+    // console.log(7); //同步的
+
+
+    //then和catch是实例下面的方法。
+    //6.函数一定要返回promise，否则无法调用then和catch
+    function fn() {
+        let promise = new Promise((resolve, reject) => {
+            resolve('resolve传入的参数');
+        });
+        return promise; //返回promise
+    }
+
+    //fn()->promise实例对象
+    fn().then((data) => {
+        console.log(data);
+        console.log('第一个then');
+    });
+</script>
+
+</html>

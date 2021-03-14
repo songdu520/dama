@@ -1,0 +1,140 @@
+html{
+    height: 100%;
+    font-size: 100px;
+}
+body{
+    height: 100%;
+    font-size: 0.20rem;
+}
+main{
+    height: 100%;
+    padding-bottom: 1rem;
+    background-color: #ffffff;
+    box-sizing: border-box;
+    overflow: auto;}
+h2{
+    line-height: 0.9rem;
+    font-size: 0.32rem;
+    border-bottom: #eeeeee 1px solid;
+    text-align: center;
+}
+/* 第一部分 */
+.nav-list ul{
+
+    height: 1.63rem;
+    background-color: white;
+}
+.nav-list ul{
+    display: flex;
+    justify-content: space-around;
+
+
+}
+.nav-list ul em{
+    font-size: 0.54rem;
+    display: inline-block;
+    padding-top: 0.38rem;
+    color: black;
+    
+}
+.nav-list ul p{
+    font-size: 0.27rem;
+    line-height: 0.8rem;
+    color: black;
+
+}
+.nav-list{
+    margin-bottom: 0.2rem;
+}
+/* 第二部分 */
+
+.list2 ul{
+    width:100%;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 0.24rem;
+}
+.list2 ul li{
+    width: 1.5rem;
+}
+.list2 ul img{
+    width: 1.5rem;
+    height: 1.3rem;
+}
+.list2 ul li p:nth-child(2){
+    color: #aaa7a8;
+    text-align: center;
+    line-height: 0.42rem;
+}
+.list2 ul li p:nth-child(3){
+    font-size: 0.27rem;
+    text-align: center;
+    line-height: 0.48rem;
+}
+
+/* 第三部分 */
+.list3 ul{
+    width:100%;
+    display: flex;
+    justify-content: space-around;
+}
+.list3 ul li{
+    width: 1.72rem;
+}
+.list3 ul img{
+    width: 1.72rem;
+    height: 1.3rem;
+}
+.list3 ul li p:nth-child(2){
+    color: #aaa7a8;
+    text-align: center;
+    line-height: 0.42rem;
+}
+.list3 ul li p:nth-child(3){
+    font-size: 0.20rem;
+    text-align: center;
+    line-height: 0.48rem;
+    background-color: blueviolet;
+}
+.list3 ul li .text{
+    background-image: linear-gradient(
+        to top,rgba(216,182,253,0.7),rgba(255,255,255,0.7)
+    );
+}
+
+
+
+
+
+
+/* 脚部 */
+footer{
+    height: 1rem;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color:rgba(255,255,255,.8);
+    z-index: 10000;
+    border-top: #ccc 1px solid;
+}
+
+footer ul{
+    display: flex;
+    justify-content: space-around;
+
+
+}
+footer ul em{
+    font-size: 0.45rem;
+    display: inline-block;
+    padding-top: 0.12rem;
+    color: black;
+    
+}
+footer ul p{
+    font-size: 0.20rem;
+    line-height: 0.4rem;
+    color: black;
+
+}

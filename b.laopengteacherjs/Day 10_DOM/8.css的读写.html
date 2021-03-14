@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+        
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            border: 10px #000 solid;
+            padding: 20px;
+            margin: 30px;
+            font-size: 24px;
+            position: absolute;
+            left: 250px;
+            top: 200px;
+        }
+        
+        .wrap {
+            position: relative;
+        }
+        
+        .header {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <div class="wrap"> -->
+    <div class="box"></div>
+    <!-- </div> -->
+
+    <div class="header"></div>
+</body>
+<script>
+    //一.获取css的属性。
+    //1.获取对应css属性值：仅仅用来读取,没有单位。
+    // offsetWidth、offsetHeight：盒模型的尺寸(width+borderWidth+padding)
+    ///ˈɔːfset/ 
+    // var box = document.querySelector('.box');
+    // console.log(box.offsetWidth); //100+20+40
+    // console.log(box.offsetHeight); //100+20+40
+
+    // offsetLeft、offsetTop：元素相对可视区的位置，无论是否有定位。
+    // var box = document.querySelector('.box');
+    // console.log(box.offsetLeft); //280
+    // console.log(box.offsetTop); //230
+    // offsetParent ：定位父级(元素),以哪个元素为基准进行定位。
+    // 如果没有定位父级以body为基准，否则以定位父级为基准。
+
+    // var box = document.querySelector('.box');
+    // console.log(box.offsetParent); //warp
+
+    //2.获取任意的css属性值 - 带单位
+    // getComputedStyle  - 标准
+    // currentStyle - 非标准IE
+    ///ˈkɜːrənt/ 当前的
+    // var box = document.querySelector('.box');
+    // console.log(window.getComputedStyle(box)['width']); //100px
+    // console.log(window.getComputedStyle(box)['position']); //absolute
+    // console.log(window.getComputedStyle(box)['font-size']); //24px
+    // console.log(window.getComputedStyle(box)['fontSize']); //24px
+    // console.log(window.getComputedStyle(box)['background-color']); //rgb(255, 0, 0)
+    // console.log(window.getComputedStyle(box)['backgroundColor']); //rgb(255, 0, 0)
+
+    // console.log(box.currentStyle['width']); //100px
+    // console.log(box.currentStyle['position']); //absolute
+    // console.log(box.currentStyle['font-size']); //不可以输出，一定需要驼峰命名
+    // console.log(box.currentStyle['fontSize']); //24px
+    // console.log(box.currentStyle['backgroundColor']); // red
+
+    // 当出现兼容的时候，采用属性作为判断条件，不能采用方法，方法会直接执行，会报错，但属性不存在，不会报错，输出undefined
+
+    // alert(window.getComputedStyle())//报错
+    // alert(window.getComputedStyle) //非标准下面输出undefined
+
+    // function getStyle(obj, attr) { //obj:元素对象   attr:css属性名
+    //     if (window.getComputedStyle) { //标准
+    //         return window.getComputedStyle(obj)[attr];
+    //     } else {
+    //         return obj.currentStyle[attr];
+    //     }
+    // }
+
+    // getStyle(box, 'position');
+    // alert(getStyle(box, 'left'));
+
+    //二.设置css属性和值。
+    //1.利用style的子对象进行设置。
+    // var box = document.querySelector('.box');
+    // box.style.width = '1000px';
+    // box.style.height = '500px';
+    // box.style.background = 'orange';
+
+    //2.利用css代码进行设置(cssText)
+    // var box = document.querySelector('.box');
+    // box.style.cssText = 'width:600px;height:300px;background:purple;';
+
+    //3.利用选择器进行设置 - className、id
+    // var header = document.querySelector('.header');
+    // header.className = 'header';
+</script>
+
+</html>

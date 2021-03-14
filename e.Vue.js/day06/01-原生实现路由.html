@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #app {
+      height: 500px;
+      border: 1px solid #000;
+      padding: 30px;
+    }
+    .box {
+      border: 1px solid #000;
+    }
+    p {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <h2>路由实现</h2>
+    <p> 
+      <a href="#/index">首页</a> | 
+      <a href="#/classify">分类页</a> | 
+      <a href="#/cart">购物车</a> | 
+      <a href="#/mine">我的</a>
+    </p>
+
+    <!-- 需要有一个容器来放置切换的内容 -->
+    <div class="box"></div>
+  </div>
+
+  <script>
+    // 需要一个路由表(js对象)
+    // 每一项至少有两个东西,path,template
+    const router = [
+      {
+        path: '/index',
+        template: '<div>首页</div>'
+      },
+      {
+        path: '/classify',
+        template: '<div>分类页</div>'
+      },
+      {
+        path: '/cart',
+        template: '<div>购物车也</div>'
+      },
+      {
+        path: '/mine',
+        template: '<div>我的</div>'
+      },
+    ]
+
+    const box = document.querySelector('.box');
+
+    const handleChange = () => {
+      // console.log(123);
+      // 获取哈希值
+      const urlHash = window.location.hash.slice(1);
+      for (const key in router) {
+        if (router[key].path === urlHash) {
+          box.innerHTML = router[key].template;
+        }
+      }
+    };
+
+    // 监听一个hashchange事件
+    // 第一个是监听哪种事件，第二个是回调函数，第三个是是否冒泡 false是冒泡，true是捕获
+    window.addEventListener('hashchange', handleChange, false);
+
+    
+  </script>
+</body>
+</html>

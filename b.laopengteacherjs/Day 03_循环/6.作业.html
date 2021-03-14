@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //1.打印100–200之间所有能被3和7整除的数
+    // var i = 100;
+    // while (i <= 200) {
+    //     if (i % 3 === 0 && i % 7 === 0) { //满足条件输出
+    //         document.write(i + '<br>');
+    //     }
+    //     i++;
+    // }
+
+    //2.求出1/1-1/2+1/3-1/4…1/100的和.
+    //分母有规律的1-100.
+    //符号：- + 
+    // var fz = 1;
+    // var fm = 1; //1-100
+    // var sum = 0; //和
+    // while (fm <= 100) {
+    //     sum += fz / fm; //1.sum=0+1  2.sum = 1 - 1/2  3.sum = 1 - 1/2 + 1/3
+    //     fz = -fz;
+    //     fm++;
+    // }
+
+    // alert(sum); //0.688172179310195
+
+    //3.打印出1000-2000年中所有的闰年，并以每行四个数的形式输出
+    // year % 4 === 0 && year % 100 !== 0 || year % 400 === 0
+    //每输出四个数，输入<br>
+    // var year = 1000;
+    // var num = 0;
+    // while (year <= 2000) {
+    //     if (year % 4 === 0 && year % 100 !== 0 || year % 400 === 0) {
+    //         num++; //计算个数
+    //         document.write(year + '---');
+    //         if (num % 4 === 0) { //每输出四个数，输入<br>
+    //             document.write('<br>');
+    //         }
+    //     }
+    //     year++;
+    // }
+    // alert(num); //243
+</script>
+
+</html>

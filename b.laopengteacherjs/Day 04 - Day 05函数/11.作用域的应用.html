@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var a = 1;
+
+        function fn() {
+            var a = 2;
+            console.log(a); //2
+        }
+        fn();
+        console.log(a); //1
+
+        console.log('--------------------------------------');
+        var b = 1;
+
+        function fn() {
+            b = 2; //重新赋值
+            console.log(b); //2
+        }
+        fn();
+        console.log(b); //2
+
+        console.log('--------------------------------------');
+        var c = 1;
+
+        function fn(c) { //函数的参数相当于函数内部的变量 var c = 1
+            c = 2; //局部的,来自参数的c。
+            console.log(c); //2
+        }
+        fn(c); //全局的c当做实参
+        console.log(c); //1
+    </script>
+</body>
+
+</html>

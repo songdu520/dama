@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+</body>
+<script>
+    //一.自定义的对象概述：
+    //对象是属性的无序集合，它将很多值聚合在一起，可通过名字访问这些值，每个属性都是一个键/值对。
+    //对象的属性名一定是字符串，系统会自动调用一个toString()进行强制转换，对象的属性名无需添加引号(字面量定义属性时可以添加引号)。
+
+    //自定义对象比数组对象更大，更重要。
+
+    //二.创建一个自定义的对象。
+    //1.利用构造函数创建自定义对象。
+    // var obj = new Object(); //obj:自定义的对象名   Object:类
+    // obj.name = 'zhangsan'; //自定义对象的属性。
+    // obj.age = 100; //自定义对象的属性。
+    // obj.showinfo = function() { //自定义对象的属性。
+    //     return '我是姓名是：' + obj.name + ',我的年龄是：' + obj.age
+    // };
+    // console.log(obj.name); //访问属性
+    // console.log(obj.showinfo); //访问属性。
+    // console.log(obj.showinfo()); //访问方法。调用函数。
+    // console.log(obj.hehe); //undefined  对象存在。
+
+    //2.利用字面量创建自定义对象。
+    // var obj = {
+    //     'name': 'zhangsan',
+    //     'age': 100,
+    //     'showinfo': function() {
+    //         return '我是姓名是：' + obj.name + ',我的年龄是：' + obj.age
+    //     }
+    // }
+
+    // console.log(obj.name); //访问属性
+    // console.log(obj.showinfo); //访问属性。
+    // console.log(obj.showinfo()); //访问方法。调用函数。
+    // console.log(obj.hehe); //undefined  对象存在。
+
+    //3.读写自定义对象的属性值。
+    //3.1.给自定义对象赋值 - 写
+    //两种方式写入值：
+    //第一种：点操作符,点操作符后面只能跟字符串。
+    //第二种：中括号,中括号里面可以放字符串和变量。
+    // var obj = {
+    //     a: 1 //添加属性，进行赋值。
+    // };
+    // obj.b = 2; //添加属性，进行赋值。
+    // obj['c'] = 3; //添加属性，进行赋值。
+
+    //3.2.获取自定义对象的值 - 读
+    // console.log(obj);
+    // console.log(obj.a);
+    // console.log(obj.b);
+    // console.log(obj['c']);
+</script>
+
+</html>

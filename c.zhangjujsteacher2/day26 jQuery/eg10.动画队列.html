@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery.js"></script>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+    <script>
+        $(function() {
+            // 动画队列
+            // jQuery中所有的效果 都会为元素 添加动画队列
+            // 淡入淡出 隐藏显示 滑动 自定义动画
+
+            // 队列 是一种数据结构
+            // 先进先出
+
+            // jQuery为所有动画效果的元素 添加了一个队列功能
+            // 代码按照顺序依次将动画效果推入到队列的尾部，在每一个动画效果完成之后会从队列的头部取出下一个动画进行执行
+            // let box = $('.box')
+
+
+            // $(selector).delay(time) 为动画设置延迟执行  
+
+            $('.box').on('click', function() {
+                // $(this).delay(2000)
+                //     .animate({
+                //         width: 300
+                //     }, 1000).delay(2000)
+                //     .animate({
+                //         height: 300
+                //     }, 1000).delay(2000)
+                //     .animate({
+                //         width: 100
+                //     }, 1000)
+                //     .animate({
+                //         height: 100
+                //     }, 1000);
+
+                // box的动画队列 ['第一个动画宽300','第二个动画高300','第三个动画宽100','第四个动画高100']
+                // 为什么要写链式调用？ 减少DOM查找
+
+
+                $(this).slideUp(2000).delay(2000).slideDown(2000);
+
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="box"></div>
+</body>
+
+</html>

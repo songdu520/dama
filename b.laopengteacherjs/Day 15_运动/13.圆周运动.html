@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 20px;
+            height: 20px;
+            background-color: red;
+            position: absolute;
+            left: 700px;
+            top: 350px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+</body>
+<script>
+    // let x = a + Math.sin(angle * Math.PI / 180) * r;
+    // let y = b + Math.cos(angle * Math.PI / 180) * r;
+    // x,y盒子的位置
+    // a,b:圆心的位置
+    // angle:角度
+    // r:半价
+
+    const box1 = document.querySelector('.box');
+    let timer = null;
+    let angle = 0;
+    let a = 500;
+    let b = 350;
+    let r = 200;
+    timer = setInterval(() => {
+        angle++;
+        if (angle >= 360) {
+            clearInterval(timer);
+        }
+        box1.style.left = a + Math.cos(angle * Math.PI / 180) * r + 'px';
+        box1.style.top = b + Math.sin(angle * Math.PI / 180) * r + 'px';
+
+        let cDiv = document.createElement('div');
+        cDiv.style.cssText = `width:5px;height:5px;background:blue;position:absolute;left:${box1.offsetLeft}px;top:${box1.offsetTop}px;`;
+        document.body.appendChild(cDiv);
+    }, 1000 / 60);
+</script>
+
+</html>

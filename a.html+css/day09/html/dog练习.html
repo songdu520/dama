@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  <style>
+      * {
+          margin: 0;padding: 0;
+          
+      }
+      img{
+          display: block;
+      }
+     .box{
+         width: 500px;
+         height: 375px;
+         border: groove 30px pink;
+         position: relative;
+     }
+     .box p{position: absolute;
+     bottom: 20px;
+     right: 30px;
+     
+
+
+     }
+     .box p a{
+         display: block;
+         width: 30px;
+         height: 30px;
+         background:rgba(0,0,0, 0.3);
+         float: left;
+         margin-left: 20px;
+         text-align: center;
+         line-height: 30px;
+         color:#fff;
+         text-decoration: none;
+
+     }
+     
+     .box div {
+         height: 375px;
+         overflow: hidden;
+     }
+
+
+  </style>
+</head>
+<body>
+    <div class="box">
+        <p><a href="#a">1</a>
+            <a href="#b">2</a>
+            <a href="#c">3</a>
+            <a href="#d">4</a>
+
+        </p>
+         
+        <div><img src="../img/img04.jpg" alt="" id="a">
+            <img src="../img/img05.jpg" alt="" id="b">
+            <img src="../img/img06.jpg" alt="" id="c">
+            <img src="../img/img07.jpg" alt="" id="d">
+          
+            
+        </div>
+
+    </div>
+</body>
+</html>

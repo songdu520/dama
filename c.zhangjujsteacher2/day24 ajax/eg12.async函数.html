@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./Z.js"></script>
+    <script>
+        // ES2017 新增 async 函数 用于处理异步操作
+        // Generator 函数的语法糖
+        // /ˈdʒenəreɪtər/ 发电机；发生器；生产者
+
+        // async 定义在函数前 语义表示 函数内部有异步操作
+        // async 就是替代了原来的*
+        // await 就是代替原来的 yield
+        //                    /jiːld/收益
+
+        let fn = async() => {
+            // await后跟的是promise对象 
+            // await的返回值是prosmie的结果
+            let data1 = await $.get('./1.txt');
+            let data2 = await $.get('./eg10.promise-ajax.html');
+            let data3 = await $.get('./eg06.天气预报.html');
+            console.log(data1);
+            console.log(data2);
+            console.log(data3);
+        }
+
+        fn();
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

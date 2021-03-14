@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="example-1">
+    <!-- <button v-on:click="counter += 1">Add 1</button>
+    <p>The button above has been clicked {{ counter }} times.</p> -->
+    <input type="text" @input="hangleInput(5, $event)">
+  </div>
+
+  <script src="../../Vue.js"></script>
+  <script>
+    var example1 = new Vue({
+      el: '#example-1',
+      data: {
+        counter: 0
+      },
+      methods: {
+        hangleInput (num, e) {
+          console.log(num, e.target.value);
+        }
+      },
+    })
+  </script>
+</body>
+</html>

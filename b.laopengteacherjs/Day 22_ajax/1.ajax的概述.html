@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //渲染render - 需要数据 - ajax
+    //接口数据地址：
+    //http://192.168.11.5/JS2008/phpdata/taobaodata.php
+
+    //1.ajax的概念
+    //AJAX即异步JavaScript和XML，是指一种创建交互式网页应用的网页开发技术。ajax是前后端交互的核心技术。
+    //ajax获取后端的数据。
+    //ajax将数据发送给后端。
+
+    //2.异步
+    //为什么是异步，js的异步是代码中的一种理想方式，ajax进行数据获取的时候，异步避免数据失去响应时候，其他的和数据无关的代码能够继续执行。
+
+    //javascript语言是一门“单线程”的语言，javascript就像一条流水线，仅仅是一条流水线而已，要么加工，要么包装，不能同时进行多个任务和流程,无论如何，js做事情的时候都是只有一条流水线（单线程），同步和异步的差别就在于这条流水线上各个流程的执行顺序不同。
+    // 同步：阻塞模式,在主线程上排队执行的任务，只有前一个任务执行完毕，才能执行后一个任务
+    // console.log(a); //报错,阻塞
+    // console.log(1);
+    // console.log(2);
+
+    // 异步：非阻塞模式，不进入主线程、而进入"任务队列"的任务，只有等主线程任务执行完毕，"任务队列"开始通知主线程，请求执行任务，该任务才会进入主线程执行。
+    // setTimeout(function() {
+    //     console.log(a); //报错,异步,等到主线程的代码执行完成才执行对列中的代码。
+    // }, 0)
+    // console.log(1);
+    // console.log(2);
+
+    //异步代码：定时器，事件，ajax
+
+    //3.XML
+    //可扩展的标签或者标记语言，早期用来获取数据的主要格式。但是因为后面有了json，慢慢被json取代了。
+    //XML标签用户自定义的。
+    //XML文件一定要有根标签和文档声明。
+
+    //JSON : 是前后端交互最好的数据格式。
+</script>
+
+</html>

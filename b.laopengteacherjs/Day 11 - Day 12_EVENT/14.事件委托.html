@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>11111</li>
+        <li>2222</li>
+        <li>333333</li>
+        <li>444444</li>
+        <li>11111</li>
+        <li>555555</li>
+        <li>11111</li>
+        <p>ppppppp</p>
+        <p>ppppppp</p>
+        <p>ppppppp</p>
+        <strong>strong</strong>
+        <strong>strong</strong>
+        <span>span</span>
+        <span>span</span>
+        <p>ppppppp</p>
+        <p>ppppppp</p>
+        <p>ppppppp</p>
+        <p>ppppppp</p>
+        <p>ppppppp</p>
+        <p>ppppppp</p>
+        <li>11111</li>
+        <li>11111</li>
+        <li>11111</li>
+        <li>777777</li>
+        <li>777777</li>
+        <li>777777</li>
+        <li>777777</li>
+        <li>11111</li>
+        <li>11111</li>
+        <li>11111</li>
+        <li>777777</li>
+        <li>777777</li>
+        <li>777777</li>
+        <li>777777</li>
+        <li>11111</li>
+        <li>11111</li>
+        <li>11111</li>
+        <li>777777</li>
+        <li>777777</li>
+        <li>777777</li>
+        <li>777777</li>
+        <li>11111</li>
+        <li>11111</li>
+        <li>11111</li>
+        <li>777777</li>
+        <li>777777</li>
+        <li>777777</li>
+        <li>777777</li>
+        <li>11111</li>
+        <li>11111</li>
+        <li>11111</li>
+        <li>777777</li>
+        <li>777777</li>
+        <li>777777</li>
+        <li>777777</li>
+        <li>11111</li>
+        <li>11111</li>
+        <li>11111</li>
+        <li>777777</li>
+        <li>777777</li>
+        <li>777777</li>
+        <li>777777</li>
+        <li>11111</li>
+        <li>11111</li>
+        <li>11111</li>
+        <li>777777</li>
+        <li>777777</li>
+        <li>777777</li>
+        <li>777777</li>
+        <li>11111</li>
+        <li>11111</li>
+        <li>11111</li>
+        <li>777777</li>
+        <li>777777</li>
+        <li>777777</li>
+        <li>777777</li>
+        <li>11111</li>
+        <li>11111</li>
+        <li>11111</li>
+        <li>777777</li>
+        <li>777777</li>
+        <li>777777</li>
+        <li>777777</li>
+        <li>11111</li>
+        <li>11111</li>
+        <li>11111</li>
+        <li>777777</li>
+        <li>777777</li>
+        <li>777777</li>
+        <li>777777</li>
+    </ul>
+</body>
+<script>
+    //1.事件冒泡
+    //子元素的事件会冒泡的父元素，逐级向上传播，直到document.
+
+    //2.事件委托
+    //利用冒泡的原理，将子元素的事件委托给父元素。
+
+    //传统方式：
+    console.time('a');
+    var aLi = document.querySelectorAll('ul li');
+    for (var i = 0; i < aLi.length; i++) {
+        aLi[i].onclick = function() {
+            console.log(this.innerHTML);
+        }
+    }
+    console.timeEnd('a');
+
+    //获取目标元素的兼容。
+    //ev.target属性：获取当前事件操作的目标元素对象。标准
+    //ev.srcElement属性：获取当前事件操作的目标元素对象。非标准
+    console.time('b');
+    var oUl = document.querySelector('ul');
+    oUl.onclick = function(ev) {
+        var ev = ev || window.event;
+        // console.log(ev.target || ev.srcElement);
+        // console.log(ev.target.nodeName);
+        if (ev.target.nodeName === 'LI') {
+            console.log(ev.target.innerHTML);
+        }
+    }
+    console.timeEnd('b');
+
+    //3.事件委托优缺点。
+    //优点：减少事件注册，节约内存，提升性能。
+    //缺点：所有事件都用事件代理，可能会出现事件误判。即本不该被触发的事件被绑定上了事件。
+</script>
+
+</html>

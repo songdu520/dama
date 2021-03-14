@@ -1,0 +1,45 @@
+const gulp = require('gulp'); // 引入模块
+const rename = require('gulp-rename');
+
+// 部署任务
+// gulp.task(taskname,callback)
+
+gulp.task('default', function() { // 运行 gulp 命令 直接默认default任务
+    return new Promise((resolve, reject) => {
+        console.log('你好世界');
+        resolve();
+    })
+});
+
+gulp.task('sayhello', function() {
+    return new Promise((resolve, reject) => {
+        console.log('hello');
+        resolve();
+    })
+});
+
+
+// gulp.src()  源
+// gulp.pipe() 通道
+// gulp.dest() 目的地
+
+gulp.task('copyindex', function() {
+    return gulp.src('./src/html/index.html')
+        .pipe(gulp.dest('./dist/html'));
+});
+
+gulp.task('copyjs', function() {
+    return gulp.src(['./src/js/*.js', '!src/js/jquery.min.js'])
+        .pipe(gulp.dest('./dist/js'));
+});
+
+// 修改文件名 
+// 使用第三方模块
+// gulp-rename
+// 安装
+// $ cnpm i gulp-rename -D
+gulp.task('renamejs', () => {
+    return gulp.src('./src/js/index.js')
+        .pipe(rename('hello.js'))
+        .pipe(gulp.dest('./dist/js'));
+});

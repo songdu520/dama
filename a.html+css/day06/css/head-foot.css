@@ -1,0 +1,40 @@
+.wrapper{
+    width:1160px;
+    margin:0 auto;
+}
+/* banner å¹¿å‘Šå›¾ */
+#banner .wrapper{
+    height:360px;
+    background:url(../img/151266876929749.jpg) no-repeat center top
+}
+/* main ä¸»ä½“å†…å®¹ å®½é«˜è‡ªé€‚åº”*/
+#main h1{
+    text-align: center;
+    font-style:oblique;
+    line-height:94px;
+}
+#main ul{
+    width:1100px;
+    margin:0 auto;
+}
+#main ul li{
+    border-bottom:1px solid #ddd;
+    height:56px;
+    line-height:56px;
+    background:url(../img/news-ico.jpg) no-repeat 7px center;
+    /* è®¾ç½®èƒŒæ™¯å›¾ç‰‡å¤§å° 
+      backgrounhd-s.wrapperize:width height;
+      background-size:width auto; 
+      background-size:20px 20px
+      background-size:20px;
+    */
+    background-size:20px 20px;
+    text-indent: 30px;
+}
+#main li span{
+    float:right;
+    font-size:14px;
+}
+#main li a{
+    color:#000;
+}

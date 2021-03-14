@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .item {
+            width: 300px;
+            height: 300px;
+            border: 1px solid #ccc;
+            display: none;
+        }
+        
+        button.active {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <button class="active">1111111</button>
+    <button>2222222</button>
+    <button>3333333</button>
+    <button>4444444</button>
+    <div class="item" style="display:block">
+        <ul>
+            <li>111111</li>
+            <li>111111</li>
+            <li>111111</li>
+            <li>111111</li>
+            <li>111111</li>
+        </ul>
+    </div>
+    <div class="item">
+        <ul>
+            <li>2222222</li>
+            <li>2222222</li>
+            <li>2222222</li>
+            <li>2222222</li>
+            <li>2222222</li>
+        </ul>
+    </div>
+    <div class="item">
+        <ul>
+            <li>33333333333</li>
+            <li>33333333333</li>
+            <li>33333333333</li>
+            <li>33333333333</li>
+            <li>33333333333</li>
+        </ul>
+    </div>
+    <div class="item">
+        <ul>
+            <li>444444</li>
+            <li>444444</li>
+            <li>444444</li>
+            <li>444444</li>
+            <li>444444</li>
+        </ul>
+    </div>
+
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+    //当前案例需要的方法：
+    //1.$():括号里面通过各种css选择器获取元素，通过属性选择元素。选择单个获取多个。
+    //2.on(events,[selector],[data],fn)在选择元素上绑定一个或多个事件的事件处理函数，可以实现事件绑定，事件委托。
+    //events：事件类型，没有on 
+    //selector：被委托的元素
+    //data：事件触发时传输数据
+    //fn：回调函数(事件处理函数)
+    //3.addClass(class|fn)为每个匹配的元素添加指定的类名。
+    //4.removeClass(class|fn)为每个匹配的元素删除指定的类名。
+    //5.siblings([expr])获取当前元素之外的兄弟元素。注意传选择器.
+    //  /ˈsɪblɪŋz/ 兄弟姐妹
+    //6.index([selector|element])搜索匹配的元素，并返回相应元素的索引值，从0开始计数。注意传选择器.
+    //7.eq(index|-index)获取第N个元素
+    //8.show()显示隐藏的元素。
+    //9.hide()隐藏显示的元素
+</script>
+<script>
+    //jquery写法
+    ! function($) {
+        const btns = $('button'); //存储元素4个
+        const items = $('.item'); //4个
+        //所有的按钮添加事件
+        btns.on('click', function() {
+            //当前的元素添加active,其他的兄弟元素移除active
+            $(this).addClass('active').siblings('button').removeClass('active');
+            //$(this).index():获取当前按钮的索引
+            items.eq($(this).index()).show().siblings('.item').hide();
+        });
+    }(jQuery);
+</script>
+
+</html>

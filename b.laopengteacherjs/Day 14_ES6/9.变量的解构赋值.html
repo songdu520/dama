@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //一.变量的解构赋值。
+    //ES6允许按照一定模式，从数组和对象中提取值，对变量进行赋值，这被称为解构.
+    //解构的作用是可以快速取得数组或对象当中的元素或属性，而无需使用arr[x]或者obj[key]等传统方式进行赋值.
+
+    // let arr = [1, 2, 3, 4];
+    // let a = arr[0];
+    // let b = arr[1];
+    // let c = arr[2];
+    // let d = arr[3];
+    // console.log(a, b, c, d);
+    //1.数组的解构赋值
+    // let arr = [1, 2, 3, 4];
+    // let [a, b, c, d] = arr; //let [a, b, c, d] = [1,2,3,4];  对应关系
+    // console.log(a, b, c, d);
+
+    // let arr = ['zhangsan', ['lisi', ['wangwu']]];
+    // console.log(arr[0]);
+    // console.log(arr[1][0]);
+    // console.log(arr[1][1][0]);
+    // let [a, [b, [c]]] = arr;
+    // console.log(a, b, c);
+
+    // let [a, b, c, d] = [1, 2, 3, 4, 5];
+    // console.log(a, b, c, d);
+
+    // let [e, f, g, h] = [6, 7, 8];
+    // console.log(e, f, g, h);//6 7 8 undefined
+
+    //案例：一个数字数组，输出最大值，最小值，数组的长度,封装函数实现。
+    // let arr = [12, 4, 567, 6, 12, 56, 8, 0];
+
+    // function optionarr(arr) {
+    //     arr.sort((a, b) => {
+    //         return a - b;
+    //     });
+    //     return [arr[0], arr[arr.length - 1], arr.length];
+    // }
+    // let [min, max, len] = optionarr(arr);
+    // console.log(min, max, len);
+
+    //2.对象的解构赋值。
+    // let obj = {
+    //     a: 1,
+    //     b: 2,
+    //     c: 3
+    // };
+
+    // let {
+    //     a,
+    //     b,
+    //     c
+    // } = obj;
+
+    //属性名很重要，利用属性名去获取对应的值，可以更改。
+    // let {
+    //     d,
+    //     e,
+    //     f
+    // } = obj;
+    // console.log(a, b, c, d, e, f); //1 2 3 undefined undefined undefined
+
+    let obj = {
+        name1: 'zhangsan',
+        age: 100,
+        sex: '男'
+    };
+
+    let {
+        name1: xingming, //修改属性名称，一旦修改，name1就失效了。
+        age
+    } = obj;
+    // console.log(name1); //name1 is not defined
+    console.log(xingming); //zhangsan
+    console.log(age); //100
+
+    //案例：一个数字数组，输出最大值，最小值，数组的长度,封装函数实现。
+    let arr = [12, 4, 567, 6, 12, 56, 8, 0];
+
+    // function optionarr(arr) {
+    //     arr.sort((a, b) => {
+    //         return a - b;
+    //     });
+    //     return {
+    //         min: arr[0],
+    //         max: arr[arr.length - 1],
+    //         len: arr.length
+    //     }
+    // }
+    // let {
+    //     min
+    // } = optionarr(arr);
+    // console.log(min);
+    // let obj = {
+    //     name1: 'zhangsan',
+    //     age: 100,
+    //     sex: '男'
+    // };
+
+    // function fn({
+    //     name1,
+    //     age,
+    //     sex
+    // } = obj) {
+    //     console.log(age + 150);
+    // }
+
+    // fn();
+
+    // alert(name);//不会报错，window有一个name属性。
+</script>
+
+</html>

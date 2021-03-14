@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <script src="./Z.js"></script>
+    <script>
+        $(function() {
+            if (document.cookie) { // 判断有cookie数据
+                let arr = document.cookie.split('; ');
+                arr.forEach(elm => {
+                    let item = elm.split('=');
+
+                    switch (item[0]) {
+                        case 'username':
+                            $('[name="username"]').attr('value', item[1]);
+                            $('#save').attr('checked', 'checked');
+                            break;
+                        case 'password':
+                            $('[name="password"]').attr('value', item[1]);
+                            break;
+                    }
+                    // console.log(item[0], item[1]);
+                })
+            }
+
+            $('#save').on('click', function() {
+                if (this.checked) {
+                    document.cookie = 'username=' + $('[name="username"]')[0].value;
+                    document.cookie = 'password=' + $('[name="password"]')[0].value;
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="text-center">登陆页面</h1>
+        <form action="#" method="POST">
+            <div class="input-group">
+                <span class="input-group-addon" id="username">用户名</span>
+                <input type="text" class="form-control" placeholder="Username" aria-describedby="username" name="username">
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon" id="password">密&nbsp;&nbsp;&nbsp;码</span>
+                <input type="text" class="form-control" placeholder="Password" aria-describedby="password" name="password">
+            </div>
+            <div class="text-center">
+                <span id="savepass">记住密码</span>
+                <input type="checkbox" id="save">
+            </div>
+
+            <input type="submit" class="btn btn-success btn-block">
+        </form>
+    </div>
+</body>
+
+</html>

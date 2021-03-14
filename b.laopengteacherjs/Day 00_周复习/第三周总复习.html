@@ -1,0 +1,82 @@
+<!-- 
+    一.事件对象
+        1.事件对象的概念
+        2.事件对象的获取。 var ev  = ev  || window.event;
+        3.事件对象下面的重要的属性
+            - ev.clientX,ev.clientY√
+            - ev.pageX,ev.pageY
+            - ev.keyCode
+            - ev.which:键盘按键编码和鼠标编码。√
+            - ev.canelBubble = true
+            - ev.returnfalse = false
+            - ev.ctrlKey ev.altKey ev.shiftKey√
+            - ev.target  ev.srcElement√
+        4.事件对象下面的重要的方法
+            - ev.stopPropagation()√
+            - ev.preventDefault()√
+            - addEventListener()√
+            - attachEvent()
+            - removeEventListener()√
+            - detachEvent()
+        5.事件流
+            - 事件捕获
+            - 目标事件
+            - 事件冒泡 √
+        6.事件绑定(侦听，监听)
+            - DOM 0级和DOM 2级事件的区别√
+            - 标准事件绑定和非标准的事件绑定额区别√
+        7.事件委托(委派)
+            - 事件委托的概念：利用冒泡原理，将子元素的事件委托给父元素。√
+            - 事件委托的优缺点√
+        8.注意事项 √
+            - 列举事件下面的兼容问题(5个以上)
+                - 获取元素对象 ev||window.event;
+                - 事件冒泡
+                - 默认行为
+                - 事件绑定和取消事件绑定。
+                - 获取目标元素 ev.target || ev.srcElement
+                - which || keyCode
+            - 常见的事件类型
+            - 取消浏览器的默认行为三种方式
+            - 事件委托的应用(举例说明)
+
+    二.正则表达式
+        1.正则表单验证案例。√
+        2.正则下面的方法和字符串下面支持正则的方法
+            - test（正则 )
+            - match
+            - split
+            - replace
+        3.读懂常见的正则表达式。√
+        4.利用正则解决一些算法 - replace
+
+    三.ES6继承
+        1.this方面
+            - this概述
+            - 如何改变this的指向(三种方式)
+            - call,apply,bind三者的区别
+        2.JSON √
+            - JSON的特点。
+            - JSON下面的两个静态方法(JSON.parse/JSON.stringify)
+        3.ES6核心的继承 √
+            - let const 特点
+            - let var const 的区别
+            - 解构赋值
+                - 对象的解构赋值
+                - 函数返回多个值
+            - 扩展运算符
+            - 模板字符串
+            - 箭头函数特点
+            - 数组和对象下面的扩展方法
+                - Array.from
+                - Object.assign
+                - Object.keys
+            - for...of和iterator
+            - generator基本特性(重点)
+            - class应用 - class创建类，生成对象。
+            - for...of与其他遍历语法的比较
+
+
+
+    
+ -->

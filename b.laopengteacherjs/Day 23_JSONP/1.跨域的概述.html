@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script src="../ajaxcallback.js"></script>
+<script>
+    // ajax({
+    //     url: 'https://suggest.taobao.com/sug?code=utf-8&q=%E8%A1%A3%E6%9C%8D&_ksTS=1600305227886_257',
+    //     success: function(data) {
+    //         console.log(data);
+    //     }
+    // });
+    // No 'Access-Control-Allow-Origin'
+
+    ajax({
+        url: 'http://127.0.0.1/JS2008/phpdata/news.php',
+        success: function(data) {
+            console.log(data);
+        }
+    });
+
+    // No 'Access-Control-Allow-Origin'
+
+    //跨域错误 ：请求的域名和当前的域名不一样，浏览器是阻止的。 
+    //1.为什么产生跨域错误
+    //因为浏览器的同源策略。同源策略是浏览器的最基本的安全策略。
+    //同源策略：同源策略阻止从一个域上加载的脚本获取或操作另一个域上的文档属性。同源策略是浏览器最核心也最基本的安全功能。
+
+    //2.那些情况会产生跨域错误
+    //域名不同
+    //协议不同(http/https)
+    //端口不同(80/443)
+    //域名和域名对应ip地址也不行。
+    //一级域名和二级域名(主域和子域)也不行。
+
+    // https://www.baidu.com  //主域
+    // https://news.baidu.com  //子域
+</script>
+
+</html>

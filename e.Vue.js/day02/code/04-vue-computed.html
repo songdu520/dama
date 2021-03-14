@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <p>{{ reverseMsg }}</p>
+    <p>{{ reverseMsg }}</p>
+    <p>{{ reverseMsg }}</p>
+    <p>{{ reverseMsg2 }}</p>
+  </div>
+
+  <script src="../../Vue.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data() {
+        return {
+          msg: 'hello',
+          msg2: '!!!!!'
+        }
+      },
+      // methods: {
+      //   reverseMsg () {
+      //     console.log(123);
+      //     return this.msg.split('').reverse().join('');
+      //   }
+      // },
+      computed: {
+        reverseMsg () {
+          return this.msg.split('').reverse().join('') + this.msg2;
+        },
+        reverseMsg2 () {
+          return this.reverseMsg + '??';
+        }
+      },
+      mounted() {
+        setTimeout(() => {
+          this.msg = 'hihihi';
+          // this.reverseMsg = 'hihihi';
+        }, 2000)
+      },
+    })
+  </script>
+</body>
+</html>

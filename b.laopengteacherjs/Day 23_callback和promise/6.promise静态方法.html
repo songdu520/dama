@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script src="ajaxpromise.js"></script>
+<script>
+    //区别回调函数
+
+    //1.Promise.all()：用于将多个 Promise 实例，包装成一个新的 Promise 实例，接受一个数组作为参数，只有数组里面的每个状态都变成resolve，则新的 Promise 实例状态才会变成resolve.
+
+    //同时获取三个接口的值，每一个接口都要成功。
+    //1.http://localhost/JS2008/phpdata/news.php
+    //2.http://localhost/JS2008/phpdata/newslist.php
+    //3.http://localhost/JS2008/phpdata/piclist.php
+
+    // let newpromise = Promise.all([
+    //     ajax({
+    //         url: 'http://localhost/JS2008/phpdata/news.php',
+    //         dataType: 'json'
+    //     }),
+    //     ajax({
+    //         url: 'http://localhost/JS2008/phpdata/newslist.php',
+    //         dataType: 'json'
+    //     }),
+    //     ajax({
+    //         url: 'http://localhost/JS2008/phpdata/piclist.php',
+    //         dataType: 'json'
+    //     })
+    // ]);
+
+    // newpromise
+    //     .then(function(data) {
+    //         console.log(data); //将三个接口返回的数据继续存入一个数组，方便后续访问。
+    //     })
+    //     .catch(function(err) { //任何一个接口地址有误，走catch。
+    //         console.log('接口地址有误');
+    //     });
+
+
+    //2.Promise.race():赛跑的意思，用于将多个 Promise 实例，包装成一个新的 Promise 实例，接受一个数组作为参数，那个状态率先改变，当前的状态就跟着改变。那个率先改变的 Promise 实例的返回值，就是整个方法的返回值。
+
+    let p1 = new Promise((resolve, reject) => {
+        setTimeout(function() {
+            reject('p1');
+        }, 1000);
+    });
+    let p2 = new Promise((resolve, reject) => {
+        setTimeout(function() {
+            resolve('p2');
+        }, 500);
+    });
+    let p3 = new Promise((resolve, reject) => {
+        setTimeout(function() {
+            reject('p3');
+        }, 100);
+    });
+    let newpromise = Promise.race([p1, p2, p3]);
+    newpromise.then(function(data) {
+        console.log('成功' + data);
+    }).catch(function(err) {
+        console.log('失败');
+    });
+</script>
+
+</html>

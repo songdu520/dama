@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1 {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            left: 100px;
+            top: 600px;
+            z-index: 2;
+        }
+        
+        .box2 {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            position: absolute;
+            left: 1200px;
+            top: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+</body>
+<script>
+    //抛物线运动：y=a*x*x+b*x+c 抛物线方程。
+
+    const box1 = document.querySelector('.box1');
+    const box2 = document.querySelector('.box2');
+    let timer = null;
+    box1.onclick = function() {
+        clearInterval(timer);
+        //求a,b,c
+        //a:曲率，抛物线的弧度 根据可视区的情况值需要约定(0.002-0.009)
+        //c:如果将盒子运动的位置当做原点位置，c=0 
+
+        let a = 0.0014;
+
+        //求b :  y=a*x*x+b*x
+        //存起始位置
+        let start = {
+            x: box1.offsetLeft,
+            y: box1.offsetTop
+        };
+
+        //x,y距离：目标点减去起始位置。
+        let distance = {
+            x: box2.offsetLeft - start.x,
+            y: box2.offsetTop - start.y
+        }
+
+        let b = (distance.y - a * distance.x * distance.x) / distance.x;
+
+
+        let speedx = 0;
+        timer = setInterval(() => {
+            speedx += 5;
+            if (box1.offsetLeft >= box2.offsetLeft) {
+                clearInterval(timer);
+            } else {
+                box1.style.left = start.x + speedx + 'px'; //一直向前运动
+                box1.style.top = start.y + a * speedx * speedx + b * speedx + 'px'; //根据抛物线方程运动
+            }
+
+        }, 1000 / 60)
+    }
+</script>
+
+</html>

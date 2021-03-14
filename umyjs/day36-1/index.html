@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="login" style="display: none;">
+        你好，<span style="color:red">张三</span>欢迎光临本商城！
+        <a href="javascript:;">退出</a>
+    </div>
+    <div class="admin">
+        <a href="login.html">请登录</a>
+        <a href="registry.html">请注册</a>
+    </div>
+</body>
+<script>
+    const login = document.querySelector('.login');
+    const admin = document.querySelector('.admin');
+    const span = document.querySelector('.login span');
+    const close = document.querySelector('.login a');
+    //如果存在用户名，login盒子显示出来，将用户名赋值给login里面span
+    if (localStorage.getItem('user')) {
+        login.style.display = 'block';
+        admin.style.display = 'none';
+        span.innerHTML = localStorage.getItem('user');
+    }
+
+    //清除本地存储
+    close.onclick = function() {
+        localStorage.removeItem('user');
+        login.style.display = 'none';
+        admin.style.display = 'block';
+    }
+</script>
+
+</html>

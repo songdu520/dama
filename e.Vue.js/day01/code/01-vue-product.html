@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 双大括号的插值语法，能够将响应式的数据直接渲染在页面上 -->
+        <!-- {{ message }} -->
+        <ul>
+            <!-- v-for指令，用于循环 -->
+            <!-- <li v-for="item in arr">{{ item }}</li> -->
+            <li v-for="item in arr">
+                <!-- v-model用于做数据的双向绑定的 -->
+                <input type="number" v-model="item.age"> {{ item.name }}的月薪是{{ item.age }}k -
+                <!-- v-if指令,用于条件判断 -->
+                <span v-if="item.age < 20">你没有到平均工资</span>
+            </li>
+        </ul>
+        <p>我们班的总工资是{{ total }}</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+        const vm = new Vue({
+            // 参数，options
+            // element的简写,表示要挂载到哪个节点
+            el: '#app',
+            // data里面放响应式的数据
+            data: {
+                // message: 'hello Vue!'
+                // arr: ['🍎', '🍌', '🍓', '🍇']
+                arr: []
+            },
+            // 是一个生命周期钩子函数，相当于window.onload
+            // mounted() {
+            //   setTimeout(() => {
+            //     this.message = 'haha';
+            //   }, 2000);
+            // }
+            mounted() {
+                fetch('http://localhost:3000/api/students/get')
+                    .then(response => response.json())
+                    .then(res => {
+                        this.arr = res.result;
+                    });
+            },
+            // 计算属性，会依赖响应式的数据
+            computed: {
+                // 写法上是一个函数，一定要return
+                total() {
+                    return this.arr.reduce((sum, item) => {
+                        return sum += +item.age
+                    }, 0)
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

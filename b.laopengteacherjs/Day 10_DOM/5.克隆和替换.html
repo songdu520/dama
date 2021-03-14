@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="box">
+        <ul>
+            <li>boxbox</li>
+            <li>boxbox</li>
+            <li>boxbox</li>
+            <li>boxbox</li>
+            <li>boxbox</li>
+        </ul>
+    </div>
+    <hr>
+</body>
+<script>
+    //1.obj.cloneNode() 克隆(复制)obj节点，可以传一个布尔值为参数，如果参数为true，连同obj子元素一起克隆。
+    // var oBox = document.querySelector('.box');
+    // var cloneBox = oBox.cloneNode(true); //克隆
+    // document.body.appendChild(cloneBox); //追加
+
+
+    //2.替换
+    //父节点.replaceChild(新添加的节点 , 被替换的节点)  替换子节点
+    //替换的时候不考虑子元素，全部进行替换了。
+    // var cP = document.createElement('p'); //新添加的节点
+    // var oBox = document.querySelector('.box'); //被替换的节点
+    // document.body.replaceChild(cP, oBox);
+
+    //可以修改一下方法
+    // var cP = document.createElement('p'); //新添加的节点
+    // var oBox = document.querySelector('.box'); //被替换的节点
+    // cP.className = 'box'
+    // cP.innerHTML = oBox.innerHTML;
+    // // document.body.replaceChild(cP, oBox);
+    // document.body.appendChild(cP);
+
+
+    // var oBox = document.querySelector('.box');
+    // document.body.removeChild(oBox);
+</script>
+
+</html>

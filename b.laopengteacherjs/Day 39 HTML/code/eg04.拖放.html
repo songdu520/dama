@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 600px;
+            height: 200px;
+            border: 1px solid black;
+            margin: 0 auto;
+        }
+        
+        img {
+            /* display: block;
+            fl */
+            float: left;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            var box = document.querySelector('.box');
+            var dog = document.querySelector('.dog');
+
+            dog.ondragstart = function(ev) {
+                // console.log(ev);
+
+                // ev.dataTransfer.setData('msg', '你好世界');  // 设置数据
+                // console.log(ev.dataTransfer.getData('msg'));  // 获得数据
+                ev.dataTransfer.setData('className', ev.target.className);
+            }
+
+            box.ondrop = function(ev) {
+                // console.log(ev.dataTransfer.getData('className'));
+                ev.target.appendChild(document.querySelector(`.${ev.dataTransfer.getData('className')}`).cloneNode());
+            }
+
+            box.ondragover = function(ev) {
+                ev.preventDefault();
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="box"></div>
+    <img class="dog" src="C:\Users\Administrator\Desktop\timg.jpg" style="width:200px" alt="">
+</body>
+
+</html>

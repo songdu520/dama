@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // function sum(a, b, c, d) {
+    //     return a + b + c + d;
+    // }
+
+    // alert(sum(1, 2, 3, 4));
+
+    // 1.函数不介意传递进来多少参数，也不会因为参数不统一而错误。
+    // function sum(a, b, c, d) {
+    //     return a + b + c + d;
+    // }
+
+    // alert(sum(1, 2, 3, 4, 5, 6, 7, 8)); //10 多余的自动作废。
+
+    // function sum(a, b, c, d) { //函数的参数相当于函数内部的变量 var a=1,b=2,c=3,d;
+    //     return a + b + c + d; //1+2+3+undefiend
+    // }
+    // alert(sum(1, 2, 3)); //NaN
+
+    //2.函数体内有一个特殊的对象(系统内置)arguments, 利用arguments对象来接收传递进来的参数.
+    //arguments对象
+    //arguments.length:获取参数的长度
+    //arguments[下标]:下标是从0开始的整数。arguments[0]:第一个参数的值，依次类推
+    function sum() {
+        // return arguments[99];
+        for (var i = 0, result = 0; i < arguments.length; i++) { //i:0-99 下面每个参数的下标。
+            result += arguments[i]; //累加
+        }
+        return result; //整个实参相加的结果。
+    }
+
+    alert(sum(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
+</script>
+
+</html>

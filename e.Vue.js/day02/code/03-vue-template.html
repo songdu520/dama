@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <p>hello</p>
+    <p v-once>总数为{{ count + 8 }}</p>
+    <p v-html="msg"></p>
+    <p v-text="msg"></p>
+    <p>{{ msg }}</p>
+    <p>{{ ok ? 'YES' : 'NO' }}</p>
+    <p>{{ message.split('').reverse().join('') }}</p>
+    <p v-bind:[msg2]="message">{{ message }}</p>
+    <input type="text" v-bind:disabled="true">
+    <p :title="message">{{ message }}</p>
+    <p @click="handleClick">{{ message }}</p>
+  </div>
+  <script src="../../Vue.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data() {
+        return {
+          count: 10,
+          msg: '<h1>how are you</h1>',
+          ok: true,
+          message: 'hello!',
+          msg2: 'title'
+        }
+      },
+      methods: {
+        handleClick() {
+          alert(123)
+        }
+      },
+      // mounted() {
+      //   setInterval(() => {
+      //     this.count++;
+      //   }, 1000);
+      // }
+    })
+  </script>
+</body>
+</html>

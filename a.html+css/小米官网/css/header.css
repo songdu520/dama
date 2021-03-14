@@ -1,0 +1,150 @@
+.topbar {
+    width: 100%;
+    background-color: black;
+    
+}
+.topbar::after{
+content: "";
+display: block;
+clear: both;
+}
+ .inner{
+    width: 1226px;
+    margin: auto;
+}
+
+ .topbar .left li{float: left;
+    padding: 12px 0px;
+    }
+   .topbar .left li a{
+        color: #b0b0b0;
+        font-size: 13px;
+        display: block;
+        height: 13px;
+        padding: 0px 9px;
+        border-right: #423b36 1px solid;
+
+    }
+    .topbar .right {float: right;
+
+    }
+    .topbar .right li{
+        float: left;
+        padding: 12px 0px;
+    }
+    .topbar .right li a{color: #b0b0b0;
+        font-size: 13px;
+        display: block;
+        height: 13px;
+        padding: 0px 9px;
+        border-right: #423b36 1px solid;
+
+    }
+    .nav {
+        margin:22px 0 ;
+        position: relative;
+        
+    }
+    .nav h1{
+        display: inline-block;
+        vertical-align: top;
+       position: relative;
+       overflow: hidden;
+       height: 55px;
+       width: 55px;
+       
+    }
+    
+    .nav .logo a{
+        
+        display: inline-block;
+        height: 55px;
+        width: 55px;
+        background: url(../img/mi-logo.png)  #ff6700;
+        position: absolute;
+        top: 0;
+        left:0;
+        transition: left 0.5s;
+        
+    }
+    .nav .logo .home{ height: 55px;
+        width:55px;
+        background: url(../img/mi-home.png)  #ff6700;
+        position: absolute;
+        right:55px;
+        top: 0;
+       
+        transition: right 0.5s;
+
+    }
+        
+    .nav .logo:hover .home{right: 0;
+
+    }
+    .nav .logo:hover a{
+        left: 55px;
+    }
+  
+    .nav ul{
+        margin-left: 180px;
+        display: inline-block;
+
+    }
+    .nav ul::after{
+        content: "";
+        display:block;
+        clear: both;
+        height: 0;
+        overflow: hidden;
+        visibility: hidden;
+
+    }
+    .nav ul li{
+        float: left;
+    }
+    .nav ul>li>a{
+        display: inline-block;padding: 20px 10px;
+   ;}
+   .nav ul .subnav{
+    border-top: 1px solid #b0b0b0;
+       position: absolute;
+       left: 0;
+       bottom: -250px;
+       height:0px ;
+       width: 100%;
+       display: none;
+       z-index: 999;
+       background-color: white;
+       transition: heigth 3s;
+       overflow: hidden;
+      
+       
+       
+}
+    .nav ul .subnav a{
+        float: left;
+       padding: 30px 0px;
+
+    }
+   .nav ul .subnav  a img{
+        border-right: 1px solid #b0b0b0 ;
+    }
+    .nav ul .subnav  a p{
+        text-align: center;
+        font-size: 5px;
+    }
+.nav li:hover .subnav{
+    display: block;
+    height: 250px;
+   
+
+}
+.nav li:hover>a{
+    color: #ff6700;
+}
+
+
+    
+
+    
+    

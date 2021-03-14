@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+        .box {
+            width: 160px;
+            height: 198px;
+            background: url(suspend.png);
+            position: fixed;
+            right: -120px;
+            top: 50%;
+            margin-top: -99px;
+        }
+        
+        body,
+        ul,
+        li,
+        ol {
+            list-style: none;
+            padding: 10px;
+            margin: 20px;
+            font-size: 12px;
+            font-family: 微软雅黑;
+        }
+        
+        img {
+            border: 0px;
+        }
+        
+        .picList {
+            width: 100%;
+            float: left;
+        }
+        
+        .picList .col {
+            width: 300px;
+            height: 170px;
+            position: relative;
+            overflow: hidden;
+            float: left;
+            margin: 0px 0 0 10px;
+        }
+        
+        .picList .col img,
+        .col a {
+            position: absolute;
+            top: 0px;
+            left: 10px;
+        }
+        
+        .picList .col img {
+            width: 100%;
+        }
+        
+        .picList .col a {
+            display: block;
+            width: 280px;
+            height: 150px;
+            top: 170px;
+            background: #000;
+            color: white;
+            font-style: normal;
+            line-height: 25px;
+            opacity: 0.8;
+            text-decoration: none;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <div class='picList' id="picList">
+        <div class='col' id="pic1">
+            <img src="img/1.jpg" />
+            <a href='#'>学会html5 <br />
+                本课程由浅入深，逐步推进，以示例为主线，详细完整地介绍HTML5的新功能与新特征
+            </a>
+        </div>
+
+        <div class='col' id="pic2">
+            <img src="img/2.jpg" />
+            <a href='#'>圆角水晶按钮制作<br />
+                网页中的圆角按钮和宽度自适应按钮就这么轻松制作！
+            </a>
+        </div>
+
+        <div class='col' id="pic3">
+            <img src="img/3.jpg" />
+            <a href='#'>导航条菜单的制作<br />
+                30分钟教你轻松制作出各种形式的网站导航条菜单
+            </a>
+        </div>
+
+    </div>
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+    //方法介绍
+    //1.animate(params,[speed],[easing],[fn])用于创建自定义动画的函数。
+    ///ˈænɪmeɪt/ 有生命的
+    //注意：jquery的运动只要你触发了，立马将运动载入队列里面，直到队列运动全部完成。
+    //params：对象，css属性或者html属性终值。
+    ///ˌpærəˈm/参数
+    //speed：速度(ms)
+    //easing：运动形式，默认是缓冲swing   匀速linear
+    //fn：回调函数。
+    //2.hover():两个函数做参数，第一个函数表示鼠标移入的回调，第二个参数鼠标移出的回调。
+    //3.stop([clearQueue],[jumpToEnd]) 停止所有在指定元素上正在运行的动画。
+    //clearQueue：清除队列动画
+    //jumpToEnd：直接跳到动画的结尾处。
+
+    //4.find(expr|obj|ele)搜索所有与指定表达式匹配的元素。这个函数是找出正在处理的元素的后代元素的好方法。
+    //获取内部的元素，链式方式不断查找，参数可以是任意的选择器。
+</script>
+<script>
+    $('.box').hover(function() {
+        $(this).stop(true).animate({
+            right: 0
+        });
+    }, function() {
+        $(this).stop(true).animate({
+            right: -120
+        });
+    });
+
+    $('.col').hover(function() {
+        $(this).find('a').stop(true).animate({
+            top: 0
+        });
+    }, function() {
+        $(this).find('a').stop(true).animate({
+            top: 170
+        });
+    })
+</script>
+
+</html>

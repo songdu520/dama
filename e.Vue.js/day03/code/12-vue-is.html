@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <ul>
+      <li v-for="(item, index) in list" :key="item" @click="changIndex(index)">
+        {{ item }}
+      </li>
+    </ul>
+
+    <!-- <child1 v-if="index === 0"></child1>
+    <child2 v-if="index === 1"></child2>
+    <child3 v-if="index === 2"></child3> -->
+    <component :is="currentComponent"></component>
+  </div>
+
+  <script src="../../Vue.js"></script>
+  <script>
+    const Child1 = {
+      template: `
+        <span>Child1</span>
+      `
+    }
+
+    const Child2 = {
+      template: `
+        <span>Child2</span>
+      `
+    }
+
+    const Child3 = {
+      template: `
+        <span>Child3</span>
+      `
+    }
+
+    new Vue({
+      el: '#app',
+      data() {
+        return {
+          list: ['tab1', 'tab2', 'tab3'],
+          index: 0,
+          currentComponent: ''
+        }
+      },
+      methods: {
+        changIndex(i) {
+          this.currentComponent = `Child${i + 1}`;
+        }
+      },
+      components: {
+        Child1,
+        Child2,
+        Child3
+      }
+    })
+  </script>
+</body>
+</html>

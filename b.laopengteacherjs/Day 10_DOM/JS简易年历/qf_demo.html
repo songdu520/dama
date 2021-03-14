@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>JavaScript简易日历</title>
+    <style type="text/css">
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        li {
+            list-style: none;
+        }
+        
+        body {
+            background: #f6f9fc;
+            font-family: arial;
+        }
+        
+        .calendar {
+            width: 210px;
+            margin: 0 auto;
+            padding: 10px 10px 20px 20px;
+            background: #eae9e9;
+        }
+        
+        .calendar ul {
+            width: 210px;
+            overflow: hidden;
+            padding-bottom: 10px;
+        }
+        
+        .calendar li {
+            float: left;
+            width: 58px;
+            height: 54px;
+            margin: 10px 10px 0 0;
+            border: 1px solid #fff;
+            background: #424242;
+            color: #fff;
+            text-align: center;
+            cursor: pointer;
+        }
+        
+        .calendar li h2 {
+            font-size: 20px;
+            padding-top: 5px;
+        }
+        
+        .calendar li p {
+            font-size: 14px;
+        }
+        
+        .calendar .active {
+            border: 1px solid #424242;
+            background: #fff;
+            color: #e84a7e;
+        }
+        
+        .calendar .active p {
+            font-weight: bold;
+        }
+        
+        .calendar .text {
+            width: 178px;
+            padding: 0 10px 10px;
+            border: 1px solid #fff;
+            padding-top: 10px;
+            background: #f1f1f1;
+            color: #555;
+        }
+        
+        .calendar .text h2 {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        
+        .calendar .text p {
+            font-size: 12px;
+            line-height: 18px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="tab" class="calendar">
+        <ul id="box">
+            <li class="active">
+                <h2>1</h2>
+                <p>JAN</p>
+            </li>
+            <li>
+                <h2>2</h2>
+                <p>FER</p>
+            </li>
+            <li>
+                <h2>3</h2>
+                <p>MAR</p>
+            </li>
+            <li>
+                <h2>4</h2>
+                <p>APR</p>
+            </li>
+            <li>
+                <h2>5</h2>
+                <p>MAY</p>
+            </li>
+            <li>
+                <h2>6</h2>
+                <p>JUN</p>
+            </li>
+            <li>
+                <h2>7</h2>
+                <p>JUL</p>
+            </li>
+            <li>
+                <h2>8</h2>
+                <p>AUG</p>
+            </li>
+            <li>
+                <h2>9</h2>
+                <p>SEP</p>
+            </li>
+            <li>
+                <h2>10</h2>
+                <p>OCT</p>
+            </li>
+            <li>
+                <h2>11</h2>
+                <p>NOV</p>
+            </li>
+            <li>
+                <h2>12</h2>
+                <p>DEC</p>
+            </li>
+        </ul>
+        <div class="text" id="txt">
+            <h2 id="h2">1月活动</h2>
+            <p id="p1">快过年了，大家可以商量着去哪玩吧～</p>
+        </div>
+    </div>
+
+</body>
+<script>
+    //索引思维。
+    var arr = [
+        ['1月活动', '快过年了，大家可以商量着去哪玩吧～'],
+        ['2月活动', '快过年了，大家可以商量着去哪玩吧～'],
+        ['3月活动', '快过年了，大家可以商量着去哪玩吧～'],
+        ['4月活动', '快过年了，大家可以商量着去哪玩吧～'],
+        ['5月活动', '快过年了，大家可以商量着去哪玩吧～'],
+        ['6月活动', '快过年了，大家可以商量着去哪玩吧～'],
+        ['7月活动', '快过年了，大家可以商量着去哪玩吧～'],
+        ['8月活动', '快过年了，大家可以商量着去哪玩吧～'],
+        ['9月活动', '快过年了，大家可以商量着去哪玩吧～'],
+        ['10月活动', '快过年了，大家可以商量着去哪玩吧～'],
+        ['11月活动', '快过年了，大家可以商量着去哪玩吧～'],
+        ['12月活动', '快过年了，大家可以商量着去哪玩吧～'],
+    ];
+
+    var aLi = document.querySelectorAll('#box li'); //12个li
+    var oH2 = document.querySelector('#h2'); //标题
+    var oP = document.querySelector('#p1'); //正文
+    for (var i = 0; i < aLi.length; i++) {
+        aLi[i].index = i; //每一个li添加一个索引位置。(重点)
+        aLi[i].onclick = function() {
+            //this:当前点击的li元素。
+
+            //去掉其他li元素上面的className.
+            //直接去掉所有li元素上面的className.
+            for (var j = 0; j < aLi.length; j++) {
+                aLi[j].className = '';
+            }
+            //当前点击的li添加一个类名：active
+            this.className = 'active';
+
+            //索引思维：知道当前点击的li的索引位置，取到数组对应的索引位置。
+            //通过自定义属性给每个li添加一个索引值。
+            // alert(this.index);//当前li的索引位置，li的索引位置和数组的索引位置一样的。
+            oH2.innerHTML = arr[this.index][0];
+            oP.innerhTML = arr[this.index][1];
+        }
+    }
+</script>
+
+</html>

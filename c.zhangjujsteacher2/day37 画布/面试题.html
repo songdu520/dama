@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="page">
+        <div class="content main">
+            <ul>
+                <li id="li1" class="li1 li2 li3">11111</li>
+                <li>222222</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // 实现一个函数 genCssSelector
+        // 获得被点元素的选择器
+        // 如果点击第一个li元素
+        // 需要返回 html body #page .content.main ul li
+        // genCssSelector 的返回值选择器可以支持 
+        // document.querySelectorAll('html body #page .content.main ul li')
+
+        function genCssSelector(node, res) {
+            // 核心思路 获得每一个节点的选择器
+            let thisNodeSelector = '';
+
+            if (node.id) thisNodeSelector += `#${node.id}`; // 如果有id 就使用id选择器
+
+            if (node.className) { // 如果有类名 拼接类选择器
+                let arr = node.className.split(' '); // 拆分类名
+                arr.forEach(el => {
+                    thisNodeSelector += `.${el}`;
+                });
+            }
+
+            // 如果没有类名也没有id 则使用元素选择器(tagname)
+            if (!thisNodeSelector) thisNodeSelector = node.nodeName.toLowerCase();
+
+            res.push(thisNodeSelector); // 将当前元素的选择器放入结果数组
+
+            // return thisNodeSelector;
+            if (node.parentNode && node.parentNode != document) {
+                return arguments.callee(node.parentNode, res); // 递归遍历父节点
+            } else {
+                // 没有父节点了 父节为document 返回结果
+                return res.reverse().join(' ');
+            }
+        }
+
+        document.addEventListener('click', function(e) {
+            console.log(genCssSelector(e.target, [])); // e.target 事件目标
+        });
+    </script>
+</body>
+
+</html>

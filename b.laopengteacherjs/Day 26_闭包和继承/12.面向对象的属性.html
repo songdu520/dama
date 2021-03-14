@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    function Person(name, age, sex) {
+        this.name = name;
+        this.age = age;
+        this.sex = sex;
+    }
+
+    Person.prototype.num = 10;
+
+    Object.prototype.count = 100;
+
+    let p1 = new Person('zhangsan', 100, '男');
+    // console.log(p1 instanceof Object); //true
+    // console.log(p1 instanceof Function); //false
+    // console.log(Person instanceof Object); //true
+    // console.log(Person instanceof Function); //true
+    // console.log(new Person instanceof Function); //false
+    // 1.hasOwnProperty()  : 看是不是对象自身下面的属性， 只在属性存在于实例中时才返回 true。
+    //        /oʊn/自己的 /ˈprɑːpərti/性质，性能 ,属性
+    // 和原型链没有关系。
+    // console.log(p1.hasOwnProperty('age')); //构造函数下面的属性。
+    // console.log(p1.hasOwnProperty('num')); //false
+    // console.log(p1.hasOwnProperty('count')); //false
+
+    // 2.toString() :系统对象下面都是自带的 , 系统对象都有toString(),自己写的对象都是通过原型链找Object下面的，可以把对象转成字符串，可以做进制转换或者类型的判断。
+    //转字符串
+    // let arr = [1, 2, 3, 4];
+    // console.log(arr); //[1, 2, 3, 4]
+    // console.log(arr.toString()); //1,2,3,4
+    //进制转换
+    // let a = 10;
+    // console.log(a.toString(2)); //1010
+    // console.log(a.toString(8)); //12
+    // console.log(a.toString(10)); //10
+    // console.log(a.toString(16)); //a
+    //最好的检测数据类型的方法。
+    // console.log(Object.prototype.toString.call('string')); //[object String]
+    // console.log(Object.prototype.toString.call(123));
+    // console.log(Object.prototype.toString.call(true));
+    // console.log(Object.prototype.toString.call(null));
+    // console.log(Object.prototype.toString.call(undefined));
+    // console.log(Object.prototype.toString.call([]));
+    // console.log(Object.prototype.toString.call({}));
+    // console.log(Object.prototype.toString.call(/\d/));
+    // console.log(Object.prototype.toString.call(function() {}));
+    // console.log(Object.prototype.toString.call(new Date));
+
+    // 3.constructor：实例对象的构造函数  (实例对象.constructor)
+    // console.log(p1.constructor);
+    // console.log(Person.prototype.constructor);
+    // console.log(Person);
+    // console.log(new Array().constructor); //ƒunction Array() { [native code] }
+    // console.log(Array.prototype.constructor); //ƒunction Array() { [native code] }
+    // console.log(Array);//ƒunction Array() { [native code] }
+
+    // 4.instanceof：判断一个对象是否是一个构造函数（类）的实例。
+    // /ˈɪnstəns/实例
+    // JS最大的BOSS -> Object.prototype （原型链的顶端）
+    // Object.prototype->两个总裁（Object   Function）
+    // Object总裁->Array/Date/RegExp/XMLHttpRequest......
+    // Function总裁->function
+    // console.log(Object instanceof Function); //true
+    // console.log(Function instanceof Object); //true
+
+    //总结：
+    // 对象属于Object
+    // 函数属于Object
+    // 函数属于Function
+</script>
+
+
+<script>
+    // function fn() {
+    //     var a = 1;
+    //     var b = 2;
+    //     alert(a + b)
+    // }
+
+    // var fn1 = new Function('var a=1;var b=2;alert(a+b);')
+    // fn();
+    // fn1();
+</script>
+
+</html>

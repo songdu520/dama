@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .item {
+            width: 300px;
+            height: 300px;
+            border: 1px solid #ccc;
+            display: none;
+        }
+        
+        button.active {
+            background-color: red;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            const aBtn = document.querySelectorAll('.tab button');
+            const aItems = document.querySelectorAll('.tab .item');
+            for (let i = 0; i < aBtn.length; i++) {
+                aBtn[i].onclick = function() {
+                    // this:当前操作的元素对象li
+                    // i:每一个按钮和li对应的索引.let声明，let声明的变量绑定在区域块里面。
+                    for (let i = 0; i < aBtn.length; i++) {
+                        aBtn[i].className = '';
+                        aItems[i].style.display = 'none';
+                    }
+                    aBtn[i].className = 'active';
+                    aItems[i].style.display = 'block';
+                };
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="tab">
+        <button class="active">1111111</button>
+        <button>2222222</button>
+        <button>3333333</button>
+        <button>4444444</button>
+        <div class="item" style="display:block">
+            <ul>
+                <li>111111</li>
+                <li>111111</li>
+                <li>111111</li>
+                <li>111111</li>
+                <li>111111</li>
+            </ul>
+        </div>
+        <div class="item">
+            <ul>
+                <li>2222222</li>
+                <li>2222222</li>
+                <li>2222222</li>
+                <li>2222222</li>
+                <li>2222222</li>
+            </ul>
+        </div>
+        <div class="item">
+            <ul>
+                <li>33333333333</li>
+                <li>33333333333</li>
+                <li>33333333333</li>
+                <li>33333333333</li>
+                <li>33333333333</li>
+            </ul>
+        </div>
+        <div class="item">
+            <ul>
+                <li>444444</li>
+                <li>444444</li>
+                <li>444444</li>
+                <li>444444</li>
+                <li>444444</li>
+            </ul>
+        </div>
+    </div>
+
+
+</body>
+<script>
+    //1.ES6新增了let命令，用来声明变量。它的用法类似于var，但是所声明的变量，只在let命令所在的代码块内有效{ }。即let所声明的变量就“绑定”这个区域，不再受外部的影响。
+    //全局作用域：var 函数外面声明的变量，作用于整个文档。
+    //局部作用域：var 函数内部声明的变量，作用于函数内部。
+    //块级作用域：let 声明的变量，作用于代码块内 - {}
+
+    // for (var i = 1; i <= 10; i++) {
+    //     console.log(i) //1-10;
+    // }
+    // console.log(i); //11
+
+    // for (let j = 1; j <= 10; j++) {
+    //     console.log(j) //1-10;
+    // }
+    // console.log(j); //无法找到j，块之外。
+
+    //2.let特点 - （类似于var，继承了var的一些信息）
+    //值会改变，写入内存，松散类型，声明多个
+    //2.1.Let声明的不存在变量提升 - 暂时性死区。
+    //ES6 规定暂时性死区和let、const语句不出现变量提升，主要是为了减少运行时错误，防止在变量声明前就使用这个变量，从而导致意料之外的行为。
+    //暂时性死区的本质就是，只要一进入当前作用域，所要使用的变量就已经存在了，但是不可获取，只有等到声明变量的那一行代码出现，才可以获取和使用该变量。
+    // console.log(a); //暂时性死区，无法访问。
+    // let a = 10;
+    // a++;
+    // console.log(a); //11
+    //2.2.let不允许在相同作用域内，重复声明同一个变量。
+    // let a = 10;
+    // let a = 20;//报错
+
+    // let num = 1;//ok
+    // {
+    //     let num = 2;//ok
+    //     console.log(num);
+    // }
+
+
+    //2.3.ES6允许块级作用域的任意嵌套，外层无法读取内层作用域的变量，反之可以
+    // {
+    //     let a = 1; {
+    //         let b = 2;
+    //         console.log(a, b, c); //c:报错的
+    //         {
+    //             let c = 3;
+    //             console.log(a, b, c);
+    //         }
+    //     }
+    // }
+    //2.4.let所声明的变量就“绑定”这个区域，不再受外部的影响
+    // for (var i = 1; i <= 5; i++) {
+    //     setTimeout(function() {
+    //         console.log(i); //5次6
+    //     }, 1000)
+    // }
+
+    // for (let i = 1; i <= 5; i++) { //保留i作用域。
+    //     setTimeout(function() {
+    //         console.log(i); //1,2,3,4,5
+    //     }, 1000)
+    // }
+
+    //3.常量：const声明一个只读的常量。一旦声明，常量的值就不能改变。其他的特点和let一样的。
+    //         /ˈkɒnst/常量
+    // const num = 1;
+    // num = 2;
+    // console.log(num); //常量的值不能被改变。
+
+    // const obj = { //地址没有变的。
+    //     a: 1
+    // };
+    // obj.a = 2;
+    // console.log(obj.a); //2
+
+
+    // obj = { //这里不能对常量赋值一个变化的地址。
+    //     a: 2
+    // };
+</script>
+
+</html>

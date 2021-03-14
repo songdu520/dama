@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box li {
+            line-height: 30px;
+        }
+        
+        .box li a {
+            text-decoration: none;
+        }
+        
+        .box li a:hover {
+            text-decoration: underline;
+            color: orange;
+        }
+        
+        .main {
+            width: 260px;
+            border: 3px solid #ccc;
+            padding: 5px;
+            background-color: #eee;
+            display: none;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <ol>
+            <li><a href="#" data-tips="2013年12月14日，嫦娥3号卫星登上月球，激动人心的一切终于来了.....">中国嫦娥飞天的一些感想</a></li>
+            <li><a href="#" data-tips="它的特殊之处就是在于它的面积很大,我们完全可以说是它是世界上最大的公园,比85%的国家还要大......">中国是世界上最强大的国家</a></li>
+            <li><a href="#" data-tips="8月31日，中共中央政治局召开会议，审议《黄河流域生态保护和高质量发展规划纲要》">八月中央政治局会议 习近平部署这两件大事</a></li>
+            <li><a href="#" data-tips="这是今年8月以来召开的唯一一次中共中央政治局会议。此次会议对黄河流域生态保护和高质量发展以及中央和国家机关党组（党委）">习近平的海外“朋友圈”</a></li>
+        </ol>
+    </div>
+    <div class="main">
+
+    </div>
+</body>
+<script>
+    var aA = document.querySelectorAll('.box li a');
+    var oMain = document.querySelector('.main');
+    // var arr = [
+    //     '2013年12月14日，嫦娥3号卫星登上月球，激动人心的一切终于来了.....',
+    //     '它的特殊之处就是在于它的面积很大,我们完全可以说是它是世界上最大的公园,比85%的国家还要大......',
+    //     '8月31日，中共中央政治局召开会议，审议《黄河流域生态保护和高质量发展规划纲要》',
+    //     '这是今年8月以来召开的唯一一次中共中央政治局会议。此次会议对黄河流域生态保护和高质量发展以及中央和国家机关党组（党委）'
+    // ];
+    //给4个a元素添加鼠标移入和移出的事件。
+    for (var i = 0; i < aA.length; i++) {
+        // aA[i].index = i;
+        aA[i].onmouseover = function() {
+
+            oMain.style.display = 'block';
+            // oMain.innerHTML = arr[this.index];
+            oMain.innerHTML = this.getAttribute('data-tips'); //获取自定义属性的值给当前的oMain
+            //鼠标移动不断将位置赋值给oMain
+            this.onmousemove = function(ev) {
+                var ev = ev || window.event; //鼠标移动，不断的创建新的事件对象，不断变化的鼠标位置。
+                oMain.style.left = ev.clientX + 10 + 'px';
+                oMain.style.top = ev.clientY + 10 + 'px';
+            }
+
+
+        };
+        aA[i].onmouseout = function() {
+            oMain.style.display = 'none';
+        };
+    }
+</script>
+
+</html>

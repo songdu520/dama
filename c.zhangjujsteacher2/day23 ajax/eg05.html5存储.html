@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // html5标准 新增了两种数据的存储方式
+
+        // localStorage       本地存储 数据长期有效 除非清空或用户清除浏览器缓存
+        // seesionStorage     会话存储 有效期为一次会话
+
+        // console.log(localStorage);
+        // console.log(localStorage.length);
+        // 拥有一个 length 属性 可以查看当前存储数据的数量
+
+        let ls = localStorage;
+
+        // 1. 设置数据
+        // ls.setItem(key,value);
+        // key 在localStorage中是唯一的
+        // value 是字符串类型 
+        // 如果值不是字符串类型 会自动调用 toString() 函数
+        // 如果key已存在 则为修改value
+
+        // ls.setItem('username', 'zhangsan');
+
+        // let user = {
+        //     'username': 'zhangsan',
+        //     'age': 25,
+        //     'sex': 'nan'
+        // }
+
+        // ls.setItem('user', JSON.stringify(user));
+
+
+        // 2. 获取数据
+        // ls.getItem(key)
+        // key 获取的内容对应的键
+        // console.log(JSON.parse(ls.getItem('user')));
+
+        // 3. 删除数据
+        // ls.removeItem(key)
+        // key 需要删除的键名
+        // ls.removeItem('username');
+
+
+        // 4. 获得key
+        // ls.key(index)  
+        // for (let i = 0; i < ls.length; i++) {
+        //     console.log(ls.getItem(ls.key(i)));
+        // }
+
+        // 5. 清空(删除所有数据)
+        // ls.clear();
+
+        // ls.setItem('js', 'var a = 10;var b = 5; console.log(a+b);');
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

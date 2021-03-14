@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //1.创建表格
+    // document.write('<table border=1>');
+    // for (var i = 1; i <= 10; i++) {
+    //     document.write('<tr>');
+    //     for (var j = 1; j <= 10; j++) {
+    //         document.write('<td>1111</td>')
+    //     }
+    //     document.write('</tr>');
+    // }
+    // document.write('</table>');
+
+
+    // document.write('<table border=1>');
+    // for (var i = 1; i <= 5; i++) {
+    //     document.write('<tr>');
+    //     for (var j = 1; j <= 5; j++) {
+    //         document.write('<td>1111</td>')
+    //     }
+    //     document.write('</tr>');
+    // }
+    // document.write('</table>');
+
+
+    // document.write('<table border=1>');
+    // for (var i = 1; i <= 3; i++) {
+    //     document.write('<tr>');
+    //     for (var j = 1; j <= 3; j++) {
+    //         document.write('<td>1111</td>')
+    //     }
+    //     document.write('</tr>');
+    // }
+    // document.write('</table>');
+
+
+    //上面创建三个表格，代码重复很大(冗余)
+    // function createTable(a, b) {
+    //     document.write('<table border=1>');
+    //     for (var i = 1; i <= a; i++) {
+    //         document.write('<tr>');
+    //         for (var j = 1; j <= b; j++) {
+    //             document.write('<td>1111</td>')
+    //         }
+    //         document.write('</tr>');
+    //     }
+    //     document.write('</table>');
+    // }
+
+    // createTable(10, 10);
+    // createTable(5, 5);
+    // createTable(3, 3);
+
+    //一.声明函数
+    //ECMAScript 中的函数使用 function 关键字来声明,后跟一组参数以及函数体。
+    //函数名相当于整个函数代码。
+    //函数的类型 - function(独立的类型)
+    //函数如果只是声明了没有调用，当做此函数不存在。
+    //普通函数任何地方反复调用。
+
+    //1.普通函数 - 有名称的函数。
+    // a();
+
+    function a() { //a:函数名称,  ():参数
+        //函数体 - 执行函数允许的代码块。
+        alert('hehe');
+    }
+    // a();
+
+
+    //2.带参数的普通函数 - 函数体中可变的值设为参数，函数的使用更灵活。
+    function b(x, y) { //x,y函数的形参,形参出现在函数定义中，在整个函数体内都可以使用。形参相当于定义在函数内部的变量(var x, y;)，是形式上存在的
+
+        //函数体 - 执行函数允许的代码块。
+        console.log(x + y);
+    }
+
+    // b(23, 27, 30); //将23->x   27->y   30忽略了(没有对应的形参接收)。
+    // b(2, 35);
+    // b(20, 35);
+
+    //3.带参数+带返回值的函数。
+    //函数都有一条return语句，返回函数的结果给调用者。 
+    //return语句导致函数停止执行。函数结束了
+    //如果函数里面没有return语句，则函数返回undefined。
+    // function c(x, y) {
+    //     //函数体 - 执行函数允许的代码块。
+    //     console.log(x + y); //40
+    // }
+
+    // function d(x, y) {
+    //     //函数体 - 执行函数允许的代码块。
+    //     return x + y;
+    //     alert('hehe'); //return语句导致函数停止执行。函数结束了
+    //     alert('hehe'); //return语句导致函数停止执行。函数结束了
+    //     alert('hehe'); //return语句导致函数停止执行。函数结束了
+    // }
+
+    //二.函数的调用：使用函数。
+    //函数名后跟一个括号,里面表示函数的实参，实参出现在函数调用过程中，实参将值传递给形参。实参是具体的值
+    // b(23, 27, 30); //将23->x   27->y   30忽略了(没有对应的形参接收)。
+    // b(2, 35);
+    // b(20, 35);
+
+    // console.log(c(10, 30)); //输出函数调用的返回值。undefined
+    // console.log(d(10, 100)); //110
+    // document.write(d(100, 200)); //300
+    // alert(d(1000, 200)); //1200
+
+
+    //案例：
+    //编写一个函数，计算两个数字的和、差、积、商.
+
+    //声明一个函数。
+    function calc(n1, n2, op) { //n1,n2:两个数字  op：运算的符号。函数的参数函数体中使用。
+        switch (op) {
+            case '+':
+                return n1 + n2;
+                break;
+            case '-':
+                return n1 - n2;
+                break;
+            case '*':
+                return n1 * n2;
+                break;
+            case '/':
+                return n1 / n2;
+                break;
+        }
+    }
+
+    // var num = calc(12, 2, '+');
+    // alert(num);
+    // document.write(calc(12, 2, '+'))
+    // console.log(calc(34, 10, '*'));
+</script>
+
+</html>

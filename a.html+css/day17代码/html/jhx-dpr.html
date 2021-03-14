@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Document</title>
+        <link rel="stylesheet" href="../css/reset.css" />
+        <!-- <link rel="stylesheet" href="../css/jhx1.css" /> -->
+        <link rel="stylesheet" href="../css/jhx2.css" />
+        <link rel="stylesheet" href="../iconfont/iconfont.css" />
+        <script src="../js/flexible-1.js"></script>
+        <!-- 
+            1. vw= html的font-size和vw的关系 100px/7.5px=13.33vw
+            
+            2. js= 屏幕大小和font-size的关系（7.5  6.4）
+                   屏幕大小和视口大小是一致
+                   屏幕大小/7.5=html{font-size}
+
+            3. dpr 屏幕大小
+            
+            判断dpr是1，还是2，还是3 = 对应的改变视大小（1-视口与屏幕大小相同
+            2-视口放大2倍   3-视口放大3）
+            用放大之后的视口大小/7.5 = font-size
+            
+            用script引入js文件
+            语法：<script src="js路径"></script>
+            把视口设置的meta标签删掉；
+         -->
+    </head>
+    <body>
+        <!-- main -->
+        <main>
+            <!-- main 第一个部份 -->
+            <section class="header">
+                <!-- 头像 -->
+                <div>
+                    <img src="../img/3.jpg" alt="" />
+                </div>
+                <div>
+                    <h2>妮妮</h2>
+                    <p>已经购买3000单，为您省了1234567元</p>
+                </div>
+                <div>
+                    <i class="iconfont">&#xeb89;</i>
+                    <i class="iconfont">&#xe60e;</i>
+                </div>
+            </section>
+            <!-- main 第二个部分 -->
+            <section class="nav">
+                <section class="nav-order">
+                    <span>我的订单</span>
+                    <a href="#">查看全部订单<i class="iconfont">&#xe622;</i></a>
+                </section>
+                <section class="nav-list">
+                    <ul>
+                        <li>
+                            <a href="#">
+                                <i class="iconfont">&#xe608;</i>
+                                <span>代付款</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="iconfont">&#xe608;</i>
+                                <span>代付款</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="iconfont">&#xe608;</i>
+                                <span>代付款</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="iconfont">&#xe608;</i>
+                                <span>代付款</span>
+                            </a>
+                        </li>
+                    </ul>
+                </section>
+            </section>
+            <!-- main 第三个部分 -->
+            <section class="nav-list-bot">
+                <ul>
+                    <li>
+                        <a href="#">
+                            <i class="iconfont">&#xe608;</i>
+                            <span>代付款</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="iconfont">&#xe608;</i>
+                            <span>代付款</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="iconfont">&#xe608;</i>
+                            <span>代付款</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="iconfont">&#xe608;</i>
+                            <span>代付款</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="iconfont">&#xe608;</i>
+                            <span>代付款</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="iconfont">&#xe608;</i>
+                            <span>代付款</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="iconfont">&#xe608;</i>
+                            <span>代付款</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="iconfont">&#xe608;</i>
+                            <span>代付款</span>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+            <!-- main 第四个部分 -->
+            <section class="pro-choice">
+                <h2>商品精选</h2>
+                <ul>
+                    <li>
+                        <a href="#">
+                            <div>
+                                <img src="../img/7.jpg" alt="" />
+                            </div>
+                            <div class="product-dis">
+                                <p>
+                                    这个美女，物美价廉
+                                </p>
+                                <span>
+                                    <ins><b>1234.</b>56</ins>
+                                    <del>678923</del>
+                                </span>
+                                <div>
+                                    <em>热卖中</em>
+                                    <strong>123456件</strong>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div>
+                                <img src="../img/7.jpg" alt="" />
+                            </div>
+                            <div class="product-dis">
+                                <p>
+                                    这个美女，物美价廉
+                                </p>
+                                <span>
+                                    <ins><b>1234.</b>56</ins>
+                                    <del>678923</del>
+                                </span>
+                                <div>
+                                    <em>热卖中</em>
+                                    <strong>123456件</strong>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div>
+                                <img src="../img/7.jpg" alt="" />
+                            </div>
+                            <div class="product-dis">
+                                <p>
+                                    这个美女，物美价廉
+                                </p>
+                                <span>
+                                    <ins><b>1234.</b>56</ins>
+                                    <del>678923</del>
+                                </span>
+                                <div>
+                                    <em>热卖中</em>
+                                    <strong>123456件</strong>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div>
+                                <img src="../img/7.jpg" alt="" />
+                            </div>
+                            <div class="product-dis">
+                                <p>
+                                    这个美女，物美价廉
+                                </p>
+                                <span>
+                                    <ins><b>1234.</b>56</ins>
+                                    <del>678923</del>
+                                </span>
+                                <div>
+                                    <em>热卖中</em>
+                                    <strong>123456件</strong>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div>
+                                <img src="../img/7.jpg" alt="" />
+                            </div>
+                            <div class="product-dis">
+                                <p>
+                                    这个美女，物美价廉
+                                </p>
+                                <span>
+                                    <ins><b>1234.</b>56</ins>
+                                    <del>678923</del>
+                                </span>
+                                <div>
+                                    <em>热卖中</em>
+                                    <strong>123456件</strong>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div>
+                                <img src="../img/7.jpg" alt="" />
+                            </div>
+                            <div class="product-dis">
+                                <p>
+                                    这个美女，物美价廉
+                                </p>
+                                <span>
+                                    <ins><b>1234.</b>56</ins>
+                                    <del>678923</del>
+                                </span>
+                                <div>
+                                    <em>热卖中</em>
+                                    <strong>123456件</strong>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div>
+                                <img src="../img/7.jpg" alt="" />
+                            </div>
+                            <div class="product-dis">
+                                <p>
+                                    这个美女，物美价廉
+                                </p>
+                                <span>
+                                    <ins><b>1234.</b>56</ins>
+                                    <del>678923</del>
+                                </span>
+                                <div>
+                                    <em>热卖中</em>
+                                    <strong>123456件</strong>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div>
+                                <img src="../img/7.jpg" alt="" />
+                            </div>
+                            <div class="product-dis">
+                                <p>
+                                    这个美女，物美价廉
+                                </p>
+                                <span>
+                                    <ins><b>1234.</b>56</ins>
+                                    <del>678923</del>
+                                </span>
+                                <div>
+                                    <em>热卖中</em>
+                                    <strong>123456件</strong>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div>
+                                <img src="../img/7.jpg" alt="" />
+                            </div>
+                            <div class="product-dis">
+                                <p>
+                                    这个美女，物美价廉
+                                </p>
+                                <span>
+                                    <ins><b>1234.</b>56</ins>
+                                    <del>678923</del>
+                                </span>
+                                <div>
+                                    <em>热卖中</em>
+                                    <strong>123456件</strong>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div>
+                                <img src="../img/7.jpg" alt="" />
+                            </div>
+                            <div class="product-dis">
+                                <p>
+                                    这个美女，物美价廉
+                                </p>
+                                <span>
+                                    <ins><b>1234.</b>56</ins>
+                                    <del>678923</del>
+                                </span>
+                                <div>
+                                    <em>热卖中</em>
+                                    <strong>123456件</strong>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+        </main>
+        <!-- footer -->
+        <footer></footer>
+    </body>
+</html>

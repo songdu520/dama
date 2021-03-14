@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            ul {
+                background: cornflowerblue;
+                width: 500px;
+                height: 500px;
+                /* 设置元素为网格容器 */
+                display: grid;
+                /* 行数 列数 大小 线的名称 */
+                grid-template-rows: [r1] 120px [r2] 120px [r3] 120px [r4];
+                grid-template-columns: [cl] 120px [c2] 100px [c3] 110px [c4];
+            }
+            ul li {
+                width: 100px;
+                height: 100px;
+                background: cyan;
+                border: 2px solid crimson;
+                box-sizing: border-box;
+                list-style-type: none;
+            }
+        </style>
+    </head>
+    <body>
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+            <li>7</li>
+            <li>8</li>
+            <li>9</li>
+        </ul>
+    </body>
+</html>

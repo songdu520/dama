@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- v-if为false时直接不渲染 -->
+        <!-- v-else后面没有表达式 -->
+        <!-- v-else必须紧挨着v-if -->
+        <!-- <template v-if="awesome">
+      <h1>Vue is awesome!</h1>
+      <h1>Oh no 😢</h1>
+    </template>
+    
+    <template v-else>
+      <div>
+        什么都没有
+      </div>
+    </template> -->
+        <!-- <div v-if="awesome === 1">1</div>
+    <div v-else-if="awesome === 2">2</div>
+    <div v-else>3</div> -->
+
+        <h1 v-show="awesome === 3">Vue is awesome!</h1>
+    </div>
+
+    <script src="../../Vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data() {
+                return {
+                    awesome: 3
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>

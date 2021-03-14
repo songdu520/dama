@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul{width: 400px;
+        height: 400px;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        margin: auto;
+       
+        transform-style: preserve-3d;
+        animation: mover 100s linear infinite;
+        
+
+
+        }
+        ul li{width: 400px;
+        height: 400px;
+        list-style: none;
+        position: absolute;
+        top: 0;
+        left: 0; 
+        background-size: 400px 400px!important;
+        opacity: 0.8;}
+       
+        ul li:nth-child(1){
+            background: url(../../day11/img/img1.jpg);
+            transform: translateZ(200px);
+        }
+        ul li:nth-child(2){
+            background: url(../../day11/img/img2.jpg);
+            transform: translateY(-200px) rotateX(90deg);
+        }
+        ul li:nth-child(3){
+            background: url(../../day11/img/img3.jpg);
+            transform: translateY(200px) rotateX(-90deg);
+        }
+
+         ul li:nth-child(4){
+            background: url(../../day11/img/img4.jpg);
+            transform: translateX(-200px) rotateY(-90deg);
+        }
+        ul li:nth-child(5){
+            background: url(../../day11/img/img5.jpg);
+            transform: translateX(200px) rotateY(90deg);
+        }
+        ul li:nth-child(6){
+            background: url(../../day11/img/img1.jpg);
+            transform: translateZ(-200px) rotateY(180deg);
+            
+        }
+        @keyframes mover{
+            0%{
+                transform: rotate3d(0,0,0,0);
+            }
+            100%{
+                transform: rotate3d(1,1,0,-900deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <ul>
+    <li>前</li>
+    <li>上</li>
+    <li>下</li>
+    <li>左</li>
+    <li>右</li>
+    <li>后</li>
+</ul>
+</body>
+</html>

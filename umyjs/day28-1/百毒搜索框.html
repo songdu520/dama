@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text">
+    <ul></ul>
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $('input').on('input', function() {
+        $.ajax({
+            url: "https://www.baidu.com/sugrec?pre=1&p=3&ie=utf-8&json=1&prod=pc&from=pc_web&sugsid=32758,1430,32842,31253,32705,32230,7516,32117,32845,26350,32914,22158&wd=" + $(this).val() + "&req=2&csor=4&pwd=aaa&cb=?",
+            dataType: 'JSONP',
+            type: 'get'
+
+        }).done(function(data) {
+            console.log(data)
+            let str = ''
+            $.each(data.g, function(index, value) {
+                str += `<li><a href="https://www.baidu.com/s?ie=utf-8&f=3&rsv_bp=1&tn=baidu&wd=${value.q}&oq=%25E7%2599%25BE%25E5%25BA%25A6&rsv_pq=842a4432000e31b5&rsv_t=981aTauwS3IJrfPZ17LyiHTM%2BdWTZ7Gtatau5Y8RxW8Ie3HW8sgq71g%2FKUg&rqlang=cn&rsv_enter=1&rsv_dl=ts_0&rsv_sug3=29&rsv_sug1=23&rsv_sug7=101&rsv_sug2=1&rsv_btype=t&prefixsug=ssxzc&rsp=0&inputT=115373&rsv_sug4=1582371">${value.q}</a></li>`
+
+            })
+            $('ul').html(str)
+        })
+    })
+</script>
+
+</html>

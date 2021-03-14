@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // var o = {
+        //     x: 1,
+        //     y: [1, 2, 3]
+        // }
+
+        // var o2 = Object.create(o);
+
+        // o2.y = [];
+
+        // o2.y[0] = 0; // o2 是一个对象 它的原型是o
+        // o2 自身没有y这个属性
+        // 访问时访问的是原型上的属性
+        // 修改了原型
+        // console.log(o2.y);
+
+        // console.log(o2);
+        // console.log(o);
+
+        var arr = [1, 543, [1, 2, 3]];
+
+        // slice的截取是 浅拷贝
+
+        var arr2 = arr.slice(0); // 截取数组
+
+        console.log(arr === arr2);
+        arr[2][0] = 0;
+        console.log(arr);
+        console.log(arr2);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

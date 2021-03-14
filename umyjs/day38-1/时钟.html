@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #mycanvas {
+            border: 1px solid black;
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- canvas是html5 新增的图形容器 -->
+    <!-- /ˈkænvəs/ 画布 -->
+    <!-- 行内块元素 inline-block -->
+    <!-- 兼容性不好 在低版本的ie无法使用 -->
+    <!-- 需要为canvas元素设置大小 写属性 不写样式  不用带单位-->
+    <!-- 兼容处理 当低版本浏览器无法识别标签时 会自动当作行内元素处理 -->
+    <canvas width="500" height="500" id="mycanvas">
+        您的浏览器不支持canvas元素，请升级浏览器
+    </canvas>
+</body>
+<script>
+    /** @type {HTMLCanvasElement} */
+    let mycanvas = document.getElementById('mycanvas')
+    let ctx = mycanvas.getContext('2d')
+
+
+    function clock() {
+        let d = new Date()
+
+        let h = d.getHours()
+        let m = d.getMinutes()
+        let s = d.getSeconds()
+        h = h > 12 ? h - 12 : h
+        h = h + m / 60
+
+        ctx.clearRect(0, 0, mycanvas.width, mycanvas.height)
+        ctx.beginPath()
+        ctx.lineWidth = 8
+        ctx.fillStyle = 'yellow'
+        ctx.arc(250, 250, 200, 0, 2 * Math.PI)
+        ctx.fill()
+        ctx.closePath()
+            //刻度线
+        for (i = 0; i <= 12; i++) {
+            ctx.save()
+            ctx.translate(250, 250)
+            ctx.lineWidth = 7
+            ctx.rotate(Math.PI / 180 * i * 30)
+            ctx.beginPath()
+            ctx.moveTo(0, -180)
+            ctx.lineTo(0, -195)
+            ctx.stroke()
+            ctx.closePath()
+            ctx.restore()
+        }
+        for (i = 0; i <= 60; i++) {
+            ctx.save()
+            ctx.translate(250, 250)
+            ctx.lineWidth = 5
+            ctx.rotate(Math.PI / 180 * i * 6)
+            ctx.beginPath()
+            ctx.moveTo(0, -190)
+            ctx.lineTo(0, -195)
+            ctx.stroke()
+            ctx.closePath()
+            ctx.restore()
+        }
+        //时针
+        ctx.save()
+        ctx.translate(250, 250)
+        ctx.lineWidth = 10
+        ctx.rotate(Math.PI * h * 30 / 180)
+        ctx.beginPath()
+        ctx.moveTo(0, 20)
+        ctx.lineTo(0, -100)
+        ctx.stroke()
+        ctx.closePath()
+        ctx.restore()
+            //分针
+        ctx.save()
+        ctx.translate(250, 250)
+        ctx.lineWidth = 7
+        ctx.rotate(Math.PI * m * 6 / 180)
+        ctx.beginPath()
+        ctx.moveTo(0, 20)
+        ctx.lineTo(0, -160)
+        ctx.stroke()
+        ctx.closePath()
+        ctx.restore()
+            //秒针
+        ctx.save()
+        ctx.translate(250, 250)
+        ctx.lineWidth = 5
+        ctx.strokeStyle = 'red'
+        ctx.rotate(Math.PI * s * 6 / 180)
+        ctx.beginPath()
+        ctx.moveTo(0, 20)
+        ctx.lineTo(0, -180)
+        ctx.stroke()
+        ctx.closePath()
+        ctx.restore()
+
+    }
+
+    setInterval(clock, 1000)
+</script>
+
+</html>

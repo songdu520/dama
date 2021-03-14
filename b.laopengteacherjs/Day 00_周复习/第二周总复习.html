@@ -1,0 +1,147 @@
+<!-- 
+    一.类,对象,属性,方法
+        1.类构造对象(实例对象)。
+        2.对象是有属性+方法组成的。
+    二.数组对象
+        1.数组的概念和特点
+            - 概念：一组任意类型或者相同类型的数据
+            - 特点：
+                - Array 类型是ECMAScript 最常用的类型
+                - 数组都是有序排列
+                - 可以保存任何类型数据
+                - 数组的大小也是可以调整的
+        2.数组的属性：√
+            - 索引下标：索引下标也可以叫做数组的属性,索引取值,改变数组的值,改变数组的长度。
+            - length属性：读写数组的长度，改变数组的长度
+        3.数组的方法：√
+            - 检测方法：Array.isArray
+            - 栈方法：push pop (后进先出)
+            - 队列方法：unshift shift (先进先出)
+            - 重排序方法：reverse sort
+            - 操作方法：concat slice splice
+            - 转换方法：toString join
+            - 位置方法：indexOf lastIndexOf
+            - 迭代方法：every some filter map forEach
+            - 归并方法：reduce reduceRight
+
+        4.二维数组和对象数组的操作 √
+            - 读写数组项的值
+
+        5.数组的排序 
+            - 冒泡排序 √
+            - 快速排序
+
+    三.值传递和引用传递。
+        1.栈和堆
+        2.浅拷贝 - for传值
+        3.深拷贝
+    
+    四.自定义对象
+        1.对象的概念
+            - 对象也看做是属性的无序集合，每个属性都是一个键/值对
+        2.对象的创建
+            - 读写对象属性值 - 点和中括号
+
+    五.函数内部的特殊对象 - this
+        1.this的概念
+        2.this在不同函数里面的指向关系。
+    
+    六.严格模式 - 面试
+        1.目的
+        2.标志
+        3.语法行为的改变
+    
+    七.包装对象 - string
+        1.包装对象的概念.
+        2.字符串方法.√
+            - charAt charCodeAt String.formCharCode
+            - trim
+            - split
+            - substring substr
+            - toUpperCase toLowerCase
+            - indexOf lastIndexOf slice concat
+
+    八.Math对象的常用方法  √  
+        - Math.round() ：将括号里面的数字采用四舍五入形式取整。
+        - Math.abs()：求绝对值
+        - Math.ceil()：将括号里面的小数采用向上取整
+        - Math.floor()：将括号里面的小数采用向下取整
+        - Math.pow()：求幂，第一个参数是底数，第二个参数是指数。 
+        - Math.max()：求括号里面数字的最大值，数字之间逗号隔开。
+        - Math.min()：求括号里面数字的最小值，数字之间逗号隔开。
+        - Math.sqrt()：开根号。
+        - Math.random()：随机数 -- [0,1)
+        - Math.PI：表示π(3.14)
+
+    九.日期对象
+        1.创建日期对象
+        2.日期对象下面的方法 √
+            - getFullYear
+            - getMonth +1 
+            - getDate
+            - getDay
+            - getHours
+            - getMinutes
+            - getSeconds
+            - getTime
+            - 设置日期的方法  get变成set
+        3.设置日期。
+            - 字符串设置
+            - 数字设置
+            - 方法设置
+        4.输出格式化的字符串日期。
+        5.倒计时效果。
+    十.BOM
+        1.BOM的概念和特点√
+            - 浏览器对象模型,用来描述与浏览器进行交互的行为。
+            - 用于访问浏览器的功能，这些功能与任何网页内容无关
+            - 核心对象是 window ，它表示浏览器的一个实例
+            - window对象有双重角色，它既是访问浏览器窗口的一个接口，又是ES规定的全局对象.
+        2.location对象√
+            - href属性：控制浏览器地址栏的内容
+                - location.href = url
+                - location = url
+                - location.assign(url)
+            - search属性：获取地址栏的数据,包括?
+            - hash属性：获取地址栏#后面的值,包括#
+            - reload(true) : 刷新
+        3.BOM的常用事件—window
+            - onload页面内容加载完成后触发此事件(DOM结构，图片等内容.....)
+            - onscroll拖动浏览器的滚动条触发此事件
+            - onresize浏览器窗口缩放所触发的事件
+        4.可视区的宽高、滚动条距离 √
+            - document.documentElement.clientWidth
+            - document.documentElement.clientHeight
+            - document.documentElement.scrollTop
+            - document.documentElement.scrollLeft
+        5.定时器 √
+            - 同步和异步的概念 
+            - setInterval(函数名称，时间)；间隔定时器(反复调用)
+            - clearInterval( 定时器的返回值 );  停止定时器
+            - setTimeout(函数名称，时间); 延时定时器，执行一次
+            - clearTimeout( 定时器的返回值 ); 停止定时器
+    十一.DOM
+        1.DOM是文档对象模型。用来描绘一个层次化的节点树，允许开发人员获取、添加、移除和修改页面的某一部分元素。
+        2.查询（获取元素）
+            - querySelector()： 通过选择器获取元素，如果获取多个只返回第一个。
+            - querySelectorAll()： 通过选择器获取元素，可同时获取多个元素，类数组。
+        3.创建、添加、插入、删除 √
+            - document.createElement(元素名称) 创建一个元素节点
+            - 父节点.appendChild(元素节点)  把元素节点插入到父节点的内部最后的位置
+            - 父节点.insertBefore(新的元素节点,存在元素节点)  在父节点内,把新的元素节点插入到已经存在的元素切点的前面
+            - 父节点.removeChild(node)  删除父节点内部的子节点   
+        4.outerHTML/innerHTML
+            - innerHTML：读写元素节点里的内容（包括元素）,从节点起始位置到终止位置的全部内容,包括内部的元素。 √
+            - outerHTML：读写元素节点里的内容（包括元素）,除了包含innerHTML全部内容外, 还包含元素节点本身    
+        5.DOM元素类型
+            - 节点可以分为元素节点、属性节点和文本节点...，他们分别用不同的数字代表类型。
+            - 每个节点又有三个非常有用的属性，分别为：nodeName、nodeType、nodeValue
+            - 例如：元素(1) 属性(2) 文本(3) 
+        6.childNodes与children的区别
+            - children不考虑空白节点，而childNodes考虑空白节点，而且它们都是类数组。
+        7.读写css样式的值 √
+            - offsetWidth、offsetHeight
+            - offsetLeft、offsetTop
+            - getComputedStyle  currentStyle
+            
+ -->

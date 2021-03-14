@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="item in 7">{{ item }}</li>
+            <!-- v-for的key尽量不要用index -->
+            <!-- v-for遍历对象有三个参数 -->
+
+            <!-- <li v-for="(value, key, index) in obj">{{ value }} - {{ key }} - {{ index }}</li> -->
+        </ul>
+
+        <button @click="handleClick">按钮</button>
+    </div>
+
+    <script src="../../Vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data() {
+                return {
+                    list: [1, 2, 3, 4, 5, 6, 7]
+                        // obj: {
+                        //   name: 'zhangsan',
+                        //   age: 300
+                        // }
+                }
+            },
+            methods: {
+                handleClick() {
+                    this.list = this.list.concat([8, 9])
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>

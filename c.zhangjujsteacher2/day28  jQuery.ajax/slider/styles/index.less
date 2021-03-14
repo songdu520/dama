@@ -1,0 +1,35 @@
+@charset 'utf-8';
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+
+.slider{
+    overflow: hidden;
+    position: relative;
+    width: 570px;
+    height: 400px;  
+    margin: 100px auto;
+
+    &>div{
+        position: absolute;
+        width:3000px;
+        &>img{
+            // border:1px solid black;
+            float: left;
+        }
+    }
+
+    &>span{
+        position: absolute;
+        font-size: 3em;
+        top:45%;
+        user-select: none;
+        cursor: pointer;
+    }
+
+    &>span:last-of-type{
+        right:0;
+    }
+}

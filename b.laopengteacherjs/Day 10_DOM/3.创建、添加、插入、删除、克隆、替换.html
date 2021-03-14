@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .hehe {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">中间</div>
+</body>
+<script>
+    //一.DOM创建、添加、插入、删除、克隆、替换.(DOM的核心是document,BOM的核心是window)
+
+    //1.document.createElement() 创建一个元素节点.
+    // var cDiv = document.createElement('div');
+    //cDiv:元素对象。
+    //添加内容：
+    // cDiv.innerHTML = '我是div里面的文本内容';
+    //添加类名：
+    // cDiv.className = 'hehe'; //这里的类名必须使用className,class是js的关键字,被其他的知识点使用。
+    // console.log(cDiv); //元素对象。className
+
+    //2.父节点.appendChild(元素节点)  把元素节点插入到父节点的内部最后的位置
+    //      /əˈpend/附加
+    // document.body.appendChild(cDiv); //将创建的cDiv追加到body元素内部的后面。
+
+
+    //创建100个p标签,追加个一个div.
+    // var oBox = document.querySelector('.box');
+    // for (var i = 1; i <= 100; i++) {
+    //     var cP = document.createElement('p');
+    //     cP.innerHTML = i;
+    //     oBox.appendChild(cP);
+    // }
+
+    //3.父节点.insertBefore(新的元素节点,存在元素节点)  在父节点内,把新的元素节点插入到已经存在的元素切点的前面。
+    //        /ɪnˈsɜːrt/ 插入
+    var oBox = document.querySelector('.box');
+    //后面：
+    var afterDiv = document.createElement('div');
+    afterDiv.innerHTML = '我是插入到后面的';
+    document.body.appendChild(afterDiv);
+
+    //前面：
+    var beforeDiv = document.createElement('div');
+    beforeDiv.innerHTML = '我是插入到前面的';
+    document.body.insertBefore(beforeDiv, oBox); //oBox:存在的元素  beforeDiv:创建的元素
+</script>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/index.css">
+    <script src="./jquery.js"></script>
+    <script>
+        $(function() {
+            $('.small>li>img').on('click', function() {
+                $('.showimg').empty();
+
+                // 1. 将图片展示到showimg
+                $('.showimg').css('background', 'url(' + $(this).attr('src') + ')');
+
+                // 2. 使用div元素盖住背景
+                for (let i = 0; i < Math.ceil($('.showimg').height() / 10); i++) {
+                    let div = $('<div style="top:' + (i * 10) + 'px"></div>');
+                    $('.showimg').append(div);
+                }
+
+                // 3. 让div消失
+                // $('.showimg>div').fadeOut(500);
+                $('.showimg>div').each(function(index, elm) {
+                    $(elm).delay(index * 40).fadeOut(500);
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="showimg"></div>
+    <ul class="small">
+        <li><img src="./images/1.png" alt=""></li>
+        <li><img src="./images/2.png" alt=""></li>
+        <li><img src="./images/3.png" alt=""></li>
+    </ul>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" name="名称" value="值" aaa="bbb">
+    <div class="box">123456</div>
+</body>
+<script>
+    //1.标签,元素,节点。
+    //节点可以分为元素节点、属性节点和文本节点...,他们分别用不同的数字代表类型。
+    //例如：元素(1) 属性(2) 文本(3)
+
+    //2.每个节点又有三个非常有用的属性，分别为：nodeName节点的名称、nodeType节点的类型、nodeValue节点的值
+
+    // 2.1.元素节点:没有值,只有类型和名称
+    // var input = document.querySelector('input'); //元素节点
+    // console.log(input.nodeType); //1
+    // console.log(input.nodeName); //INPUT
+    // console.log(input.tagName); //INPUT
+    // console.log(input.nodeValue); //null
+
+    // 2.2.属性节点 - attributes(类数组)
+    // var input = document.querySelector('input'); //元素节点
+    // console.log(input.attributes);
+    // NamedNodeMap {0: type, 1: name, 2: value, length:4}
+    // console.log(input.attributes.length); //4
+    // console.log(input.attributes[0]); //type="text"
+
+    // console.log(input.attributes[0].nodeType); //2
+    // console.log(input.attributes[0].nodeName); //type
+    // console.log(input.attributes[0].nodeValue); //text
+</script>
+
+</html>

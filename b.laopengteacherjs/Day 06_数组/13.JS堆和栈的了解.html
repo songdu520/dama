@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //JS堆和栈的了解
+    //1.js的数据类型
+    //基本类型：number/string/boolean/null/undefined
+    //引用类型：object
+
+    //2.划分内存。
+    // 栈：自动分配内存空间，系统自动释放，[基本类型的值和引用类型（object）的地址]
+    // 堆：动态分配的内存，大小不定，也不会自动释放。[存放引用类型的值]。
+
+    //3.值传递和引用传递
+    //值传递：基本类型遵循值传递。
+    // var a = 10;
+    // var b = a; //值传递
+    // b++;
+    // console.log(a); //10
+    // console.log(b); //11
+
+    //引用传递：地址传递，引用类型遵循引用传递。
+    // var arr1 = [1, 2, 3, 4];
+    // var arr2 = arr1; //引用传递  arr1地址给了arr2.  (对象之间不能直接等号赋值,形成对象间的一改全改)
+    // arr2.push(5);
+    // console.log(arr1); //[1, 2, 3, 4, 5]
+    // console.log(arr2); //[1, 2, 3, 4, 5]
+
+    //解决方式：重新开辟地址
+    // var arr1 = [1, 2, 3, 4];
+    // var arr2 = []; //重新开辟地址
+    // for (var i in arr1) {
+    //     arr2[i] = arr1[i]; //值传递
+    // }
+    // arr2.push(5);
+    // console.log(arr1); // [1, 2, 3, 4]
+    // console.log(arr2); //[1, 2, 3, 4, 5]
+
+    // console.log([] == []); //false 比较的是地址
+    // console.log({} == {}); //false
+</script>
+
+</html>

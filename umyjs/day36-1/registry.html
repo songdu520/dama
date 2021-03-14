@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <fieldset style="width: 800px;margin:0 auto;">
+        <legend>用户注册</legend>
+        <!-- 
+            前后端地址的跳转选择绝对路径
+            前端和前端，后端和后端跨越使用相对路径
+
+            md5.js/sha1.js:加密文件  第三方提供的插件。
+         -->
+        <form action="http://localhost/JS2008/Day%2022_ajax/loginregistry/php/registry.php" method="POST" id="registry">
+            <!-- action:递交的地址  method:提交方法 -->
+            <p>用户姓名：<input type="text" class="username" name="username"><span></span></p>
+            <p>用户密码：<input type="password" class="password" name="password"></p>
+            <p>电子邮箱：<input type="text" class="email" name="email"></p>
+            <p><input type="submit" value="提交注册" name="submit"></p>
+        </form>
+    </fieldset>
+</body>
+<script src="../../../ajaxcallback.js"></script>
+<script>
+    const form = document.querySelector('#registry');
+    const username = document.querySelector('.username');
+    const span = document.querySelector('span');
+    let flag = true;
+
+    //将用户名给后端。如果用户名出现重名，不允许跳转。
+    username.onblur = function() {
+        ajax({
+            type: 'post',
+            url: 'http://localhost/JS2008/Day%2022_ajax/loginregistry/php/registry.php',
+            data: {
+                name: this.value
+            },
+            success: function(data) {
+                if (data) {
+                    span.innerHTML = '该用户名已存在';
+                    span.style.color = 'red';
+                    flag = false;
+                } else {
+                    span.innerHTML = '√';
+                    span.style.color = 'green';
+                    flag = true;
+                }
+            }
+        })
+    };
+
+    form.onsubmit = function() {
+        if (username.value === '') {
+            span.innerHTML = '该用户名不能为空';
+            span.style.color = 'red';
+            flag = false;
+        }
+        if (!flag) {
+            return false; //阻止跳转
+        }
+    }
+</script>
+
+</html>

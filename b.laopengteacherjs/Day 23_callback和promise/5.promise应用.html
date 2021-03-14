@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script src="ajaxpromise.js"></script>
+<script>
+    //一.获取三个接口的值(如果第一个接口成功，获取第二个接口，然后继续第三个接口)
+    //1.http://localhost/JS2008/phpdata/news.php
+    //2.http://localhost/JS2008/phpdata/newslist.php
+    //3.http://localhost/JS2008/phpdata/piclist.php
+    ajax({ //ajax方法返回的对象是promise实例对象
+        type: 'get',
+        url: 'http://localhost/JS2008/phpdata/news.php',
+        data: {
+            'one': '获取第一个接口的数据'
+        },
+        async: 'true',
+        dataType: 'json'
+    }).then((data) => { //接收resolve里面的值，只有第一个then才能接收
+        console.log(data);
+        return ajax({ //ajax方法返回的对象是promise实例对象
+            type: 'get',
+            url: 'http://localhost/JS2008/phpdata/newslist.php',
+            data: {
+                'two': '获取第二个接口的数据'
+            },
+            async: 'true',
+            dataType: 'json'
+        })
+    }).then((data1) => { //这里的data:是上面then里面的ajax获取的数据，不是最开始ajax方法里面的数据。
+        console.log(data1);
+        return ajax({ //ajax方法返回的对象是promise实例对象
+            type: 'get',
+            url: 'http://localhost/JS2008/phpdata/piclist.php',
+            data: {
+                'three': '获取第三个接口的数据'
+            },
+            async: 'true',
+            dataType: 'json'
+        })
+    }).then((data2) => { //这里的data:是上面then里面的ajax获取的数据
+        console.log(data2);
+    })
+</script>
+
+</html>

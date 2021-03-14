@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // function A() {
+        //     // return ['123'];
+        //     return {
+        //         x: 1
+        //     }
+        // }
+
+
+
+        // 在构造函数中使用return关键字
+        // 如果return后是 值类型(基本数据类型) 忽略。 返回新对象
+        // 如果return后是 引用类型 则返回引用类型 忽略新对象
+        // var result = new A();
+        // console.log(result);
+
+        // -------------------------------------------------
+        // 单例模式 
+        // 一个类只能实例化一次
+        // 多次操作会获得相同结果
+        // var single = null;
+
+        // function A() {
+        //     if (single) { // 如果有单例
+        //         return single; // 返回单例
+        //     } else {
+        //         single = this; // 将新对象赋值给单例
+        //     }
+        // }
+
+        // var a1 = new A();
+        // var a2 = new A();
+        // console.log(a1 == a2);
+        //---------------------------------------------------
+        function Single() {
+            if (Single.instance) return Single.instance;
+            Single.instance = this;
+        }
+
+        var s1 = new Single();
+        var s2 = new Single();
+        console.log(s1 == s2);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

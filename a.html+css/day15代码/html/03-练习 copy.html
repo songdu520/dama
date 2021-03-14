@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            .all {
+                width: 300px;
+                height: 500px;
+                border: 2px solid lightgrey;
+                border-radius: 5px;
+                box-shadow: 3px 3px 5px 0 lightgrey;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                align-items: center;
+            }
+            .heart {
+                width: 25px;
+                height: 40px;
+                position: relative;
+            }
+
+            .heart::before {
+                content: "";
+                display: block;
+                width: 25px;
+                height: 40px;
+                background: red;
+                position: absolute;
+                left: 0;
+                top: 0;
+                border-radius: 50% 50% 0 0/30% 30% 0 0;
+                transform: rotate(-45deg);
+            }
+            .heart::after {
+                content: "";
+                display: block;
+                width: 25px;
+                height: 40px;
+                background: red;
+                position: absolute;
+                left: 0;
+                top: 0;
+                border-radius: 50% 50% 0 0/30% 30% 0 0;
+                transform: translateX(10px) rotate(46deg);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="all">
+            <div class="heart"></div>
+            <div class="heart"></div>
+            <div class="heart"></div>
+        </div>
+    </body>
+</html>

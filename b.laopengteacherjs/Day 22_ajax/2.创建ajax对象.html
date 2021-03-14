@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //一.ajax的四步曲进行前后端的交互
+    //1.创建ajax对象。
+    let ajax = new XMLHttpRequest();
+    //             /rɪˈkwest/ 请求
+    //2.ajax对象下面open方法(包含三个参数)
+    //参1：请求方式(post/get/put/delete),最常用的是get/post.
+    //参2：接口地址 - 完整的地址(包括协议)
+    //参3：是否异步   true:异步    false:同步(不常用)
+    ajax.open('get', 'http://192.168.11.5/JS2008/phpdata/taobaodata.php', true);
+
+    //3.ajax对象下面的send方法(发送解析)
+    //发送解析的过程非常复杂，分为5个步骤，每一个步骤都有一个编号表示。
+    //ajax的属性： readyState: 就绪状态码--0(初始化) 1(请求建立) 2(发送完成) 3(解析) 4(完成)
+    //                 /steɪt/
+    // 0： 请求初始化（ 还没有调用 open()）。
+    // 1： 请求已经建立， 但是还没有发送（ 还没有调用 send()）。
+    // 2： 请求已发送， 正在处理中（ 通常现在可以从响应中获取内容头）。
+    // 3： 请求在处理中； 通常响应中已有部分数据可用， 但是服务器还没有完成响应的生成。
+    // 4： 响应已完成； 您可以获取并使用服务器的响应了。
+    ajax.send();
+
+    //4.ajax对象下面事件onreadystatechange(监听上面的就绪状态码变化)
+    ajax.onreadystatechange = function() {
+        if (ajax.readyState === 4) { //响应已完成,使用服务器的数据
+            //ajax.responseText：获取响应的值，格式是字符串string
+            //   /rɪˈspɑːns/响应
+            console.log(ajax.responseText);
+        }
+    }
+</script>
+
+</html>

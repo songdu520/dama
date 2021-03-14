@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //class的继承
+    //父类
+    class Person {
+        constructor(name, age, sex) { //属性写着构造函数里面
+            this.name = name;
+            this.age = age;
+            this.sex = sex;
+        }
+        show() { //方法
+            return `我是Person原型上的：我的姓名是${this.name}，我今年${this.age}岁，我是${this.sex}的`;
+        }
+
+    }
+
+    //子类继承父类
+    //extends：Class 可以通过extends关键字实现继承，这比 ES5 的通过修改原型链实现继承，要清晰和方便很多。
+    ///ekˈstendz/延伸；扩充；继承
+    //super:
+    //子类必须在constructor方法中调用super方法，否则新建实例时会报错。这是因为子类自己的this对象，必须先通过父类的构造函数完成塑造(子类没有自己的this)
+    //super这个关键字，既可以当作函数使用，也可以当作对象使用。
+    //super作为函数调用时，代表父类的构造函数。
+    //super作为对象时，在普通方法中，指向父类的原型对象
+    class Student extends Person { //子类继承了父类
+        constructor(name, age, sex, pro) {
+            super(name, age, sex); //子类继承父类下面的所有的属性和方法(包括原型链),当函数使用
+            this.pro = pro; //私有的
+        }
+        show() {
+            return `${super.show()},我的专业是${this.pro}`; //当对象使用，表示父类的原型。
+        }
+    }
+
+    let s1 = new Student('尼古拉斯赵四', '35', '男', '演员');
+    console.log(s1.name);
+    console.log(s1.show());
+</script>
+
+</html>

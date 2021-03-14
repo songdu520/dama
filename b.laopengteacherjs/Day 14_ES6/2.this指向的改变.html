@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>1111111</li>
+        <li>1111111</li>
+        <li>1111111</li>
+        <li>1111111</li>
+    </ul>
+</body>
+<script>
+    //一.函数对象属性和方法。
+    //1.length属性：函数 参数的长度
+    // console.log(function(a, b, c) {}.length); //3
+    // console.log(function(a, b, c, d) {}.length); //4
+
+    //2.call()/apply()/bind()三个方法。
+    //三个方法都可以用来改变this的指向，他们的第一个参数都是this新的指向。然后后面的参数就是函数自身的参数。
+
+    //三者的区别是：
+    //call从第二个参数开始代表函数自身的参数，多个用逗号隔开。  
+    // 呼叫
+    //sum.call(obj, 1, 2, 3);
+    //apply从第二个参数必须是一个数组，数组里存放函数自身的参数。 
+    ///əˈplaɪ/ 申请
+    //sum.apply(obj, [1, 2, 3]);        
+    //bind从第二个参数开始代表函数自身的参数，多个用逗号隔开，整个bind方法返回的是函数体，需要再次调用。
+    // /baɪnd/捆绑
+    // sum.apply(obj, [1, 2, 3])();
+
+    // function fn() {
+    //     console.log(this);
+    // }
+    // fn(); //this->window
+    // fn.call(1); //this->1
+
+    //测试
+    // var obj = {
+    //     num: 10 //属性
+    // };
+
+    // var num = 100; //全局变量，window下面的属性
+
+    // function sum(a, b, c) { //this->window
+    //     console.log(this.num + a + b + c);
+    // }
+
+    // sum(1, 2, 3); //100+1+2+3=106
+    // sum.call(obj, 1, 2, 3); //this->obj   10+1+2+3=16
+    // sum.apply(obj, [1, 2, 3]); //this->obj   10+1+2+3=16
+    // sum.bind(obj, 1, 2, 3)();
+
+
+    //应用：点击对应得li，延迟2s，li里面的内容变成22222222222222222；
+    //利用函数的方法
+    var aLi = document.querySelectorAll('li');
+    // for (var i = 0; i < aLi.length; i++) {
+    //     aLi[i].onclick = function() {
+    //         //this:当前点击的li元素
+    //         window.setTimeout(function() {
+    //             this.innerHTML = '22222222222222222222222'; //this:指向window
+    //         }.bind(this), 2000);
+    //     }
+    // }
+
+    //将正确的this存储下来。
+    for (var i = 0; i < aLi.length; i++) {
+        aLi[i].onclick = function() {
+            //this:当前点击的li元素
+            var _this = this; //this存储
+            window.setTimeout(function() {
+                _this.innerHTML = '22222222222222222'; //this:指向window
+            }, 2000);
+        }
+    }
+
+    function fn() {
+        alert(1);
+    }
+
+    // document.onclick = fn;  //函数体
+    // setTimeout(fn, 2000);//函数体
+
+    // 二.总结：改变this的方式有哪些
+    // 1.利用函数下面的方法call/apply/bind
+    // 2.将正确的this存储下来。
+    // 3.new运算符可以this指向。
+    function hehe() {
+        console.log(this);
+    }
+
+    hehe(); //this->window
+    new hehe() //this->new出来的实例对象。
+</script>
+
+</html>

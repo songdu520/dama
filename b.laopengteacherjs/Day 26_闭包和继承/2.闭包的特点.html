@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // 闭包就是能够读取其他函数内部变量的函数。
+    // function fn() {
+    //     var a = 1;
+
+    //     function fn1() {
+    //         console.log(a++);
+    //     }
+    //     fn1();
+    // }
+    // fn();
+    // 闭包的特点
+    // 让局部变量始终保存在内存中。也就是说，闭包可以使得它诞生环境一直存在。
+
+    // for (var i = 1; i <= 5; i++) { //同步，同步完成，循环结束，定时器里面就是循环的最后一次的值。
+    //     //i:1,2,3,4,5
+    //     ! function(i) { //var i  相当于函数内部的变量，形成闭包，内部的变量不会消失.
+    //         setTimeout(function() { //异步
+    //             console.log(i);//1,2,3,4,5
+    //         }, 1000)
+    //     }(i);
+    // }
+
+    // 私有变量存在 - 开发中的一种合理的写法
+    // ! function() {
+    //     var a = 1; //私有变量一直存在
+
+    //     function fn() {
+    //         console.log(a);
+    //     }
+    //     fn();
+    // }();
+    // ! function() {
+    //     var a = 10; //私有变量一直存在
+
+    //     function fn() {
+    //         console.log(a);
+    //     }
+    //     fn();
+    // }();
+
+    // 变量一直存在，垃圾回收机制失效，占据内存空间。
+    ! function() {
+        var a = 10; //私有变量一直存在
+
+        function fn() {
+            console.log(a);
+        }
+        fn();
+
+        a = null; //手动销毁
+    }();
+</script>
+
+</html>

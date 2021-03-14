@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 使用ajax发送get请求的步骤
+        // 1. 实例XMLHttpRequest对象 获得一个xhr的对象实例
+        // 2. 使用open 建立连接
+        // 3. 使用send 发送请求
+        // 4. 为xhr设置 readystatechange 事件
+
+        const xhr = new XMLHttpRequest();
+        // console.log(xhr.readyState);
+        xhr.open('get', './interface/test.txt');
+        // console.log(xhr.readyState);
+        xhr.send();
+        // console.log(xhr.readyState);
+        xhr.onreadystatechange = function() {
+            // console.log(xhr.readyState);
+            // 当就绪状态为4 且http状态码为200时 可以读取响应数据
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                console.log(xhr.responseText);
+            }
+            // console.log(1);
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

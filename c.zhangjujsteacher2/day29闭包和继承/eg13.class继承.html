@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        class A {
+            constructor(name) {
+                // 私有属性
+                this.name = name;
+            }
+
+            // 公有属性
+            sayName() {
+                console.log(this.name);
+            }
+        }
+
+        class B extends A {
+            constructor(name) {
+                super(name); // 调用父类构造函数
+            }
+        }
+
+        let b = new B('zhangsan');
+        console.log(b);
+        b.sayName();
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

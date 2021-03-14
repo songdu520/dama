@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            div {
+                width: 300px;
+                height: 300px;
+            }
+            /* not 关键字用来对一条媒体查询的结果进行取反
+               print:设备为打印机的时候为真
+               设备不匹配的时候为假；
+               设备匹配，条件不匹配的时候为假
+             */
+            @media not screen and (min-width: 800px), print {
+                div {
+                    background: red;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div></div>
+    </body>
+</html>

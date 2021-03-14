@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //一.显式转换：系统强制转换或者手动转换
+    //1.Number() : 将括号里面的值转换成数字。
+    // console.log(100);
+    // console.log(Number('100')); //100
+    // console.log(typeof Number('100')); //number
+
+    // console.log(Number(null)); //0
+    // console.log(Number(undefined)); //NaN
+
+    // console.log(Number('')); //空隙  0
+    // console.log(Number(' ')); //空格 0
+
+    // console.log(Number(true)); //1
+    // console.log(Number(false)); //0
+
+    //2.String(): 将括号里面的值转换成字符串，任意值都可以，将转换的值两边添加引号。
+    // console.log(100);
+    // console.log(undefined);
+    // console.log(String(100));
+    // console.log(String(null));
+    // console.log(String(undefined));
+    // console.log(String(true));
+    // console.log(String(false));
+
+
+    //3.Boolean(): 将括号里面的值转换成布尔值。
+    //数字非零为真。 
+    //字符串非空(空隙)为真
+    //undefined  null NaN  都是假
+    // console.log(Boolean(0)); //false
+    // console.log(Boolean('')); //false
+    // console.log(Boolean(undefined)); //false
+    // console.log(Boolean(null)); //false
+    // console.log(Boolean(NaN)); //false
+    // console.log(Boolean(' ')); //true
+    // console.log(Boolean(1)); //true
+    // console.log(Boolean('abc')); //true
+
+
+    // 4.parseInt():非常重要，将括号里面的数字字符串转换成数字。从第一个数字字符串开始查找转换，直到非数字字符串结束。数字取整数部分
+    // var num = '100px';
+    // console.log(parseInt(num)); //100
+    // console.log(parseInt('3.14abc')); //3
+    // console.log(parseInt('3.54abc')); //3
+    // console.log(parseInt('3*2')); //3
+    // console.log(parseInt('a3*2')); //NaN
+    // console.log(parseInt(100)); //100
+    // console.log(parseInt(300.59)); //300
+
+
+
+    // 5.parseFloat():将括号里面的数字字符串转换成数字。从第一个数字字符串开始查找转换，直到非数字字符串结束。包括小数部分
+    // console.log(parseFloat('3.1415926px')); //3.1415926
+
+
+    // 6.isNaN( )：判断括号里面的值不是一个数字，返回布尔值，不是数字输出true，是数字返回false;
+    // 将字符串数字转换成真正的数字。
+    // console.log(isNaN('abc')); //true
+    // console.log(isNaN('123abc')); //true
+    // console.log(isNaN('123')); //false
+    // console.log(isNaN(123)); //false
+
+
+    //二.隐式转换：系统自动根据当前的符号进行转换
+    //+ - * /  %  ==  ++  --  !  ......
+    // console.log('5' + 5); //55
+    // console.log(+'5' + 5); //10
+    // console.log('5' - 5); //0
+    // console.log('5' * '5'); //25
+    // console.log('5' / '5'); //1
+    // console.log('5' % '5'); //0
+
+    // console.log(true + 1); //2
+    // console.log(true + '1'); //true1
+</script>
+
+
+
+</html>

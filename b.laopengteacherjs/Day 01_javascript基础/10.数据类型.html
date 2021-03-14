@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //ECMAScript 中有 5 种
+    //简单数据类型(基本类型)：Undefined、Null、Boolean、Number 和 String。还有一种
+    //复杂数据类型(引用类型)：Object。
+
+    //检测数据类型：typeof() - 允许省略括号,返回值是字符串。
+
+    //1.number：数字类型，整数和小数。
+    // var a = 5;
+    // var b = 3.14;
+    // console.log(typeof a); //number
+
+    //2.string:字符串类型,用引号括起来的字符。单双引号都可以声明，但是引号注意嵌套问题。
+    //单引号里面嵌套双引号。反之
+    // var str1 = '你好,字"符"串';
+    // var str2 = "你好,双'引'号";
+    // var str3 = "hello\nworld"; //\n:转义字符，表示换行。
+    // console.log(str1);
+    // console.log(str2);
+    // console.log(str3);
+    // console.log(typeof str1); //string
+
+    // alert(a);//报错的，系统将a理解成变量，没有声明就报错。
+    // alert('a');//ok,字符串
+
+    //3.Boolean:布尔值类型,只有两个值true(真)和false(假)
+    // var bool = true;
+    // var bool2 = false;
+    // console.log(typeof bool); //boolean
+
+    //4.两个特殊的数据类型：
+    // undefined:undefined类型,未初始化,未赋值。
+    // null:null类型,空对象(类型不确定的值),当值使用
+    // var un;
+    // alert(un); //undefined
+    // alert(typeof un); //undefined
+
+    // var n = null;
+    // alert(n); //null
+    // alert(typeof n); //object 对象
+
+
+    console.log(null == undefined); //true  系统约定的。null和undefined，null和null，undefined和undefined都是想等的，其他null和undefined和任何值都不会相等。
+    console.log(null == null); //true
+    console.log(undefined == undefined); //true
+
+    console.log(null === undefined); //false 类型不一样
+    console.log(null == true);
+    console.log(null == false);
+    console.log(null == 1);
+    console.log(null == 0);
+    console.log(null == '');
+    console.log(null == ' ');
+
+
+    //总结一下：
+    //typeof 返回那些值：  number/string/boolean/undefined/object
+</script>
+
+</html>

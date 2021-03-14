@@ -1,0 +1,44 @@
+#components-layout-demo-fixed-sider .logo {
+  height: 32px;
+  background: rgba(255, 255, 255, 0.2);
+  margin: 16px;
+}
+.site-layout .site-layout-background {
+  background: #fff;
+}
+.ant-layout-sider{
+
+  color: #fff;
+  h1{
+    color: #fff;
+    line-height: 90px;
+    padding-left: 20px;
+  }
+}
+.ant-menu-sub{
+ overflow: visible; 
+}
+.tilte{
+  display: flex;
+  height: 42px;
+  justify-content: space-between;
+  background-color: #fff;
+  align-items: center;
+  .left{
+    width: 116px;
+    font-size: 18px;
+    display: flex;
+    justify-content:center ;
+    align-items: center;
+    position: relative;
+    &::after{
+      content: "";
+      border: solid 10px;
+      border-color: #fff transparent transparent;
+      position: absolute;
+      top: 35px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 深拷贝
+        var o = {
+            x: 1,
+            y: [1, 2, 3]
+        }
+
+        function getType(o) {
+            return Object.prototype.toString.call(o).slice(8, -1);
+        }
+
+        // 递归算法
+        // 递归 函数的自调用
+
+        function deepCopy(o) {
+            let result, oClass = getType(o); // 获得数据类型
+            if (oClass === 'Object') {
+                result = {};
+            } else if (oClass === 'Array') {
+                result = [];
+            } else {
+                return o;
+            }
+
+            for (let key in o) {
+                let copy = o[key];
+                if (getType(copy) === 'Object' || getType(copy) === 'Array') {
+                    result[key] = deepCopy(copy);
+                } else {
+                    result[key] = copy;
+                }
+            }
+
+            return result;
+        }
+
+        let o2 = deepCopy(o);
+        // console.log(o2);
+        // console.log(o2 === o);
+        // console.log(o);
+
+        o.y[0] = 9;
+        console.log(o);
+        console.log(o2);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

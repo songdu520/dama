@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // new出来的实例对象分为两个部分，一个是构造函数结果，一个是__proto__指向的构造函数原型
+    //人类
+    function Person(name, age, sex) {
+        this.name = name;
+        this.age = age;
+        this.sex = sex;
+    }
+    Person.prototype.showother = function() {
+        return `我是Person原型上的：我的姓名是${this.name}，我今年${this.age}岁，我是${this.sex}的`;
+    };
+
+    let p1 = new Person('zhagsan', '100', '男');
+    // console.log(p1.showinfo());
+
+    //学生
+    //构造函数继承：call/apply 继承里面的属性和方法
+    function Student(name, age, sex, pro) {
+        Person.call(this, name, age, sex);
+        this.pro = pro; //私有的
+    }
+
+    //原型继承：拷贝继承（将原型对象上面的属性和方法拷贝到子类原型上面）+ 原型继承
+    // Student.prototype = Person.prototype;//引用传递,拷贝的是地址,值是相同的
+
+    // 对象的拷贝
+    // Object.assign(Student.prototype, Person.prototype);
+
+    // 对象的拷贝
+    // for (let i in Person.prototype) {
+    //     Student.prototype[i] = Person.prototype[i];
+    // }
+    // 原型继承(原型链继承)
+    // 将父类的实例对象给了子类的原型(引用传递),修改子类的构造函数。
+    // 父类的实例覆盖了子类的原型。
+    Student.prototype = new Person();
+    Student.prototype.constructor = Student; //重新设置构造函数。
+
+    let s1 = new Student('wangwu', 250, '女', '前端开发');
+    // console.log(s1.name); //wangwu  继承的
+    // console.log(s1.pro); //前端开发   私有的
+    // console.log(s1.showinfo()); //如果子类没有这个方法，继承父类，如果存在一样的方法，使用自己下面的方法。
+    console.log(s1.name);
+    console.log(s1.showother());
+    console.log(s1)
+
+
+    // console.log(p1.constructor);
+    // console.log(s1.constructor);
+
+    //总结：
+    //构造函数继承：call/apply 
+    //prototype(原型继承)：拷贝继承(Object.assign()/遍历拷贝)
+</script>
+
+</html>

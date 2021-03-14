@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    ul {
+      padding: 0 20px;
+    }
+    li {
+      height: 80px;
+      border: 1px solid orange;
+      margin-top: 30px;
+      list-style: none;
+    }
+
+    .blog-form {
+      width: 100%;
+      height: 70px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+    textarea {
+      height: 60px;
+      width: 300px;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <sina-blog :bloglist="blogList"></sina-blog>
+  </div>
+
+  <script src="../../Vue.js"></script>
+  <script>
+
+    // 定义一个按钮组件
+    const BlogButton = {
+      props: ['content'],
+      template: `
+        <button>{{ content }}</button>
+      `
+    }
+
+    // 定义一个列表的item组件
+    const BlogListItem = {
+      props: ['item'],
+      template: `
+        <li>
+          <p>{{ item.author }}</p>
+          <p>{{ item.title }}</p>
+          <blog-button content="👍"></blog-button>
+        </li>
+      `,
+      components: {
+        BlogButton
+      }
+    }
+
+    // 定义一个list组件
+    const BlogList = {
+      props: ['bloglist'],
+      template: `
+        <ul>
+          <BlogListItem 
+            v-for="(item, index) in bloglist" 
+            :key="index"
+            :item="item"
+          ></BlogListItem>
+        </ul>
+      `,
+      components: {
+        BlogListItem
+      }
+    }
+
+    // 定义一个form组件
+    const BlogForm = {
+      template: `
+        <div class="blog-form">
+          <textarea></textarea>
+          <blog-button content="发布"></blog-button>
+        </div>
+      `,
+      components: {
+        BlogButton
+      }
+    }
+
+    // 最大的组件,包含一个list，以及一个form
+    const SinaBlog = {
+      props: ['bloglist'],
+      template: `
+        <div>
+          <BlogList :bloglist="bloglist"></BlogList>
+          <BlogForm></BlogForm>
+        </div>
+      `,
+      components: {
+        BlogList,
+        BlogForm
+      }
+    }
+
+
+    new Vue({
+      el: '#app',
+      data() {
+        return {
+          blogList: [
+            { id: 1, author: 'zhangsan', title: 'My journey with Vue' },
+            { id: 2, author: 'zhangsi', title: 'Blogging with Vue' },
+            { id: 3, author: 'zhangjun', title: 'Why Vue is so fun' }
+          ]
+        }
+      },
+      components: {
+        SinaBlog
+      }
+    })
+  </script>
+</body>
+</html>

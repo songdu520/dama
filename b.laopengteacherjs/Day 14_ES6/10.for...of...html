@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //1.for...of...(最优秀的遍历方式)
+    //for...of循环可以使用的范围包括数组、Set 和 Map 结构、某些类似数组的对象（比如arguments对象、DOM NodeList 对象）、以及字符串。
+    //2.怎样测试当前的数据可以使用for...of遍历。
+    //一个数据结构只要部署了Symbol.iterator属性，就被视为具有 iterator 接口，就可以用for...of循环遍历它的成员。
+    //                 /ˈsɪmbl/ 象征；标志 /ɪtə'retɚ/ 迭代器；迭代程序
+    let str = 'hello';
+    let arr = [1, 2, 3, 4, 5];
+    let obj = {
+        a: 1,
+        b: 2,
+        c: 3
+    }
+
+    // console.log(str[Symbol.iterator]()); //StringIterator {}
+    // console.log(arr[Symbol.iterator]()); //Array Iterator {}
+    // console.log(obj[Symbol.iterator]()); //报错，不能使用for...of...  对象最好使用for...in遍历。
+
+    // for(变量 of  遍历的对象){   }   变量：对象的值  
+
+    // for (let v of str) {
+    //     console.log(v); //字符串每一项的值。
+    // }
+
+    // for (let value of arr) {
+    //     console.log(value); //value数组项的值。
+    // }
+    // for (let i in arr) {
+    //     console.log(arr[i]);
+    //     console.log(i); //i:是字符串，不是数字
+    // }
+    // for (let i in obj) {
+    //     console.log(obj[i])
+    //     console.log(i)
+    // }
+
+    //3.for...of与其他遍历语法的比较
+    //for循环这种写法比较麻烦，因此数组提供内置的forEach方法。
+    //forEach没有返回值，无法中途跳出forEach循环.
+    //数组的键名是数字，但是for...in循环是以字符串作为键名“0”、“1”、“2”等等。
+    //for...of循环相比上面几种做法，有一些显著的优点。
+    //有着同for...in一样的简洁语法，但是没有for...in那些缺点。
+    //不同于forEach方法，它可以与break、continue和return配合使用。
+</script>
+
+</html>

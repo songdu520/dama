@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    let date = new Date();
+    date.setDate(date.getDate() + 10);
+    document.cookie = 'a=我是a页面里面的cookie;expires=' + date + ';path=/';
+</script>
+
+</html>

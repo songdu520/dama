@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #mycanvas {
+        display: block;
+        margin: 0 auto;
+        border: 1px solid rgb(0, 0, 0);
+        /* border: white */
+    }
+</style>
+
+<body>
+    <canvas width="600" height="600" id='mycanvas'>
+        你的浏览器不支持canvas  
+    </canvas>
+
+</body>
+<script>
+    let Angle = 0
+    setInterval(function() {
+        let starAngle = Math.PI * 3 / 2 + Angle
+        let endAngle = Math.PI / 2 + Angle
+        let x = 300 + Math.sin(Angle / Math.pi) * 150
+        let y = 150 + Math.sin(Angle / Math.pi) * 150
+        Angle += 0.02
+            // dayuan(starAngle, endAngle)
+        xiaobai(x, y)
+    }, 10)
+    let canvas = document.getElementById('mycanvas')
+    let ctx = canvas.getContext('2d')
+        //两个大半圆
+    function dabaiyuan(starAngle, endAngle) {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.beginPath();
+        ctx.arc(300, 300, 300, 0, Math.PI * 2)
+        ctx.closePath();
+        ctx.stroke()
+    }
+
+    function dayuan(starAngle, endAngle) {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.beginPath();
+        ctx.fillStyle = 'black'
+        ctx.arc(300, 300, 300, starAngle, endAngle)
+        ctx.closePath();
+        ctx.fill()
+    }
+
+    //两个小圆
+
+    ctx.beginPath();
+    ctx.fillStyle = 'black'
+    ctx.arc(300, 450, 150, 0, Math.PI * 2)
+    ctx.closePath();
+    ctx.fill()
+
+    function xiaobai(x, y) {
+        // ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.beginPath();
+        ctx.fillStyle = 'white'
+        ctx.arc(x, y, 150, 0, Math.PI * 2)
+        ctx.closePath();
+        ctx.fill()
+    }
+    //两个圆点、
+    ctx.beginPath();
+    ctx.fillStyle = 'white'
+    ctx.arc(300, 450, 50, 0, Math.PI * 2)
+    ctx.closePath();
+    ctx.fill()
+    ctx.beginPath();
+    ctx.fillStyle = 'black'
+    ctx.arc(300, 150, 50, 0, Math.PI * 2)
+    ctx.closePath();
+    ctx.fill()
+</script>
+
+
+</html>

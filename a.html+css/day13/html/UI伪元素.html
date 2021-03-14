@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input:disabled{background-color: red;
+
+
+        }
+        input:enabled[type^="p"]{
+            background-color: green;
+        }
+        input:read-only{border: yellow double 4px;
+
+        }
+        input:read-write[type^="e"]{
+            border: pink dashed 9px;
+        }
+        input:checked[type^="r"]{
+            height: 50px;
+            width: 50px;
+        }
+        input:default[type^="c"]{
+            height: 50px;
+            width: 50px;
+        }
+        input:indeterminate[ name]{width: 100px;
+            height: 100px;
+
+        }
+
+        
+    </style>
+</head>
+<body>
+    <form action="../html/文字阴影.html">
+        <fieldset>
+    <input type="text" disabled>
+    <input type="password">
+</fieldset>
+<fieldset>
+    <input type="url" readonly>
+    <input type="email">
+    <input type="submit">
+</fieldset>
+<fieldset>
+   <input type="radio"  >
+   <input type="radio">
+   
+</fieldset>
+<fieldset>
+    <input type="checkbox" checked>
+</fieldset>
+<fieldset>
+    <input type="radio" name="check">
+</fieldset>
+
+    </form>
+</body>
+</html>

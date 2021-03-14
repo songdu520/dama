@@ -1,0 +1,190 @@
+.header-top {
+    background: #000;
+    line-height: 40px;
+    color: #424242;
+    font-size: 12px;
+}
+.header-top a {
+    color: #999;
+    margin: 0 0.3em;
+}
+.header-top a:hover {
+    color: #fff;
+}
+/* 下载app变成包含看 */
+.topnav-l a:nth-last-child(2) {
+    position: relative;
+    display: inline-block;
+}
+/* 下载app的二级效果 */
+.download {
+    position: absolute;
+    z-index: 888;
+    background: #fff;
+    width: 150px;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3);
+    text-align: center;
+    font-size: 16px;
+    left: 50%;
+    margin-left: -55px;
+    height: 0;
+    overflow: hidden;
+    transition: all 1s;
+}
+.download::before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    border-bottom-color: #fff;
+    border-top: 0;
+    position: absolute;
+    left: 50%;
+    margin-left: -10px;
+    top: -10px;
+}
+.download img {
+    width: 120px;
+    margin: 20px auto 10px;
+}
+.download p {
+    color: #999;
+    line-height: 16px;
+}
+.topnav-l a:nth-last-child(2):hover .download {
+    height: 180px;
+    overflow: visible;
+}
+/* 购物车 */
+.shopCar {
+    display: inline-block;
+    width: 100px;
+    background: lightgrey;
+    position: relative;
+    color: #999;
+}
+.shopCar span {
+    display: block;
+
+    position: relative;
+    z-index: 1000;
+    height: 41px;
+}
+/* 二级购物车 */
+.subCar {
+    z-index: 666;
+    position: absolute;
+    background: #fff;
+    width: 300px;
+    height: 0;
+    right: 0;
+    top: 40px;
+    line-height: 100px;
+    text-align: center;
+    overflow: hidden;
+    transition: all 1s;
+    box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.2),
+        -2px 0 2px 0px rgba(0, 0, 0, 0.2);
+}
+.shopCar:hover {
+    background: #fff;
+}
+.shopCar:hover span {
+    color: darkorange;
+    background: #fff;
+}
+.shopCar:hover .subCar {
+    height: 100px;
+}
+/* 头部的第二个部分 */
+.header-bot {
+    padding: 20px 0;
+    background: cornflowerblue;
+    position: relative;
+}
+.logo {
+    margin-right: 20px;
+}
+.logo a {
+    display: block;
+    width: 55px;
+    height: 55px;
+    background: darkorange;
+    position: relative;
+    overflow: hidden;
+}
+.logo a img:nth-child(1) {
+    position: absolute;
+    left: 3px;
+    top: 3px;
+    transition: all 0.3s;
+}
+.logo a:hover img:nth-child(1) {
+    left: 55px;
+}
+
+.logo a img:nth-child(2) {
+    position: absolute;
+    left: -50px;
+    top: 3px;
+    transition: all 0.3s;
+}
+.logo a:hover img:nth-child(2) {
+    left: 3px;
+}
+/* nav */
+.nav li {
+    float: left;
+}
+.nav li span {
+    padding: 16px 10px 0;
+    display: block;
+    cursor: pointer;
+    font-size: 16px;
+}
+/* subnav */
+.subnav {
+    position: absolute;
+    z-index: 444;
+    background: red;
+    box-shadow: 0 3px 2px 0 rgba(0, 0, 0, 0.2);
+    width: 100%;
+    left: 0;
+    top: 95px;
+    height: 0px;
+    overflow: hidden;
+    transition: all 0.5s;
+}
+.nav li:hover .subnav {
+    height: 300px;
+}
+/* form */
+.hb-form input[type="text"] {
+    width: 220px;
+    height: 55px;
+    border: 1px solid #999;
+    float: left;
+}
+.hb-form button {
+    width: 50px;
+    height: 57px;
+    border: 1px solid #999;
+    border-left: 0;
+    float: left;
+    background: #fff;
+    font-size: 25px;
+}
+.hb-form:hover input,
+.hb-form:hover button {
+    border-color: #000;
+}
+.hb-form input:focus,
+.hb-form input:focus ~ button {
+    border-color: darkorange;
+}
+.hb-form button:hover {
+    background: darkorange;
+    color: #fff;
+    border-color: darkorange;
+}

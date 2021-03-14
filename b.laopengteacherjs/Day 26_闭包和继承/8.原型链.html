@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //1.为什么任何一个对象(自定义的对象，系统提供的对象)下面都有一个toString方法。
+    // const Fn = function() {
+    //     this.name = 'zhangsan';
+    // }
+
+    // let f1 = new Fn();
+    // console.log(f1.name);
+    // console.log(f1.toString()); //[object Object]  存在此方法
+    // // console.log(f1.hehe()); //f1.hehe is not a function
+
+    // let arr = new Array(1, 2, 3);
+    // console.log(arr.toString()); //1,2,3
+
+    //解答：系统对象下面都有toString方法，自定义的对象继承Object。
+
+    //2.原型链
+    //prototype：构造器原型，每一个函数都有一个prototype对象属性，指向另一个对象。
+    //__proto__：内置原型， JS在创建对象的时候，都有一个叫做__proto__的内置属性，用于指向创建它的函数(构造函数)对象的原型prototype。
+    function Foo() {
+        this.a = 1;
+        this.show = function() {
+            console.log('构造函数下面的方法');
+        }
+    }
+    Foo.prototype.show = function() {
+        console.log('构造函数的原型下面的方法');
+    }
+    Foo.prototype.show1 = function() {
+        console.log(this.a);
+    };
+    Foo.prototype.show2 = function() {
+        console.log(this.a);
+    };
+
+    Object.prototype.show = function() {
+        console.log('Object原型下面的方法');
+    }
+
+    let f1 = new Foo();
+    // console.log(f1.constructor); //输出实例对象的构造函数。
+    // console.log(f1.show());
+
+    // console.log(new Array().show());
+    // console.log(new String().show());
+
+    f1.show();
+</script>
+
+</html>

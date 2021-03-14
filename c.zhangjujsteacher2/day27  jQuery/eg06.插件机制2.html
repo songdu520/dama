@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery.js"></script>
+    <script>
+        $(function() {
+            // $.fn.extend()  
+            // $.fn 是jQuery的原型对象
+            // jQuery对象可以访问原型中的属性 
+            // $(selector).abc()
+            // $.fn 中添加属性
+
+            $.fn.extend({
+                sayHi: function() {
+                    // 在插件函数中 this指向的是当前的jQuery对象
+                    // 直白的说 这个函数就是原型中的函数
+                    // 公有函数
+                    console.log(this);
+                    // console.log('hi');
+                }
+            });
+
+            $('#user').sayHi();
+        });
+    </script>
+</head>
+
+<body>
+    <div id="user">
+        张三
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //一.逻辑运算符 - && 与、|| 或、! 非
+    //过程：
+    //运算符两边的操作数(表达式)结果不一定是布尔值。但是运算的时候一定要转布尔值。
+    //字符串非空即真  数字非零即真  null undefined NaN 都是false
+
+
+    //1.逻辑与 - and - 两边的操作数都要为真。
+    //逻辑与(&&)操作可以应用于任何类型的操作数，而不仅仅是布尔值。在有一个操作数不是布尔值的情况下，逻辑与操作就不一定返回布尔值。逻辑与操作属于短路操作，即如果第一个操作数能够决定结果，那么就不会再对第二个操作数求值。
+
+    //规律
+    //如果第一个操作数为假，短路操作，结果就是第一个操作数(表达式)
+    //如果第一个操作数为真，结果是第二个操作数的值。
+    // console.log(3 && 5); //5
+    // console.log(0 && 5); //0
+    // console.log(1 && 2 && 3); //3
+
+    // console.log(0 && 中文); //0 右边的操作数直接跳过
+    // console.log(false && 跳过); //false
+    // console.log(1 && false); //false
+    // console.log(2 && 0); //0
+
+    // console.log(1 && 2 && 0); //0
+    // console.log(1 && 0 && 2); //0
+
+
+    //2.逻辑或 - or - 有个操作数为真
+    //逻辑或(||)和逻辑与操作相似，如果有一个操作数不是布尔值，逻辑或也不一定返回布尔值，逻辑或操作符也是短路操作符。也就是说，如果第一个操作数的求值结果为true ，就不会对第二个操作数求值了。
+    //规律
+    //如果第一个操作数为真，短路操作，结果就是第一个操作数(表达式)
+    //如果第一个操作数为假，结果是第二个操作数的值。
+    // console.log(1 || 2); //1
+    // console.log(1 || 短路操作); //1
+    // console.log(0 || 3); //3
+    // console.log(0 || '' || false); //false
+    // console.log(0 || true || 短路操作); //true
+
+    //3.逻辑非 - not - 取反。
+    //逻辑非操作符由一个叹号（！）表示，可以应用于 ECMAScript 中的任何值。无论这个值是什么数据类型，这个操作符都会返回一个布尔值。逻辑非操作符首先会将它的操作数转换为一个布尔值，然后再对其求反。
+    // console.log(3); //3
+    // console.log(!3); //false
+    // console.log(!!!!!3); //false
+
+    //注意：逻辑非操作符将任意值转换成布尔值。
+    // console.log(!!3);//true
+
+    // var num = '100';
+    // console.log(typeof num); //string
+    // console.log(typeof Number(num)); //number
+    // console.log(typeof + num); //number
+
+    // var bool = 100;
+    // console.log(typeof bool); //number
+    // console.log(typeof Boolean(bool)); //Boolean
+    // console.log(typeof !!bool); //Boolean
+</script>
+
+</html>

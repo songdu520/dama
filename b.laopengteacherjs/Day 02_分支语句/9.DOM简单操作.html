@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #piclist {
+            width: 720px;
+            height: 390px;
+            border: 1px solid red;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        img {
+            width: 720px;
+            height: 390px;
+            display: block;
+        }
+        
+        #left,
+        #right {
+            color: #fff;
+            font-size: 100px;
+            text-decoration: none;
+            position: absolute;
+            top: 50%;
+            margin-top: -50px;
+        }
+        
+        #left {
+            left: 20px;
+        }
+        
+        #right {
+            right: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <div id="box" title="我是标题">123456</div> -->
+    <div id="piclist">
+        <img src="img/1.jpeg" alt="图片的解释" id="pic">
+        <a href="javascript:;" id="left">&lt;</a>
+        <!--javascript:; 空的js代码  -->
+        <a href="javascript:;" id="right">&gt;</a>
+    </div>
+
+</body>
+<script>
+    //1.获取元素对象,获取或者设置元素对象的属性值。
+    //元素对象：标签，通过id名称获取元素对象。
+    //对象 = 属性 + 方法。
+    // alert(box.title); //获取属性的值
+    // box.title = '我是新添加的标题'; //给属性赋值。
+
+    // alert(pic.src);//获取属性的值
+    // pic.src = 'http://contentcms-bj.cdn.bcebos.com/cmspic/f648dc0ca699e67da775dcdd87bf3456.jpeg';//给属性赋值。
+
+    //2.如何给对象添加方法。
+    // pic.onclick = function() { //点击pic图片，执行function里面的语句。
+    //     pic.src = 'http://contentcms-bj.cdn.bcebos.com/cmspic/1a257945b0bcd3aaa53d87ed2db862d2.jpeg';
+    // }
+
+
+    //3.轮播图
+    //点击右箭头触发函数里面的代码。
+    var num = 1;
+
+    right.onclick = function() {
+        num++;
+        if (num > 5) {
+            num = 1;
+        }
+        pic.src = 'img/' + num + '.jpeg';
+    };
+
+    left.onclick = function() {
+        num--;
+        if (num < 1) {
+            num = 5;
+        }
+        pic.src = 'img/' + num + '.jpeg';
+    };
+</script>
+
+</html>

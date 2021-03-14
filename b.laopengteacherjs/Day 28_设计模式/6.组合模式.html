@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //组合模式就是用小的子对象来构建更大的对象，而这些小的子对象本身也许是由更小的“孙对象”构成的。
+
+    //组合模式：将对象组合成树形结构以表示“部分-整体”的层次结构，组合模式使得用户对单个对象和组合对象的使用或者操作具有一致性。
+    class A {
+        constructor() {
+
+        }
+        init() {
+            this.a1();
+            this.a2();
+            this.a3();
+        }
+        a1() {
+            console.log('a1');
+        }
+        a2() {
+            console.log('a2');
+        }
+        a3() {
+            console.log('a3');
+        }
+    }
+
+    class B {
+        constructor() {
+
+        }
+        init() {
+            this.b1();
+            this.b2();
+            this.b3();
+        }
+        b1() {
+            console.log('b1');
+        }
+        b2() {
+            console.log('b2');
+        }
+        b3() {
+            console.log('b3');
+        }
+    }
+
+
+    class C {
+        constructor() {
+
+        }
+        init() {
+            this.c1();
+            this.c2();
+            this.c3();
+        }
+        c1() {
+            console.log('c1');
+        }
+        c2() {
+            console.log('c2');
+        }
+        c3() {
+            console.log('c3');
+        }
+    }
+
+    class D {
+        constructor() {
+
+        }
+        init() {
+            this.d1();
+            this.d2();
+            this.d3();
+        }
+        d1() {
+            console.log('d1');
+        }
+        d2() {
+            console.log('d2');
+        }
+        d3() {
+            console.log('d3');
+        }
+    }
+
+    class E {
+        constructor() {
+
+        }
+        init() {
+            this.e1();
+            this.e2();
+            this.e3();
+        }
+        e1() {
+            console.log('e1');
+        }
+        e2() {
+            console.log('e2');
+        }
+        e3() {
+            console.log('e3');
+        }
+    }
+
+    // new A().a1();
+    // new A().a2();
+    // new A().a3();
+
+    // new A().init();
+
+    //组合类
+    class Compose {
+        // /kəmˈpoʊz/组成
+        constructor() {
+            this.message = []; //声明一个数组。
+        }
+        add(obj) { //将对象作为参数添加到数组中
+            this.message.push(obj);
+        }
+
+        emit() {
+            // /iˈmɪt/发出
+            this.message.forEach((item) => {
+                item.init();
+            });
+        }
+    }
+
+    let compose = new Compose();
+    compose.add(new A);
+    compose.add(new B);
+    compose.add(new C);
+    compose.add(new D);
+    compose.add(new E);
+
+    // compose.emit(); //触发
+
+
+    let arr = [
+        function() {
+            console.log('fn1')
+        },
+        function() {
+            console.log('fn2')
+        },
+        function() {
+            console.log('fn3')
+        },
+        function() {
+            console.log('fn4')
+        },
+        function() {
+            console.log('fn5')
+        },
+        function() {
+            console.log('fn6')
+        },
+    ];
+
+    arr.forEach((item) => {
+        item();
+    });
+</script>
+
+</html>

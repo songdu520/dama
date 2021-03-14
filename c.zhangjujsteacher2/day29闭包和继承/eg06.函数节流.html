@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 500px;
+            height: 500px;
+            background-color: red;
+        }
+    </style>
+    <script>
+        // 节流(减少流量)
+        // 函数节流 核心思路
+        // 两次事件的触发需要间隔一定的时间
+        // 一定时间内只做一次处理
+
+        // https://www.rootbk.cn/?p=93
+
+        function thottle(callback, wait) {
+            var prev = 0; // 用于记录上一次的执行时间
+            return function() {
+                var now = Date.now(); // 当前时间
+                var arg = arguments;
+                if (now - prev >= wait) {
+                    callback.apply(this, arg);
+                    prev = now; // 更新上一次的时间
+                }
+            }
+        }
+
+        window.onload = function() {
+            var box = document.querySelector('.box');
+
+            box.addEventListener('mousemove', thottle(function(ev) {
+                console.log(1);
+                console.log(this);
+                console.log(ev);
+            }, 1000));
+        }
+    </script>
+</head>
+
+<body>
+    <div class="box"></div>
+</body>
+
+</html>
